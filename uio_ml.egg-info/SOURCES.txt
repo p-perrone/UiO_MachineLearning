@@ -1,5 +1,9 @@
 README.md
+pyproject.toml
 setup.py
+ml_project1/setup.py
+ml_project1/functions/__init__.py
+ml_project1/functions/functions.py
 uio_ml.egg-info/PKG-INFO
 uio_ml.egg-info/SOURCES.txt
 uio_ml.egg-info/dependency_links.txt

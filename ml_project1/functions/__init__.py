@@ -5,4 +5,4 @@
 # author: Pietro Perrone
 #
 
-from functions import *
+from ml_project1.functions import *
