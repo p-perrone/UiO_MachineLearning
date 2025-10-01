@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: ml_project1
+Version: 0.1
+Summary: ML Project 1 - Function utilities for machine learning
+Author: Your Name
+Requires-Python: >=3.6
+Requires-Dist: numpy>=1.0
+Requires-Dist: scikit-learn>=0.24

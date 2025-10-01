@@ -1,0 +1,7 @@
+setup.py
+functions/__init__.py
+functions/functions.py
+ml_project1_functions.egg-info/PKG-INFO
+ml_project1_functions.egg-info/SOURCES.txt
+ml_project1_functions.egg-info/dependency_links.txt
+ml_project1_functions.egg-info/top_level.txt
