@@ -24,7 +24,7 @@ from autograd import grad
 #--------------------------------
 
 # Runge function
-def Runge(x, noise=True):
+def Runge(x, noise=True, noisescale=1):
     """ Computes Runge function with or without a normal distributed stochastic noise.
         Parameters:
         :: x (array) = input dataset
@@ -34,7 +34,7 @@ def Runge(x, noise=True):
         raise TypeError(f"`noise` must be boolean (True or False) and not {type(noise)}")
 
     if noise == True:
-        y = ( 1 / (1 + 25 * x**2) ) + np.random.normal(loc=0, scale=1, size=len(x))
+        y = ( 1 / (1 + 25 * x**2) ) + np.random.normal(loc=0, scale=noisescale, size=len(x))
     elif noise == False:
         y = ( 1 / (1 + 25 * x**2) )
 
