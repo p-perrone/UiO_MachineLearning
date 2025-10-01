@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="ml_project1",
-    version="0.1",
+    name="ml-project1",
+    version="0.1.0",
     packages=find_packages(),
-    description="ML Project 1 - Function utilities for machine learning"
+    description="UiO Machine Learning projects",
+    package_dir={'': '..'},  # Look for packages in parent directory
+    py_modules=['ml_project1'],
 )
