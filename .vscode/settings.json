@@ -1,0 +1,10 @@
+﻿{
+    "python.analysis.extraPaths": [
+        "C:/GitHub/UiO_MachineLearning",
+        "C:/GitHub/UiO_MachineLearning/ml_project1",
+        "C:/GitHub/UiO_MachineLearning/ml_project1/functions"
+    ],
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.indexing": true
+}
