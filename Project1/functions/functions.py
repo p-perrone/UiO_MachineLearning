@@ -1,6 +1,6 @@
 # python3
 # Source code with all the functions for "Applied Data Analysis and Machine Learning" course
-# University of Oslo, Fall 2025
+# University of Oslo, Autumn 2025
 #---------------------------------
 # author: Pietro Perrone
 #
