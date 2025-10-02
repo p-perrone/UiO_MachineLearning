@@ -300,3 +300,62 @@ def theta_gd_mom(X, y, regression_method='OLS', eta=1e-3, eta_update_method='Sim
             break
 
     return theta
+
+
+
+
+
+
+
+
+#--------------------------------
+# TEST PART: TESTING AND VISUALIZATION
+#--------------------------------
+
+# matrices for MSE and R2 as a function of p and n
+def MSE_R2_pn():
+    """ Evaluates MSE and R2 as a function of complexity `p` and dimensionality `n` for OLS regression
+    """
+
+    n_range = np.linspace(10, 100000, 10).astype(int)
+    p_range = np.arange(1, 21, 1)
+
+    MSE_train_matrix = np.zeros((len(n_range), len(p_range)))
+    MSE_test_matrix = np.zeros((len(n_range), len(p_range)))
+    Rsquared_train_matrix = np.zeros((len(n_range), len(p_range)))
+    Rsquared_test_matrix = np.zeros((len(n_range), len(p_range)))
+
+    for i, n in enumerate(n_range):
+        
+        xi = np.linspace(-1, 1, n)
+        yi = Runge(xi, noise=False)
+        xi_train, xi_test, yi_train, yi_test = train_test_split(xi, yi, test_size=0.3, random_state=42)
+
+        scaler = StandardScaler()
+        xi_train = scaler.fit_transform(xi_train.reshape(-1, 1)).flatten()
+        xi_test = scaler.transform(xi_test.reshape(-1, 1)).flatten()
+
+        for j, pi in enumerate(p_range):
+            # suggested by DeepSeek: skip if p > n_train
+            n_train = len(xi_train)
+            if pi >= n_train:  # p features vs n_train samples
+                MSE_train_matrix[i, j] = np.nan
+                MSE_test_matrix[i, j] = np.nan
+                Rsquared_train_matrix[i, j] = np.nan
+                Rsquared_test_matrix[i, j] = np.nan
+                continue
+            
+            Xi_train = polynomial_features(xi_train, pi)
+            Xi_test = polynomial_features(xi_test, pi)
+
+            betai = OLS_params(Xi_train, yi_train)
+
+            yi_pred_train = linear_regression(Xi_train, betai)
+            yi_pred_test = linear_regression(Xi_test, betai)
+            
+            MSE_train_matrix[i, j] = mean_squared_error(yi_train, yi_pred_train)
+            MSE_test_matrix[i, j] = mean_squared_error(yi_test, yi_pred_test)
+            Rsquared_train_matrix[i, j] = r2_score(yi_train, yi_pred_train)
+            Rsquared_test_matrix[i, j] = r2_score(yi_test, yi_pred_test)
+    
+    return MSE_train_matrix, MSE_test_matrix, Rsquared_train_matrix, Rsquared_test_matrix
