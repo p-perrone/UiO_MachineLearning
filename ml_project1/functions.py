@@ -68,6 +68,7 @@ class LinearRegression_own:
 
     def __init__(self, intercept=True):
         self.intercept = intercept
+        self.beta = None
 
 
     def polynomial_features(self, x, p):  
@@ -78,33 +79,45 @@ class LinearRegression_own:
             :: intercept (bool) = sets first column at 1 if True, at 0 if False
         """
         if not isinstance(self.intercept, bool):
-            raise TypeError("Intercept must be boolean (True or False)")
-
-        n = len(x)
-        X = np.zeros((n, p+1))
-
-        if self.intercept == True:
-            for j in range(0, p+1):
-                X[:, j] = x**(j)
-        
-        if not isinstance(self.intercept, bool):
             raise TypeError(f"Intercept must be boolean (True or False), not {type(self.intercept)}")
             
         n = len(x)
-        X = np.zeros((n, p+1))
         
-        if self.intercept == True:
-            for j in range(0, p+1):
+        if self.intercept:
+            X = np.ones((n, p + 1))
+            for j in range(1, p + 1):
                 X[:, j] = x**(j)
-        elif self.intercept == False:
-            for j in range(1, p+1):
-                X[:, j] = x**(j)
+        else:
+            X = np.ones((n, p))
+            for j in range(p):
+                X[:, j] = x**(j + 1)
 
         return X
 
 
+    def fit(self, X, y, method='OLS', lbda=0.1):
+        """Fit linear regression model.
+        
+            Parameters:
+            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
+            :: y (array) = true value to be modeled
+            :: method (str) = 'OLS' or 'Ridge'
+            :: lbda (scalar) = penalty coefficient for Ridge regression
+        """
+
+        if method == 'OLS':
+            self.beta = self.OLS_params(X, y)
+        elif method == 'Ridge':
+            self.beta = self.Ridge_params(X, y, lbda)
+        else:
+            raise ValueError(f"`method` must be 'OLS' or 'Ridge', not {method}")
+        
+        return self
+
+
     def OLS_params(X, y):
         """ Computes optimal parameters for ordinary least squares regression.
+
             Parameters:
             :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
             :: y (array) = true value to be modeled
@@ -119,16 +132,19 @@ class LinearRegression_own:
             :: y (array) = true value to be modeled
             :: lmbda (scalar) = penalty coefficient
         """
-        return np.linalg.inv(X.T @ X + lbda * np.identity(X.shape[1])) @ X.T @ y
+        n_features = X.shape[1]
+        return np.linalg.inv(X.T @ X + lbda * np.eye(n_features)) @ X.T @ y
 
 
-    def predict(self, X, beta):
+    def predict(self, X):
         """ Computes the regression curve (predicted y values).
             Parameters:
-            :: X (matrix) = design matrix
-            :: beta (array) = optimal OLS parameters obtained with OLS_params(X, y)
+            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept).fit(X, y, method, lbda)
         """
-        return X @ beta
+        if self.beta is None:
+            raise ValueError("A model must be fitted before predicting")
+        
+        return X @ self.beta
 
 
 # standard scaling
