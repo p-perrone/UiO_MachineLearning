@@ -57,55 +57,78 @@ def Runge(x, noise=True, noisescale=1):
 
 
 # OLS implementation
-def polynomial_features(x, p, intercept=True):  
-    """ Computes the design matrix for linear regression.
-        Parameters:
-        :: x (array) = input dataset
-        :: p (int) = polynomial degree
-        :: intercept (bool) = sets first column at 1 if True, at 0 if False
+
+class LinearRegression_own:
     """
-    if not isinstance(intercept, bool):
-        raise TypeError("Intercept must be boolean (True or False)")
-        
-    n = len(x)
-    X = np.zeros((n, p+1))
+    Own implementation of linear regression with OLS and Ridge methods and their analytical solutions.
+    Includes polynomial feature expansion and fitting.
     
-    if intercept == True:
-        for j in range(0, p+1):
-            X[:, j] = x**(j)
-    elif intercept == False:
-        for j in range(1, p+1):
-            X[:, j] = x**(j)
-
-    return X
-
-
-def OLS_params(X, y):
-    """ Computes optimal parameters for ordinary least squares regression.
-        Parameters:
-        :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-        :: y (array) = true value to be modeled
+    Based on scikit-learn linear regression workflow.
     """
-    return np.linalg.pinv(X.T @ X) @ X.T @ y
+
+    def __init__(self, intercept=True):
+        self.intercept = intercept
 
 
-def Ridge_params(X, y, lbda):
-    """ Computes optimal parameters for Ridge regression.
-        Parameters:
-        :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-        :: y (array) = true value to be modeled
-        :: lmbda (scalar) = penalty coefficient
-    """
-    return np.linalg.inv(X.T @ X + lbda * np.identity(X.shape[1])) @ X.T @ y
+    def polynomial_features(self, x, p):  
+        """ Computes the design matrix for linear regression.
+            Parameters:
+            :: x (array) = input dataset
+            :: p (int) = polynomial degree
+            :: intercept (bool) = sets first column at 1 if True, at 0 if False
+        """
+        if not isinstance(self.intercept, bool):
+            raise TypeError("Intercept must be boolean (True or False)")
+
+        n = len(x)
+        X = np.zeros((n, p+1))
+
+        if self.intercept == True:
+            for j in range(0, p+1):
+                X[:, j] = x**(j)
+        
+        if not isinstance(self.intercept, bool):
+            raise TypeError(f"Intercept must be boolean (True or False), not {type(self.intercept)}")
+            
+        n = len(x)
+        X = np.zeros((n, p+1))
+        
+        if self.intercept == True:
+            for j in range(0, p+1):
+                X[:, j] = x**(j)
+        elif self.intercept == False:
+            for j in range(1, p+1):
+                X[:, j] = x**(j)
+
+        return X
 
 
-def linear_regression(X, beta):
-    """ Computes the regression curve (predicted y values).
-        Parameters:
-        :: X (matrix) = design matrix
-        :: beta (array) = optimal OLS parameters obtained with OLS_params(X, y)
-    """
-    return X @ beta
+    def OLS_params(X, y):
+        """ Computes optimal parameters for ordinary least squares regression.
+            Parameters:
+            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
+            :: y (array) = true value to be modeled
+        """
+        return np.linalg.pinv(X.T @ X) @ X.T @ y
+
+
+    def Ridge_params(X, y, lbda):
+        """ Computes optimal parameters for Ridge regression.
+            Parameters:
+            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
+            :: y (array) = true value to be modeled
+            :: lmbda (scalar) = penalty coefficient
+        """
+        return np.linalg.inv(X.T @ X + lbda * np.identity(X.shape[1])) @ X.T @ y
+
+
+    def predict(self, X, beta):
+        """ Computes the regression curve (predicted y values).
+            Parameters:
+            :: X (matrix) = design matrix
+            :: beta (array) = optimal OLS parameters obtained with OLS_params(X, y)
+        """
+        return X @ beta
 
 
 # standard scaling
@@ -144,6 +167,7 @@ def standard_scaler(a, centering=True, stdscaling=True):
 # defining cost function for OLS, Ridge and Lasso
 def cost_function(y, X, theta, regression_method='OLS', lbda=0.1):
     """ Cost function for OLS, Ridge or Lasso regression.
+
         Parameters:
         :: y (array) = true value to be modeled
         :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
@@ -163,10 +187,40 @@ def cost_function(y, X, theta, regression_method='OLS', lbda=0.1):
         raise ValueError(f"`regression_method` must be 'OLS', 'Ridge' or 'Lasso', not {regression_method}")
 
 
+# analytical computation of gradient
+def grad_analytic(X, y, theta, lbda, regression_method='OLS'):
+        """Compute gradient analytically.
+
+            Parameters:
+            :: X_batch (matrix) = design matrix for the batch
+            :: y_batch (array) = true value to be modeled for the batch
+            :: theta (array) = current parameters
+            :: regression_method (str) = 'OLS', 'Ridge' or 'Lasso'
+        """
+
+        if not isinstance(regression_method, str):
+             raise TypeError(f"`regression_method` must be a string, not {type(regression_method)}")
+
+        # predicted values
+        y_pred = X @ theta
+        # residuals
+        residuals = y_pred - y.reshape(-1, 1)
+
+        if regression_method == 'OLS':
+            return (2.0 / len(y)) * (X.T @ residuals)
+        elif regression_method == 'Ridge':
+            return 2.0 * ((X.T @ residuals) / len(y) + (lbda * theta))
+        elif regression_method == 'Lasso':
+            return 2.0 * ((X.T @ residuals) / len(y) + lbda * np.sign(theta))
+        else:
+             raise ValueError(f"`regression_method` must be either 'OLS', 'Ridge' or 'Lasso', not {regression_method}")
+
+i
 # optimal parameters with simple gradient descent
 def theta_gd(X, y, eta, regression_method='OLS', lbda=1, iterations=2000, converge = 1e-8):
     """ Computes optimal parameters for ordinary least squares regression with gradient descent.
         Parameters:
+
         :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
         :: y (array) = true value to be modeled
         :: eta (scalar) = learning rate
