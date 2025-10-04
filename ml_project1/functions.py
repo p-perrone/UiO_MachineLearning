@@ -73,6 +73,7 @@ class LinearRegression_own:
 
     def polynomial_features(self, x, p):  
         """ Computes the design matrix for linear regression.
+        
             Parameters:
             :: x (array) = input dataset
             :: p (int) = polynomial degree
@@ -115,7 +116,7 @@ class LinearRegression_own:
         return self
 
 
-    def OLS_params(X, y):
+    def OLS_params(self,X, y):
         """ Computes optimal parameters for ordinary least squares regression.
 
             Parameters:
@@ -125,8 +126,9 @@ class LinearRegression_own:
         return np.linalg.pinv(X.T @ X) @ X.T @ y
 
 
-    def Ridge_params(X, y, lbda):
+    def Ridge_params(self, X, y, lbda):
         """ Computes optimal parameters for Ridge regression.
+
             Parameters:
             :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
             :: y (array) = true value to be modeled
@@ -138,6 +140,7 @@ class LinearRegression_own:
 
     def predict(self, X):
         """ Computes the regression curve (predicted y values).
+
             Parameters:
             :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept).fit(X, y, method, lbda)
         """
