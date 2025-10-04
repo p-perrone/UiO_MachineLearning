@@ -215,7 +215,7 @@ def grad_analytic(X, y, theta, lbda, regression_method='OLS'):
         else:
              raise ValueError(f"`regression_method` must be either 'OLS', 'Ridge' or 'Lasso', not {regression_method}")
 
-i
+
 # optimal parameters with simple gradient descent
 def theta_gd(X, y, eta, regression_method='OLS', lbda=1, iterations=2000, converge = 1e-8):
     """ Computes optimal parameters for ordinary least squares regression with gradient descent.
