@@ -29,6 +29,7 @@ from sklearn.metrics import r2_score
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer
+from sklearn.utils import resample
 import autograd.numpy as np
 from autograd import grad
 
@@ -73,17 +74,22 @@ class LinearRegression_own:
 
     def polynomial_features(self, x, p):  
         """ Computes the design matrix for linear regression.
-        
+
             Parameters:
             :: x (array) = input dataset
             :: p (int) = polynomial degree
             :: intercept (bool) = sets first column at 1 if True, at 0 if False
+
+            ------------------------------------------------------------------
+            Returns:
+            :: X (matrix) = design matrix
         """
         if not isinstance(self.intercept, bool):
             raise TypeError(f"Intercept must be boolean (True or False), not {type(self.intercept)}")
             
         n = len(x)
-        
+
+        # composing the matrix (with or without intercept) ~ `transform` by sklearn
         if self.intercept:
             X = np.ones((n, p + 1))
             for j in range(1, p + 1):
@@ -94,34 +100,18 @@ class LinearRegression_own:
                 X[:, j] = x**(j + 1)
 
         return X
+    
 
-
-    def fit(self, X, y, method='OLS', lbda=0.1):
-        """Fit linear regression model.
-        
-            Parameters:
-            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-            :: y (array) = true value to be modeled
-            :: method (str) = 'OLS' or 'Ridge'
-            :: lbda (scalar) = penalty coefficient for Ridge regression
-        """
-
-        if method == 'OLS':
-            self.beta = self.OLS_params(X, y)
-        elif method == 'Ridge':
-            self.beta = self.Ridge_params(X, y, lbda)
-        else:
-            raise ValueError(f"`method` must be 'OLS' or 'Ridge', not {method}")
-        
-        return self
-
-
-    def OLS_params(self,X, y):
+    def OLS_params(self, X, y):
         """ Computes optimal parameters for ordinary least squares regression.
 
             Parameters:
             :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
             :: y (array) = true value to be modeled
+
+            ------------------------------------------------------------------
+            Returns:
+            :: beta (array) = optimal parameters
         """
         return np.linalg.pinv(X.T @ X) @ X.T @ y
 
@@ -133,16 +123,48 @@ class LinearRegression_own:
             :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
             :: y (array) = true value to be modeled
             :: lmbda (scalar) = penalty coefficient
+
+            ------------------------------------------------------------------
+            Returns:
+            :: beta (array) = optimal parameters
         """
         n_features = X.shape[1]
         return np.linalg.inv(X.T @ X + lbda * np.eye(n_features)) @ X.T @ y
 
+
+    def fit(self, X, y, method='OLS', lbda=0.1):
+        """Fit linear regression model.
+        
+            Parameters:
+            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
+            :: y (array) = true value to be modeled
+            :: method (str) = 'OLS' or 'Ridge'
+            :: lbda (scalar) = penalty coefficient for Ridge regression
+
+            ------------------------------------------------------------------
+            Returns:
+            :: self
+        """
+
+        if method == 'OLS':
+            self.beta = self.OLS_params(X, y)
+        elif method == 'Ridge':
+            self.beta = self.Ridge_params(X, y, lbda)
+        else:
+            raise ValueError(f"`method` must be 'OLS' or 'Ridge', not {method}")
+        
+        return self
+    
 
     def predict(self, X):
         """ Computes the regression curve (predicted y values).
 
             Parameters:
             :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept).fit(X, y, method, lbda)
+
+            ------------------------------------------------------------------
+            Returns:
+            :: y_pred (array) = predicted y values
         """
         if self.beta is None:
             raise ValueError("A model must be fitted before predicting")
@@ -153,10 +175,15 @@ class LinearRegression_own:
 # standard scaling
 def standard_scaler(a, centering=True, stdscaling=True):
     """ Scales input array a.
+
         Parameters:
         :: a (array) = input 1D array
         :: centering (bool) = substracts a.mean()
         :: scaling (bool) = divides by a.std()
+
+        ------------------------------------------------------------------
+        Returns:
+        :: scaled_a (array) = scaled version of input array
     """
     if not isinstance(a, np.ndarray):
         raise TypeError("'a' must be a 1D array")
@@ -192,6 +219,10 @@ def cost_function(y, X, theta, regression_method='OLS', lbda=0.1):
         :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
         :: regression_method (str) = 'OLS', 'Ridge' or 'Lasso'
         :: lbda (scalar) = regularization parameter (only for Ridge and Lasso)
+
+        ------------------------------------------------------------------
+        Returns:
+        :: cost (scalar) = value of the cost function
     """
     if regression_method == 'OLS':
         return np.sum((y - X @ theta)**2)
@@ -214,7 +245,12 @@ def grad_analytic(X, y, theta, lbda, regression_method='OLS'):
             :: X_batch (matrix) = design matrix for the batch
             :: y_batch (array) = true value to be modeled for the batch
             :: theta (array) = current parameters
+            :: lbda (scalar) = regularization parameter (only for Ridge and Lasso)
             :: regression_method (str) = 'OLS', 'Ridge' or 'Lasso'
+            
+            ------------------------------------------------------------------
+            Returns:
+            :: gradient (array) = gradient of the cost function
         """
 
         if not isinstance(regression_method, str):
@@ -238,8 +274,8 @@ def grad_analytic(X, y, theta, lbda, regression_method='OLS'):
 # optimal parameters with simple gradient descent
 def theta_gd(X, y, eta, regression_method='OLS', lbda=1, iterations=2000, converge = 1e-8):
     """ Computes optimal parameters for ordinary least squares regression with gradient descent.
-        Parameters:
 
+        Parameters:
         :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
         :: y (array) = true value to be modeled
         :: eta (scalar) = learning rate
@@ -247,6 +283,10 @@ def theta_gd(X, y, eta, regression_method='OLS', lbda=1, iterations=2000, conver
         :: lbda (scalar) = regularization parameter (only for Ridge)
         :: iterations (int) = maximum number of iterations
         :: converge (scalar) = convergence criterion
+
+        ------------------------------------------------------------------
+        Returns:
+        :: theta (array) = optimal parameters
     """
     # error for wrong regression_method input
     if regression_method not in ['OLS', 'Ridge', 'Lasso']:
@@ -281,6 +321,7 @@ def theta_gd(X, y, eta, regression_method='OLS', lbda=1, iterations=2000, conver
 def theta_gd_mom(X, y, regression_method='OLS', eta=1e-3, eta_update_method='Simple_momentum', lbdaRidge=0.1, 
                 lbdaLasso=0.1, momentum=0.9, iterations=2000, converge = 1e-8):
     """ Computes optimal parameters for ordinary least squares regression with momentum gradient descent.
+
         Parameters:
         :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
         :: y (array) = true value to be modeled
@@ -292,6 +333,10 @@ def theta_gd_mom(X, y, regression_method='OLS', eta=1e-3, eta_update_method='Sim
         :: eta_update_method (str) = 'AdaGrad', 'RMSprop', 'ADAM' or 'Simple_momentum'
         :: iterations (int) = maximum number of iterations
         :: converge (scalar) = convergence criterion
+
+        ------------------------------------------------------------------
+        Returns:
+        :: theta (array) = optimal parameters
     """
 
     # error for wrong input
@@ -375,11 +420,308 @@ def theta_gd_mom(X, y, regression_method='OLS', eta=1e-3, eta_update_method='Sim
     return theta
 
 
+# Lasso regression with iterative approach
+def Lasso_params(X, y, lbda=0.1, iterations=5000, eta=1e-4, converge=1e-8):
+    """ Computes optimal parameters for Lasso regression with simple gradient descent.
+
+        Parameters:
+        :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
+        :: y (array) = true value to be modeled
+        :: lbda (scalar) = penalty coefficient
+        :: iterations (int) = maximum number of iterations
+        :: eta (scalar) = learning rate
+        :: converge (scalar) = convergence criterion
+
+        ------------------------------------------------------------------
+        Returns:
+        :: theta (array) = optimal parameters
+    """
+
+    # initialize a zero optimal parameters array in order to avoid numerical instabilities
+    theta = np.zeros((X.shape[1], 1))
+    
+    y = y.reshape(-1,1)
+
+    for k in range(iterations):
+        gradient = grad_analytic(X, y, theta, lbda=lbda, regression_method='Lasso')  # compute gradient with autograd
+        theta_new = theta - eta * gradient
+
+        # convergence check (proposed by DeepSeek)
+        if np.linalg.norm(theta_new - theta) < converge:
+            print(f"Lasso converged at iteration {k}")
+            break
+
+        theta = theta_new
+
+    return theta
 
 
+# stochastic now 
+def theta_sgd_mom(X, y, regression_method='OLS', eta=1e-3, eta_update_method='Simple_momentum', 
+                  lbda=0.1,momentum=0.9, iterations=2000, converge = 1e-8):
+    """ Computes optimal parameters for OLS and Ridge regression with momentum stochastic gradient descent.
+
+        Parameters:
+        :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
+        :: y (array) = true value to be modeled
+        :: regression_method (str) = 'OLS' or 'Ridge'
+        :: eta (scalar) = learning rate
+        :: lbdaRidge (scalar) = penalty coefficient for Ridge regression
+        :: lbdaLasso (scalar) = penalty coefficient for Lasso regression
+        :: momentum (scalar) = momentum coefficient for momentum gradient descent
+        :: eta_update_method (str) = 'AdaGrad', 'RMSprop', 'ADAM' or 'Simple_momentum'
+        :: iterations (int) = maximum number of iterations
+        :: converge (scalar) = convergence criterion
+
+        ------------------------------------------------------------------
+        Returns:
+        :: theta (array) = optimal parameters
+    """
+
+    # error for wrong input
+    if regression_method != 'OLS' and regression_method != 'Ridge':
+        raise ValueError(f"'regression_method' must be either 'OLS' or 'Ridge' and not {regression_method}")
+    if eta_update_method not in ['AdaGrad', 'RMSprop', 'ADAM', 'Simple_momentum']:
+        raise ValueError(f"'eta_update_method' must be either 'AdaGrad', 'RMSprop', 'ADAM' or 'Simple_momentum' and not {eta_update_method}")
+
+    # initialize random theta and velocity
+    theta = np.random.randn(X.shape[1], 1)
+    velocity = np.zeros((X.shape[1], 1))
+
+    # common params
+    delta = 1e-8    # to avoid division by zero
+    t = 0           # time step for Adam
+    Giter = 0.0     # initialize sum of squared gradients for AdaGrad, RMSprop and Adam
+
+    # defining cost function
+    if regression_method == 'OLS':
+        cost = lambda y, X, theta: cost_function(y, X, theta)
+    elif regression_method == 'Ridge':
+        cost = lambda y, X, theta: cost_function(y, X, theta, regression_method='Ridge', lbda=lbda)
+
+    n_epochs = 50
+    mb_size = 5                     #size of each minibatch
+    num_mb = int(len(y) / mb_size)  #number of minibatches
+
+    for epoch in range(n_epochs):
+        
+        for i in range(num_mb):
+            mbk_index = mb_size * np.random.randint(num_mb)   # pick random minibatch index
+            X_mbk = X[mbk_index : mbk_index + mb_size]      # create kth-minibatch of design matrix
+            y_mbk = y[mbk_index : mbk_index + mb_size]      # create kth-minibatch of true values
+
+            gradient = grad_analytic(X_mbk, y_mbk, theta, lbda=lbda, regression_method=regression_method)
+
+            if np.any(np.isnan(gradient)) or np.any(np.isinf(gradient)):
+                print(f"NaN in gradient at iteration {k}")
+                print("Gradient stats:", np.min(gradient), np.max(gradient))
+                break
+
+            # update theta according to the chosen method
+            if eta_update_method == 'Simple_momentum':
+                velocity = momentum * velocity - eta * gradient     # simple momentum update
+                update = velocity
+                theta += update
+            
+            elif eta_update_method == 'AdaGrad': 
+                # AdaGrad tracks the sum of the squares of the previous gradients
+                Giter += gradient**2    # square the gradient
+                adjusted_eta = eta / (delta + np.sqrt(Giter))
+                update = adjusted_eta * gradient
+                theta -= update
+
+            elif eta_update_method == 'RMSprop':
+                # RMSprop modificates AdaGrad by useing a moving average of squared gradients to normalize the gradient
+                beta = 0.99     # discount factor that controls the averaging time of the second moment (variance of the gradient)
+                Giter = beta * Giter + (1 - beta) * gradient**2
+                adjusted_eta = eta / (delta + np.sqrt(Giter))
+                update = adjusted_eta * gradient
+                theta -= update
+
+            elif eta_update_method == 'ADAM':
+                # Adam (Adaptive Moment Estimation) is an extension to RMSprop that also takes into account the moving average of the gradient itself
+                beta1 = 0.9     # decay rate for the first moment estimate (velocity = weighted average of the past gradients)
+                beta2 = 0.99    # decay rate for the second moment estimate (Giter = weighted average of the past squared gradients)
+                t += 1          # time step
+                
+                # update first moment estimate
+                velocity = beta1 * velocity + (1 - beta1) * gradient
+                # update second moment estimate
+                Giter = beta2 * Giter + (1 - beta2) * gradient**2
+                
+                # compute bias-corrected first moment estimate
+                velocity_corrected = velocity / (1 - beta1**t)
+                # compute bias-corrected second moment estimate
+                Giter_corrected = Giter / (1 - beta2**t)
+
+                adjusted_eta = eta / (delta + np.sqrt(Giter_corrected))
+                update = adjusted_eta * velocity_corrected
+                theta -= update
+
+            # suggested by DeepSeek
+            update_norm = np.linalg.norm(update)
+            if update_norm > 1000:  # Prevent explosion
+                update = update / update_norm * 1000
+                update_norm = 1000
+
+            # convergence of the algorithm
+            update_norm = np.linalg.norm(update)
+            if update_norm <= converge:
+                print(f"Stop at epsilon = {update_norm:.2e}, iteration = {i} of epoch {epoch}")
+                break
+
+    return theta
 
 
+#--------------------------------
+# THIRD PART: STATTISTICAL ANALYSIS - BIAS-VARIANCE TRADEOFF
+#--------------------------------
 
+class BiasVarianceTradeoff:
+    """ 
+    Class to perform bootstrap resampling and bias-variance decomposition.
+
+    Includes bootstrap resampling, bias-variance decompossition, simulation over a range of degree of complexity and plotting.
+    See hel() for the specific functions for more details.
+    """
+
+    def __init__(self, x, y, p_range=np.arange(0, 30, 1), n_bootstraps=1000):
+        self.p_range = p_range
+        self.x = x
+        self.y = y
+        self.n_bootstraps = n_bootstraps
+
+        self.y_pred_matrix = None
+        self.y_test = None
+        self.mse_array = np.zeros(len(p_range))
+        self.bias_array = np.zeros(len(p_range))
+        self.variance_array = np.zeros(len(p_range))
+
+
+    def bootstrap(self, p=5, regression_method='OLS'):
+        """ Boostrap resampling for linear regression.
+
+            Parameters:
+            :: x (1D array) = input dataset
+            :: y (1D array) = true value to be modeled
+            :: p (int) = polynomial degree
+            :: regression_method (str) = 'OLS' or 'Ridge'
+            :: n_bootstraps (int) = number of bootstrap resamplings
+
+            ------------------------------------------------------------------
+            Returns:
+            :: y_pred_matrix (2D array) = matrix of predicted values from bootstrap resampling
+
+        """
+        # error for wrong input
+        if regression_method != 'OLS' and regression_method != 'Ridge':
+            raise ValueError(f"'regression_method' must be either 'OLS' or 'Ridge' and not {regression_method}")
+        
+        x_train, x_test, y_train, self.y_test = train_test_split(self.x, self.y, test_size=0.2)
+        scaler = StandardScaler()
+        x_train = scaler.fit_transform(x_train.reshape(-1, 1)).flatten()
+        x_test = scaler.transform(x_test.reshape(-1, 1)).flatten()
+        self.y_test = self.y_test.reshape(-1, 1)
+
+        # initialize matrix of predicted values
+        self.y_pred_matrix = np.zeros((self.y_test.shape[0], self.n_bootstraps))
+
+        # loop over the number of bootstraps
+        for i in range(self.n_bootstraps):
+            x_sample, y_sample = resample(x_train, y_train)     # resampling with sklearn
+
+            lr = LinearRegression_own(intercept=True)           # initialize the LinearRegression_own object
+            X_train = lr.polynomial_features(x_sample, p)       # transform train set to polynomial features
+            X_test = lr.polynomial_features(x_test, p)          # transform test set to polynomial features
+            lr.fit(X_train, y_sample, method='OLS')             # fit model to the i-th bootstrap train sample
+            y_pred_sample = lr.predict(X_test).ravel()          # predict on the same test set at each i-th iteration
+
+            # update predicted values matrix
+            self.y_pred_matrix[:, i] = y_pred_sample
+            
+        return self.y_pred_matrix
+        
+
+    def decompose_mse(self): 
+        """ Decomposes the mean squared error (aka total error) into bias and variance.
+            The total error is defined as the sum of squared bias, variance and irreducible error:
+
+                        E[(y - y_pred)²] = Bias² + Variance + Irreducible Error
+
+            Parameters:
+            :: y_test (1D array) = true value to be modeled
+            :: y_pred_matrix (2D array) = matrix of predicted values from bootstrap resampling
+
+            ------------------------------------------------------------------
+            Returns:
+            :: total error, bias, variance (scalars)
+        """
+
+        if self.y_pred_matrix is None:
+            raise ValueError("The bootstrap must be run before decomposing MSE (predicted y matrix is None)")
+
+        # compute total error, bias and variance
+        # keepdims=True to keep the column vector shape
+        mse = np.mean( np.mean((self.y_test - self.y_pred_matrix)**2, axis=1, keepdims=True) )
+        bias = np.mean( (self.y_test - np.mean(self.y_pred_matrix, axis=1, keepdims=True))**2 )
+        variance = np.mean( np.var(self.y_pred_matrix, axis=1, keepdims=True) )
+
+        return mse, bias, variance
+
+
+    def degree_range_simul(self):
+        """ Runs bootstrap resampling and bias-variance decomposition for a range of polynomial degrees.
+
+            Parameters:
+            :: p_range (1D array) = range of polynomial degrees
+        
+            ------------------------------------------------------------------
+            Returns:
+            :: mse_array (1D array) = array of total errors for each polynomial degree
+            :: bias_array (1D array) = array of biases for each polynomial degree
+            :: variance_array (1D array) = array of variances for each polynomial degree
+        """
+
+        # loop over polynomial degrees
+        for p in range(len(self.p_range)):
+            self.bootstrap(p=p, regression_method='OLS')
+            mse, bias, variance = self.decompose_mse()
+
+            self.mse_array[p] = mse
+            self.bias_array[p] = bias
+            self.variance_array[p] = variance
+
+        return self.mse_array, self.bias_array, self.variance_array
+
+
+    def optimal_degree(self):
+        """ Returns the optimal polynomial degree that minimizes the total error (MSE). """
+
+        if self.mse_array is None:
+            raise ValueError("The degree range simulation must be run before finding the optimal degree (MSE array is None)")
+
+        return np.argmin(self.mse_array)
+
+
+    def visualize(self):
+        """ Visualizes the bias-variance tradeoff. """
+
+        if self.y_pred_matrix is None:
+            raise ValueError("The bootstrap must be run before visualizing (predicted y matrix is None)")
+        
+        # plot
+        plt.figure(figsize=(14/2.54, 10/2.54))
+        plt.plot(self.p_range, self.mse_array, label=r"Total Error (MSE)", color='slateblue', linewidth=3.5)
+        plt.plot(self.p_range, self.bias_array, label='Bias²', color='indianred')
+        plt.plot(self.p_range, self.variance_array, label='Variance', color='darkgreen')
+        plt.axvline(x=self.optimal_degree(), ymin=0, ymax=np.max(self.mse_array), color='gray', linestyle='dashed', label=f"Optimal Degree = {self.optimal_degree()}")
+        plt.xlabel('Polynomial Degree')
+        plt.ylabel('Error')
+        plt.title(f"Bias-Variance tradeoff for OLS regression with {self.n_bootstraps} bootstraps, {len(self.y_test)} test points")
+        plt.legend()
+        plt.grid(alpha=0.3)
+        plt.tight_layout()
+        plt.show()
 
 #--------------------------------
 # TEST PART: TESTING AND VISUALIZATION
@@ -431,4 +773,4 @@ def MSE_R2_pn():
             Rsquared_train_matrix[i, j] = r2_score(yi_train, yi_pred_train)
             Rsquared_test_matrix[i, j] = r2_score(yi_test, yi_pred_test)
     
-    return MSE_train_matrix, MSE_test_matrix, Rsquared_train_matrix, Rsquared_test_matrix
+    return MSE_train_matrix, MSE_test_matrix, Rsquared_train_matrix, Rsquared_test_matrixi
