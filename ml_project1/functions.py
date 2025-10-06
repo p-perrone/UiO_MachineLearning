@@ -743,18 +743,17 @@ def MSE_R2_pn():
                 Rsquared_test_matrix[i, j] = np.nan
                 continue
             
-            # ADAPTED: Use LinearRegression_own class
+            # perform regression
             lr = LinearRegression_own(intercept=True)
             Xi_train = lr.polynomial_features(xi_train, pi)
             Xi_test = lr.polynomial_features(xi_test, pi)
 
-            # ADAPTED: Use class fit method instead of direct OLS_params
-            lr.fit(Xi_train, yi_train, method='OLS')
+            beta = lr.fit(Xi_train, yi_train, method='OLS')
 
-            # ADAPTED: Use class predict method instead of linear_regression function
-            yi_pred_train = lr.predict(Xi_train)
-            yi_pred_test = lr.predict(Xi_test)
+            yi_pred_train = lr.predict(Xi_train, beta)
+            yi_pred_test = lr.predict(Xi_test, beta)
             
+            # update estimators matrices
             MSE_train_matrix[i, j] = mean_squared_error(yi_train, yi_pred_train)
             MSE_test_matrix[i, j] = mean_squared_error(yi_test, yi_pred_test)
             Rsquared_train_matrix[i, j] = r2_score(yi_train, yi_pred_train)
