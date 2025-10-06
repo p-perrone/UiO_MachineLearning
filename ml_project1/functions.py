@@ -59,6 +59,8 @@ def Runge(x, noise=True, noisescale=1):
 
 # OLS implementation
 
+import numpy as np
+
 class LinearRegression_own:
     """
     Own implementation of linear regression with OLS and Ridge methods and their analytical solutions.
@@ -69,7 +71,6 @@ class LinearRegression_own:
 
     def __init__(self, intercept=True):
         self.intercept = intercept
-        self.beta = None
 
 
     def polynomial_features(self, x, p):  
@@ -78,62 +79,33 @@ class LinearRegression_own:
             Parameters:
             :: x (array) = input dataset
             :: p (int) = polynomial degree
-            :: intercept (bool) = sets first column at 1 if True, at 0 if False
 
             ------------------------------------------------------------------
             Returns:
             :: X (matrix) = design matrix
         """
+        
+        x = np.asarray(x).ravel()
+        n = len(x)
+
         if not isinstance(self.intercept, bool):
             raise TypeError(f"Intercept must be boolean (True or False), not {type(self.intercept)}")
-            
-        n = len(x)
 
         # composing the matrix (with or without intercept) ~ `transform` by sklearn
         if self.intercept:
             X = np.ones((n, p + 1))
             for j in range(1, p + 1):
-                X[:, j] = x**(j)
+                X[:, j] = x ** j
         else:
             X = np.ones((n, p))
             for j in range(p):
-                X[:, j] = x**(j + 1)
+                X[:, j] = x ** (j + 1)
 
         return X
     
 
-    def OLS_params(self, X, y):
-        """ Computes optimal parameters for ordinary least squares regression.
-
-            Parameters:
-            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-            :: y (array) = true value to be modeled
-
-            ------------------------------------------------------------------
-            Returns:
-            :: beta (array) = optimal parameters
-        """
-        return np.linalg.pinv(X.T @ X) @ X.T @ y
-
-
-    def Ridge_params(self, X, y, lbda):
-        """ Computes optimal parameters for Ridge regression.
-
-            Parameters:
-            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-            :: y (array) = true value to be modeled
-            :: lmbda (scalar) = penalty coefficient
-
-            ------------------------------------------------------------------
-            Returns:
-            :: beta (array) = optimal parameters
-        """
-        n_features = X.shape[1]
-        return np.linalg.inv(X.T @ X + lbda * np.eye(n_features)) @ X.T @ y
-
-
     def fit(self, X, y, method='OLS', lbda=0.1):
-        """Fit linear regression model.
+        """ Fits linear regression model using analytical solution.
         
             Parameters:
             :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
@@ -143,33 +115,36 @@ class LinearRegression_own:
 
             ------------------------------------------------------------------
             Returns:
-            :: self
+            :: beta (array) = optimal parameters
         """
 
+        X = np.asarray(X)
+        y = np.asarray(y).ravel()
+
         if method == 'OLS':
-            self.beta = self.OLS_params(X, y)
+            beta = np.linalg.pinv(X.T @ X) @ X.T @ y
         elif method == 'Ridge':
-            self.beta = self.Ridge_params(X, y, lbda)
+            n_features = X.shape[1]
+            beta = np.linalg.inv(X.T @ X + lbda * np.eye(n_features)) @ X.T @ y
         else:
             raise ValueError(f"`method` must be 'OLS' or 'Ridge', not {method}")
         
-        return self
+        return beta
     
 
-    def predict(self, X):
+    def predict(self, X, beta):
         """ Computes the regression curve (predicted y values).
 
             Parameters:
-            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept).fit(X, y, method, lbda)
+            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
+            :: beta (array) = optimal parameters obtained from fit()
 
             ------------------------------------------------------------------
             Returns:
             :: y_pred (array) = predicted y values
         """
-        if self.beta is None:
-            raise ValueError("A model must be fitted before predicting")
-        
-        return X @ self.beta
+        return np.asarray(X) @ np.asarray(beta)
+    
 
 
 # standard scaling
@@ -730,6 +705,14 @@ class BiasVarianceTradeoff:
 # matrices for MSE and R2 as a function of p and n
 def MSE_R2_pn():
     """ Evaluates MSE and R2 as a function of complexity `p` and dimensionality `n` for OLS regression
+
+        ------------------------------
+        Returns:
+        :: MSE_train_matrix 
+        :: MSE_test_matrix
+        :: Rsquared_train_matrix
+        :: Rsquared_test_matrix
+        all of shape (n, p)
     """
 
     n_range = np.linspace(10, 100000, 10).astype(int)
@@ -760,17 +743,21 @@ def MSE_R2_pn():
                 Rsquared_test_matrix[i, j] = np.nan
                 continue
             
-            Xi_train = polynomial_features(xi_train, pi)
-            Xi_test = polynomial_features(xi_test, pi)
+            # ADAPTED: Use LinearRegression_own class
+            lr = LinearRegression_own(intercept=True)
+            Xi_train = lr.polynomial_features(xi_train, pi)
+            Xi_test = lr.polynomial_features(xi_test, pi)
 
-            betai = OLS_params(Xi_train, yi_train)
+            # ADAPTED: Use class fit method instead of direct OLS_params
+            lr.fit(Xi_train, yi_train, method='OLS')
 
-            yi_pred_train = linear_regression(Xi_train, betai)
-            yi_pred_test = linear_regression(Xi_test, betai)
+            # ADAPTED: Use class predict method instead of linear_regression function
+            yi_pred_train = lr.predict(Xi_train)
+            yi_pred_test = lr.predict(Xi_test)
             
             MSE_train_matrix[i, j] = mean_squared_error(yi_train, yi_pred_train)
             MSE_test_matrix[i, j] = mean_squared_error(yi_test, yi_pred_test)
             Rsquared_train_matrix[i, j] = r2_score(yi_train, yi_pred_train)
             Rsquared_test_matrix[i, j] = r2_score(yi_test, yi_pred_test)
     
-    return MSE_train_matrix, MSE_test_matrix, Rsquared_train_matrix, Rsquared_test_matrixi
+    return MSE_train_matrix, MSE_test_matrix, Rsquared_train_matrix, Rsquared_test_matrix
