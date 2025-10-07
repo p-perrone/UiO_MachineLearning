@@ -611,8 +611,8 @@ class BiasVarianceTradeoff:
             lr = LinearRegression_own(intercept=True)           # initialize the LinearRegression_own object
             X_train = lr.polynomial_features(x_sample, p)       # transform train set to polynomial features
             X_test = lr.polynomial_features(x_test, p)          # transform test set to polynomial features
-            lr.fit(X_train, y_sample, method='OLS')             # fit model to the i-th bootstrap train sample
-            y_pred_sample = lr.predict(X_test).ravel()          # predict on the same test set at each i-th iteration
+            beta = lr.fit(X_train, y_sample, method='OLS')             # fit model to the i-th bootstrap train sample
+            y_pred_sample = lr.predict(X_test, beta).ravel()          # predict on the same test set at each i-th iteration
 
             # update predicted values matrix
             self.y_pred_matrix[:, i] = y_pred_sample
