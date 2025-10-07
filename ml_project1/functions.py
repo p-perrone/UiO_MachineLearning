@@ -23,7 +23,7 @@ This module contains functions for:
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, KFold
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 from sklearn.preprocessing import PolynomialFeatures
@@ -250,9 +250,8 @@ def grad_analytic(X, y, theta, lbda, regression_method='OLS'):
 
 
 # optimal parameters with simple gradient descent
-def theta_gd(X, y, eta, regression_method='OLS', lbda=1, iterations=2000, converge = 1e-8):
+def theta_gd(X, y, eta, regression_method='OLS', lbda=0.1, iterations=200000, converge=1e-8):
     """ Computes optimal parameters for ordinary least squares regression with gradient descent.
-
         Parameters:
         :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
         :: y (array) = true value to be modeled
@@ -261,38 +260,29 @@ def theta_gd(X, y, eta, regression_method='OLS', lbda=1, iterations=2000, conver
         :: lbda (scalar) = regularization parameter (only for Ridge)
         :: iterations (int) = maximum number of iterations
         :: converge (scalar) = convergence criterion
-
-        ------------------------------------------------------------------
-        Returns:
-        :: theta (array) = optimal parameters
     """
     # error for wrong regression_method input
-    if regression_method not in ['OLS', 'Ridge', 'Lasso']:
-        raise ValueError("regression_method must be 'OLS', 'Ridge' or 'Lasso'")
+    if regression_method not in ['OLS', 'Ridge']:
+        raise ValueError("regression_method must be 'OLS' or 'Ridge'")
 
-    # defining cost function
-    if regression_method == 'Ridge':
-        cost = lambda theta: cost_function(y, X, theta, regression_method='Ridge', lbda=lbda)
-    elif regression_method == 'Lasso':
-        cost = lambda theta: cost_function(y, X, theta, regression_method='Lasso', lbda=lbda)
-    else:
-        cost = lambda theta: cost_function(y, X, theta)
+    # initialize theta, from y shape
+    n, m = X.shape
+    y = np.asarray(y).reshape(-1, 1)
+    theta = np.zeros((m, 1), dtype=float)
 
-    # initialize random theta
-    theta = np.random.randn(X.shape[1], 1)
-
-    # gradient descent loop
     for k in range(iterations):
-        gradient = grad(cost)(theta).reshape(-1, 1)  # compute gradient with autograd
+        gradient = grad_analytic(X, y, theta, lbda=lbda, regression_method=regression_method)  # compute gradient with autograd
         theta -= eta * gradient
 
-        # convergence of the algorithm
-        gradient_norm = np.linalg.norm(gradient)
-        if eta * gradient_norm <= converge:
-            print(f"Stop at epsilon = {gradient_norm:.2e}, iteration = {k}")
+        grad_norm = np.linalg.norm(gradient)
+        if grad_norm > 1e2:  # cap gradient norm (DeepSeek hint)
+            gradient = gradient / grad_norm * 1e2
+
+        if grad_norm <= converge:
+            print(f"Stop at epsilon = {grad_norm:.2e}, iteration = {k}")
             break
 
-    return theta    
+    return theta
 
 
 # optimal parameters with momentum gradient descent and different eta update methods
