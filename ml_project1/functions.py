@@ -425,7 +425,7 @@ def Lasso_params(X, y, lbda=0.1, iterations=5000, eta=1e-4, converge=1e-8):
 
 # stochastic now 
 def theta_sgd_mom(X, y, regression_method='OLS', eta=1e-3, eta_update_method='Simple_momentum', 
-                  lbda=0.1,momentum=0.9, iterations=2000, converge = 1e-8):
+                  lbda=0.1,momentum=0.9, converge = 1e-8, mb_size = 5):
     """ Computes optimal parameters for OLS and Ridge regression with momentum stochastic gradient descent.
 
         Parameters:
@@ -466,8 +466,7 @@ def theta_sgd_mom(X, y, regression_method='OLS', eta=1e-3, eta_update_method='Si
     elif regression_method == 'Ridge':
         cost = lambda y, X, theta: cost_function(y, X, theta, regression_method='Ridge', lbda=lbda)
 
-    n_epochs = 50
-    mb_size = 5                     #size of each minibatch
+    n_epochs = 50                   #size of each minibatch
     num_mb = int(len(y) / mb_size)  #number of minibatches
 
     for epoch in range(n_epochs):

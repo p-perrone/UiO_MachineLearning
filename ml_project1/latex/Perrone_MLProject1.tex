@@ -1,0 +1,729 @@
+% ------ PREAMBLE ------ 
+\documentclass[11pt,a4paper,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, french]{babel}
+\usepackage[margin=2cm]{geometry}
+\renewcommand{\baselinestretch}{1.15} 
+
+\usepackage{sansmathfonts}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Sans}
+
+\usepackage{siunitx}
+\sisetup{detect-all,
+	separate-uncertainty = true,
+	uncertainty-separator = {\,\pm\,},
+	multi-part-units=single
+}
+\DeclareSIUnit{\year}{yr}
+\usepackage{physics}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage{amsmath,amsfonts,amssymb}
+\newcommand\inlineeqno{\stepcounter{equation}\ (\theequation)}
+\usepackage{derivative}
+\DeclareDifferential{\dd}{\mathrm{d}}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup{font={small, color={Gray2}}, labelfont={sf, bf}, textfont={sf,sansmath}, labelsep=colon}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{Gray1}{RGB}{101, 101, 101}
+\definecolor{Gray2}{RGB}{60, 60, 60}
+\definecolor{Code}{RGB}{230, 235, 255}
+
+\usepackage[most]{tcolorbox}
+\tcbset{on line, 
+	boxsep=4pt, left=0pt,right=0pt,top=0pt,bottom=0pt,
+	colframe=white,colback=Code,  
+	highlight math style={enhanced}
+}
+\let\oldtexttt\texttt
+\renewcommand{\texttt}[1]{\tcbox{\oldtexttt{#1}}}
+
+\usepackage[colorlinks=true, 
+linkcolor=Plum, 
+citecolor=RoyalBlue, 
+urlcolor=BlueViolet]{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{pythonhighlight}
+\usepackage{verbatim}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyhead[L]{\leftmark}
+\fancyfoot[C]{\thepage} 
+
+\title{\bfseries Project 1: Linear regression methods, regularization, resampling\\
+	\normalfont Applied Data Analysis and Machine Learning
+	\\ UiO (FYS-STK4155)}
+\author{
+	\textbf{Pietro PERRONE}\\
+	\href{pietrope@uio.no}{pietrope@uio.no} \\
+}
+\date{October 6, 2025}
+
+% Section formatting
+\usepackage{titlesec}
+\titleformat{\section}
+{\color{RoyalBlue}\titlerule[1.5pt]\LARGE\bfseries\sffamily\color{RoyalBlue}}
+{\thesection}
+{1em}
+{}
+\titleformat{\subsection}
+{\Large\bfseries\sffamily\color{Gray2}}
+{\thesubsection}
+{1em}
+{}
+\titleformat{\subsubsection}
+{\large\bfseries\itshape\color{Gray2}}
+{\thesubsection.\alph{subsubsection}}
+{1em}
+{}
+\titleformat{\paragraph}
+{\normalfont\itshape\color{Gray2}}
+{\theparagraph}
+{1em}
+{}
+
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{UiO_MachineLearning.bib}
+
+% ------ DOCUMENT ------ 
+
+\begin{document}
+	\selectlanguage{english}
+	
+	\begin{titlepage}
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.7\textwidth]{uio.png}
+		\end{figure}
+		
+		\maketitle
+		
+	    \centering
+	    
+
+	    		\textbf{GitHub link to the project repository:\\
+		\url{https://github.com/p-perrone/UiO_MachineLearning/tree/main/ml_project1}}
+		
+		\textbf{Link to DeepSeek chat:\\
+			\url{https://chat.deepseek.com/share/h2ifare1m1c31ud8vf}}
+		
+	\end{titlepage}
+\onecolumn
+
+\tableofcontents
+
+\twocolumn\
+
+\section{Introduction}
+The aim of this project is to implement functions that could help in the understanding of the behaviors of different linear regression methods and resampling techniques, with a view to potential machine learning applications. 
+
+This will be done by creating a own Python 3 library, following the typical workflows that characterize existing Python modules such as \href{https://scikit-learn.org/stable/index.html}{\texttt{scikit-learn}}.
+
+In the frame of this work, all the different algorithms will be tested for a simple 1D function, the Runge function \parencite{runge_1901}:
+
+\begin{equation}
+	\mathrm{Runge}(x) = y = \frac{1}{1 + 25 x^2} + \epsilon
+\end{equation}
+
+where $x \in [-1, 1]$ and $\epsilon$ represent a stochastic noise, distributed according to a normal law $\mathcal{N}(0,1)$ in our case. The curve of this function is shown in Figure \ref{fig:runge}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{runge}
+	\caption{\textbf{Runge function} | In orange with an added noise of distribution $\mathcal{N}$(0,0.1). The $x$ values have already been scaled}
+	\label{fig:runge}
+\end{figure} 
+
+First of all, a code for the Runge function will be provided, and the methods such as the Ordinary Least Squares (OLS) and Ridge regression will be coded and adapted to this function. All the necessary preprocessing steps will be included, particularly the scaling an train-test splitting of the data. Secondly, we will move from regressions whose fit can be computed analytically to iterative numerical methods, namely the Gradient Descent. In this context, different types of this technique will be analyzed, dealing with its simplest form initially and then adding momentum and stochastic sampling. The Lasso regression will be implemented in this part as well.
+
+Lastly, we will perform an analysis of the bias-variance tradeoff as a function of the complexity of the models, comparing two different resampling techniques, the bootstrap and the cross-validation.
+
+\section{Analytical regressions: Ordinary Least Squares and Ridge}
+
+\subsection{Theory} \label{s:theoryols}
+
+Most of the following informations has been retrieved by textbooks such as \cite{hastie_stat2009}, and from the Jupyter Book referred to this course available on \href{https://compphysics.github.io/MachineLearning/doc/LectureNotes/_build/html/intro.html}{GitHub}.
+
+\subsubsection{Ordinary Least Squares}
+Regression modeling aims to sample how a random variable $y$ is distributed and varies as a function of another variable $x$. In this model, therefore, the input is going to be the vector $\boldsymbol{x}^\intercal=[x_0,x_1,x_2,\dots,x_{n-1}]$ and the output, \emph{i.e.} the value that we want to model, $\boldsymbol{y}^\intercal=[y_0,y_1,y_2,\dots,y_{n-1}]$.
+
+Particularly, an Ordinary Least Squares linear regression approximates the unknown output values with another
+continuous function $\tilde{\boldsymbol{y}}(\boldsymbol{x})$ which depends linearly on parameters
+$\boldsymbol{\theta}^\intercal=[\theta_0,\theta_1,\theta_2,\dots,\theta_{p-1}]$:
+
+\begin{equation} \label{eq:ypred}
+	\boldsymbol{\tilde{y}}= \boldsymbol{X}\boldsymbol{\theta}
+\end{equation}
+
+where $\boldsymbol{X} \in \mathbb{R}^{n \times p}$ is the so called \emph{design matrix}, whose $p$ columns represent the features, i.e. the variables that can be used to predict $\boldsymbol{y}$, and the rows the $n$ input observations used for the modeling. In the case of a polynomial regression, the features are polynomials obtained by elevating $\boldsymbol{x}$ to powers that range from 0 (or 1) to $p$:
+
+\begin{equation}
+	\boldsymbol{X}=
+	\begin{bmatrix} 
+		1& x_{0}^1 &x_{0}^2& \dots &x_{0}^{p-1}\\
+		1& x_{1}^1 &x_{1}^2& \dots &x_{1}^{p-1}\\
+		1& x_{2}^1 &x_{2}^2& \dots  &x_{2}^{p-1}\\                      
+		\vdots& \vdots &\vdots& \ddots &\vdots\\
+		1& x_{n-1}^1 &x_{n-1}^2& \dots &x_{n-1}^{p-1}\\
+	\end{bmatrix}
+\end{equation}
+
+
+The aim is to \emph{fit} on the unknown function $\boldsymbol{y}$ these parameters, \emph{i.e.} finding the ones that can minimize the spread between the true expected values $\boldsymbol{y}$ and the predicted ones $\tilde{\boldsymbol{y}}$, through a process called regularization.
+
+This spread can be defined in terms of a \emph{cost function} $C(\boldsymbol{\theta})$:
+
+\begin{equation}
+	C(\boldsymbol{\theta})=\frac{1}{n}\sum_{i=0}^{n-1}\left(y_i-\tilde{y}_i\right)^2=\frac{1}{n}\left\{\left(\boldsymbol{y}-\boldsymbol{\tilde{y}}\right)^\intercal \left(\boldsymbol{y}-\boldsymbol{\tilde{y}}\right)\right\}
+\end{equation}
+
+that can be rewritten in terms of Equation \eqref{eq:ypred}:
+
+\begin{equation}
+	C(\boldsymbol{\theta})=\frac{1}{n}\left\{\left(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}\right)^\intercal \left(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}\right)\right\}.
+\end{equation}
+
+Optimizing $\boldsymbol{\theta}$ means minimize this spread function:
+
+\begin{equation}
+	{\displaystyle \min_{\boldsymbol{\theta}\in
+			{\mathbb{R}}^{p}}}\frac{1}{n}\left\{\left(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}\right)^\intercal\left(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}\right)\right\}.
+\end{equation}
+
+which is done by taking its derivative with respect to $\boldsymbol{\theta}$ and setting it to 0:
+
+\begin{equation}
+	\pdv{C(\boldsymbol{\theta})}{\boldsymbol{\theta}} = 0 = \boldsymbol{X}^\intercal\left( \boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}\right)
+\end{equation}
+
+which yields 
+
+\begin{equation}
+	\boldsymbol{X}^\intercal\boldsymbol{y} = \boldsymbol{X}^\intercal \boldsymbol{X}\boldsymbol{\theta},
+\end{equation}
+
+If the matrix $\boldsymbol{X}^\intercal\boldsymbol{X}$ is invertible the solution for the optimal parameters is 
+
+\begin{equation}
+	\hat{\boldsymbol{\theta}} =\left(\boldsymbol{X}^\intercal\boldsymbol{X}\right)^{-1}\boldsymbol{X}^T\boldsymbol{y}.
+\end{equation}
+
+In most of the cases, $\boldsymbol{X}^\intercal\boldsymbol{X}$ cannot be inverted directly, because it tends to be low-dimensional. In this situations algorithms such as the Singular Value Decomposition can be applied.
+
+\subsubsection{Ridge regression}
+When the number of observations and the complexity (maximum polynomial degree) of the fit are close, there might be some \emph{overfitting} in the regression. This means that, even if the regularization shrinks as much as possible the cost function because of the high polynomial degree chosen, applying the same fit to different datasets can lead to a high variance between the predicted results and to a worse generalization of the problem. One way to fix this issue is to add a regularization term to the matrix we have to invert:
+
+\begin{equation}
+	\boldsymbol{X}^\intercal \boldsymbol{X} \rightarrow \boldsymbol{X}^\intercal \boldsymbol{X}+\lambda \boldsymbol{I},
+\end{equation}
+
+$\lambda$ is a \emph{hyperparameter}, or penalty term, ranging typically from $10^{-5}$ to $10^2$. The higher $\lambda$, the higher the shrinkage of the fit to a a more general, and of course biased, one. This term characterize the Ridge regression
+
+The minimization for the Ridge problem is therefore 
+
+\begin{equation}
+	{\displaystyle \min_{\boldsymbol{\theta}\in
+			{\mathbb{R}}^{p}}}\frac{1}{n}\vert\vert \boldsymbol{y}-\boldsymbol{X}\boldsymbol{\theta}\vert\vert_2^2+\lambda\vert\vert \boldsymbol{\theta}\vert\vert_2^2
+\end{equation}
+
+by applying the definition of the \emph{norm-2} vector:
+
+\begin{equation}
+	\vert\vert \boldsymbol{x}\vert\vert_2 = \sqrt{\sum_i x_i^2}.
+\end{equation}
+
+By minimizing this problem as previously done, the optimal parameters for the Ridge regression can be obtained:
+
+\begin{equation} \label{eq:ridge}
+	\hat{\boldsymbol{\theta}}_{\mathrm{Ridge}} = \left(\boldsymbol{X}^T\boldsymbol{X}+\lambda\boldsymbol{I}\right)^{-1}\boldsymbol{X}^\intercal\boldsymbol{y}
+\end{equation}
+ 
+The differences between OLS and Ridge regression will be more deeply analyzed in the following sections. 
+
+
+\subsection{Preprocessing}
+In the frame of machine learning, the regularization process requires some preprocessing steps before actually dealing with the problem itself. 
+
+As previously said, we will deal with 1-dimensional $\boldsymbol{x}$ dataset and the function we want to model $\boldsymbol{y} = \mathrm{Runge}(\boldsymbol{x})\,(+\, \boldsymbol{\epsilon})$
+
+First of all, with the aim of "training" a model, it is necessary to define which data will be used for training and which ones for testing the behavior of the model. For this purpose, \texttt{scikit-learn} provides a function from the module \texttt{model\_selection}: \texttt{train\_test\_split}. This function splits the input dataset and the one given by the true values $\boldsymbol{y}$ in a train set an in a test set. Usually the dimension of the test cluster is set at 20-30\% of the former number of observations:
+
+\begin{python}
+	x_train, x_test, y_train, y_test 
+	= train_test_split(x, y, test_size=0.2)
+\end{python}
+
+Secondly, a scaling of the data has to be done. In most of the real cases the application of high polynomial degree to an input dataset can yield values of very different order of magnitudes, which can lead to numerical stability issues while implementing the regression. Also, we often deal with real dimensional variables, and in the regularization having a-dimensional quantities is much more convenient.
+
+Different types of scaling can solve this problems. The \emph{standard scaling} can be used: every element of the input dataset is subtracted by the mean value of $\boldsymbol{x}$ and divided by its standard deviation:
+
+\begin{equation}
+	x_i \rightarrow \frac{x_i - \overline{x}}{\sigma(\boldsymbol{x})}
+\end{equation}
+
+One other scaling technique is the \emph{min-max} scaling.
+
+\texttt{scikit-learn} provides a class, \texttt{StandardScaler(with\_mean, with\_std)}, that performs a standard scaling, and that will be used in this workflow.
+Actually, in our case, the input dataset consists of a range of a-dimensional values quite limited ($[-1, 1]$). In this particular case, we don't expect therefore to observe huge differences in the results obtained scaling and others obtained without performing this operation. Nevertheless, we still want to implement this step ih the process in order make it more general and potentially more robust if applied to more complex systems.
+
+\subsection{OLS implementation}
+All the steps presented in Section \ref{s:theoryols} have been coded on an own class called \texttt{LinearRegression\_own}. This class is structured following the typical OLS workflow (and Ridge, as well), similar to the one of \texttt{scikit\_learn}:
+
+\begin{enumerate}
+	\item creation of the design (features) matrices $\boldsymbol{X}_\text{train}$ and $\boldsymbol{X}_\text{test}$, starting from the input \texttt{x\_train} and \texttt{x\_test} input arrays, and declaring the desired polynomial degree \texttt{p} $\longleftrightarrow$ \texttt{polynomial\_features(x, p)};
+
+	\item fit of the model on the train set  $\longleftrightarrow$ \texttt{fit(X, y, method, lbda)}, either for obtaining $\boldsymbol{\theta}_{\mathrm{OLS}}$ or $\boldsymbol{\theta}_{\mathrm{Ridge}}$;
+	
+	\item computation of the predicted value $\boldsymbol{\tilde{y}}$ $\longleftrightarrow$ \texttt{predict()}
+\end{enumerate}
+
+An example of the implementation for the OLS is shown in Figure \ref{fig:polyfit}. 
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=12cm]{polyfit}
+	\caption{\textbf{OLS regression} | For a polynomial fit of degree 10, from a former dataset of $n = 100$ observations. The result of \texttt{train\_test\_split} can also be observed here.}
+	\label{fig:polyfit}
+\end{figure*} 
+
+\subsubsection{Behavior of the own-coded OLS}
+
+We now want to analyze the performance of this type of regression as a function of the complexity (polynomial degree). For the moment, we stick to the original dataset with  100 samples.
+
+For this purpose, we will look at two statistical quantities. The first is the \emph{Mean Squared Error} (MSE), that, in this case, correspond to the cost function $C(\boldsymbol{\theta})$:
+
+\begin{equation}
+	MSE(\boldsymbol{y},\boldsymbol{\tilde{y}}) = \frac{1}{n}
+	\sum_{i=0}^{n-1}(y_i-\tilde{y}_i)^2
+\end{equation}
+
+This estimator represents the spread between the true values and the predicted ones.
+
+The second quantity is the \emph{determination coefficient} $R^2$:
+
+\begin{equation}
+	R^2(\boldsymbol{y}, \tilde{\boldsymbol{y}}) = 1 - \frac{\sum_{i=0}^{n - 1} (y_i - \tilde{y}_i)^2}{\sum_{i=0}^{n - 1} (y_i - \bar{y})^2}
+\end{equation}
+
+This score provides a measure of the effectiveness of the model on potential future samples taken from the former population. An $0.8 < R^2 < 1$ is generally representative of a fit that can generalize very well the true value. This estimator can also be close to 0: in this case, it means that the model can't provide a better prediction than a constant, which indicates a poor quality of the fit. If the model is even worse than a constant model, then we can expect a $R^2 < 0$.
+
+Both these estimators have been implemented with the two respective functions of \texttt{scikit\_learn}: \texttt{mean\_squared\_error} and \texttt{r2\_score}.
+
+\begin{figure*}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{MSE_R2_p.pdf}
+	\caption{\textbf{MSE and $R^2$ for OLS regression as a function of $p$} | 
+		Statistical estimators of model effectiveness with fixed $n=100$.}
+	\label{fig:mse_r2_p}
+\end{figure*}
+
+In Figure \ref{fig:mse_r2_p} we can observe the trend of this estimators as a function of the model's complexity. With 100 samples, good values are typical of fit of polynomial degree $7 < p < 25$. For smaller $p$, the model is too generic. For higher $p$, overfitting occurs, so the model become extremely sample-specific and cannot be generalized. We can equally observe a discrepancy between the two sets, that is still reasonably small (about 10\%), so the model is performing well on the test set as well.
+
+\begin{figure*}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{MSE_R2_OLS_test1.pdf}
+	\caption{\textbf{MSE and $R^2$ for OLS regression as a function of $p$ and $n$} | 
+		Statistical estimators of model effectiveness varying both parameters.}
+	\label{fig:mse_r2_np}
+\end{figure*}
+
+Subsequently, we want to analyze the trend of these estimators as a function of both the dimensionality $n$ and $p$. The result is shown in Figure \ref{fig:mse_r2_np}. Compared to the previous experiment, we can observe that increasing the dimension of $n$ has solved the overfitting problem -- at least, the MSE and the $R^2$ show good values for higher polynomial degrees. For this second experiment, the own function \texttt{MSE\_R2\_pn()} has been implemented, with a condition that set the value of the estimators to NaN in the case where $p \geq n$, in order to increase the readability of the heatmaps. We can still observe an isolated overfitting phenomenon for $n=10$ and $p = 6$.
+
+\subsection{Ridge regression implementation}
+We now want to find the optimal parameters solving the Ridge regularization (Equation \eqref{eq:ridge}). The penalty coefficient $\lambda$ determines the shrinkage of the fit towards a constant model: its effects can be observed in Figure \ref{fig:ridge}.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{ridge}
+	\caption{\textbf{Ridge regression} | For different values of $\lambda$ (penalty coefficient), from a former dataset of $n = 100$ observations. When $\lambda$ approaches 0, the fit approximates to a simple OLS regression. Runge function with noise is also shown in blue.}
+	\label{fig:ridge}
+\end{figure*} 
+
+We can now explore the dependency of the two estimators as a function of $p$ and $\lambda$. Since we already analyzed the influence of the input dataset dimensionality $n$, we will keep the former 100 sample $\boldsymbol{x}$. The result can be seen in Figure \ref{fig:mse_r2_ridge}. We can clearly see that there is a dependence on $p$ of the fit's goodness only for for values of $\lambda$ up to $\sim 10^2$. For stronger penalties, the regression will always perform as a constant model (very high MSE and very poor $R^2$). We can equally observe the effect of overfitting for smaller $\lambda$ and higher $p$, which is logical considering the relatively small amount of input samples.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{MSE_R2_Ridge_p_lambda1}
+	\caption{\textbf{Ridge regression} | For different values of $\lambda$ (penalty coefficient), from a former dataset of $n = 100$ observations. When $\lambda$ approaches 0, the fit approximates to a simple OLS regression. Runge function with noise is also shown in blue.}
+	\label{fig:mse_r2_ridge}
+\end{figure*}
+
+
+\section{Gradient descent methods}
+
+\subsection{Theory}
+
+\subsubsection{Newton-Raphson method}
+The analytical solutions shown in Section \ref{s:theoryols} are not always available in machine learning. In fact, inverting the $\boldsymbol{X^\intercal X}$ can sometimes lead to challenging computational issues. In these situations, an iterative, numerical approach should be preferred in order to find the minimum of the cost function.
+
+The most common iterative method for such mathematical problems is the Newton-Raphson formula, that consists in substituting to a curve $y = f(x)$ the tangent of the curve, and by successive iteration, approximating the solution $s | f(s) = 0$.
+
+It basically consists of a Taylor expansion, generally approximated to the first order, expressed for the function we want to model $f(x)$ and close the solution of the problem $s$:
+
+\begin{equation}
+	f(x) + (s-x) f'(x) \approx 0
+\end{equation}
+
+that yields 
+
+\begin{equation}
+	s\approx x-\frac{f(x)}{f'(x)}
+\end{equation}
+
+This problem can be translated into an iterative process, where we try to approximate $s$:
+
+\begin{equation} \label{eq:newton}
+	x_{i+1} = x_i - \frac{f(x_i)}{f'(x_i)}
+\end{equation}
+
+\subsubsection{Gradient descent fundamentals}
+For a multivariate function $F(\bold{x})$ with $\bold{x} = (x_0, x_1, \dots x_p)$, the fastest way to fine the global minimum is to follow the direction of the negative gradient $- \grad F(\bold{x})$.
+
+Adopting an iterative approach as shown in Equation \eqref{eq:newton}, we can write the following expression:
+
+\begin{equation}
+	\bold{x}_{k+1} = \mathbf{x}_k - \gamma_k \grad F(\mathbf{x}_k)
+\end{equation}
+	
+Here $\gamma_k > 0$ and if this term is small enough, then it can be demonstrated that $F(\bold{x_{k+1}}) \leq F(\bold{x_k})$ and therefore at each iteration we are approaching the minimum of $F$. Particularly, this result can be achieved only if $F(\bold{x})$ is a convex function.
+
+\subsubsection{Application to the cost function}
+In our case, the cost function $C(\boldsymbol{\theta})$ is the multivariate function that we want to minimize. In the simple case where $\boldsymbol{\theta} = (\theta_0, \theta_1)$ (\emph{i.e}, an intercept and a slope), the gradient of a simple OLS $C(\theta)$ can be expressed as following:
+
+\begin{multline} \label{eq:gradcost}
+	\grad_{\bold{\theta}} C(\bold{\theta}) = 
+	\frac{2}{n}\begin{bmatrix} \sum_{i=0}^{n-1} \left(\theta_0+\theta_1x_i-y_i\right) \\
+		\sum_{i=0}^{n-1}\left( x_i (\theta_0+\theta_1x_i)-y_ix_i\right) \\
+	\end{bmatrix} \\
+   	= \frac{2}{n}\boldsymbol{X}^\intercal(\boldsymbol{X\theta} - \mathbf{y})
+\end{multline}
+
+The Hessian matrix of $C(\boldsymbol{\theta})$ is given by 
+
+\begin{equation}
+\boldsymbol{H} \equiv \begin{bmatrix}
+	\pdv[2]{C(\boldsymbol{\theta})}{\theta_0} & \pdv{C(\boldsymbol{\theta})}{\theta_0}{\theta_1}  \\
+	\pdv{C(\boldsymbol{\theta})}{\theta_0}{\theta_1} & \pdv[2]{C(\boldsymbol{\theta})}{\theta_1} \\
+\end{bmatrix} = \frac{2}{n}\boldsymbol{X}^\intercal \boldsymbol{X}
+\end{equation}
+
+Similarly, for Ridge's cost function, the gradient can be expressed as $\frac{2}{n}(\boldsymbol{X}^\intercal(\boldsymbol{X \theta} - \boldsymbol{y})+\lambda \boldsymbol{\theta})$.
+
+Since $\boldsymbol{X}^\intercal \boldsymbol{X}$ is always positive semi-definite, we can assess that the cost function is always convex.
+
+We can finally express the formula that will be the starting point for implementing the simple Gradient Descent algorithm:
+
+\begin{equation}
+	\theta_{k+1} = \theta_k - \eta \grad_\theta C(\theta_k), \ k=0,1,\cdots p
+\end{equation}
+
+The initial $\theta_0$ can be randomly chosen. In the context of regularization, $\eta$ defines the \emph{learning rate}, \emph{i.e.} the rate at which we approximate the minimum at each iteration.
+
+\subsection{Simple Gradient descent}
+The heart of the most basic Gradient Descent (GD) algorithm is given by the following loop:
+
+\begin{python}
+for k in range(iterations):
+	gradient = grad(cost)(theta)
+	theta -= eta * gradient
+
+	if eta * gradient_norm <= converge:
+		break
+\end{python}
+
+That is, the optimal parameter \texttt{theta} is updated at each \texttt{k} iteration until the norm of the gradient $\norm{\grad_k C(\theta_k)}$ (\texttt{gradient\_norm}) is smaller than a previously defined convergence criterion, usually set at $10^{-8}$, namely when the algorithm approaches 0.
+
+In order to test the behavior of this algorithm, the function \texttt{theta\_gd} has been implemented. The parameters that influence the gradient descent performance are \texttt{eta} and \texttt{iterations}. The first one, the learning rate, is constant in this simple case, and usually set $10^{-4} < \eta < 10^{-1}$; the number of iterations can vary from \num{1000} to more than \num{100000}.
+
+The gradient in Python can also be computed numerically using the function \texttt{grad} from the module \texttt{autograd}. Nevertheless, for this simple case that only includes methods such as OLS and Ridge regression, we implement a simple function that uses the analytical solution of the gradient of the cost function (Equation \eqref{eq:gradcost}), \texttt{grad\_analytical}.
+
+\subsubsection{Considerations on simple GD}
+In a first moment, by manually regulating the above parameters, the solution that can better approximate a simple OLS regression is obtained with a fairly high number of iterations (\num{200000}) and with a medium learning rate of $10^{-3}$. This first result can be seen in Figure \ref{fig:gd_an}.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=12cm]{gd_analytical}
+	\caption{\textbf{GD and OLS} | Comparison between a classical OLS algorithm and Gradient Descent methods.}
+	\label{fig:gd_an}
+\end{figure*} 
+
+For a more comprehensive understanding of the influence of the number of iterations, learning rate an polynomial degree together, another experiment has been run, in order to know how MSE and $R^2$ evolve as functions of these three parameters. Again, the former 100 sample dataset will be used.
+
+The result is shown in Figure \ref{fig:mse_r2_iteretap}. We can observe that some problems occur with $\eta = 10^3$: this could be probably related to a potential overflow, caused by the excessive learning rate. The best values of $R^2$ are obtained by increasing the iterations. The limitations of a constant learning rate are indirectly shown in this figure: the maximum polynomial degree is set to 8, because higher complexity always caused overflows in the experiments, returning NaN values. 
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{MSE_R2_GD_eta1}
+	\caption{\textbf{Gradient Descent | For different $\eta$, iterations and $p$}}
+	\label{fig:mse_r2_iteretap}
+\end{figure*}
+
+\subsection{Updating the learning rate in Gradient Descent}
+
+\subsubsection{Momentum Gradient Descent}
+The simple gradient descent uses a constant learning rate throughout the process. This can turn in a slower algorithm and increase the probability that the program will be stuck in local minima of the cost function. In order to avoid this, several ways to update the learning rate can be implemented. In general, all these techniques keep memory of the previous step and, based on that, they increase or decrease the value of the learning rate.
+
+The simplest case is the \emph{momentum} gradient descent. The key idea of this method is to update the optimal parameter by an inertial term $\mathbf{v}_{k}=\gamma \mathbf{v}_{k-1}+\eta_{k}\grad_k C(\boldsymbol{\theta}_k)$:
+
+\begin{equation}
+	\boldsymbol{\theta}_{k+1}= \boldsymbol{\theta}_k -\mathbf{v}_{k}
+\end{equation}
+
+A typical pseudo-code for implementing this algorithm could be:
+
+\begin{python}
+	for k in range(iterations):
+		v = momentum * v - eta * gradient
+		update = v
+		theta += update
+\end{python}
+
+For this analysis, we set \texttt{momentum} to 0.9. This parameter represents the amount of inertia applied to each iteration.
+
+\subsubsection{More complex ways to update the learning rate: AdaGrad, RMSProp, ADAM}
+
+Others adaptive gradient methods can adjust the learning rate dynamically for a further increase in convergence and stability of the algorithm.
+
+\paragraph{AdaGrad} 
+This method scales the learning rate for each parameter by maintaining the cumulative squared sum of previous gradients. 
+For a parameter $\theta_j$ at iteration $k$, the update rule is:
+\begin{equation}
+	\theta_{j, k+1} = \theta_{j, k} - \frac{\eta}{\sqrt{r_{j, k}} + \epsilon} \, g_{j,k}
+\end{equation}
+where $g_{j,k}$ is the gradient of the loss with respect to $\theta_j$, 
+\begin{equation}
+	r_k = r_{k-1} + g_k \circ g_k
+\end{equation}
+is the accumulated squared gradient, with $g_t \circ g_t$ the element-wise square of the gradient vector, $\eta$ is the base learning rate, and $\epsilon$ is a small constant for avoiding division by 0. 
+AdaGrad is effective for sparse data and features,
+but the accumulation of squared gradients can lead to a strong shrinking of the learning rate over time, slowing potentially too much the progress.
+
+\paragraph{RMSProp} 
+This algorithm \parencite{goodfellow_2016} modifies AdaGrad by substituting a decaying average of the squared gradients instead of the cumulative squared sum:
+
+\begin{equation}
+	r_j,k \rightarrow v_{j,k} = \rho v_{j,k-1} + (1-\rho)(\grad_k C(\theta_k))^2
+\end{equation}
+
+\paragraph{ADAM (Adaptive Moment Estimation)} 
+
+ADAM \parencite{kingma:adam} combines RMSProp with momentum by maintaining two moving averages: 
+the first momentum $m_k$ (mean of gradients) and the second moment (\emph{uncentered variance}) $v_k$:
+\begin{align}
+	m_k = \beta_1 m_{k-1} + (1-\beta_1) \grad_k C(\theta_k) \\
+	v_k = \beta_2 v_{k-1} + (1-\beta_2)(\grad_k C(\theta_k))^2
+\end{align}
+with bias-corrected versions:
+\begin{align}
+	\hat{m}_k = \frac{m_k}{1 - \beta_1^k}\\
+	\hat{v}_k = \frac{v_k}{1 - \beta_2^k}
+\end{align}
+
+with typical $\beta_1 = 0.9$, $\beta_2 = 0.999$. Initialize $m_0 = 0$, $v_0 = 0$.
+
+The update is then:
+\begin{equation}
+	\theta_{k+1} =\theta_k -\frac{\alpha}{\sqrt{\hat{v}_k} + \epsilon}\hat{m}_k
+\end{equation}
+
+\subsubsection{Gradient Descent with learning rate update implementation}
+The function \texttt{theta\_gd\_mom} includes all the four techniques of above for updating the learning rate. For reasons of numerical instability, the function is yielding MSEs and $R^2$s that don't fall in an "acceptable" range. This problem could potentially be fixed by increasing iterations or decreasing the polynomial degree. This is a common issue of other functions implemented in the frame of this work, such as the LASSO regression function (see next Sections). Nevertheless, the effects of the different types of updates between AdaGRad, RMSProp and ADAM have been observed: the three methods showed better convergence progressively, with ADAM being much faster than the other two techniques.
+
+
+\subsection{LASSO regression}
+\subsubsection{Theory}
+LASSO (Least Absolute Shrinkage and Selection Operator) regression is similar to Ridge in the way it adds a regularization term to the former OLS-type cost function in order to define a penalty. In this case, nevertheless, this term is an L1-type regularization term, and not an L2-type.
+
+The L1 (norm-1) term is generally defined as:
+\begin{equation}
+	\norm{\boldsymbol{x}}_1 = \sum_i \abs{x_i}
+\end{equation}
+
+The minimization of the cost function for LASSO becomes therefore:
+\begin{equation}
+	\min_{\boldsymbol{\theta} \in \mathbb{R}^{p}}
+	\frac{1}{n} \norm{\boldsymbol{y} - \boldsymbol{X}\boldsymbol{\theta}}_2^2
+	+ \lambda\norm{\boldsymbol{\theta}}_1
+\end{equation}
+
+This problem, because of the presence of an absolute value, is not differentiable for any $\theta_i = 0$. Hence, it cannot be solved via analytical expressions. For this reason, we can apply the gradient descent methods of above for solving the LASSO problem. 
+
+\subsubsection{Considerations on LASSO regression}
+In Figure \ref{fig:lasso} we can clearly observe that the L1-term of LASSO regression has a stronger impact the the Ridge's L2-term on the fit, by comparing the curves of same $\lambda$ with the ones of Figure \ref{fig:ridge}
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{lasso}
+	\caption{\textbf{Lasso regression} | With a Gradient Descent, 100000 iterations and $\eta = 10^{-4}$}
+	\label{fig:lasso}
+\end{figure*}
+
+\subsection{Stochastic Gradient Descent}
+
+\subsubsection{Theory}
+One of the main problems of regular Gradient Descent is that, with high dimensionalities and with high complexity, running the algorithm can take a large amount of time. Stochastic Gradient Descent (SGD) partially fix this issue by performing the approximation, at each iteration, only on a subset of the former input dataset, called \emph{minibatch}. The simplest case of SGD is the one where we compute the gradient on one sample only at each iteration.
+
+Given that the gradient of the cost function can be expressed in terms of the sum of the gradients of every cost function $c_i$ computed for the respective $\bold{x}_i$ (\emph{i.e.}, row of the design matrix):
+
+\begin{equation}
+	\grad_\theta C(\mathbf{\theta}) = \sum_i^n \grad_\theta c_i(\mathbf{x}_i,
+	\mathbf{\theta})
+\end{equation}
+
+By taking the gradient on a random subset of the data $B_k$, we effectively add stochasticity to the algorithm. If $M$ is the size of the minibatches, $n$ the former dimensionality of the dataset, then $m = n/M$ is the number of minibatches:
+
+\begin{equation}
+\grad_{\theta}
+C(\mathbf{\theta}) = \sum_{i=1}^n \grad_\theta c_i(\mathbf{x}_i,
+\mathbf{\theta}) \rightarrow \sum_{i \in B_k}^n \grad_\theta
+c_i(\mathbf{x}_i, \mathbf{\theta})
+\end{equation}
+
+Thus, at each step the update becomes:
+
+\begin{equation}
+	\theta_{j+1} = \theta_j - \eta_j \sum_{i \in B_k}^n \grad_\theta c_i(\mathbf{x}_i,
+	\mathbf{\theta})
+\end{equation}
+
+The advantage of taking random samples at each iteration has the following advantages:
+\begin{itemize}
+	\item it accelerates the algorithm;
+	\item it adds noise to the descent "path" followed by the algorithm, decreasing the probability to be stuck in local minima.
+\end{itemize}
+
+\subsubsection{Implementation}
+
+The iteration scheme consists of first iterate over the number of \texttt{M}-sized minibatches \texttt{m}, then repeat the loop for a number of times called \emph{epochs}. One epoch correspond to the iteration over every single minibatch. A pseudocode can possibly be:
+
+\begin{python}
+	for epoch in range(epochs):
+		for i in range(m):
+			# pick M random samples 
+			# = create minibatch Bk
+			k = M * random_index
+			# compute grad of data in Bk
+			# update
+\end{python}
+
+This is fully implemented in a function \texttt{theta\_sgd\_mom}, which is very similar to \texttt{theta\_gd\_mom}, a part from the fact that it incorporates this loop scheme at the beginning.
+
+\section{Bias -- Variance decomposition and tradeoff, resampling techniques}
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=12cm]{BVtradeoff111}
+	\caption{\textbf{Bias-Variance tradeoff} | Obtained with bootstrapping}
+	\label{fig:bvt}
+\end{figure*}
+
+\subsection{Theory}
+In order to have a proper understanding of how the total accumulated error of a model evolves as a function of the model complexity, a decomposition of this error is necessary.
+
+The total error (the cost function, namely) is expressed as:
+\begin{equation}
+	C(\boldsymbol{X},\boldsymbol{\theta}) = \frac{1}{n}\sum_{i=0}^{n-1}(y_i-\tilde{y}_i)^2 = \mathbb{E}\left[(\boldsymbol{y}-\boldsymbol{\tilde{y}})^2\right]
+\end{equation}
+
+where $\mathbb{E}\left[(\boldsymbol{y}-\boldsymbol{\tilde{y}})^2\right]$ is the expectation value of the error.
+This last expression can be rewritten in terms of the true function of $\boldsymbol{x}$ and its error, $\boldsymbol{y} + \boldsymbol{\epsilon}$:
+
+\begin{equation}
+	\mathbb{E}\left[(\boldsymbol{y}+\boldsymbol{\epsilon}-\boldsymbol{\tilde{y}})^2\right]
+\end{equation}
+
+By adding and subtracting $\mathbb{E}[\tilde{\boldsymbol{y}}]$, we obtain:
+
+\begin{equation}
+	\mathbb{E}\left[(\boldsymbol{y}-\boldsymbol{\tilde{y}})^2\right]=\mathbb{E}\left[(\boldsymbol{y}+\boldsymbol{\epsilon}-\boldsymbol{\tilde{y}}+\mathbb{E}\left[\boldsymbol{\tilde{y}}\right]-\mathbb{E}\left[\boldsymbol{\tilde{y}}\right])^2\right]
+\end{equation}
+
+and by expanding the second degree polynomial we obtain the following expression:
+
+\[
+	\small
+	\begin{aligned} \mathbb{E}\!\left[\!\left(\boldsymbol{y} - \mathbb{E}[\hat{\boldsymbol{y}}] + \mathbb{E}[\hat{\boldsymbol{y}}] - \hat{\boldsymbol{y}} + \boldsymbol{\epsilon}\right)^2\!\right] =\\ (\boldsymbol{y}-\mathbb{E}[\hat{\boldsymbol{y}}])^2 + \mathbb{E}\!\left[(\hat{\boldsymbol{y}}-\mathbb{E}[\hat{\boldsymbol{y}}])^2\right] + \mathbb{E}[\boldsymbol{\epsilon}^2] \\[2pt] \quad + 2\,\mathbb{E}\!\left[\boldsymbol{y}-\mathbb{E}[\hat{\boldsymbol{y}}])(\mathbb{E}[\hat{\boldsymbol{y}}]-\hat{\boldsymbol{y}})\right] \\[2pt] \quad + 2\,\mathbb{E}\!\left[\boldsymbol{\epsilon}(\boldsymbol{y}-\mathbb{E}[\hat{\boldsymbol{y}}])\right] + 2\,\mathbb{E}\!\left[\boldsymbol{\epsilon}(\mathbb{E}[\hat{\boldsymbol{y}}]-\hat{\boldsymbol{y}})\right]
+	\end{aligned}
+\]
+
+All the cross terms can be simplified, because \\ $\mathbb{E}[\hat{ \boldsymbol{y}} - \mathbb{E}[\hat{ \boldsymbol{y}}]] = 0$ and $\mathbb{E}[\boldsymbol{\epsilon}] = 0$, and we assume $\boldsymbol{\epsilon}$ is independent of $\hat{\boldsymbol{y}}$. Therefore we obtain
+\[
+\mathbb{E}\left[(\boldsymbol{y} -\hat{\boldsymbol{y}})^2\right]
+=(\boldsymbol{y}-\mathbb{E}[\hat{\boldsymbol{y}}])^2
++ \mathbb{E}\left[(\hat{\boldsymbol{y}} -\mathbb{E}[\hat{\boldsymbol{y}}])^2\right]
++ \sigma^2.
+\]
+
+where $\sigma^2$ is the noise variance, the irreducible error.
+In this expression we can distinguish the three following terms:
+
+\begin{equation} \label{eq:errdec}
+	\mathbb{E}\left[(\boldsymbol{y} -\hat{\boldsymbol{y}})^2\right] = \mathrm{Bias}^2 + \mathrm{Variance} + \sigma^2
+\end{equation}
+
+We could define the \emph{bias} as the inability of a model to reproduce the true value, which is commonly caused by \emph{underfitting}. It is therefore the term that contributes the most to total error when the model complexity is too poor. 
+
+The \emph{variance} is, on the opposite side, a measure of how much the model is influenced by the input data. In case of overfitting, as already previously mentioned, the model becomes very train set - specific, and it will hardly adapt properly to different input samples. 
+
+The aim is, therefore, to asses which degree of complexity is able to minimize the error or, in other words, to represent a good tradeoff between bias and variance. In this section we will look therefore at how the MSE evolves as a function of $p$. To have a more robust and generalized estimator, we will resample the former dataset and compute the MSE on multiple subsets of it, and eventually compute the mean of all the obtained MSEs.
+
+\subsection{Resampling techniques and bias-variance tradeoff}
+In order to run this analysis, two resampling techniques have been employed for resampling the input dataset $\boldsymbol{x}$: the \emph{bootstrap} and the \emph{cross-validation}. 
+
+The \texttt{BiasVarianceTradeoff} is the class we implemented for these purposes. Only the analytical OLS regression has been used to test it.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=14cm]{cv_bv}
+	\caption{\textbf{Cross Validation} | Trends of MSE curves for different number of folds}
+	\label{fig:cv_kfold}
+\end{figure*}
+
+\subsubsection{The bootstrap}
+The idea of the bootstrap is to sample different subsets of the whole input dataset, for a defined number of times (bootstraps), fit the model on these subsets at each iteration and compute the desired statistic on the obtained fit, in our case the MSE.
+A typical pseudocode of the workflow is:
+
+\begin{python}
+	x_train, x_test, y_train, y_test = 
+	train_test_split(x)
+	
+	for boostrap in range(bootstraps):
+		x_sample, y_sample = 
+		resample(x_train, y_train)
+		
+		## fit on x_sample 
+		## predict: compute y_pred_sample 
+		## store the the predicted values in
+			## a matrix of 	shape (number of 
+			## samples, number of bootstraps) 
+\end{python}
+
+This is the core of the \texttt{bootstrap} function that has been implemented in the \texttt{BiasVarianceTradeoff} class. Note that it uses the \texttt{resample} function from \texttt{scikit-learn}, that automatically resamples random values from the former dataset, with the possibility to pick the same value more than once.
+
+The function \texttt{decompose\_mse} decomposes the total MSE in its components (Equation \ref{err:dec}), and finally \texttt{degree\_range\_simul} performs the both the bootstrapping and the decomposition for a defined range of polynomial degrees.
+
+The result of this class's workflow is shown in Figure \ref{fig:bvt}. What was previously explained is here well visible: with simple problems, the bias is the major contributor to the total error. With too complex problems, it is the variance instead.
+
+\subsubsection{Cross validation}
+Cross validation is an other resampling technique that consists of dividing the former dataset in a fixed number $k$ of subsets (\emph{folds}); at any iteration, different combinations of folds are used as training and test sets. Like before, at each iteration the value pf the MSE resulting from the fit performed on the respective train folds is stored, and eventually the average of all the $k$ MSEs will be computed.
+
+A own function \texttt{k\_fold\_cv} has been developed for computing the MSE over $k$ folds (and, therefore, $k$ iterations) and a range of polynomial degrees. This function implements \texttt{scikit-learn}'s \texttt{KFold} for sampling the folds. The resulting MSE trends can be observed in Figure \ref{fig:cv_kfold}. We can see that, in order to obtain a proper range of values for the MSE, a high number of folds is required.
+
+
+\section{Conclusions}
+
+In the frame of this work, several techniques have been implemented in order to study the behavior of regressions model, both with analytical and numerical solutions. In order to assess the effectiveness of the implemented functions, the means squared error MSE and the determination coefficient have been computed. While regular models with analytical solution showed a fairly good response and adaptability to the application of different parameters, iterative methods have shown more numerical stability and runtime issues. A Bias-Variance tradeoff analysis has been performed in order to define the best complexity  -- simplicity tradeoff for a simple Ordinary Least Squares model.
+
+\printbibliography[heading=bibintoc]
+	
+\end{document}
