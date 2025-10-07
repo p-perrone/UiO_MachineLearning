@@ -742,8 +742,8 @@ def k_fold_cv(x, y, k, p_range, regression_method='OLS'):
             lr = LinearRegression_own(intercept=True)           # initialize the LinearRegression_own object
             X_train = lr.polynomial_features(x_train, p)        # transform train set to polynomial features
             X_test = lr.polynomial_features(x_test, p)          # transform test set to polynomial features
-            lr.fit(X_train, y_train, method=regression_method)              # fit model to the i-th bootstrap train sample
-            y_pred = lr.predict(X_test).ravel()          # predict on the same test set at each i-th iteration
+            beta = lr.fit(X_train, y_train, method=regression_method)              # fit model to the i-th bootstrap train sample
+            y_pred = lr.predict(X_test, beta).ravel()          # predict on the same test set at each i-th iteration
 
             cv_mse_matrix[i, j] = np.sum((y_pred - y_test)**2) / np.size(y_pred)
 
