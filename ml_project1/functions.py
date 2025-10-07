@@ -199,14 +199,17 @@ def cost_function(y, X, theta, regression_method='OLS', lbda=0.1):
         Returns:
         :: cost (scalar) = value of the cost function
     """
+    y_pred = X @ theta
+    residuals = y_pred - y.reshape(-1, 1)
+    
     if regression_method == 'OLS':
-        return np.sum((y - X @ theta)**2)
+        return np.sum(residuals**2)
     
     elif regression_method == 'Ridge':
-        return np.sum((y - X @ theta)**2) + lbda * np.sum(theta**2)
+        return np.sum(residuals**2) + lbda * np.sum(theta**2)
     
     elif regression_method == 'Lasso':
-        return np.sum((y - X @ theta)**2) + lbda * np.sum(np.abs(theta))
+        return np.sum(residuals**2) + lbda * np.sum(np.abs(theta))
     
     else:
         raise ValueError(f"`regression_method` must be 'OLS', 'Ridge' or 'Lasso', not {regression_method}")
@@ -549,7 +552,7 @@ def theta_sgd_mom(X, y, regression_method='OLS', eta=1e-3, eta_update_method='Si
 
 
 #--------------------------------
-# THIRD PART: STATTISTICAL ANALYSIS - BIAS-VARIANCE TRADEOFF
+# THIRD PART: STATISTICAL ANALYSIS - BIAS-VARIANCE TRADEOFF
 #--------------------------------
 
 class BiasVarianceTradeoff:
@@ -698,6 +701,57 @@ class BiasVarianceTradeoff:
         plt.tight_layout()
         plt.show()
 
+
+
+def k_fold_cv(x, y, k, p_range, regression_method='OLS'):
+    """ K-Fold type resampling for linear regression and MSE analysis.
+
+        Parameters:
+        :: x (1D array) = input dataset
+        :: y (1D array) = true value to be modeled
+        :: p (int) = polynomial degree
+        :: regression_method (str) = 'OLS' or 'Ridge'
+
+        ------------------------------------------------------------------
+        Returns:
+        :: estimated_mse_array = MSED as a function of p
+
+    """
+    # error for wrong input
+    if regression_method != 'OLS' and regression_method != 'Ridge':
+        raise ValueError(f"'regression_method' must be either 'OLS' or 'Ridge' and not {regression_method}")
+
+    # initialize the K-Folding object from sklearn
+    kfold = KFold(n_splits = k)
+    
+    cv_mse_matrix = np.zeros((len(p_range), k))
+
+    for i, p in enumerate(p_range):
+        
+        for j, (train_inds, test_inds) in enumerate(kfold.split(x)):
+            x_train = x[train_inds]
+            y_train = y[train_inds]
+            x_test = x[test_inds]
+            y_test = y[test_inds]
+
+            scaler = StandardScaler()
+            x_train = scaler.fit_transform(x_train.reshape(-1, 1)).flatten()
+            x_test = scaler.transform(x_test.reshape(-1, 1)).flatten()
+            y_test = y_test.reshape(-1, 1)
+
+            lr = LinearRegression_own(intercept=True)           # initialize the LinearRegression_own object
+            X_train = lr.polynomial_features(x_train, p)        # transform train set to polynomial features
+            X_test = lr.polynomial_features(x_test, p)          # transform test set to polynomial features
+            lr.fit(X_train, y_train, method=regression_method)              # fit model to the i-th bootstrap train sample
+            y_pred = lr.predict(X_test).ravel()          # predict on the same test set at each i-th iteration
+
+            cv_mse_matrix[i, j] = np.sum((y_pred - y_test)**2) / np.size(y_pred)
+
+    estimated_mse_array_KFold = np.mean(cv_mse_matrix, axis = 1)  
+
+
+    return estimated_mse_array_KFold
+
 #--------------------------------
 # TEST PART: TESTING AND VISUALIZATION
 #--------------------------------
@@ -716,7 +770,7 @@ def MSE_R2_pn():
     """
 
     n_range = np.linspace(10, 100000, 10).astype(int)
-    p_range = np.arange(1, 21, 1)
+    p_range = np.arange(1, 26, 1)
 
     MSE_train_matrix = np.zeros((len(n_range), len(p_range)))
     MSE_test_matrix = np.zeros((len(n_range), len(p_range)))
