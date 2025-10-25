@@ -21,11 +21,3 @@ Brief description of Project 2
 
 ### [Project3](./ml_project1/)
 Brief description of Project 3
-
-## Setup
-
-Instructions for setting up the environment...
-
-## Usage
-
-How to use these projects...
