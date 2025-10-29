@@ -737,7 +737,6 @@ def k_fold_cv(x, y, k, p_range, regression_method='OLS'):
 
     estimated_mse_array_KFold = np.mean(cv_mse_matrix, axis = 1)  
 
-
     return estimated_mse_array_KFold
 
 #--------------------------------

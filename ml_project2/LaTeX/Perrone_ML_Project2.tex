@@ -1,0 +1,133 @@
+% ------ PREAMBLE ------ 
+\documentclass[11pt,a4paper,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, french]{babel}
+\usepackage[margin=2cm]{geometry}
+\renewcommand{\baselinestretch}{1.15} 
+
+\usepackage{sansmathfonts}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Sans}
+
+\usepackage{siunitx}
+\sisetup{detect-all,
+	separate-uncertainty = true,
+	uncertainty-separator = {\,\pm\,},
+	multi-part-units=single
+}
+\DeclareSIUnit{\year}{yr}
+\usepackage{physics}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage{amsmath,amsfonts,amssymb}
+\newcommand\inlineeqno{\stepcounter{equation}\ (\theequation)}
+\usepackage{derivative}
+\DeclareDifferential{\dd}{\mathrm{d}}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup{font={small, color={Gray2}}, labelfont={sf, bf}, textfont={sf,sansmath}, labelsep=colon}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{Gray1}{RGB}{101, 101, 101}
+\definecolor{Gray2}{RGB}{60, 60, 60}
+\definecolor{Code}{RGB}{230, 235, 255}
+
+\usepackage[most]{tcolorbox}
+\tcbset{on line, 
+	boxsep=4pt, left=0pt,right=0pt,top=0pt,bottom=0pt,
+	colframe=white,colback=Code,  
+	highlight math style={enhanced}
+}
+\let\oldtexttt\texttt
+\renewcommand{\texttt}[1]{\tcbox{\oldtexttt{#1}}}
+
+\usepackage[colorlinks=true, 
+linkcolor=Plum, 
+citecolor=RoyalBlue, 
+urlcolor=BlueViolet]{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{pdfpages}
+\usepackage{pythonhighlight}
+\usepackage{verbatim}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyhead[L]{\leftmark}
+\fancyfoot[C]{\thepage} 
+
+\title{\bfseries Project 1: Linear regression methods, regularization, resampling\\
+	\normalfont Applied Data Analysis and Machine Learning
+	\\ UiO (FYS-STK4155)}
+\author{
+	\textbf{Pietro PERRONE}\\
+	\href{pietrope@uio.no}{pietrope@uio.no} \\
+}
+\date{October 6, 2025}
+
+% Section formatting
+\usepackage{titlesec}
+\titleformat{\section}
+{\color{RoyalBlue}\titlerule[1.5pt]\LARGE\bfseries\sffamily\color{RoyalBlue}}
+{\thesection}
+{1em}
+{}
+\titleformat{\subsection}
+{\Large\bfseries\sffamily\color{Gray2}}
+{\thesubsection}
+{1em}
+{}
+\titleformat{\subsubsection}
+{\large\bfseries\itshape\color{Gray2}}
+{\thesubsection.\alph{subsubsection}}
+{1em}
+{}
+\titleformat{\paragraph}
+{\normalfont\itshape\color{Gray2}}
+{\theparagraph}
+{1em}
+{}
+
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{UiO_MachineLearning.bib}
+
+% ------ DOCUMENT ------ 
+
+\begin{document}
+	\selectlanguage{english}
+	
+	\begin{titlepage}
+		
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.7\textwidth]{uio.png}
+		\end{figure}
+		
+		\maketitle
+		
+		\centering
+		
+		
+		\textbf{GitHub link to the project repository:\\
+			\url{https://github.com/p-perrone/UiO_MachineLearning/tree/main/ml_project1}}
+		
+		\textbf{Link to DeepSeek chat:\\
+			\url{https://chat.deepseek.com/share/h2ifare1m1c31ud8vf}}
+		
+		\begin{abstract}
+			content...
+		\end{abstract}
+		
+	\end{titlepage}
+	\onecolumn
+	
+	\tableofcontents
+	
+	\twocolumn\
+	
+	\section{Introduction}
+	
+\end{document}
