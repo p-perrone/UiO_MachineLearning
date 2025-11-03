@@ -16,5 +16,178 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{bishop2006_pattern}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9dfd0135a5e80aa6d81cea2c10fb7f73}{%
+           family={Bishop},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{fullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{fullhashraw}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{bibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorbibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authornamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorfullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorfullhashraw}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-387-31073-8}
+      \field{title}{Pattern Recognition and Machine Learning (Information Science and Statistics)}
+      \field{year}{2006}
+      \field{dateera}{ce}
+    \endentry
+    \entry{wang2003_nn}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ca6e764a8226c8a22ddb04184309c089}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Sun-Chong},
+           giveni={S\bibinithyphendelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Springer US}%
+      }
+      \strng{namehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{fullhash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{fullhashraw}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{bibnamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorbibnamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authornamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorfullhash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorfullhashraw}{ca6e764a8226c8a22ddb04184309c089}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Inspired by the sophisticated functionality of human brains where hundreds of billions of interconnected neurons process information in parallel, researchers have successfully tried demonstrating certain levels of intelligence on silicon. Examples include language translation and pattern recognition software. While simulation of human consciousness and emotion is still in the realm of science fiction, we, in this chapter, consider artificial neural networks as universal function approximators. Especially, we introduce neural networks which are suited for time series forecasts.}
+      \field{booktitle}{Interdisciplinary Computing in Java Programming}
+      \field{isbn}{978-1-4615-0377-4}
+      \field{title}{Artificial Neural Network}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \field{pages}{81\bibrangedash 100}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/978-1-4615-0377-4_5
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-1-4615-0377-4_5
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-1-4615-0377-4_5
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{bishop2006_pattern}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9dfd0135a5e80aa6d81cea2c10fb7f73}{%
+           family={Bishop},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{fullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{fullhashraw}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{bibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorbibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authornamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorfullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorfullhashraw}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-387-31073-8}
+      \field{title}{Pattern Recognition and Machine Learning (Information Science and Statistics)}
+      \field{year}{2006}
+      \field{dateera}{ce}
+    \endentry
+    \entry{wang2003_nn}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ca6e764a8226c8a22ddb04184309c089}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Sun-Chong},
+           giveni={S\bibinithyphendelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Springer US}%
+      }
+      \strng{namehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{fullhash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{fullhashraw}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{bibnamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorbibnamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authornamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorfullhash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorfullhashraw}{ca6e764a8226c8a22ddb04184309c089}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Inspired by the sophisticated functionality of human brains where hundreds of billions of interconnected neurons process information in parallel, researchers have successfully tried demonstrating certain levels of intelligence on silicon. Examples include language translation and pattern recognition software. While simulation of human consciousness and emotion is still in the realm of science fiction, we, in this chapter, consider artificial neural networks as universal function approximators. Especially, we introduce neural networks which are suited for time series forecasts.}
+      \field{booktitle}{Interdisciplinary Computing in Java Programming}
+      \field{isbn}{978-1-4615-0377-4}
+      \field{title}{Artificial Neural Network}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \field{pages}{81\bibrangedash 100}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/978-1-4615-0377-4_5
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-1-4615-0377-4_5
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-1-4615-0377-4_5
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

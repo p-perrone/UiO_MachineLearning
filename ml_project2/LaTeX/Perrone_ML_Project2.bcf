@@ -3071,6 +3071,8 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">UiO_MachineLearning.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
+    <bcf:citekey order="1" intorder="1">wang2003_nn</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">bishop2006_pattern</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

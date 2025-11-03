@@ -1,9 +1,19 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
-[1] Config.pm:331> INFO - Logfile is 'Perrone_ML_Project2.blg'
-[607] biber-MSWIN64:342> INFO - === 
-[759] Biber.pm:421> INFO - Reading 'Perrone_ML_Project2.bcf'
-[1320] Biber.pm:1002> INFO - Found 0 citekeys in bib section 0
-[1407] bbl.pm:676> INFO - Writing 'Perrone_ML_Project2.bbl' with encoding 'UTF-8'
-[1407] bbl.pm:779> INFO - Output to Perrone_ML_Project2.bbl
-[1408] Biber.pm:132> WARN - The file 'Perrone_ML_Project2.bcf' does not contain any citations!
-[1409] Biber.pm:134> INFO - WARNINGS: 1
+[0] Config.pm:331> INFO - Logfile is 'Perrone_ML_Project2.blg'
+[231] biber-MSWIN64:342> INFO - === 
+[319] Biber.pm:421> INFO - Reading 'Perrone_ML_Project2.bcf'
+[437] Biber.pm:1002> INFO - Found 2 citekeys in bib section 0
+[454] Biber.pm:4487> INFO - Processing section 0
+[487] Biber.pm:4678> INFO - Looking for bibtex file 'UiO_MachineLearning.bib' for section 0
+[550] bibtex.pm:1713> INFO - LaTeX decoding ...
+[579] bibtex.pm:1519> INFO - Found BibTeX data source 'UiO_MachineLearning.bib'
+[756] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[757] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[757] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'fr-FR'
+[757] Biber.pm:4313> INFO - No sort tailoring available for locale 'fr-FR'
+[771] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[771] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[772] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'fr-FR'
+[772] Biber.pm:4313> INFO - No sort tailoring available for locale 'fr-FR'
+[836] bbl.pm:676> INFO - Writing 'Perrone_ML_Project2.bbl' with encoding 'UTF-8'
+[838] bbl.pm:779> INFO - Output to Perrone_ML_Project2.bbl

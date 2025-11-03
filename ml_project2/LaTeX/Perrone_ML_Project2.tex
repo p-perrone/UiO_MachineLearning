@@ -59,14 +59,14 @@ urlcolor=BlueViolet]{hyperref}
 \fancyhead[L]{\leftmark}
 \fancyfoot[C]{\thepage} 
 
-\title{\bfseries Project 1: Linear regression methods, regularization, resampling\\
+\title{\bfseries Project 2: Building a Neural Network code\\
 	\normalfont Applied Data Analysis and Machine Learning
 	\\ UiO (FYS-STK4155)}
 \author{
 	\textbf{Pietro PERRONE}\\
 	\href{pietrope@uio.no}{pietrope@uio.no} \\
 }
-\date{October 6, 2025}
+\date{November 10, 2025}
 
 % Section formatting
 \usepackage{titlesec}
@@ -129,11 +129,15 @@ urlcolor=BlueViolet]{hyperref}
 	\twocolumn\
 	
 \section{Introduction}
+An Artificial Neural Network is a computational model that emulates the functioning of human brain, in the way it can process several informations in parallel, resulting in a form of "intelligence" \parencite{wang2003_nn}. 
 
+A typical Neural Network (NN) is represented in Figure \ref{fig:nn}. It generally consists of connected units, called, \emph{nodes} or \emph{neurons}. Every node receive a specific \emph{signal}, \emph{i.e.} a real number, from its connected node. Nodes can be regrouped in specific layers, and the signal travels from the input layer to the output layer, passing through an arbitrary number of \emph{hidden layers} \parencite{bishop2006_pattern}.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{nn.pdf}
+	\caption{\textbf{Neural Network} | A typical structure.}
+	\label{fig:nn}
 \end{figure}
 
 \section{Theory and methods}	
