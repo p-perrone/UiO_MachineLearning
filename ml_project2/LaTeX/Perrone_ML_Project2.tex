@@ -131,7 +131,11 @@ urlcolor=BlueViolet]{hyperref}
 \section{Introduction}
 An Artificial Neural Network is a computational model that emulates the functioning of human brain, in the way it can process several informations in parallel, resulting in a form of "intelligence" \parencite{wang2003_nn}. 
 
-A typical Neural Network (NN) is represented in Figure \ref{fig:nn}. It generally consists of connected units, called, \emph{nodes} or \emph{neurons}. Every node receive a specific \emph{signal}, \emph{i.e.} a real number, from its connected node. Nodes can be regrouped in specific layers, and the signal travels from the input layer to the output layer, passing through an arbitrary number of \emph{hidden layers} \parencite{bishop2006_pattern}.
+A typical Neural Network (NN) is represented in Figure \ref{fig:nn}. It generally consists of connected units, called, \emph{nodes} or \emph{neurons}. Every node receives a specific \emph{signal}, \emph{i.e.} a real number, from its connected node. Nodes can be regrouped in specific layers, and the signal travels from the input layer to the output layer, passing through an arbitrary number of \emph{hidden layers} \parencite{bishop2006_pattern}. Before being transmitted from one layer to the following one, the signal is modulated by an non-linear function, called \emph{activation function}, which can be specified for each layer.
+
+The simplest possible neural network is given by the \emph{perceptron model}, conceived by \cite{rosenblatt1958_perceptron}. It is a type of linear classifier, that takes binary inputs, weights these by real numbers and yields a binary output. It is 
+
+
 
 \begin{figure}
 	\centering
