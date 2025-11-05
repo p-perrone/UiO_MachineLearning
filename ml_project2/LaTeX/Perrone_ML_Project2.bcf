@@ -3079,6 +3079,7 @@
     <bcf:citekey order="6" intorder="1">goodfellow_2016</bcf:citekey>
     <bcf:citekey order="7" intorder="1">cybenko1989_approx</bcf:citekey>
     <bcf:citekey order="8" intorder="1">hornik1991_approximation</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">goodfellow_2016</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">
