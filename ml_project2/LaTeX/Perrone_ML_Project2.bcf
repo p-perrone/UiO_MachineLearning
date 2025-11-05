@@ -3073,7 +3073,11 @@
   <bcf:section number="0">
     <bcf:citekey order="1" intorder="1">wang2003_nn</bcf:citekey>
     <bcf:citekey order="2" intorder="1">bishop2006_pattern</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">rosenblatt1958_perceptron</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">goodfellow_2016</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">rosenblatt1958_perceptron</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">haykin1994_ml</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">goodfellow_2016</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">cybenko1989_approx</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

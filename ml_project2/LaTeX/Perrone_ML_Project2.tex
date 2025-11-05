@@ -41,6 +41,14 @@
 }
 \let\oldtexttt\texttt
 \renewcommand{\texttt}[1]{\tcbox{\oldtexttt{#1}}}
+\usepackage{framed}
+\usepackage{amsthm}
+\theoremstyle{plain}% default
+\newtheorem{prototheorem}{Theorem}[section]
+
+\newenvironment{theorem}
+{\colorlet{shadecolor}{orange!15}\begin{shaded}\begin{prototheorem}}
+		{\end{prototheorem}\end{shaded}}
 
 \usepackage[colorlinks=true, 
 linkcolor=Plum, 
@@ -131,11 +139,14 @@ urlcolor=BlueViolet]{hyperref}
 \section{Introduction}
 An Artificial Neural Network is a computational model that emulates the functioning of human brain, in the way it can process several informations in parallel, resulting in a form of "intelligence" \parencite{wang2003_nn}. 
 
-A typical Neural Network (NN) is represented in Figure \ref{fig:nn}. It generally consists of connected units, called, \emph{nodes} or \emph{neurons}. Every node receives a specific \emph{signal}, \emph{i.e.} a real number, from its connected node. Nodes can be regrouped in specific layers, and the signal travels from the input layer to the output layer, passing through an arbitrary number of \emph{hidden layers} \parencite{bishop2006_pattern}. Before being transmitted from one layer to the following one, the signal is modulated by an non-linear function, called \emph{activation function}, which can be specified for each layer.
+A typical Neural Network (NN) is represented in Figure \ref{fig:nn}. It generally consists of connected units, called, \emph{nodes} or \emph{neurons}. Every node receives a specific \emph{signal}, \emph{i.e.} a real number, from its connected node. Nodes can be regrouped in specific layers, and the signal travels from the input layer to the output layer, passing through an arbitrary number of \emph{hidden layers} \parencite{bishop2006_pattern}. Before being transmitted from one layer to the following one, the signal is modulated by an non-linear function, called \emph{activation function}, which can be specified for each layer. Formally, a NN transforms an input vector $\bold{x} \in \mathbb{R}^d$ into an output vector $\bold{y}$ through successive linear transformations, where every node is multiplied by \emph{weights}, and activation functions \parencite{goodfellow_2016}. The weights are the parameters used in a NN for approximating the target function or dataset. The multiplication of each node's value is usually followed by the addition of a real number (a \emph{bias}), in order to avoid the transmission of zero-signals throughout the network. A cost function is usually computed at the end, in order to assess the agreement between the target and output prediction of the NN.
 
-The simplest possible neural network is given by the \emph{perceptron model}, conceived by \cite{rosenblatt1958_perceptron}. It is a type of linear classifier, that takes binary inputs, weights these by real numbers and yields a binary output. It is 
+The simplest possible neural network is given by the \emph{perceptron model}, conceived by \cite{rosenblatt1958_perceptron}. It is a type of linear classifier, that takes binary inputs, weights these by real numbers and yields a binary output.
+More complicated neural networks can generally support a higher number of layers and nodes, accept a multidimensional input and yield a non-binary output. In this project, particularly, we focus on so called \emph{multilayer perceptrons} (MLPs). An other type of neural network can be the \emph{feed-forward} neural network (FFNN). In this model, the signal is transmitted always in a single direction, forward through the layers, from the input to the output. If each node in a layer is connected to all the other nodes in the following layer, this correspond to a \emph{fully connected} FFNN \parencite{haykin1994_ml}. The operation by which the weights and biases are optimized is called \emph{backpropagation}, that consists of calculating  the gradients of the cost function with respect to weights and biases starting from the last layer; a training can then be performed in order to minimize this gradients and find the optimal values of these parameters, using optimization algorithms such as gradient descent \parencite{goodfellow_2016}.
 
+The aim of this project is to build a NN code in Python, that could perform both forward feeding and backpropagation. We will test this model initially on a simple 1-dimensional dataset, given by a cluster of samples computed with the Runge function for an input array $\boldsymbol{x} \in [-1, 1]$. Several types of activation functions and layers depths will be tested.
 
+A more complicated fit will be then performed on a dataset of handwritten digits, the \href{https://www.kaggle.com/datasets/hojjatk/mnist-dataset}{MNIST-784}. This consists of \num{70000} digits samples, each of size $28 \times 28$ pixels. The objective will be to train the coded NN to make it recognize and classify correctly these digits. An analysis of the goodness of such classification will also be performed.
 
 \begin{figure}
 	\centering
@@ -144,11 +155,42 @@ The simplest possible neural network is given by the \emph{perceptron model}, co
 	\label{fig:nn}
 \end{figure}
 
-\section{Theory and methods}	
+\section{Theory and methods}
 
-\section{Materials and data}
+\subsection{The universal approximation theorem}
+The cornerstone of the Neural Networks theory in machine learning is the \emph{universal approximation theorem}. The formulation by \parencite{cybenko1989_approx} states that:
+\begin{theorem}
+	Let $\sigma$ be any continuous sigmoidal function such that:
+	\[
+	\sigma(z) = \left\{\begin{array}{cl} 
+		1 & z\rightarrow \infty\\ 
+		0 & z\rightarrow -\infty 
+		\end{array}\right.
+	\]
+	Given a continuous and deterministic function $F(\boldsymbol{x})$ on the unit
+	cube in $d$-dimensions $F\in [0,1]^d$, $x\in [0,1]^d$ and a parameter
+	$\epsilon >0$, there is a one-(hidden) layer neural network
+	$f(\boldsymbol{x};\boldsymbol{\Theta})$ with weights and biases $\boldsymbol{\Theta}=(\boldsymbol{W},\boldsymbol{b})$ and $\boldsymbol{W}\in
+	\mathbb{R}^{m\times n}$ and $\boldsymbol{b}\in \mathbb{R}^{n}$, for which
+	\[
+	\vert F(\boldsymbol{x})-f(\boldsymbol{x};\boldsymbol{\Theta})\vert < \epsilon \hspace{0.1cm} \forall \boldsymbol{x}\in[0,1]^d.
+	\]
+\end{theorem}
+
+In other words, 
 
 \subsection{Structure of a Neural Network}
+As stated previously, the most generalized structure of a typical neural network consists of an input layer, a given number of hidden layers and an output layer. In every layer $l$ each node is modulated by the weights and biases, which corresponds to the parameters of this model:
+\begin{equation}
+	\boldsymbol{\Theta}^{(l)}=(\boldsymbol{W}^{(l)},\boldsymbol{b}^{(l)})
+\end{equation}
+and scaled by and activation function.
+
+In other words, any continuous function $y=F(\boldsymbol{x})$ supported on the unit cube in
+$d$-dimensions can be approximated by a one-layer sigmoidal network to
+arbitrary accuracy and errors.
+
+
 
 \subsubsection{Activation functions}
 
