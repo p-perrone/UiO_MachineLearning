@@ -1,0 +1,603 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{bishop2006_pattern}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9dfd0135a5e80aa6d81cea2c10fb7f73}{%
+           family={Bishop},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{fullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{fullhashraw}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{bibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorbibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authornamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorfullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorfullhashraw}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-387-31073-8}
+      \field{title}{Pattern Recognition and Machine Learning (Information Science and Statistics)}
+      \field{year}{2006}
+      \field{dateera}{ce}
+    \endentry
+    \entry{cybenko1989_approx}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=743aed8cb3e0d5dddafd15fc0421d6eb}{%
+           family={Cybenko},
+           familyi={C\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{fullhash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{fullhashraw}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{bibnamehash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{authorbibnamehash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{authornamehash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{authorfullhash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{authorfullhashraw}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper we demonstrate that finite linear combinations of compositions of a fixed, univariate function and a set of affine functionals can uniformly approximate any continuous function ofn real variables with support in the unit hypercube; only mild conditions are imposed on the univariate function. Our results settle an open question about representability in the class of single hidden layer neural networks. In particular, we show that arbitrary decision regions can be arbitrarily well approximated by continuous feedforward neural networks with only a single internal, hidden layer and any continuous sigmoidal nonlinearity. The paper discusses approximation properties of other possible types of nonlinearities that might be implemented by artificial neural networks.}
+      \field{day}{1}
+      \field{issn}{1435-568X}
+      \field{journaltitle}{Mathematics of Control, Signals and Systems}
+      \field{month}{12}
+      \field{number}{4}
+      \field{shortjournal}{Mathematics of Control, Signals and Systems}
+      \field{title}{Approximation by Superpositions of a Sigmoidal Function}
+      \field{volume}{2}
+      \field{year}{1989}
+      \field{dateera}{ce}
+      \field{pages}{303\bibrangedash 314}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/BF02551274
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/BF02551274
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/BF02551274
+      \endverb
+    \endentry
+    \entry{goodfellow_2016}{inbook}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{fullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{fullhashraw}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{bibnamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorbibnamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authornamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authorfullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorfullhashraw}{3ae53fe582e8a815b118d26947eaa326}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Deep Learning}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.deeplearningbook.org/contents/optimization.html
+      \endverb
+      \verb{url}
+      \verb https://www.deeplearningbook.org/contents/optimization.html
+      \endverb
+    \endentry
+    \entry{haykin1994_ml}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=91e57481898b943d6a72a1deba06a6a9}{%
+           family={Haykin},
+           familyi={H\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {USA}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall PTR}%
+      }
+      \strng{namehash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{fullhash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{fullhashraw}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{bibnamehash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{authorbibnamehash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{authornamehash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{authorfullhash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{authorfullhashraw}{91e57481898b943d6a72a1deba06a6a9}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{From the Publisher:This book represents the most comprehensive treatment available of neural networks from an engineering perspective. Thorough, well-organized, and completely up to date, it examines all the important aspects of this emerging technology, including the learning process, back-propagation learning, radial-basis function networks, self-organizing systems, modular networks, temporal processing and neurodynamics, and VLSI implementation of neural networks. Written in a concise and fluid manner, by a foremost engineering textbook author, to make the material more accessible, this book is ideal for professional engineers and graduate students entering this exciting field. Computer experiments, problems, worked examples, a bibliography, photographs, and illustrations reinforce key concepts.}
+      \field{edition}{1}
+      \field{isbn}{0-02-352761-7}
+      \field{title}{Neural Networks: A Comprehensive Foundation}
+      \field{year}{1994}
+      \field{dateera}{ce}
+    \endentry
+    \entry{hornik1991_approximation}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bec8dd1340457a82c21b54971e4c9417}{%
+           family={Hornik},
+           familyi={H\bibinitperiod},
+           given={Kurt},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{fullhash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{fullhashraw}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{bibnamehash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{authorbibnamehash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{authornamehash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{authorfullhash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{authorfullhashraw}{bec8dd1340457a82c21b54971e4c9417}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Networks}
+      \field{number}{2}
+      \field{title}{Approximation Capabilities of Multilayer Feedforward Networks}
+      \field{volume}{4}
+      \field{year}{1991}
+      \field{dateera}{ce}
+      \field{pages}{251\bibrangedash 257}
+      \range{pages}{7}
+    \endentry
+    \entry{rosenblatt1958_perceptron}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1750cd87a34d44119e7a4aab9b8012c6}{%
+           family={Rosenblatt},
+           familyi={R\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{fullhash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{fullhashraw}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{bibnamehash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{authorbibnamehash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{authornamehash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{authorfullhash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{authorfullhashraw}{1750cd87a34d44119e7a4aab9b8012c6}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychological Review}
+      \field{number}{6}
+      \field{title}{The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain}
+      \field{volume}{65}
+      \field{year}{1958}
+      \field{dateera}{ce}
+      \field{pages}{386\bibrangedash 408}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1037/h0042519
+      \endverb
+    \endentry
+    \entry{wang2003_nn}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ca6e764a8226c8a22ddb04184309c089}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Sun-Chong},
+           giveni={S\bibinithyphendelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Springer US}%
+      }
+      \strng{namehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{fullhash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{fullhashraw}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{bibnamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorbibnamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authornamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorfullhash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorfullhashraw}{ca6e764a8226c8a22ddb04184309c089}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Inspired by the sophisticated functionality of human brains where hundreds of billions of interconnected neurons process information in parallel, researchers have successfully tried demonstrating certain levels of intelligence on silicon. Examples include language translation and pattern recognition software. While simulation of human consciousness and emotion is still in the realm of science fiction, we, in this chapter, consider artificial neural networks as universal function approximators. Especially, we introduce neural networks which are suited for time series forecasts.}
+      \field{booktitle}{Interdisciplinary Computing in Java Programming}
+      \field{isbn}{978-1-4615-0377-4}
+      \field{title}{Artificial Neural Network}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \field{pages}{81\bibrangedash 100}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/978-1-4615-0377-4_5
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-1-4615-0377-4_5
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-1-4615-0377-4_5
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{bishop2006_pattern}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9dfd0135a5e80aa6d81cea2c10fb7f73}{%
+           family={Bishop},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{fullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{fullhashraw}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{bibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorbibnamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authornamehash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorfullhash}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \strng{authorfullhashraw}{9dfd0135a5e80aa6d81cea2c10fb7f73}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-387-31073-8}
+      \field{title}{Pattern Recognition and Machine Learning (Information Science and Statistics)}
+      \field{year}{2006}
+      \field{dateera}{ce}
+    \endentry
+    \entry{cybenko1989_approx}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=743aed8cb3e0d5dddafd15fc0421d6eb}{%
+           family={Cybenko},
+           familyi={C\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{fullhash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{fullhashraw}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{bibnamehash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{authorbibnamehash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{authornamehash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{authorfullhash}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \strng{authorfullhashraw}{743aed8cb3e0d5dddafd15fc0421d6eb}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper we demonstrate that finite linear combinations of compositions of a fixed, univariate function and a set of affine functionals can uniformly approximate any continuous function ofn real variables with support in the unit hypercube; only mild conditions are imposed on the univariate function. Our results settle an open question about representability in the class of single hidden layer neural networks. In particular, we show that arbitrary decision regions can be arbitrarily well approximated by continuous feedforward neural networks with only a single internal, hidden layer and any continuous sigmoidal nonlinearity. The paper discusses approximation properties of other possible types of nonlinearities that might be implemented by artificial neural networks.}
+      \field{day}{1}
+      \field{issn}{1435-568X}
+      \field{journaltitle}{Mathematics of Control, Signals and Systems}
+      \field{month}{12}
+      \field{number}{4}
+      \field{shortjournal}{Mathematics of Control, Signals and Systems}
+      \field{title}{Approximation by Superpositions of a Sigmoidal Function}
+      \field{volume}{2}
+      \field{year}{1989}
+      \field{dateera}{ce}
+      \field{pages}{303\bibrangedash 314}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/BF02551274
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/BF02551274
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/BF02551274
+      \endverb
+    \endentry
+    \entry{goodfellow_2016}{inbook}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{fullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{fullhashraw}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{bibnamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorbibnamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authornamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authorfullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorfullhashraw}{3ae53fe582e8a815b118d26947eaa326}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Deep Learning}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.deeplearningbook.org/contents/optimization.html
+      \endverb
+      \verb{url}
+      \verb https://www.deeplearningbook.org/contents/optimization.html
+      \endverb
+    \endentry
+    \entry{haykin1994_ml}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=91e57481898b943d6a72a1deba06a6a9}{%
+           family={Haykin},
+           familyi={H\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {USA}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall PTR}%
+      }
+      \strng{namehash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{fullhash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{fullhashraw}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{bibnamehash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{authorbibnamehash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{authornamehash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{authorfullhash}{91e57481898b943d6a72a1deba06a6a9}
+      \strng{authorfullhashraw}{91e57481898b943d6a72a1deba06a6a9}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{From the Publisher:This book represents the most comprehensive treatment available of neural networks from an engineering perspective. Thorough, well-organized, and completely up to date, it examines all the important aspects of this emerging technology, including the learning process, back-propagation learning, radial-basis function networks, self-organizing systems, modular networks, temporal processing and neurodynamics, and VLSI implementation of neural networks. Written in a concise and fluid manner, by a foremost engineering textbook author, to make the material more accessible, this book is ideal for professional engineers and graduate students entering this exciting field. Computer experiments, problems, worked examples, a bibliography, photographs, and illustrations reinforce key concepts.}
+      \field{edition}{1}
+      \field{isbn}{0-02-352761-7}
+      \field{title}{Neural Networks: A Comprehensive Foundation}
+      \field{year}{1994}
+      \field{dateera}{ce}
+    \endentry
+    \entry{hornik1991_approximation}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bec8dd1340457a82c21b54971e4c9417}{%
+           family={Hornik},
+           familyi={H\bibinitperiod},
+           given={Kurt},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{fullhash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{fullhashraw}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{bibnamehash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{authorbibnamehash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{authornamehash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{authorfullhash}{bec8dd1340457a82c21b54971e4c9417}
+      \strng{authorfullhashraw}{bec8dd1340457a82c21b54971e4c9417}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Networks}
+      \field{number}{2}
+      \field{title}{Approximation Capabilities of Multilayer Feedforward Networks}
+      \field{volume}{4}
+      \field{year}{1991}
+      \field{dateera}{ce}
+      \field{pages}{251\bibrangedash 257}
+      \range{pages}{7}
+    \endentry
+    \entry{rosenblatt1958_perceptron}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1750cd87a34d44119e7a4aab9b8012c6}{%
+           family={Rosenblatt},
+           familyi={R\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{fullhash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{fullhashraw}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{bibnamehash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{authorbibnamehash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{authornamehash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{authorfullhash}{1750cd87a34d44119e7a4aab9b8012c6}
+      \strng{authorfullhashraw}{1750cd87a34d44119e7a4aab9b8012c6}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychological Review}
+      \field{number}{6}
+      \field{title}{The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain}
+      \field{volume}{65}
+      \field{year}{1958}
+      \field{dateera}{ce}
+      \field{pages}{386\bibrangedash 408}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1037/h0042519
+      \endverb
+    \endentry
+    \entry{wang2003_nn}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ca6e764a8226c8a22ddb04184309c089}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Sun-Chong},
+           giveni={S\bibinithyphendelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Springer US}%
+      }
+      \strng{namehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{fullhash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{fullhashraw}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{bibnamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorbibnamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authornamehash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorfullhash}{ca6e764a8226c8a22ddb04184309c089}
+      \strng{authorfullhashraw}{ca6e764a8226c8a22ddb04184309c089}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Inspired by the sophisticated functionality of human brains where hundreds of billions of interconnected neurons process information in parallel, researchers have successfully tried demonstrating certain levels of intelligence on silicon. Examples include language translation and pattern recognition software. While simulation of human consciousness and emotion is still in the realm of science fiction, we, in this chapter, consider artificial neural networks as universal function approximators. Especially, we introduce neural networks which are suited for time series forecasts.}
+      \field{booktitle}{Interdisciplinary Computing in Java Programming}
+      \field{isbn}{978-1-4615-0377-4}
+      \field{title}{Artificial Neural Network}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \field{pages}{81\bibrangedash 100}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/978-1-4615-0377-4_5
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-1-4615-0377-4_5
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-1-4615-0377-4_5
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

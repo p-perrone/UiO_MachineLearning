@@ -2,7 +2,7 @@
 \babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
 \contentsline {section}{\numberline {2}Theory and methods}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}The universal approximation theorem}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}The universal approximation theorem}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Structure of a Neural Network}{3}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Activation functions}{3}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}The Feedforward algorithm}{3}{subsubsection.2.2.2}%

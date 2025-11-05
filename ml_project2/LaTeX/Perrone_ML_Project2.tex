@@ -1,5 +1,5 @@
 % ------ PREAMBLE ------ 
-\documentclass[11pt,a4paper,twocolumn]{article}
+\documentclass[10pt,a4paper,twocolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english, french]{babel}
 \usepackage[margin=2cm]{geometry}
@@ -41,14 +41,10 @@
 }
 \let\oldtexttt\texttt
 \renewcommand{\texttt}[1]{\tcbox{\oldtexttt{#1}}}
-\usepackage{framed}
-\usepackage{amsthm}
-\theoremstyle{plain}% default
-\newtheorem{prototheorem}{Theorem}[section]
+\tcbuselibrary{theorems}
 
-\newenvironment{theorem}
-{\colorlet{shadecolor}{orange!15}\begin{shaded}\begin{prototheorem}}
-		{\end{prototheorem}\end{shaded}}
+\newtcbtheorem[number within=section]{mytheo}{Theorem}%
+{colback=blue!3,colframe=blue!35!white,fonttitle=\bfseries}{th}
 
 \usepackage[colorlinks=true, 
 linkcolor=Plum, 
@@ -158,26 +154,41 @@ A more complicated fit will be then performed on a dataset of handwritten digits
 \section{Theory and methods}
 
 \subsection{The universal approximation theorem}
-The cornerstone of the Neural Networks theory in machine learning is the \emph{universal approximation theorem}. The formulation by \parencite{cybenko1989_approx} states that:
-\begin{theorem}
-	Let $\sigma$ be any continuous sigmoidal function such that:
-	\[
-	\sigma(z) = \left\{\begin{array}{cl} 
-		1 & z\rightarrow \infty\\ 
-		0 & z\rightarrow -\infty 
-		\end{array}\right.
-	\]
-	Given a continuous and deterministic function $F(\boldsymbol{x})$ on the unit
-	cube in $d$-dimensions $F\in [0,1]^d$, $x\in [0,1]^d$ and a parameter
-	$\epsilon >0$, there is a one-(hidden) layer neural network
-	$f(\boldsymbol{x};\boldsymbol{\Theta})$ with weights and biases $\boldsymbol{\Theta}=(\boldsymbol{W},\boldsymbol{b})$ and $\boldsymbol{W}\in
-	\mathbb{R}^{m\times n}$ and $\boldsymbol{b}\in \mathbb{R}^{n}$, for which
-	\[
-	\vert F(\boldsymbol{x})-f(\boldsymbol{x};\boldsymbol{\Theta})\vert < \epsilon \hspace{0.1cm} \forall \boldsymbol{x}\in[0,1]^d.
-	\]
-\end{theorem}
+The cornerstone of the Neural Networks theory in machine learning is the \emph{universal approximation theorem}. The formulation by \parencite{cybenko1989_approx} states that:\\
+\newline
+{
+\centering
+\begin{mytheo}{This is my title}{theoexample}
+		Let $\sigma$ be any continuous sigmoidal function such that:
+		\[
+		\lim_{z \to \infty} \sigma(z) = 1 \quad \text{and} \quad \lim_{z \to -\infty} \sigma(z) = 0
+		\]
+		Given a continuous function $F(\boldsymbol{x})$ on the unit cube $[0,1]^d$ and $\epsilon > 0$, there exists a one-hidden-layer neural network $f(\boldsymbol{x};\boldsymbol{\Theta})$ with parameters $\boldsymbol{\Theta} = (\boldsymbol{W}, \boldsymbol{b})$ where $\boldsymbol{W} \in \mathbb{R}^{m \times d}$ and $\boldsymbol{b} \in \mathbb{R}^{m}$, such that
+		\[
+		|F(\boldsymbol{x}) - f(\boldsymbol{x};\boldsymbol{\Theta})| < \epsilon \quad \forall \boldsymbol{x} \in [0,1]^d
+		\]
+	
+\end{mytheo}}
+\newline
 
-In other words, 
+\begin{figure*}
+	\centering
+	\includegraphics[width=12cm]{mnist_cm}
+\end{figure*}
+
+In other words, any continuous function $y=F(\boldsymbol{x})$ supported on the unit cube in
+$d$-dimensions can be approximated by a one-layer sigmoidal network to
+arbitrary accuracy and errors.
+
+A generalization of this theorem to any non-constant, bounded activation function was established by \parencite{hornik1991_approximation}. Dealing with the definition of the expectation value $\mathbb{E}[|F(\boldsymbol{x})|^2]$:
+\begin{equation}
+	\mathbb{E}[|F(\boldsymbol{x})|^2] =\int_{\boldsymbol{x}\in D} |F(\boldsymbol{x})|^2p(\boldsymbol{x})\,d \boldsymbol{x} < \infty.
+\end{equation}
+it was concluded that
+	\begin{multline}
+		\mathbb{E}[|F(\boldsymbol{x})-f(\boldsymbol{x};\boldsymbol{\Theta})|^2] \\
+		=\int_{\boldsymbol{x}\in D} |F(\boldsymbol{x})-f(\boldsymbol{x};\boldsymbol{\Theta})|^2p(\boldsymbol{x})\,d\boldsymbol{x} < \epsilon.
+	\end{multline}
 
 \subsection{Structure of a Neural Network}
 As stated previously, the most generalized structure of a typical neural network consists of an input layer, a given number of hidden layers and an output layer. In every layer $l$ each node is modulated by the weights and biases, which corresponds to the parameters of this model:
@@ -186,10 +197,9 @@ As stated previously, the most generalized structure of a typical neural network
 \end{equation}
 and scaled by and activation function.
 
-In other words, any continuous function $y=F(\boldsymbol{x})$ supported on the unit cube in
-$d$-dimensions can be approximated by a one-layer sigmoidal network to
-arbitrary accuracy and errors.
 
+
+ 
 
 
 \subsubsection{Activation functions}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  5 NOV 2025 10:04
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  5 NOV 2025 13:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-10-09>
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
-File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count271
 \c@section=\count272
@@ -1011,31 +1011,10 @@ File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbposter.code
 .tex
 Library (tcolorbox): 'tcbposter.code.tex' version '6.8.0'
-)) (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty
-Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip61
-\fb@frw=\dimen311
-\fb@frh=\dimen312
-\FrameRule=\dimen313
-\FrameSep=\dimen314
-)
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
-Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks45
-\thm@bodyfont=\toks46
-\thm@headfont=\toks47
-\thm@notefont=\toks48
-\thm@headpunct=\toks49
-\thm@preskip=\skip62
-\thm@postskip=\skip63
-\thm@headsep=\skip64
-\dth@everypar=\toks50
-)
-\c@prototheorem=\count388
-
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+))
+\c@tcb@cnt@mytheo=\count388
+ (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
-
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )
@@ -1069,7 +1048,7 @@ y
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen315
+\@linkdim=\dimen311
 \Hy@linkcounter=\count390
 \Hy@pagecounter=\count391
  (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
@@ -1098,7 +1077,7 @@ Package hyperref Info: Bookmarks ON on input line 4462.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen316
+\XeTeXLinkMargin=\dimen312
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -1109,8 +1088,8 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count394
-\Field@Width=\dimen317
-\Fld@charsize=\dimen318
+\Field@Width=\dimen313
+\Fld@charsize=\dimen314
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -1143,34 +1122,34 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip65
+\Hy@SectionHShift=\skip61
 )
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen319
-\lightrulewidth=\dimen320
-\cmidrulewidth=\dimen321
-\belowrulesep=\dimen322
-\belowbottomsep=\dimen323
-\aboverulesep=\dimen324
-\abovetopsep=\dimen325
-\cmidrulesep=\dimen326
-\cmidrulekern=\dimen327
-\defaultaddspace=\dimen328
+\heavyrulewidth=\dimen315
+\lightrulewidth=\dimen316
+\cmidrulewidth=\dimen317
+\belowrulesep=\dimen318
+\belowbottomsep=\dimen319
+\aboverulesep=\dimen320
+\abovetopsep=\dimen321
+\cmidrulesep=\dimen322
+\cmidrulekern=\dimen323
+\defaultaddspace=\dimen324
 \@cmidla=\count402
 \@cmidlb=\count403
-\@aboverulesep=\dimen329
-\@belowrulesep=\dimen330
+\@aboverulesep=\dimen325
+\@belowrulesep=\dimen326
 \@thisruleclass=\count404
 \@lastruleclass=\count405
-\@thisrulewidth=\dimen331
+\@thisrulewidth=\dimen327
 )
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip66
+\multirow@colwidth=\skip62
 \multirow@cntb=\count406
-\multirow@dima=\skip67
-\bigstrutjot=\dimen332
+\multirow@dima=\skip63
+\bigstrutjot=\dimen328
 )
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
@@ -1185,33 +1164,33 @@ Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
 \calc@Acount=\count407
 \calc@Bcount=\count408
-\calc@Adimen=\dimen333
-\calc@Bdimen=\dimen334
-\calc@Askip=\skip68
-\calc@Bskip=\skip69
+\calc@Adimen=\dimen329
+\calc@Bdimen=\dimen330
+\calc@Askip=\skip64
+\calc@Bskip=\skip65
 LaTeX Info: Redefining \setlength on input line 86.
 LaTeX Info: Redefining \addtolength on input line 87.
 \calc@Ccount=\count409
-\calc@Cskip=\skip70
+\calc@Cskip=\skip66
 )
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
 Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
-\ESO@tempdima=\dimen335
-\ESO@tempdimb=\dimen336
+\ESO@tempdima=\dimen331
+\ESO@tempdimb=\dimen332
 )
-\AM@pagewidth=\dimen337
-\AM@pageheight=\dimen338
-\AM@fboxrule=\dimen339
+\AM@pagewidth=\dimen333
+\AM@pageheight=\dimen334
+\AM@fboxrule=\dimen335
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\ppxetex.def
 File: ppxetex.def 2025/07/23 v0.6g Pdfpages driver for XeTeX (AM)
 )
 \pdfpages@includegraphics@status=\count410
 \AM@pagebox=\box94
-\AM@global@opts=\toks51
+\AM@global@opts=\toks45
 \AM@pagecnt=\count411
-\AM@toc@title=\toks52
-\AM@lof@heading=\toks53
+\AM@toc@title=\toks46
+\AM@lof@heading=\toks47
 \c@AM@survey=\count412
 \AM@templatesizebox=\box95
 )
@@ -1223,21 +1202,21 @@ er Verdier <olivier.verdier@gmail.com>
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 
-\f@nch@headwidth=\skip71
-\f@nch@offset@elh=\skip72
-\f@nch@offset@erh=\skip73
-\f@nch@offset@olh=\skip74
-\f@nch@offset@orh=\skip75
-\f@nch@offset@elf=\skip76
-\f@nch@offset@erf=\skip77
-\f@nch@offset@olf=\skip78
-\f@nch@offset@orf=\skip79
-\f@nch@height=\skip80
-\f@nch@footalignment=\skip81
-\f@nch@widthL=\skip82
-\f@nch@widthC=\skip83
-\f@nch@widthR=\skip84
-\@temptokenb=\toks54
+\f@nch@headwidth=\skip67
+\f@nch@offset@elh=\skip68
+\f@nch@offset@erh=\skip69
+\f@nch@offset@olh=\skip70
+\f@nch@offset@orh=\skip71
+\f@nch@offset@elf=\skip72
+\f@nch@offset@erf=\skip73
+\f@nch@offset@olf=\skip74
+\f@nch@offset@orf=\skip75
+\f@nch@height=\skip76
+\f@nch@footalignment=\skip77
+\f@nch@widthL=\skip78
+\f@nch@widthC=\skip79
+\f@nch@widthR=\skip80
+\@temptokenb=\toks48
 )
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
@@ -1249,14 +1228,14 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \ttl@box=\box96
-\beforetitleunit=\skip85
-\aftertitleunit=\skip86
-\ttl@plus=\dimen340
-\ttl@minus=\dimen341
-\ttl@toksa=\toks55
-\titlewidth=\dimen342
-\titlewidthlast=\dimen343
-\titlewidthfirst=\dimen344
+\beforetitleunit=\skip81
+\aftertitleunit=\skip82
+\ttl@plus=\dimen336
+\ttl@minus=\dimen337
+\ttl@toksa=\toks49
+\titlewidth=\dimen338
+\titlewidthlast=\dimen339
+\titlewidthfirst=\dimen340
 )
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
 Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
@@ -1311,14 +1290,14 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \blx@sectionciteorderinternal@0=\count457
 \blx@entrysetcounter=\count458
 \blx@biblioinstance=\count459
-\labelnumberwidth=\skip87
-\labelalphawidth=\skip88
-\biblabelsep=\skip89
-\bibitemsep=\skip90
-\bibnamesep=\skip91
-\bibinitsep=\skip92
-\bibparsep=\skip93
-\bibhang=\skip94
+\labelnumberwidth=\skip83
+\labelalphawidth=\skip84
+\biblabelsep=\skip85
+\bibitemsep=\skip86
+\bibnamesep=\skip87
+\bibinitsep=\skip88
+\bibparsep=\skip89
+\bibhang=\skip90
 \blx@bcfin=\read5
 \blx@bcfout=\write4
 \blx@langwohyphens=\language80
@@ -1417,20 +1396,20 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@savedcitation=\count538
 \c@pageref=\count539
 \c@savedpageref=\count540
-\shorthandwidth=\skip95
-\shortjournalwidth=\skip96
-\shortserieswidth=\skip97
-\shorttitlewidth=\skip98
-\shortauthorwidth=\skip99
-\shorteditorwidth=\skip100
-\locallabelnumberwidth=\skip101
-\locallabelalphawidth=\skip102
-\localshorthandwidth=\skip103
-\localshortjournalwidth=\skip104
-\localshortserieswidth=\skip105
-\localshorttitlewidth=\skip106
-\localshortauthorwidth=\skip107
-\localshorteditorwidth=\skip108
+\shorthandwidth=\skip91
+\shortjournalwidth=\skip92
+\shortserieswidth=\skip93
+\shorttitlewidth=\skip94
+\shortauthorwidth=\skip95
+\shorteditorwidth=\skip96
+\locallabelnumberwidth=\skip97
+\locallabelalphawidth=\skip98
+\localshorthandwidth=\skip99
+\localshortjournalwidth=\skip100
+\localshortserieswidth=\skip101
+\localshorttitlewidth=\skip102
+\localshortauthorwidth=\skip103
+\localshorteditorwidth=\skip104
 Package biblatex Info: Trying to load enhanced support for Unicode engines...
 Package biblatex Info: ... file 'blx-unicode.def' found.
 
@@ -1533,52 +1512,52 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (Perrone_ML_Project2.aux)
 \openout1 = `Perrone_ML_Project2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmssm/m/it on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmssm/m/it on input line 103.
 LaTeX Font Info:    Trying to load font information for OML+cmssm on input line
- 107.
+ 103.
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\omlcmssm.f
 d
 File: omlcmssm.fd 2024/10/15
 )
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsssy/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMS/cmsssy/m/n on input line 103.
 LaTeX Font Info:    Trying to load font information for OMS+cmsssy on input lin
-e 107.
+e 103.
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\omscmsssy.
 fd
 File: omscmsssy.fd 2024/10/15
 )
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmssex/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMX/cmssex/m/n on input line 103.
 LaTeX Font Info:    Trying to load font information for OMX+cmssex on input lin
-e 107.
+e 103.
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\omxcmssex.
 fd
 File: omxcmssex.fd 2024/10/15
 )
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmss/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for U/cmss/m/n on input line 103.
 LaTeX Font Info:    Trying to load font information for U+cmss on input line 10
-7.
+3.
  (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/base\ucmss.fd
 File: ucmss.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1599,12 +1578,12 @@ LaTeX Font Info:    ... okay on input line 107.
 * \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=11.0pt
+* \topskip=10.0pt
 * \footskip=30.0pt
 * \marginparwidth=4.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1614,16 +1593,16 @@ LaTeX Font Info:    ... okay on input line 107.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 107.
+LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 103.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 107.
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 103.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 107.
-LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 107.
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 103.
+LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 103.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `normal'
-(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 107.
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 103.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
-(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 107.
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 103.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -1631,64 +1610,64 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 107.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 107.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 107.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 107.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 107.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 107.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 107.
-LaTeX Font Info:    Redeclaring math accent \check on input line 107.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 107.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 107.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 107.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 107.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 107.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 103.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 103.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 103.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 103.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 103.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 103.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 103.
+LaTeX Font Info:    Redeclaring math accent \check on input line 103.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 103.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 103.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 103.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 103.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 103.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 107.
+(Font)              `operators' in the math version `normal' on input line 103.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmsmf/m/n --> TU/LatinModernSans(0)/m/n on input li
-ne 107.
+ne 103.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 107.
+(Font)              `operators' in the math version `bold' on input line 103.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmsmf/bx/n --> TU/LatinModernSans(0)/m/n on input l
-ine 107.
+ine 103.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/LatinModernSans(0)/m/n --> TU/LatinModernSans(0)/m/n
- on input line 107.
+ on input line 103.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmsmf/m/it --> TU/LatinModernSans(0)/m/it on input 
-line 107.
+line 103.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmsmf/bx/n --> TU/LatinModernSans(0)/b/n on input l
-ine 107.
+ine 103.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmsmf/m/n --> TU/lmss/m/n on input line 107.
+(Font)                  OT1/cmsmf/m/n --> TU/lmss/m/n on input line 103.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 107.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 103.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/LatinModernSans(0)/m/n --> TU/LatinModernSans(0)/b/n
- on input line 107.
+ on input line 103.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmsmf/bx/it --> TU/LatinModernSans(0)/b/it on input
- line 107.
+ line 103.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmsmf/m/n --> TU/lmss/b/n on input line 107.
+(Font)                  OT1/cmsmf/m/n --> TU/lmss/b/n on input line 103.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 107.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 103.
 
 Package siunitx Warning: Detected the "physics" package:
 (siunitx)                omitting definition of \qty.
@@ -1707,7 +1686,7 @@ File: translations-basic-dictionary-french.trsl (french translation file `trans
 lations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `french'. on input line 107.
+or `french'. on input line 103.
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\trans
 lations-basic-dictionary-english.trsl
@@ -1715,10 +1694,10 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 107.
+or `english'. on input line 103.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: Option `font=sansmath' requires the `sansmath' package on
- input line 107.
+ input line 103.
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmath\sansmath.sty
 Package: sansmath 2007/02/28  ver 1.1 Donald Arseneau
@@ -1746,7 +1725,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count555
-Package hyperref Info: Link coloring ON on input line 107.
+Package hyperref Info: Link coloring ON on input line 103.
 
 (Perrone_ML_Project2.out) (Perrone_ML_Project2.out)
 \@outlinefile=\write5
@@ -1823,18 +1802,18 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Perrone_ML_Project2.bbl' found.
  (Perrone_ML_Project2.bbl)
-Package biblatex Info: Reference section=0 on input line 107.
-Package biblatex Info: Reference segment=0 on input line 107.
+Package biblatex Info: Reference section=0 on input line 103.
+Package biblatex Info: Reference segment=0 on input line 103.
 File: images/uio.png Graphic file (type bmp)
 <images/uio.png>
 LaTeX Font Info:    Trying to load font information for U+ssmsa on input line 1
-18.
+14.
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\ussmsa.fd
 File: ussmsa.fd 2024/10/15
 )
 LaTeX Font Info:    Trying to load font information for U+ssmsb on input line 1
-18.
+14.
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\ussmsb.fd
 File: ussmsb.fd 2024/10/15
 )
@@ -1848,54 +1827,42 @@ File: ussmsb.fd 2024/10/15
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
 [1
 
 
 ]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 142.
+d on input line 138.
 
 
 
 File: images/nn.pdf Graphic file (type pdf)
 <images/nn.pdf>
 
-Underfull \hbox (badness 2781) in paragraph at lines 160--160
+Underfull \hbox (badness 2781) in paragraph at lines 156--156
 |[]\TU/lmss/bx/n/14.4 The universal approximation
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 157--173
+
+ []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 157--173
 
+ []
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+File: images/mnist_cm.pdf Graphic file (type pdf)
+<images/mnist_cm.pdf>
+
 
 [2
 
 ]
 
 
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3] (Perrone_ML_Project2.aux)
  ***********
@@ -1904,22 +1871,17 @@ L3 programming layer <2025-10-09>
  ***********
 Package rerunfilecheck Info: File `Perrone_ML_Project2.out' has not changed.
 (rerunfilecheck)             Checksum: 5020D017BE0005283585E8C12E54A644;1624.
-
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
 Package logreq Info: Writing requests to 'Perrone_ML_Project2.run.xml'.
 \openout1 = `Perrone_ML_Project2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50001 strings out of 403196
- 1115462 string characters out of 5456127
- 2217677 words of memory out of 5000000
- 77852 multiletter control sequences out of 15000+600000
- 641135 words of font info for 125 fonts, out of 8000000 for 9000
+ 49935 strings out of 403196
+ 1115047 string characters out of 5456127
+ 2219541 words of memory out of 5000000
+ 77789 multiletter control sequences out of 15000+600000
+ 641130 words of font info for 124 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,11n,101p,1388b,5949s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,12n,101p,1388b,5949s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on Perrone_ML_Project2.pdf (4 pages).
