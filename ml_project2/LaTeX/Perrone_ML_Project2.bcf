@@ -3080,6 +3080,10 @@
     <bcf:citekey order="7" intorder="1">cybenko1989_approx</bcf:citekey>
     <bcf:citekey order="8" intorder="1">hornik1991_approximation</bcf:citekey>
     <bcf:citekey order="9" intorder="1">goodfellow_2016</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">hastie_stat2009</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">goodfellow_2016</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">tieleman2012rmsprop</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">kingma:adam</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

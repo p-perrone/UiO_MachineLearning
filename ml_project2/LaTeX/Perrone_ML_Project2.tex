@@ -202,7 +202,7 @@ it was concluded that
 \begin{figure*}
 	\centering
 	\includegraphics[width=12cm]{simple_percptr.pdf}
-	\caption{\textbf{Simple perceptron mode} | In blue the different layers, in orange the functions.}
+	\caption{\textbf{Simple perceptron model} | In blue the different layers, in orange the functions.}
 	\label{fig:simpleperc}
 \end{figure*}
 
@@ -242,9 +242,9 @@ We denote by
 \[
 (\bs{a}\lr)\T = (a_1\lr, a_2\lr, \dots, a_{m_l}\lr)
 \]
-the vector of activations at layer $l$, 
+the vector of activations at layer $(l)$, 
 where $m_l$ is the number of neurons in that layer.
-These activations serve as input to the next layer $l+1$.
+These activations serve as input to the next layer $(l+1)$.
 
 For a given neuron $j$ in layer $l$, the pre-activation value is
 \begin{equation} \label{eq:ff}
@@ -259,21 +259,22 @@ Here, we have
 \begin{itemize}
 	\item $\bs{A}^{(l-1)} \in \R{n \times m_{l-1}}$ : 
 	activations (outputs) from the previous layer, 
-	where $n$ is the number of samples and $m_{l-1}$ is the number of neurons in layer $l-1$;
+	where $n$ is the number of samples and $m_{l-1}$ is the number of neurons in layer $(l-1)$;
 	
 	\item $\bs{W}\lr \in \R{m_{l-1} \times m_l}$ : 
-	weight matrix connecting layer $l-1$ to layer $l$;
+	weight matrix connecting layer $(l-1)$ to layer $(l)$;
 	
 	\item $\bs{b}\lr \in \R{1 \times m_l}$ : 
-	bias vector for layer $l$, added to the the $n$ samples during computation.
+	bias vector for layer $(l)$, added to the the $n$ samples during computation.
 	
 	\item $\bs{A}\lr \in \R{n \times m_l}$ : 
-	activations of layer $l$, obtained after applying the activation function elementwise to $\bs{Z}\lr$:
+	activations of layer $(l)$, obtained after applying the activation function elementwise to $\bs{Z}\lr$:
 	\[
 	\bs{A}\lr = f\lr(\bs{Z}\lr)
 	\]
 \end{itemize}
 
+\paragraph{Implementation}
 A possible psudocode for such algorithm could be:
 \begin{algorithm}
 	\color{BlueViolet}
@@ -295,7 +296,7 @@ A possible psudocode for such algorithm could be:
 
 
 \subsubsection{The Backpropagation algorithm}
-A consistent result from the NN calculations can only be achieved with properly trained parameters $\bs{W}$ and $\bs{b}$. As in every machine learning, the optimization of such parameters can be performed by minimizing the gradient of the cost function with respect to these same. \emph{Backpropagation} is the operation of calculating these gradients. For the layer $l$:
+A consistent result from the NN calculations can only be achieved with properly trained parameters $\bs{W}$ and $\bs{b}$. As in every machine learning algorithm, the optimization of such parameters can be performed by minimizing the gradient of the cost function with respect to these same. \emph{Backpropagation} is the operation of calculating these gradients. For the layer $l$:
 \begin{equation}
 	\grad{\C({\bs{\Theta}\lr})} = \begin{bmatrix}
 		\partial_{\bs{W}\lr} \C\\
@@ -325,7 +326,7 @@ The two derivatives respectively correspond to:
 	= a_j^{(L)} \bigl(1 - a_j^{(L)}\bigr) a_i^{(L-1)}.
 \end{align}
 
-The overall derivative, then reads:
+The overall derivative, then, reads:
 \begin{equation}
 	\pdv{\C(\bs{\Theta}^{(L)})}{w_{ij}^{(L)}} 
 	= \bigl(a_j^{(L)} - y_j\bigr) \, a_j^{(L)} \bigl(1 - a_j^{(L)}\bigr) \, a_i^{(L-1)}.
@@ -337,11 +338,11 @@ In order to simplify the formalism, we can define an auxiliary factor $\bs{\delt
 	= f'\bigl(z_j^{(L)}\bigr) \pdv{\C}{a_j^{(L)}}
 \end{equation}
 and, using vector notation again, we have:
-\begin{equation}
-	\bs{\delta}^{(L)} = f'(\bs{Z}^{(L)}) \circ \pdv{\C}{\bs{A}^{(L)}}
+\begin{equation}\label{eq:deltaL}
+	\bs{\delta}^{(L)} = f'(\bs{Z}^{(L)}) \odot \pdv{\C}{\bs{A}^{(L)}}
 \end{equation}
-where $\circ$ represents the element-wise (Hadamard) product.
-Finally, we can write the derivative of the cost function with respect to the weights of the last layer is equal to:
+where $\odot$ represents the element-wise (Hadamard) product.
+Finally, we can write the derivative of the cost function with respect to the weights of the last layer:
 \begin{equation}
 	\pdv{\C(\bs{\Theta}^{(L)})}{w_{ij}^{(L)}} = \delta_j^{(L)} a_i^{(L-1)}
 \end{equation}
@@ -352,11 +353,93 @@ For the biases, the expression can be similarly derived:
 \end{equation}
 since the only difference from the derivative with respect to the weights is the term $\displaystyle \pdv{z_j^{(L)}}{b_j^{(L)}}$, which is, in this case, equal to 1. We then have the expression of the gradient of the cost with respect to the parameters of the last layer.
 
-In order to obtain the expression of backpropagation at a generic layer 
+In order to obtain the expression of backpropagation at a generic layer, we can first generalize the auxiliary factor $\bs{\delta}$ at layer $l$. Expanding Equation \eqref{eq:deltaL}, we have:
+\begin{multline*}
+\bs{\delta\lr} = \left(f\lr\right)' \odot \left(\bs{W}^{(l+1)}\right)\T \cdot \left(f^{(l+1)}\right)' \odot \cdots\\
+\cdots \odot \left( \bs{W}^{(L-1)} \right)\T \cdot \left(f^{(L-1)}\right)' \odot \left(\bs{W}^{(L)}\right) \cdot \left(f^{(L)}\right)' \odot \grad \C(\bs{A}^{(L)})
+\end{multline*}
+And, specifically,
+\[
+	\delta_j^{(l)} 
+	= \sum_k 
+	\pdv{\C}{z_k^{(l+1)}} 
+	\pdv{z_k^{(l+1)}}{z_j^{(l)}} 
+	= \sum_k 
+	\delta_k^{(l+1)} 
+	\pdv{z_k^{(l+1)}}{z_j^{(l)}}
+\]
+which basically corresponds to the application of the chain rule recursively from layer $(l+1)$ to layer $(l)$. $k$ refers to the index of any node in layers $(l+1)$. Recalling equation \eqref{eq:ff}, we can finally derive a general expression for $\delta\lr$:
+\begin{equation}
+	\delta_j\lr \;=\; \sum_k \delta_k^{(l+1)}\, w_{kj}^{(l+1)}\, f'\bigl(z_j\lr\bigr)
+\end{equation}
+and in vector notation:
+\[
+\bs{\delta}\lr = \bs{\delta}^{(l+1)} \bs{W}^{(l+1)} f'(\bs{Z}\lr)
+\]
+Finally, the gradient of the cost function with respect to weights and biases at layer $(l)$ can be expressed as follows:
+\begin{equation}
+	\grad{\C(\bs{\Theta}\lr)} = 
+	\begin{bmatrix}
+		\partial_{\bs{W}\lr} \C\\
+		\partial_{\bs{b}\lr} \C
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\bs{\delta}\lr \bs{A}^{(l-1)} \\
+		\bs{\delta}\lr
+	\end{bmatrix}.
+\end{equation}
+
+\paragraph{Implementation}
+Note that, in order to run backpropagation, the feedforward algorithm A possible pseudocode for the backpropagation algorithm could be:
+\begin{algorithm}
+	\color{BlueViolet}
+	\caption{Backpropagation}\label{alg:bp}
+	\begin{algorithmic}[1]
+		\Require Feedforward activations $\{\bs{A}\lr\}_{l=0}^L$, pre-activations $\{\bs{Z}\lr\}_{l=1}^L$, weights $\{\bs{W}\lr\}_{l=1}^L$, cost $\C$
+		\Ensure Gradients $\grad{\C(\bs{\Theta}\lr)}$
+		
+		\State Initialize $\bs{\delta}\lr = \mathbf{0}$ for all $l$
+		\State $L \gets$ number of layers
+		
+		\State \Comment{Compute output layer error}
+		\State $\bs{\delta}^{(L)} \gets \pdv{\C}{\bs{A}^{(L)}} \odot f^{(L)'}(\bs{Z}^{(L)})$
+		
+		\For{$l = L-1$ down to $1$}
+		\State $\bs{\delta}\lr \gets (\bs{\delta}^{(l+1)} \bs{W}^{(l+1)\T}) \odot f^{(l)'}(\bs{Z}\lr)$
+		\EndFor
+		
+		\State \Comment{Compute gradients for weights and biases}
+		\For{$l = 1$ to $L$}
+		\State $\pdv{\C}{\bs{W}\lr} \gets (\bs{A}^{(l-1)})\T \bs{\delta}\lr$
+		\State $\pdv{\C}{\bs{b}\lr} \gets \sum_i \bs{\delta}\lr_i$
+		\EndFor
+		
+		\State \Return $\left\{ \pdv{\C}{\bs{W}\lr}, \pdv{\C}{\bs{b}\lr} \right\}_{l=1}^L$
+	\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Training the Neural Network}
+Once the gradients have been computed, then the NN can be trained. The optimization can be performed by minimizing the gradients iteratively with machinery such as the gradient descent algorithm \parencite{hastie_stat2009}. This method has been more deeply explained in project 1's report. However, we will recall its basis and apply its formalism to NNs.
+
+At each iterations of the gradient descent, the backpropagation (and, implicitly, the feedforward) algorithms must be called. The update rule is then given by, for each node $j$ at layer $(l)$:
+\begin{align*}
+w_{ij}\lr &\leftarrow  w_{ij}\lr- \eta \delta_j\lr a_i^{(l-1)}\\
+b_j\lr &\leftarrow b_j\lr-\eta \delta_j\lr
+\end{align*}
+with $\eta$ the learning rate.
+
+In the frame of this project, we will use Stochastic Gradient Descent, as it allows a much faster learning with bigger input datasets and multi-layer networks \parencite{goodfellow_2016}. We will test three different approach to the definition of learning rate:
+\begin{itemize}
+	\item constant learning rate throughout the iterations;
+	\item learning rate update with the root mean of squared gradients: RMSProp \parencite{tieleman2012rmsprop};
+	\item learning rate update with a combination of gradients mving averages and momentum: ADAM \parencite{kingma:adam}.
+\end{itemize}
+
+
 
 \subsubsection{Activation functions}
 
-\subsubsection{Training the Neural Network}
 
 \subsection{Cost functions}
 	

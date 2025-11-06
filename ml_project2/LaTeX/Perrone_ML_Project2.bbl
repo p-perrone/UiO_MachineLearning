@@ -150,6 +150,53 @@
       \verb https://www.deeplearningbook.org/contents/optimization.html
       \endverb
     \endentry
+    \entry{hastie_stat2009}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=0cb8fe4210baa81c4b0e67913b4d2768}{%
+           family={Hastie},
+           familyi={H\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=88eea600247d798f8b2ce0b2dc614492}{%
+           family={Tibshirani},
+           familyi={T\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=971cf69058b64a94326dea0f2a8bbcce}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={Jerome},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{45eb7d473651da447f1d77717e7f8650}
+      \strng{fullhash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{fullhashraw}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{bibnamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authorbibnamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authornamehash}{45eb7d473651da447f1d77717e7f8650}
+      \strng{authorfullhash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authorfullhashraw}{7ca1bfe876d5e037b6aed69704221267}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-387-84857-0 978-0-387-84858-7}
+      \field{title}{The {{Elements}} of {{Statistical Learning}}}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-0-387-84858-7
+      \endverb
+    \endentry
     \entry{haykin1994_ml}{book}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=91e57481898b943d6a72a1deba06a6a9}{%
@@ -223,6 +270,51 @@
       \field{pages}{251\bibrangedash 257}
       \range{pages}{7}
     \endentry
+    \entry{kingma:adam}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b6fbd171848aad4edf3925543f1f1522}{%
+           family={Kingma},
+           familyi={K\bibinitperiod},
+           given={Diederik\bibnamedelima P.},
+           giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8aa66e8231cc2fdbe67aa4f18ca970c6}{%
+           family={Ba},
+           familyi={B\bibinitperiod},
+           given={Jimmy},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{fullhash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{fullhashraw}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{bibnamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorbibnamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authornamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorfullhash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorfullhashraw}{a09df9f123146b8e2c7f1134c9496932}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{{{ADAM}}: A Method for Stochastic Optimization}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb 1412.6980
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1412.6980
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1412.6980
+      \endverb
+    \endentry
     \entry{rosenblatt1958_perceptron}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=1750cd87a34d44119e7a4aab9b8012c6}{%
@@ -257,6 +349,50 @@
       \range{pages}{23}
       \verb{doi}
       \verb 10.1037/h0042519
+      \endverb
+    \endentry
+    \entry{tieleman2012rmsprop}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=4b0706fb6d9bde8b2af7eb6c09d43846}{%
+           family={Tieleman},
+           familyi={T\bibinitperiod},
+           given={Tijmen},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a8750ccdb2a4cf14d2655face1ce016}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{fullhash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{fullhashraw}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{bibnamehash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{authorbibnamehash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{authornamehash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{authorfullhash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{authorfullhashraw}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{COURSERA: Neural Networks for Machine Learning}
+      \field{title}{Lecture 6.5 - {{RMSProp}}: {{Divide}} the Gradient by a Running Average of Its Recent Magnitude}
+      \field{volume}{4}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \field{pages}{26\bibrangedash 31}
+      \range{pages}{6}
+      \verb{urlraw}
+      \verb https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf
       \endverb
     \endentry
     \entry{wang2003_nn}{inbook}{}{}
@@ -440,6 +576,53 @@
       \verb https://www.deeplearningbook.org/contents/optimization.html
       \endverb
     \endentry
+    \entry{hastie_stat2009}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=0cb8fe4210baa81c4b0e67913b4d2768}{%
+           family={Hastie},
+           familyi={H\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=88eea600247d798f8b2ce0b2dc614492}{%
+           family={Tibshirani},
+           familyi={T\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=971cf69058b64a94326dea0f2a8bbcce}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={Jerome},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{45eb7d473651da447f1d77717e7f8650}
+      \strng{fullhash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{fullhashraw}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{bibnamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authorbibnamehash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authornamehash}{45eb7d473651da447f1d77717e7f8650}
+      \strng{authorfullhash}{7ca1bfe876d5e037b6aed69704221267}
+      \strng{authorfullhashraw}{7ca1bfe876d5e037b6aed69704221267}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-387-84857-0 978-0-387-84858-7}
+      \field{title}{The {{Elements}} of {{Statistical Learning}}}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.1007/978-0-387-84858-7
+      \endverb
+    \endentry
     \entry{haykin1994_ml}{book}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=91e57481898b943d6a72a1deba06a6a9}{%
@@ -513,6 +696,51 @@
       \field{pages}{251\bibrangedash 257}
       \range{pages}{7}
     \endentry
+    \entry{kingma:adam}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b6fbd171848aad4edf3925543f1f1522}{%
+           family={Kingma},
+           familyi={K\bibinitperiod},
+           given={Diederik\bibnamedelima P.},
+           giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8aa66e8231cc2fdbe67aa4f18ca970c6}{%
+           family={Ba},
+           familyi={B\bibinitperiod},
+           given={Jimmy},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{fullhash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{fullhashraw}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{bibnamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorbibnamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authornamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorfullhash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorfullhashraw}{a09df9f123146b8e2c7f1134c9496932}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{{{ADAM}}: A Method for Stochastic Optimization}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb 1412.6980
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1412.6980
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1412.6980
+      \endverb
+    \endentry
     \entry{rosenblatt1958_perceptron}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=1750cd87a34d44119e7a4aab9b8012c6}{%
@@ -547,6 +775,50 @@
       \range{pages}{23}
       \verb{doi}
       \verb 10.1037/h0042519
+      \endverb
+    \endentry
+    \entry{tieleman2012rmsprop}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=4b0706fb6d9bde8b2af7eb6c09d43846}{%
+           family={Tieleman},
+           familyi={T\bibinitperiod},
+           given={Tijmen},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a8750ccdb2a4cf14d2655face1ce016}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{fullhash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{fullhashraw}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{bibnamehash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{authorbibnamehash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{authornamehash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{authorfullhash}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \strng{authorfullhashraw}{d5791ac93dcae4cf16cf47808a2ce33d}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{COURSERA: Neural Networks for Machine Learning}
+      \field{title}{Lecture 6.5 - {{RMSProp}}: {{Divide}} the Gradient by a Running Average of Its Recent Magnitude}
+      \field{volume}{4}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \field{pages}{26\bibrangedash 31}
+      \range{pages}{6}
+      \verb{urlraw}
+      \verb https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf
       \endverb
     \endentry
     \entry{wang2003_nn}{inbook}{}{}

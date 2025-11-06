@@ -7,8 +7,10 @@
 \contentsline {subsubsection}{\numberline {2.2.1}The Feed-forward algorithm}{3}{subsubsection.2.2.1}%
 \contentsline {paragraph}{Simple perceptron model with 1-D input}{3}{subsubsection.2.2.1}%
 \contentsline {paragraph}{Generalization to a multi-layer network with multiple inputs}{3}{equation.5}%
+\contentsline {paragraph}{Implementation}{3}{equation.7}%
 \contentsline {subsubsection}{\numberline {2.2.2}The Backpropagation algorithm}{4}{subsubsection.2.2.2}%
 \contentsline {paragraph}{Formalism of backpropagation}{4}{equation.8}%
-\contentsline {subsubsection}{\numberline {2.2.3}Activation functions}{4}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Training the Neural Network}{5}{subsubsection.2.2.4}%
+\contentsline {paragraph}{Implementation}{5}{equation.18}%
+\contentsline {subsubsection}{\numberline {2.2.3}Training the Neural Network}{5}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Activation functions}{5}{subsubsection.2.2.4}%
 \contentsline {subsection}{\numberline {2.3}Cost functions}{5}{subsection.2.3}%
