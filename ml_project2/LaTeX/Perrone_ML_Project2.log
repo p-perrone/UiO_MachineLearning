@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  6 NOV 2025 15:01
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  7 NOV 2025 14:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1861,26 +1861,29 @@ File: ussmsb.fd 2024/10/15
 ]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 150.
+d on input line 151.
 
 
 
 File: images/nn.pdf Graphic file (type pdf)
 <images/nn.pdf>
 
-Underfull \hbox (badness 2781) in paragraph at lines 168--168
+Underfull \hbox (badness 2781) in paragraph at lines 169--169
 |[]\TU/lmss/bx/n/14.4 The universal approximation
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--185
+Underfull \hbox (badness 10000) in paragraph at lines 170--186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--185
+Underfull \hbox (badness 10000) in paragraph at lines 170--186
 
  []
+
+
+Underfull \vbox (badness 3396) has occurred while \output is active []
 
 
 
@@ -1892,57 +1895,80 @@ File: images/simple_percptr.pdf Graphic file (type pdf)
 
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 281.
+put line 282.
 
 
 [3]
 
 
-Overfull \hbox (11.94437pt too wide) detected at line 360
+Overfull \hbox (11.94437pt too wide) detected at line 361
  []$[] [] \OMS/cmsssy/m/n/10 ^^L [][] ^^A [][] ^^L [] ^^A [][] ^^L []C\OT1/cmr/
 m/n/10 ([][])  $ 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 399--400
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
 []\TU/LatinModernSans(0)/m/n/10 Feedforward activations $\OMS/cmsssy/m/n/10 f[]
 []g[]$\TU/LatinModernSans(0)/m/n/10 , pre-
  []
 
 
-Underfull \hbox (badness 3872) in paragraph at lines 399--400
+Underfull \hbox (badness 3872) in paragraph at lines 400--401
 \TU/LatinModernSans(0)/m/n/10 activations $\OMS/cmsssy/m/n/10 f[][]g[]$\TU/Lati
 nModernSans(0)/m/n/10 , weights $\OMS/cmsssy/m/n/10 f[][]g[]$\TU/LatinModernSan
 s(0)/m/n/10 , cost
  []
 
 
+Underfull \vbox (badness 2088) has occurred while \output is active []
 
 
 
-[5] (Perrone_ML_Project2.aux)
+[4]
+File: images/activation_functions.pdf Graphic file (type pdf)
+<images/activation_functions.pdf>
+
+
+
+
+[5]
+Underfull \vbox (badness 1087) has occurred while \output is active []
+
+
+
+
+Underfull \vbox (badness 1629) has occurred while \output is active []
+
+
+
+[6]
+Overfull \hbox (15.7165pt too wide) detected at line 570
+[][][][]\OT1/cmr/m/n/10 ([]\OML/cmssm/m/it/10 ; []; []\OT1/cmr/m/n/10 ) = \OMS/
+cmsssy/m/n/10 ^^@[] [] []
+ []
+
+
+
+
+
+[7] (Perrone_ML_Project2.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-10-09>
  ***********
 Package rerunfilecheck Info: File `Perrone_ML_Project2.out' has not changed.
-(rerunfilecheck)             Checksum: 37F853B5E72D3C965D262D51224BCF64;1629.
+(rerunfilecheck)             Checksum: 14988AF5A29A1D7572FAFE89C2FC3D70;2158.
 Package logreq Info: Writing requests to 'Perrone_ML_Project2.run.xml'.
 \openout1 = `Perrone_ML_Project2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50530 strings out of 403196
- 1124758 string characters out of 5456127
- 2236230 words of memory out of 5000000
- 78374 multiletter control sequences out of 15000+600000
+ 50588 strings out of 403196
+ 1126772 string characters out of 5456127
+ 2240261 words of memory out of 5000000
+ 78431 multiletter control sequences out of 15000+600000
  641130 words of font info for 124 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,13n,101p,1382b,5949s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,13n,101p,1600b,5949s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Perrone_ML_Project2.pdf (6 pages).
+Output written on Perrone_ML_Project2.pdf (8 pages).

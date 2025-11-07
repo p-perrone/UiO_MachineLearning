@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english, french]{babel}
 \usepackage[margin=2cm]{geometry}
-\renewcommand{\baselinestretch}{1.15} 
+\renewcommand{\baselinestretch}{1} 
 
 \usepackage{sansmathfonts}
 \usepackage{fontspec}
@@ -127,10 +127,12 @@ urlcolor=BlueViolet]{hyperref}
 		
 		
 		\textbf{GitHub link to the project repository:\\
-			\url{https://github.com/p-perrone/UiO_MachineLearning/tree/main/ml_project1}}
+			\url{https://github.com/p-perrone/UiO_MachineLearning/tree/main/ml_project2}}
 		
 		\textbf{Link to DeepSeek chat:\\
 			\url{https://chat.deepseek.com/share/h2ifare1m1c31ud8vf}}
+		
+		\vspace{2cm}
 		
 		\begin{abstract}
 			content...
@@ -141,8 +143,7 @@ urlcolor=BlueViolet]{hyperref}
 	
 	\tableofcontents
 	
-	\twocolumn\
-
+	\twocolumn
 
 \section{Introduction}
 An Artificial Neural Network is a computational model that emulates the functioning of human brain, in the way it can process several informations in parallel, resulting in a form of "intelligence" \parencite{wang2003_nn}. 
@@ -429,18 +430,149 @@ b_j\lr &\leftarrow b_j\lr-\eta \delta_j\lr
 \end{align*}
 with $\eta$ the learning rate.
 
-In the frame of this project, we will use Stochastic Gradient Descent, as it allows a much faster learning with bigger input datasets and multi-layer networks \parencite{goodfellow_2016}. We will test three different approach to the definition of learning rate:
+In the frame of this project, we will use Stochastic Gradient Descent, as it allows a much faster learning with bigger input datasets and multi-layer networks \parencite{goodfellow_2016}. This method consists in performing the learning on a different subset of the whole dataset (\emph{batch}) at each iteration, randomly defined and of constant size $m$. The iterative training scheme is summarized in the following pseudocode. Training is performed over all batches, which are defined by a shuffled index, and repeated for a number of iterations referred to as \emph{epochs}.
+\begin{algorithm}
+	\color{BlueViolet}
+	\caption{Stochastic Gradient Descent training}
+	\begin{algorithmic}[1]
+		\Require training data $\bs{X}, \bs{y}$, cost $\C$, learning rate $\eta$
+		\Ensure optimized parameters
+		\For{each epoch}
+		\State shuffle indices for batches
+		\For{each batch $(\bold{x}_b, \bold{y}_b)$}
+		\State backpropagate $\bs{g} \leftarrow \grad{\C(\bs{\Theta})}$
+		\State update parameters $\bs{\Theta} \leftarrow \bs{\Theta} - \eta \bs{g}$
+		\EndFor
+		\EndFor
+		\State \Return $\bs{\Theta}$
+	\end{algorithmic}
+\end{algorithm}
+
+We will test three different approach to the definition of the learning rate:
 \begin{itemize}
 	\item constant learning rate throughout the iterations;
-	\item learning rate update with the root mean of squared gradients: RMSProp \parencite{tieleman2012rmsprop};
-	\item learning rate update with a combination of gradients mving averages and momentum: ADAM \parencite{kingma:adam}.
+	\item learning rate update with the root means of squared gradients: RMSProp \parencite{tieleman2012rmsprop};
+	\item learning rate update with a combination of gradients moving averages and momentum: ADAM \parencite{kingma:adam}.
 \end{itemize}
 
+\subsection{Activation functions}
+So far, we addressed the activation function of the specific layer $(l)$ with a general expression $f\lr$. Depending on the objective of the model and the types of used data, different activation function can actually be employed. We will present five of these, that will be used in our code. In Figure \ref{fig:af} all these activation functions have been plotted, to compare their trends.
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{activation_functions.pdf}
+	\caption{\textbf{Activation functions} | A representation of each function}
+	\label{fig:af}
+\end{figure*}
 
+\subsubsection{Activation functions and numerical instabilities}
+Some of this functions have been found to cause numerical instabilities. During backpropagation, the gradients can get smaller and smaller as the algorithm progresses down to the first hidden layers. As a result, the gradient descent update leaves the gradients of the lower hidden layers basically unchanged, causing the algorithm to never converge to a consistent solution. This is known in the literature as \emph{vanishing gradients problem} \parencite{hochreiter1991_untersuchungen}. The opposite problem can also occur if the gradients exponentially grow from the last layer to the lower ones; in this case, we talk about \emph{exploding gradients} \parencite{philipp2018_explgrads}. Recently, a study from \cite{glorot2010_trainingdiff} stated that most of this numerical instabilities were caused by a improper random initialization of the weights at the beginning of backpropagation.
 
-\subsubsection{Activation functions}
+\subsubsection{Employed activation functions}
+\paragraph{Rectified Linear Unit (ReLU)}
+The ReLU activation is defined as:
+\begin{equation}
+	\text{ReLU}(z) = \max(0, z)
+\end{equation}
+and its derivative reads
+\begin{equation}
+	\text{ReLU}'(z) = \begin{cases} 
+		1 & \text{if } z > 0 \\
+		0 & \text{if } z \leq 0 
+	\end{cases}
+\end{equation}
+ReLU avoids vanishing gradients for positive inputs and is computationally efficient \parencite{nair2010_relu}. However, it can suffer from "dying ReLU" problems where neurons become inactive \parencite{maas2013_leakyrelu}.
 
+\paragraph{Leaky ReLU}
+The Leaky ReLU is defined as:
+\begin{equation}
+	\text{LeakyReLU}(z) = \begin{cases} 
+		z & \text{if } z > 0 \\
+		\alpha z & \text{if } z \leq 0 
+	\end{cases}
+\end{equation}
+and its derivative reads
+\begin{equation}
+	\text{LeakyReLU}'(z) = \begin{cases} 
+		1 & \text{if } z > 0 \\
+		\alpha & \text{if } z \leq 0 
+	\end{cases}
+\end{equation}
+where $\alpha$ is a small positive constant (typically 0.01). This activation prevents dead neurons by allowing a small gradient when $z \leq 0$, thanks to the modulation of parameter $\alpha$ \parencite{maas2013_leakyrelu}.
+
+\paragraph{Exponential Linear Unit (ELU)}
+The ELU activation is defined as:
+\begin{equation}
+	\text{ELU}(z) = \begin{cases} 
+		z & \text{if } z >  \\
+		\alpha(e^z - 1) & \text{if } z \leq 0 
+	\end{cases}
+\end{equation}
+and its derivative reads
+\begin{equation}
+	\text{ELU}'(z) = \begin{cases} 
+		1 & \text{if } z > 0 \\
+		\text{ELU}(z) + \alpha & \text{if } z \leq 0 
+	\end{cases}
+\end{equation}
+where $\alpha$ is now typically set to 1.0. ELU smooths the transition around $z = 0$ and helps with vanishing gradients while maintaining negative values to push mean activations closer to zero \parencite{clevert2015_elu}.
+
+\paragraph{Logistic sigmoid}
+The S-shaped sigmoid (also known as \emph{logit}) is given by:
+\begin{equation}
+	\sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{1 + e^z}
+\end{equation}
+and its derivative reads
+\begin{equation}
+	\sigma'(z) = \sigma(z)\left(1 - \sigma(z)\right)
+\end{equation}
+This activation function shrinks the signal to the range $(0,1)$ \parencite{mira1995_sigmoid}. Historically, it has been used for binary classification. It mainly suffers from vanishing gradients for large values of $\abs{z}$ \parencite{glorot2010_trainingdiff}.
+
+\paragraph{Hyperbolic tangent}
+The hyperbolic tangent is given by:
+\begin{equation}
+	\tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}} = \frac{e^{2z} - 1}{e^{2z} + 1}
+\end{equation}
+and its derivative reads
+\begin{equation}
+	\tanh'(z) = 1 - \tanh^2(z)
+\end{equation}
+This activation function squashes the signal to the range $(-1,1)$ \parencite{lecun1998_tanh}. It is zero-centered, which helps with gradient flow during training, but still suffers from vanishing gradients for large $\abs{z}$ \parencite{glorot2010_trainingdiff}.
+
+\paragraph{Softmax}
+The Softmax function for a vector $\bs{z} = (z_1, \dots, z_K)$ is defined as:
+\begin{equation}
+	\text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^K e^{z_j}}
+\end{equation}
+and its derivative for the Jacobian matrix elements is:
+\begin{equation}
+	\frac{\partial \text{Softmax}(z_i)}{\partial z_j} = \text{Softmax}(z_i)(\delta_{ij} - \text{Softmax}(z_j))
+\end{equation}
+where $\delta_{ij}$ is the Kronecker delta. Softmax converts the classical logit to a probability distribution and is primarily used in the output layer for multi-class classification \parencite{bridle1990_softmax}, as in our case, namely.
 
 \subsection{Cost functions}
+For this work, two different types of cost functions have been employed, depending on the type of model (simple regression or classification).
+\paragraph{Mean Squared Error}
+The Mean Squared Error (MSE) loss function for regression tasks is defined as:
+\begin{equation}
+	\text{MSE}(\bs{y}, \bs{\tilde{y}}, \bs{\Theta}) = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
+\end{equation}
+with derivative:
+\begin{equation}
+\pdv{\text{MSE}}{\hat{y}_i} = \frac{2}{n} (y_i - \hat{y}_i)
+\end{equation}
+MSE is general convex and has smooth derivatives, therefore is usually a standard choice for machine learning problems that include gradient descent \parencite{hastie_stat2009}.
+
+\paragraph{Cross-Entropy}
+Cross-Entropy class functions are use for classification-oriented NNs, as they express the cost in term of a probability of belonging to a given class.
+The simplest case is given by the Binary Cross-Entropy (BCE):
+\begin{equation}
+	\text{BCE}(\bs{y}, \bs{\tilde{y}}, \bs{\Theta}) = -\frac{1}{N} \sum_{i=1}^N \left[ y_i \cdot \log(p_i) + (1 - y_i) \cdot \log(1 - p_i) \right]
+\end{equation}
+
+with derivative:
+\begin{equation}
+\pdv{\text{BCE}}{p_i}= \frac{p_i - y_i}{p_i(1 - p_i)}
+\end{equation}
+where $\epsilon$ is a small constant for numerical stability. Cross-entropy is the standard loss function for classification tasks with Softmax output \parencite{bishop2006_pattern}.
 	
 \end{document}

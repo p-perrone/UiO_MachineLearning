@@ -3084,6 +3084,20 @@
     <bcf:citekey order="11" intorder="1">goodfellow_2016</bcf:citekey>
     <bcf:citekey order="12" intorder="1">tieleman2012rmsprop</bcf:citekey>
     <bcf:citekey order="13" intorder="1">kingma:adam</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">hochreiter1991_untersuchungen</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">philipp2018_explgrads</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">glorot2010_trainingdiff</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">nair2010_relu</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">maas2013_leakyrelu</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">maas2013_leakyrelu</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">clevert2015_elu</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">mira1995_sigmoid</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">glorot2010_trainingdiff</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">lecun1998_tanh</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">glorot2010_trainingdiff</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">bridle1990_softmax</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">hastie_stat2009</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">bishop2006_pattern</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

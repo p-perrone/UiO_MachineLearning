@@ -7,6 +7,23 @@
   isbn = {0-387-31073-8}
 }
 
+@inproceedings{bridle1990_softmax,
+  title = {Probabilistic Interpretation of Feedforward Classification Network Outputs, with Relationships to Statistical Pattern Recognition},
+  booktitle = {Neurocomputing: {{Algorithms}}, Architectures and Applications},
+  author = {Bridle, John S.},
+  date = {1990},
+  pages = {227--236},
+  publisher = {Springer}
+}
+
+@article{clevert2015_elu,
+  title = {Fast and Accurate Deep Network Learning by Exponential Linear Units (Elus)},
+  author = {Clevert, Djork-Arné and Unterthiner, Thomas and Hochreiter, Sepp},
+  date = {2015},
+  journaltitle = {arXiv preprint},
+  volume = {arXiv:1511.07289}
+}
+
 @online{CompPhysicsML,
   title = {Machine Learning and Data Analysis for the Physical Sciences},
   author = {Hjorth-Jensen, Morten},
@@ -28,6 +45,21 @@
   doi = {10.1007/BF02551274},
   url = {https://doi.org/10.1007/BF02551274},
   abstract = {In this paper we demonstrate that finite linear combinations of compositions of a fixed, univariate function and a set of affine functionals can uniformly approximate any continuous function ofn real variables with support in the unit hypercube; only mild conditions are imposed on the univariate function. Our results settle an open question about representability in the class of single hidden layer neural networks. In particular, we show that arbitrary decision regions can be arbitrarily well approximated by continuous feedforward neural networks with only a single internal, hidden layer and any continuous sigmoidal nonlinearity. The paper discusses approximation properties of other possible types of nonlinearities that might be implemented by artificial neural networks.}
+}
+
+@inproceedings{glorot2010_trainingdiff,
+  title = {Understanding the Difficulty of Training Deep Feedforward Neural Networks},
+  booktitle = {Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics},
+  author = {Glorot, Xavier and Bengio, Yoshua},
+  editor = {Teh, Yee Whye and Titterington, Mike},
+  date = {2010-05-13/2010-05-15},
+  series = {Proceedings of Machine Learning Research},
+  volume = {9},
+  pages = {249--256},
+  publisher = {PMLR},
+  location = {Chia Laguna Resort, Sardinia, Italy},
+  url = {https://proceedings.mlr.press/v9/glorot10a.html},
+  abstract = {Whereas before 2006 it appears that deep multi-layer neural networks were not successfully trained, since then several algorithms have been shown to successfully train them, with experimental results showing the superiority of deeper vs less deep architectures. All these experimental results were obtained with new initialization or training mechanisms. Our objective here is to understand better why standard gradient descent from random initialization is doing so poorly with deep neural networks, to better understand these recent relative successes and help design better algorithms in the future. We first observe the influence of the non-linear activations functions. We find that the logistic sigmoid activation is unsuited for deep networks with random initialization because of its mean value, which can drive especially the top hidden layer into saturation. Surprisingly, we find that saturated units can move out of saturation by themselves, albeit slowly, and explaining the plateaus sometimes seen when training neural networks. We find that a new non-linearity that saturates less can often be beneficial. Finally, we study how activations and gradients vary across layers and during training, with the idea that training may be more difficult when the singular values of the Jacobian associated with each layer are far from 1. Based on these considerations, we propose a new initialization scheme that brings substantially faster convergence.}
 }
 
 @incollection{goodfellow_2016,
@@ -58,6 +90,25 @@
   isbn = {0-02-352761-7}
 }
 
+@book{haykin2009_neural,
+  title = {Neural Networks and Learning Machines},
+  author = {Haykin, Simon},
+  date = {2009},
+  edition = {3rd},
+  publisher = {Pearson Education},
+  location = {Upper Saddle River, NJ}
+}
+
+@thesis{hochreiter1991_untersuchungen,
+  type = {Diplom thesis},
+  title = {Untersuchungen Zu Dynamischen Neuronalen {{Netzen}}},
+  author = {Hochreiter, Sepp},
+  date = {1991},
+  institution = {Institut für Informatik, Technische Universität München},
+  url = {https://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf},
+  urldate = {2024-01-01}
+}
+
 @article{hornik1991_approximation,
   title = {Approximation Capabilities of Multilayer Feedforward Networks},
   author = {Hornik, Kurt},
@@ -79,6 +130,23 @@
   url = {https://arxiv.org/abs/1412.6980}
 }
 
+@article{lecun1998_tanh,
+  title = {Efficient {{BackProp}}},
+  author = {LeCun, Yann and Bottou, Léon and Orr, Genevieve B. and Müller, Klaus-Robert},
+  date = {1998},
+  journaltitle = {Neural Networks: Tricks of the Trade},
+  pages = {9--48},
+  publisher = {Springer}
+}
+
+@article{maas2013_leakyrelu,
+  title = {Rectifier Nonlinearities Improve Neural Network Acoustic Models},
+  author = {Maas, Andrew L. and Hannun, Awni Y. and Ng, Andrew Y.},
+  date = {2013},
+  journaltitle = {Proceedings of the 30th International Conference on Machine Learning},
+  volume = {28}
+}
+
 @inproceedings{mahima2023_activfuncs,
   title = {A Comparative Analysis of the Most Commonly Used Activation Functions in Deep Neural Network},
   booktitle = {2023 4th International Conference on Electronics and Sustainable Communication Systems ({{ICESC}})},
@@ -87,6 +155,46 @@
   pages = {1334--1339},
   doi = {10.1109/ICESC57686.2023.10193390},
   keywords = {a leaky ReLU,Activation Function comparison,Artificial neural networks,Deep learning,Deep Neural Network,ELU,Image analysis,Image resolution,Medical services,Neurons,Nonlinearity,ReLU,Sigmoid,Softmax,Tanh,Training}
+}
+
+@book{mira1995_sigmoid,
+  title = {From Natural to Artificial Neural Computation},
+  editor = {Mira, José and Sandoval, Francisco},
+  date = {1995},
+  series = {Lecture Notes in Computer Science},
+  volume = {930},
+  publisher = {Springer},
+  location = {Berlin, Heidelberg},
+  url = {https://archive.org/details/fromnaturaltoart1995inte},
+  urldate = {2024-01-01}
+}
+
+@inproceedings{mira1995_sigmoid,
+  title = {From Natural to Artificial Neural Computation},
+  booktitle = {International Workshop on Artificial Neural Networks},
+  author = {Mira, José and Sandoval, Francisco},
+  date = {1995},
+  series = {{{IWANN}}},
+  volume = {930},
+  publisher = {Springer}
+}
+
+@inproceedings{nair2010_relu,
+  title = {Rectified Linear Units Improve Restricted Boltzmann Machines},
+  booktitle = {Proceedings of the 27th International Conference on Machine Learning},
+  author = {Nair, Vinod and Hinton, Geoffrey E.},
+  date = {2010},
+  pages = {807--814}
+}
+
+@misc{philipp2018_explgrads,
+  title = {The Exploding Gradient Problem Demystified - Definition, Prevalence, Impact, Origin, Tradeoffs, and Solutions},
+  author = {Philipp, George and Song, Dawn and Carbonell, Jaime G.},
+  date = {2018},
+  eprint = {1712.05577},
+  eprinttype = {arXiv},
+  eprintclass = {cs.LG},
+  url = {https://arxiv.org/abs/1712.05577}
 }
 
 @article{rosenblatt1958_perceptron,

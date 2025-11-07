@@ -54,6 +54,82 @@
       \field{year}{2006}
       \field{dateera}{ce}
     \endentry
+    \entry{bridle1990_softmax}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c10596a03b22bcd5c707c616753de154}{%
+           family={Bridle},
+           familyi={B\bibinitperiod},
+           given={John\bibnamedelima S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{c10596a03b22bcd5c707c616753de154}
+      \strng{fullhash}{c10596a03b22bcd5c707c616753de154}
+      \strng{fullhashraw}{c10596a03b22bcd5c707c616753de154}
+      \strng{bibnamehash}{c10596a03b22bcd5c707c616753de154}
+      \strng{authorbibnamehash}{c10596a03b22bcd5c707c616753de154}
+      \strng{authornamehash}{c10596a03b22bcd5c707c616753de154}
+      \strng{authorfullhash}{c10596a03b22bcd5c707c616753de154}
+      \strng{authorfullhashraw}{c10596a03b22bcd5c707c616753de154}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neurocomputing: {{Algorithms}}, Architectures and Applications}
+      \field{title}{Probabilistic Interpretation of Feedforward Classification Network Outputs, with Relationships to Statistical Pattern Recognition}
+      \field{year}{1990}
+      \field{dateera}{ce}
+      \field{pages}{227\bibrangedash 236}
+      \range{pages}{10}
+    \endentry
+    \entry{clevert2015_elu}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=4356103aee47c13e10848e6a527f76b4}{%
+           family={Clevert},
+           familyi={C\bibinitperiod},
+           given={Djork-Arné},
+           giveni={D\bibinithyphendelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1a47640139e63b9b5969c969dfe95def}{%
+           family={Unterthiner},
+           familyi={U\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
+           family={Hochreiter},
+           familyi={H\bibinitperiod},
+           given={Sepp},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{344c72746ee5436e177a0426176caf8e}
+      \strng{fullhash}{73dfc8e22f6348b9ab52185224c77223}
+      \strng{fullhashraw}{73dfc8e22f6348b9ab52185224c77223}
+      \strng{bibnamehash}{73dfc8e22f6348b9ab52185224c77223}
+      \strng{authorbibnamehash}{73dfc8e22f6348b9ab52185224c77223}
+      \strng{authornamehash}{344c72746ee5436e177a0426176caf8e}
+      \strng{authorfullhash}{73dfc8e22f6348b9ab52185224c77223}
+      \strng{authorfullhashraw}{73dfc8e22f6348b9ab52185224c77223}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint}
+      \field{title}{Fast and Accurate Deep Network Learning by Exponential Linear Units (Elus)}
+      \field{volume}{arXiv:1511.07289}
+      \field{year}{2015}
+      \field{dateera}{ce}
+    \endentry
     \entry{cybenko1989_approx}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=743aed8cb3e0d5dddafd15fc0421d6eb}{%
@@ -99,6 +175,80 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/BF02551274
+      \endverb
+    \endentry
+    \entry{glorot2010_trainingdiff}{inbook}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=0b3943c3bfdbb5867b3760f7c7d488c2}{%
+           family={Glorot},
+           familyi={G\bibinitperiod},
+           given={Xavier},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=a71fae003da84f44e31d26e868859945}{%
+           family={Teh},
+           familyi={T\bibinitperiod},
+           given={Yee\bibnamedelima Whye},
+           giveni={Y\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=4f07cb446ab04d4d77854b6722712e32}{%
+           family={Titterington},
+           familyi={T\bibinitperiod},
+           given={Mike},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Chia Laguna Resort, Sardinia, Italy}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{fullhash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{fullhashraw}{02af15243279c938a0a5ca766835bcd4}
+      \strng{bibnamehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{authorbibnamehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{authornamehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{authorfullhash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{authorfullhashraw}{02af15243279c938a0a5ca766835bcd4}
+      \strng{editorbibnamehash}{ea4550790536e3c5e0b1f0cd5656198b}
+      \strng{editornamehash}{ea4550790536e3c5e0b1f0cd5656198b}
+      \strng{editorfullhash}{ea4550790536e3c5e0b1f0cd5656198b}
+      \strng{editorfullhashraw}{ea4550790536e3c5e0b1f0cd5656198b}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Whereas before 2006 it appears that deep multi-layer neural networks were not successfully trained, since then several algorithms have been shown to successfully train them, with experimental results showing the superiority of deeper vs less deep architectures. All these experimental results were obtained with new initialization or training mechanisms. Our objective here is to understand better why standard gradient descent from random initialization is doing so poorly with deep neural networks, to better understand these recent relative successes and help design better algorithms in the future. We first observe the influence of the non-linear activations functions. We find that the logistic sigmoid activation is unsuited for deep networks with random initialization because of its mean value, which can drive especially the top hidden layer into saturation. Surprisingly, we find that saturated units can move out of saturation by themselves, albeit slowly, and explaining the plateaus sometimes seen when training neural networks. We find that a new non-linearity that saturates less can often be beneficial. Finally, we study how activations and gradients vary across layers and during training, with the idea that training may be more difficult when the singular values of the Jacobian associated with each layer are far from 1. Based on these considerations, we propose a new initialization scheme that brings substantially faster convergence.}
+      \field{booktitle}{Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics}
+      \field{day}{13}
+      \field{endday}{15}
+      \field{endmonth}{5}
+      \field{endyear}{2010}
+      \field{month}{5}
+      \field{series}{Proceedings of Machine Learning Research}
+      \field{title}{Understanding the Difficulty of Training Deep Feedforward Neural Networks}
+      \field{volume}{9}
+      \field{year}{2010}
+      \field{enddateera}{ce}
+      \field{dateera}{ce}
+      \field{pages}{249\bibrangedash 256}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v9/glorot10a.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v9/glorot10a.html
       \endverb
     \endentry
     \entry{goodfellow_2016}{inbook}{}{}
@@ -234,6 +384,48 @@
       \field{year}{1994}
       \field{dateera}{ce}
     \endentry
+    \entry{hochreiter1991_untersuchungen}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
+           family={Hochreiter},
+           familyi={H\bibinitperiod},
+           given={Sepp},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Institut für Informatik, Technische Universität München}%
+      }
+      \strng{namehash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{fullhash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{fullhashraw}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{bibnamehash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{authorbibnamehash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{authornamehash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{authorfullhash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{authorfullhashraw}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Untersuchungen Zu Dynamischen Neuronalen {{Netzen}}}
+      \field{type}{Diplom thesis}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{year}{1991}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf
+      \endverb
+      \verb{url}
+      \verb https://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf
+      \endverb
+    \endentry
     \entry{hornik1991_approximation}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=bec8dd1340457a82c21b54971e4c9417}{%
@@ -315,6 +507,240 @@
       \verb https://arxiv.org/abs/1412.6980
       \endverb
     \endentry
+    \entry{lecun1998_tanh}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
+           family={LeCun},
+           familyi={L\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ac762f2592005edf6bad58f566967c6c}{%
+           family={Bottou},
+           familyi={B\bibinitperiod},
+           given={Léon},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ea9de995dd928a60e9f2ec878f176627}{%
+           family={Orr},
+           familyi={O\bibinitperiod},
+           given={Genevieve\bibnamedelima B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9f1b6144a45b1967e989e74552e37ada}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Klaus-Robert},
+           giveni={K\bibinithyphendelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{fullhash}{df8210073325fb7d13d7dad9fa89fc53}
+      \strng{fullhashraw}{df8210073325fb7d13d7dad9fa89fc53}
+      \strng{bibnamehash}{df8210073325fb7d13d7dad9fa89fc53}
+      \strng{authorbibnamehash}{df8210073325fb7d13d7dad9fa89fc53}
+      \strng{authornamehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{authorfullhash}{df8210073325fb7d13d7dad9fa89fc53}
+      \strng{authorfullhashraw}{df8210073325fb7d13d7dad9fa89fc53}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Networks: Tricks of the Trade}
+      \field{title}{Efficient {{BackProp}}}
+      \field{year}{1998}
+      \field{dateera}{ce}
+      \field{pages}{9\bibrangedash 48}
+      \range{pages}{40}
+    \endentry
+    \entry{maas2013_leakyrelu}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ed7b150d84a40a9f9067abd89a23a133}{%
+           family={Maas},
+           familyi={M\bibinitperiod},
+           given={Andrew\bibnamedelima L.},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7f86bf3854a4890041c71b1ca724782d}{%
+           family={Hannun},
+           familyi={H\bibinitperiod},
+           given={Awni\bibnamedelima Y.},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=49e889356ff39df159461bc2895c7e16}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Andrew\bibnamedelima Y.},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{17c0fb1c72658866046c6d044b7821d5}
+      \strng{fullhash}{b549b736cb244235a5a82ecda096e42f}
+      \strng{fullhashraw}{b549b736cb244235a5a82ecda096e42f}
+      \strng{bibnamehash}{b549b736cb244235a5a82ecda096e42f}
+      \strng{authorbibnamehash}{b549b736cb244235a5a82ecda096e42f}
+      \strng{authornamehash}{17c0fb1c72658866046c6d044b7821d5}
+      \strng{authorfullhash}{b549b736cb244235a5a82ecda096e42f}
+      \strng{authorfullhashraw}{b549b736cb244235a5a82ecda096e42f}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 30th International Conference on Machine Learning}
+      \field{title}{Rectifier Nonlinearities Improve Neural Network Acoustic Models}
+      \field{volume}{28}
+      \field{year}{2013}
+      \field{dateera}{ce}
+    \endentry
+    \entry{mira1995_sigmoid}{book}{}{}
+      \name{editor}{2}{}{%
+        {{un=0,uniquepart=base,hash=288ad889b390f948e0868ef481a6bd1b}{%
+           family={Mira},
+           familyi={M\bibinitperiod},
+           given={José},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a05ca84ab5b5c61e24c9942c8ca5b530}{%
+           family={Sandoval},
+           familyi={S\bibinitperiod},
+           given={Francisco},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{fullhash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{fullhashraw}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{bibnamehash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{editorbibnamehash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{editornamehash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{editorfullhash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{editorfullhashraw}{0f2241569a1e295e3b00d6342e6e22d9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{series}{Lecture Notes in Computer Science}
+      \field{title}{From Natural to Artificial Neural Computation}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{930}
+      \field{year}{1995}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://archive.org/details/fromnaturaltoart1995inte
+      \endverb
+      \verb{url}
+      \verb https://archive.org/details/fromnaturaltoart1995inte
+      \endverb
+    \endentry
+    \entry{nair2010_relu}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=0719e279192084705efab5d7e0505f52}{%
+           family={Nair},
+           familyi={N\bibinitperiod},
+           given={Vinod},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=813bd95fe553e6079cd53a567b238287}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey\bibnamedelima E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{fullhash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{fullhashraw}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{bibnamehash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{authorbibnamehash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{authornamehash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{authorfullhash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{authorfullhashraw}{08d64b697ddc0d522928febb8e7c119b}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 27th International Conference on Machine Learning}
+      \field{title}{Rectified Linear Units Improve Restricted Boltzmann Machines}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \field{pages}{807\bibrangedash 814}
+      \range{pages}{8}
+    \endentry
+    \entry{philipp2018_explgrads}{misc}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1589bd0c45c0e747b87fd2e39530e833}{%
+           family={Philipp},
+           familyi={P\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d458d5f9b64652055bd81d57e4777b22}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Dawn},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=30ea103c14476461152f8ac59df347f3}{%
+           family={Carbonell},
+           familyi={C\bibinitperiod},
+           given={Jaime\bibnamedelima G.},
+           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b31098f9554d153915c6627cdab7246e}
+      \strng{fullhash}{9b134b4574ca4afc45831671ca9d451c}
+      \strng{fullhashraw}{9b134b4574ca4afc45831671ca9d451c}
+      \strng{bibnamehash}{9b134b4574ca4afc45831671ca9d451c}
+      \strng{authorbibnamehash}{9b134b4574ca4afc45831671ca9d451c}
+      \strng{authornamehash}{b31098f9554d153915c6627cdab7246e}
+      \strng{authorfullhash}{9b134b4574ca4afc45831671ca9d451c}
+      \strng{authorfullhashraw}{9b134b4574ca4afc45831671ca9d451c}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{The Exploding Gradient Problem Demystified - Definition, Prevalence, Impact, Origin, Tradeoffs, and Solutions}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb 1712.05577
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1712.05577
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1712.05577
+      \endverb
+    \endentry
     \entry{rosenblatt1958_perceptron}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=1750cd87a34d44119e7a4aab9b8012c6}{%
@@ -359,12 +785,12 @@
            given={Tijmen},
            giveni={T\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=9a8750ccdb2a4cf14d2655face1ce016}{%
+        {{un=1,uniquepart=given,hash=9a8750ccdb2a4cf14d2655face1ce016}{%
            family={Hinton},
            familyi={H\bibinitperiod},
            given={Geoffrey},
            giveni={G\bibinitperiod},
-           givenun=0}}%
+           givenun=1}}%
       }
       \strng{namehash}{d5791ac93dcae4cf16cf47808a2ce33d}
       \strng{fullhash}{d5791ac93dcae4cf16cf47808a2ce33d}
@@ -480,6 +906,82 @@
       \field{year}{2006}
       \field{dateera}{ce}
     \endentry
+    \entry{bridle1990_softmax}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c10596a03b22bcd5c707c616753de154}{%
+           family={Bridle},
+           familyi={B\bibinitperiod},
+           given={John\bibnamedelima S.},
+           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{c10596a03b22bcd5c707c616753de154}
+      \strng{fullhash}{c10596a03b22bcd5c707c616753de154}
+      \strng{fullhashraw}{c10596a03b22bcd5c707c616753de154}
+      \strng{bibnamehash}{c10596a03b22bcd5c707c616753de154}
+      \strng{authorbibnamehash}{c10596a03b22bcd5c707c616753de154}
+      \strng{authornamehash}{c10596a03b22bcd5c707c616753de154}
+      \strng{authorfullhash}{c10596a03b22bcd5c707c616753de154}
+      \strng{authorfullhashraw}{c10596a03b22bcd5c707c616753de154}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neurocomputing: {{Algorithms}}, Architectures and Applications}
+      \field{title}{Probabilistic Interpretation of Feedforward Classification Network Outputs, with Relationships to Statistical Pattern Recognition}
+      \field{year}{1990}
+      \field{dateera}{ce}
+      \field{pages}{227\bibrangedash 236}
+      \range{pages}{10}
+    \endentry
+    \entry{clevert2015_elu}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=4356103aee47c13e10848e6a527f76b4}{%
+           family={Clevert},
+           familyi={C\bibinitperiod},
+           given={Djork-Arné},
+           giveni={D\bibinithyphendelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1a47640139e63b9b5969c969dfe95def}{%
+           family={Unterthiner},
+           familyi={U\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
+           family={Hochreiter},
+           familyi={H\bibinitperiod},
+           given={Sepp},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{344c72746ee5436e177a0426176caf8e}
+      \strng{fullhash}{73dfc8e22f6348b9ab52185224c77223}
+      \strng{fullhashraw}{73dfc8e22f6348b9ab52185224c77223}
+      \strng{bibnamehash}{73dfc8e22f6348b9ab52185224c77223}
+      \strng{authorbibnamehash}{73dfc8e22f6348b9ab52185224c77223}
+      \strng{authornamehash}{344c72746ee5436e177a0426176caf8e}
+      \strng{authorfullhash}{73dfc8e22f6348b9ab52185224c77223}
+      \strng{authorfullhashraw}{73dfc8e22f6348b9ab52185224c77223}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint}
+      \field{title}{Fast and Accurate Deep Network Learning by Exponential Linear Units (Elus)}
+      \field{volume}{arXiv:1511.07289}
+      \field{year}{2015}
+      \field{dateera}{ce}
+    \endentry
     \entry{cybenko1989_approx}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=743aed8cb3e0d5dddafd15fc0421d6eb}{%
@@ -525,6 +1027,80 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/BF02551274
+      \endverb
+    \endentry
+    \entry{glorot2010_trainingdiff}{inbook}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=0b3943c3bfdbb5867b3760f7c7d488c2}{%
+           family={Glorot},
+           familyi={G\bibinitperiod},
+           given={Xavier},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=a71fae003da84f44e31d26e868859945}{%
+           family={Teh},
+           familyi={T\bibinitperiod},
+           given={Yee\bibnamedelima Whye},
+           giveni={Y\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=4f07cb446ab04d4d77854b6722712e32}{%
+           family={Titterington},
+           familyi={T\bibinitperiod},
+           given={Mike},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Chia Laguna Resort, Sardinia, Italy}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{fullhash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{fullhashraw}{02af15243279c938a0a5ca766835bcd4}
+      \strng{bibnamehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{authorbibnamehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{authornamehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{authorfullhash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{authorfullhashraw}{02af15243279c938a0a5ca766835bcd4}
+      \strng{editorbibnamehash}{ea4550790536e3c5e0b1f0cd5656198b}
+      \strng{editornamehash}{ea4550790536e3c5e0b1f0cd5656198b}
+      \strng{editorfullhash}{ea4550790536e3c5e0b1f0cd5656198b}
+      \strng{editorfullhashraw}{ea4550790536e3c5e0b1f0cd5656198b}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Whereas before 2006 it appears that deep multi-layer neural networks were not successfully trained, since then several algorithms have been shown to successfully train them, with experimental results showing the superiority of deeper vs less deep architectures. All these experimental results were obtained with new initialization or training mechanisms. Our objective here is to understand better why standard gradient descent from random initialization is doing so poorly with deep neural networks, to better understand these recent relative successes and help design better algorithms in the future. We first observe the influence of the non-linear activations functions. We find that the logistic sigmoid activation is unsuited for deep networks with random initialization because of its mean value, which can drive especially the top hidden layer into saturation. Surprisingly, we find that saturated units can move out of saturation by themselves, albeit slowly, and explaining the plateaus sometimes seen when training neural networks. We find that a new non-linearity that saturates less can often be beneficial. Finally, we study how activations and gradients vary across layers and during training, with the idea that training may be more difficult when the singular values of the Jacobian associated with each layer are far from 1. Based on these considerations, we propose a new initialization scheme that brings substantially faster convergence.}
+      \field{booktitle}{Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics}
+      \field{day}{13}
+      \field{endday}{15}
+      \field{endmonth}{5}
+      \field{endyear}{2010}
+      \field{month}{5}
+      \field{series}{Proceedings of Machine Learning Research}
+      \field{title}{Understanding the Difficulty of Training Deep Feedforward Neural Networks}
+      \field{volume}{9}
+      \field{year}{2010}
+      \field{enddateera}{ce}
+      \field{dateera}{ce}
+      \field{pages}{249\bibrangedash 256}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v9/glorot10a.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v9/glorot10a.html
       \endverb
     \endentry
     \entry{goodfellow_2016}{inbook}{}{}
@@ -660,6 +1236,48 @@
       \field{year}{1994}
       \field{dateera}{ce}
     \endentry
+    \entry{hochreiter1991_untersuchungen}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
+           family={Hochreiter},
+           familyi={H\bibinitperiod},
+           given={Sepp},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Institut für Informatik, Technische Universität München}%
+      }
+      \strng{namehash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{fullhash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{fullhashraw}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{bibnamehash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{authorbibnamehash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{authornamehash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{authorfullhash}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \strng{authorfullhashraw}{41b31e29fb2bdbf9f5c9c1b0d5b3e815}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Untersuchungen Zu Dynamischen Neuronalen {{Netzen}}}
+      \field{type}{Diplom thesis}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{year}{1991}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf
+      \endverb
+      \verb{url}
+      \verb https://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf
+      \endverb
+    \endentry
     \entry{hornik1991_approximation}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=bec8dd1340457a82c21b54971e4c9417}{%
@@ -741,6 +1359,240 @@
       \verb https://arxiv.org/abs/1412.6980
       \endverb
     \endentry
+    \entry{lecun1998_tanh}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
+           family={LeCun},
+           familyi={L\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ac762f2592005edf6bad58f566967c6c}{%
+           family={Bottou},
+           familyi={B\bibinitperiod},
+           given={Léon},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ea9de995dd928a60e9f2ec878f176627}{%
+           family={Orr},
+           familyi={O\bibinitperiod},
+           given={Genevieve\bibnamedelima B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9f1b6144a45b1967e989e74552e37ada}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Klaus-Robert},
+           giveni={K\bibinithyphendelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{fullhash}{df8210073325fb7d13d7dad9fa89fc53}
+      \strng{fullhashraw}{df8210073325fb7d13d7dad9fa89fc53}
+      \strng{bibnamehash}{df8210073325fb7d13d7dad9fa89fc53}
+      \strng{authorbibnamehash}{df8210073325fb7d13d7dad9fa89fc53}
+      \strng{authornamehash}{9e4c6012409dc8dd9b2aa198a2059804}
+      \strng{authorfullhash}{df8210073325fb7d13d7dad9fa89fc53}
+      \strng{authorfullhashraw}{df8210073325fb7d13d7dad9fa89fc53}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Networks: Tricks of the Trade}
+      \field{title}{Efficient {{BackProp}}}
+      \field{year}{1998}
+      \field{dateera}{ce}
+      \field{pages}{9\bibrangedash 48}
+      \range{pages}{40}
+    \endentry
+    \entry{maas2013_leakyrelu}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ed7b150d84a40a9f9067abd89a23a133}{%
+           family={Maas},
+           familyi={M\bibinitperiod},
+           given={Andrew\bibnamedelima L.},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7f86bf3854a4890041c71b1ca724782d}{%
+           family={Hannun},
+           familyi={H\bibinitperiod},
+           given={Awni\bibnamedelima Y.},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=49e889356ff39df159461bc2895c7e16}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Andrew\bibnamedelima Y.},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{17c0fb1c72658866046c6d044b7821d5}
+      \strng{fullhash}{b549b736cb244235a5a82ecda096e42f}
+      \strng{fullhashraw}{b549b736cb244235a5a82ecda096e42f}
+      \strng{bibnamehash}{b549b736cb244235a5a82ecda096e42f}
+      \strng{authorbibnamehash}{b549b736cb244235a5a82ecda096e42f}
+      \strng{authornamehash}{17c0fb1c72658866046c6d044b7821d5}
+      \strng{authorfullhash}{b549b736cb244235a5a82ecda096e42f}
+      \strng{authorfullhashraw}{b549b736cb244235a5a82ecda096e42f}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 30th International Conference on Machine Learning}
+      \field{title}{Rectifier Nonlinearities Improve Neural Network Acoustic Models}
+      \field{volume}{28}
+      \field{year}{2013}
+      \field{dateera}{ce}
+    \endentry
+    \entry{mira1995_sigmoid}{book}{}{}
+      \name{editor}{2}{}{%
+        {{un=0,uniquepart=base,hash=288ad889b390f948e0868ef481a6bd1b}{%
+           family={Mira},
+           familyi={M\bibinitperiod},
+           given={José},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a05ca84ab5b5c61e24c9942c8ca5b530}{%
+           family={Sandoval},
+           familyi={S\bibinitperiod},
+           given={Francisco},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{fullhash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{fullhashraw}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{bibnamehash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{editorbibnamehash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{editornamehash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{editorfullhash}{0f2241569a1e295e3b00d6342e6e22d9}
+      \strng{editorfullhashraw}{0f2241569a1e295e3b00d6342e6e22d9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{series}{Lecture Notes in Computer Science}
+      \field{title}{From Natural to Artificial Neural Computation}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2024}
+      \field{volume}{930}
+      \field{year}{1995}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://archive.org/details/fromnaturaltoart1995inte
+      \endverb
+      \verb{url}
+      \verb https://archive.org/details/fromnaturaltoart1995inte
+      \endverb
+    \endentry
+    \entry{nair2010_relu}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=0719e279192084705efab5d7e0505f52}{%
+           family={Nair},
+           familyi={N\bibinitperiod},
+           given={Vinod},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=813bd95fe553e6079cd53a567b238287}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey\bibnamedelima E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{fullhash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{fullhashraw}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{bibnamehash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{authorbibnamehash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{authornamehash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{authorfullhash}{08d64b697ddc0d522928febb8e7c119b}
+      \strng{authorfullhashraw}{08d64b697ddc0d522928febb8e7c119b}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 27th International Conference on Machine Learning}
+      \field{title}{Rectified Linear Units Improve Restricted Boltzmann Machines}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \field{pages}{807\bibrangedash 814}
+      \range{pages}{8}
+    \endentry
+    \entry{philipp2018_explgrads}{misc}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1589bd0c45c0e747b87fd2e39530e833}{%
+           family={Philipp},
+           familyi={P\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d458d5f9b64652055bd81d57e4777b22}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Dawn},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=30ea103c14476461152f8ac59df347f3}{%
+           family={Carbonell},
+           familyi={C\bibinitperiod},
+           given={Jaime\bibnamedelima G.},
+           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b31098f9554d153915c6627cdab7246e}
+      \strng{fullhash}{9b134b4574ca4afc45831671ca9d451c}
+      \strng{fullhashraw}{9b134b4574ca4afc45831671ca9d451c}
+      \strng{bibnamehash}{9b134b4574ca4afc45831671ca9d451c}
+      \strng{authorbibnamehash}{9b134b4574ca4afc45831671ca9d451c}
+      \strng{authornamehash}{b31098f9554d153915c6627cdab7246e}
+      \strng{authorfullhash}{9b134b4574ca4afc45831671ca9d451c}
+      \strng{authorfullhashraw}{9b134b4574ca4afc45831671ca9d451c}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{The Exploding Gradient Problem Demystified - Definition, Prevalence, Impact, Origin, Tradeoffs, and Solutions}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb 1712.05577
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1712.05577
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1712.05577
+      \endverb
+    \endentry
     \entry{rosenblatt1958_perceptron}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=1750cd87a34d44119e7a4aab9b8012c6}{%
@@ -785,12 +1637,12 @@
            given={Tijmen},
            giveni={T\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=9a8750ccdb2a4cf14d2655face1ce016}{%
+        {{un=1,uniquepart=given,hash=9a8750ccdb2a4cf14d2655face1ce016}{%
            family={Hinton},
            familyi={H\bibinitperiod},
            given={Geoffrey},
            giveni={G\bibinitperiod},
-           givenun=0}}%
+           givenun=1}}%
       }
       \strng{namehash}{d5791ac93dcae4cf16cf47808a2ce33d}
       \strng{fullhash}{d5791ac93dcae4cf16cf47808a2ce33d}

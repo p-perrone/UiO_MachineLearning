@@ -8,9 +8,19 @@
 \contentsline {paragraph}{Simple perceptron model with 1-D input}{3}{subsubsection.2.2.1}%
 \contentsline {paragraph}{Generalization to a multi-layer network with multiple inputs}{3}{equation.5}%
 \contentsline {paragraph}{Implementation}{3}{equation.7}%
-\contentsline {subsubsection}{\numberline {2.2.2}The Backpropagation algorithm}{4}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2}The Backpropagation algorithm}{3}{subsubsection.2.2.2}%
 \contentsline {paragraph}{Formalism of backpropagation}{4}{equation.8}%
-\contentsline {paragraph}{Implementation}{5}{equation.18}%
+\contentsline {paragraph}{Implementation}{4}{equation.18}%
 \contentsline {subsubsection}{\numberline {2.2.3}Training the Neural Network}{5}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Activation functions}{5}{subsubsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.3}Cost functions}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Activation functions}{5}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Activation functions and numerical instabilities}{5}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Employed activation functions}{5}{subsubsection.2.3.2}%
+\contentsline {paragraph}{Rectified Linear Unit (ReLU)}{5}{subsubsection.2.3.2}%
+\contentsline {paragraph}{Leaky ReLU}{6}{equation.20}%
+\contentsline {paragraph}{Exponential Linear Unit (ELU)}{6}{equation.22}%
+\contentsline {paragraph}{Logistic sigmoid}{6}{equation.24}%
+\contentsline {paragraph}{Hyperbolic tangent}{6}{equation.26}%
+\contentsline {paragraph}{Softmax}{7}{equation.28}%
+\contentsline {subsection}{\numberline {2.4}Cost functions}{7}{subsection.2.4}%
+\contentsline {paragraph}{Mean Squared Error}{7}{subsection.2.4}%
+\contentsline {paragraph}{Cross-Entropy}{7}{equation.32}%
