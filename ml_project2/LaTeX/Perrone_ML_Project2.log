@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  7 NOV 2025 14:15
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  10 NOV 2025 21:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -276,7 +276,22 @@ Package fontspec Info:
 (fontspec)             Modern
 (fontspec)             Sans/BI/OT:script=latn;language=dflt;mapping=tex-text;"
 
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+LatinModernSans(0) o
+n input line 116.
+LaTeX Font Info:    No file T1LatinModernSans(0).fd. on input line 116.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+6.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+LaTeX Font Warning: Font shape `T1/LatinModernSans(0)/m/n' undefined
+(Font)              using `T1/lmr/m/n' instead on input line 116.
+
+) (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
 Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
 \l__siunitx_number_uncert_offset_int=\count305
 \l__siunitx_number_exponent_fixed_int=\count306
@@ -1541,52 +1556,52 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (Perrone_ML_Project2.aux)
 \openout1 = `Perrone_ML_Project2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmssm/m/it on input line 114.
+LaTeX Font Info:    Checking defaults for OML/cmssm/m/it on input line 116.
 LaTeX Font Info:    Trying to load font information for OML+cmssm on input line
- 114.
+ 116.
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\omlcmssm.f
 d
 File: omlcmssm.fd 2024/10/15
 )
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsssy/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMS/cmsssy/m/n on input line 116.
 LaTeX Font Info:    Trying to load font information for OMS+cmsssy on input lin
-e 114.
+e 116.
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\omscmsssy.
 fd
 File: omscmsssy.fd 2024/10/15
 )
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmssex/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMX/cmssex/m/n on input line 116.
 LaTeX Font Info:    Trying to load font information for OMX+cmssex on input lin
-e 114.
+e 116.
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\omxcmssex.
 fd
 File: omxcmssex.fd 2024/10/15
 )
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmss/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for U/cmss/m/n on input line 116.
 LaTeX Font Info:    Trying to load font information for U+cmss on input line 11
-4.
+6.
  (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/base\ucmss.fd
 File: ucmss.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1622,16 +1637,16 @@ LaTeX Font Info:    ... okay on input line 114.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 114.
+LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 116.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 114.
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 116.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 114.
-LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 114.
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 116.
+LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 116.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `normal'
-(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 114.
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 116.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
-(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 114.
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 116.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -1639,64 +1654,64 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 114.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 114.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 114.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 114.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 114.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 114.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 114.
-LaTeX Font Info:    Redeclaring math accent \check on input line 114.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 114.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 114.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 114.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 114.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 114.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 116.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 116.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 116.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 116.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 116.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 116.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 116.
+LaTeX Font Info:    Redeclaring math accent \check on input line 116.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 116.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 116.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 116.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 116.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 116.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 114.
+(Font)              `operators' in the math version `normal' on input line 116.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmsmf/m/n --> TU/LatinModernSans(0)/m/n on input li
-ne 114.
+ne 116.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 114.
+(Font)              `operators' in the math version `bold' on input line 116.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmsmf/bx/n --> TU/LatinModernSans(0)/m/n on input l
-ine 114.
+ine 116.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/LatinModernSans(0)/m/n --> TU/LatinModernSans(0)/m/n
- on input line 114.
+ on input line 116.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmsmf/m/it --> TU/LatinModernSans(0)/m/it on input 
-line 114.
+line 116.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmsmf/bx/n --> TU/LatinModernSans(0)/b/n on input l
-ine 114.
+ine 116.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmsmf/m/n --> TU/lmss/m/n on input line 114.
+(Font)                  OT1/cmsmf/m/n --> TU/lmss/m/n on input line 116.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 114.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 116.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/LatinModernSans(0)/m/n --> TU/LatinModernSans(0)/b/n
- on input line 114.
+ on input line 116.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmsmf/bx/it --> TU/LatinModernSans(0)/b/it on input
- line 114.
+ line 116.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmsmf/m/n --> TU/lmss/b/n on input line 114.
+(Font)                  OT1/cmsmf/m/n --> TU/lmss/b/n on input line 116.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 114.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 116.
 
 Package siunitx Warning: Detected the "physics" package:
 (siunitx)                omitting definition of \qty.
@@ -1715,7 +1730,7 @@ File: translations-basic-dictionary-french.trsl (french translation file `trans
 lations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `french'. on input line 114.
+or `french'. on input line 116.
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\trans
 lations-basic-dictionary-english.trsl
@@ -1723,10 +1738,10 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 114.
+or `english'. on input line 116.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: Option `font=sansmath' requires the `sansmath' package on
- input line 114.
+ input line 116.
 
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmath\sansmath.sty
 Package: sansmath 2007/02/28  ver 1.1 Donald Arseneau
@@ -1753,7 +1768,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count563
-Package hyperref Info: Link coloring ON on input line 114.
+Package hyperref Info: Link coloring ON on input line 116.
 
 (Perrone_ML_Project2.out) (Perrone_ML_Project2.out)
 \@outlinefile=\write5
@@ -1786,189 +1801,4 @@ Package biblatex Info: ... file 'french.lbx' found.
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\french.lbx
 File: french.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 )
-Package biblatex Info: Trying to load language 'french'...
-Package biblatex Info: ... file 'french.lbx' found.
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\french.lbx
-File: french.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
-))
-Package biblatex Info: Trying to load language 'english' -> 'english-apa'...
-Package biblatex Info: ... file 'english-apa.lbx' found.
-
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\english-apa
-.lbx
-File: english-apa.lbx 2025/08/27 v9.20 APA biblatex localisation
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
-
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lbx
-File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
-)
-Package biblatex Info: Trying to load language 'american' -> 'american-apa'...
-Package biblatex Info: ... file 'american-apa.lbx' found.
-
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\american-ap
-a.lbx
-File: american-apa.lbx 2025/08/27 v9.20 APA biblatex localisation
-Package biblatex Info: Trying to load language 'american'...
-Package biblatex Info: ... file 'american.lbx' found.
-
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\american.lb
-x
-File: american.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
-
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lbx
-File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
-))))
-Package biblatex Info: XeTeX detected.
-(biblatex)             Assuming input encoding 'utf8'.
-Package biblatex Info: Automatic encoding selection.
-(biblatex)             Assuming data encoding 'utf8'.
-\openout4 = `Perrone_ML_Project2.bcf'.
-
-Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'Perrone_ML_Project2.bbl' found.
- (Perrone_ML_Project2.bbl)
-Package biblatex Info: Reference section=0 on input line 114.
-Package biblatex Info: Reference segment=0 on input line 114.
-File: images/uio.png Graphic file (type bmp)
-<images/uio.png>
-LaTeX Font Info:    Trying to load font information for U+ssmsa on input line 1
-25.
-
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\ussmsa.fd
-File: ussmsa.fd 2024/10/15
-)
-LaTeX Font Info:    Trying to load font information for U+ssmsb on input line 1
-25.
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\ussmsb.fd
-File: ussmsb.fd 2024/10/15
-)
-
-[1
-
-
-] (Perrone_ML_Project2.toc)
-\tf@toc=\write6
-\openout6 = `Perrone_ML_Project2.toc'.
-
-
-
-[1
-
-
-]
-
-Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 151.
-
-
-
-File: images/nn.pdf Graphic file (type pdf)
-<images/nn.pdf>
-
-Underfull \hbox (badness 2781) in paragraph at lines 169--169
-|[]\TU/lmss/bx/n/14.4 The universal approximation
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 170--186
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 170--186
-
- []
-
-
-Underfull \vbox (badness 3396) has occurred while \output is active []
-
-
-
-[2
-
-]
-File: images/simple_percptr.pdf Graphic file (type pdf)
-<images/simple_percptr.pdf>
-
-
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 282.
-
-
-[3]
-
-
-Overfull \hbox (11.94437pt too wide) detected at line 361
- []$[] [] \OMS/cmsssy/m/n/10 ^^L [][] ^^A [][] ^^L [] ^^A [][] ^^L []C\OT1/cmr/
-m/n/10 ([][])  $ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
-[]\TU/LatinModernSans(0)/m/n/10 Feedforward activations $\OMS/cmsssy/m/n/10 f[]
-[]g[]$\TU/LatinModernSans(0)/m/n/10 , pre-
- []
-
-
-Underfull \hbox (badness 3872) in paragraph at lines 400--401
-\TU/LatinModernSans(0)/m/n/10 activations $\OMS/cmsssy/m/n/10 f[][]g[]$\TU/Lati
-nModernSans(0)/m/n/10 , weights $\OMS/cmsssy/m/n/10 f[][]g[]$\TU/LatinModernSan
-s(0)/m/n/10 , cost
- []
-
-
-Underfull \vbox (badness 2088) has occurred while \output is active []
-
-
-
-[4]
-File: images/activation_functions.pdf Graphic file (type pdf)
-<images/activation_functions.pdf>
-
-
-
-
-[5]
-Underfull \vbox (badness 1087) has occurred while \output is active []
-
-
-
-
-Underfull \vbox (badness 1629) has occurred while \output is active []
-
-
-
-[6]
-Overfull \hbox (15.7165pt too wide) detected at line 570
-[][][][]\OT1/cmr/m/n/10 ([]\OML/cmssm/m/it/10 ; []; []\OT1/cmr/m/n/10 ) = \OMS/
-cmsssy/m/n/10 ^^@[] [] []
- []
-
-
-
-
-
-[7] (Perrone_ML_Project2.aux)
- ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-10-09>
- ***********
-Package rerunfilecheck Info: File `Perrone_ML_Project2.out' has not changed.
-(rerunfilecheck)             Checksum: 14988AF5A29A1D7572FAFE89C2FC3D70;2158.
-Package logreq Info: Writing requests to 'Perrone_ML_Project2.run.xml'.
-\openout1 = `Perrone_ML_Project2.run.xml'.
-
- ) 
-Here is how much of TeX's memory you used:
- 50588 strings out of 403196
- 1126772 string characters out of 5456127
- 2240261 words of memory out of 5000000
- 78431 multiletter control sequences out of 15000+600000
- 641130 words of font info for 124 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 98i,13n,101p,1600b,5949s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-Output written on Perrone_ML_Project2.pdf (8 pages).
+Package biblatex Info: Trying to load language 'fre

@@ -8,6 +8,7 @@
 \usepackage{sansmathfonts}
 \usepackage{fontspec}
 \setmainfont{Latin Modern Sans}
+\usepackage[T1]{fontenc}
 
 \usepackage{siunitx}
 \sisetup{detect-all,
@@ -35,13 +36,14 @@
 \definecolor{Gray2}{RGB}{60, 60, 60}
 \definecolor{Code}{RGB}{230, 235, 255}
 
-% useful commands for typing ML stuff
+% useful commands for typing ML 
 \newcommand{\bs}[1]{\boldsymbol{#1}}
 \newcommand{\mb}[1]{\mathbold{#1}}
 \newcommand{\T}{^{\intercal}}
 \newcommand{\R}[1]{\mathbb{R}^{#1}}
 \newcommand{\C}{\mathcal{C}}
 \newcommand{\lr}{^{(l)}}
+\newcommand{\sk}{\texttt{scikit-learn}}
 
 
 \usepackage[most]{tcolorbox}
@@ -86,22 +88,22 @@ urlcolor=BlueViolet]{hyperref}
 % Section formatting
 \usepackage{titlesec}
 \titleformat{\section}
-{\color{RoyalBlue}\titlerule[1.5pt]\LARGE\bfseries\sffamily\color{RoyalBlue}}
+{\color{RoyalBlue}\titlerule[1.5pt]\LARGE\fontseries{sbc}\sffamily\selectfont\color{RoyalBlue}}
 {\thesection}
 {1em}
 {}
 \titleformat{\subsection}
-{\Large\bfseries\sffamily\color{Gray2}}
+{\Large\fontseries{sbc}\selectfont\sffamily\color{Gray2}}
 {\thesubsection}
 {1em}
 {}
 \titleformat{\subsubsection}
-{\large\bfseries\itshape\color{Gray2}}
+{\large\fontseries{sbc}\slshape\sffamily\color{Gray2}}
 {\thesubsection.\alph{subsubsection}}
 {1em}
 {}
 \titleformat{\paragraph}
-{\normalfont\itshape\color{Gray2}}
+{\normalfont\fontseries{sbc}\slshape\sffamily\color{Gray2}}
 {\theparagraph}
 {0.5em}
 {}
@@ -159,7 +161,7 @@ A more complicated fit will be then performed on a dataset of handwritten digits
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\columnwidth]{nn.pdf}
+	\includegraphics[width=0.9\columnwidth]{nn.pdf}
 	\caption{\textbf{Neural Network} | A typical structure.}
 	\label{fig:nn}
 \end{figure}
@@ -563,16 +565,95 @@ with derivative:
 MSE is general convex and has smooth derivatives, therefore is usually a standard choice for machine learning problems that include gradient descent \parencite{hastie_stat2009}.
 
 \paragraph{Cross-Entropy}
-Cross-Entropy class functions are use for classification-oriented NNs, as they express the cost in term of a probability of belonging to a given class.
+Cross-Entropy class functions are use for classification-oriented NNs, as they express the cost in term of a probability of belonging to a given class \parencite{bishop2006_pattern}.
 The simplest case is given by the Binary Cross-Entropy (BCE):
-\begin{equation}
-	\text{BCE}(\bs{y}, \bs{\tilde{y}}, \bs{\Theta}) = -\frac{1}{N} \sum_{i=1}^N \left[ y_i \cdot \log(p_i) + (1 - y_i) \cdot \log(1 - p_i) \right]
-\end{equation}
-
+\[
+\begin{split}
+	\text{BCE}(\bs{y}, \bs{\tilde{y}}, \bs{\Theta})=\\ = -\frac{1}{N} \sum_{i=1}^N \left[ y_i \cdot \log(p_i) + (1 - y_i) \cdot \log(1 - p_i) \right]
+\end{split}
+\]
 with derivative:
 \begin{equation}
 \pdv{\text{BCE}}{p_i}= \frac{p_i - y_i}{p_i(1 - p_i)}
 \end{equation}
-where $\epsilon$ is a small constant for numerical stability. Cross-entropy is the standard loss function for classification tasks with Softmax output \parencite{bishop2006_pattern}.
+For multi-class models, then the formulation is modified as follows:
+\begin{equation}
+	\text{CE} = -\frac{1}{n} \sum_{i=1}^n \sum_{j=1}^K y_{ij} \log(\hat{y}_{ij} + \epsilon)
+\end{equation}
+with gradient:
+\begin{equation}
+	\pdv{\text{CE}}{\hat{y}_{ij}} = \frac{\hat{y}_{ij} - y_{ij}}{n}
+\end{equation}
+where $\epsilon$ is a small constant for numerical stability. Here, $K$ represents the total number of classes. In this case, furthermore, the output $\hat{y}_{ij}$ is \emph{one-hot encoded}. This type of encoding sets each class lab as a binary vector with values 1 for the true-class and 0 for the others \parencite{bishop2006_pattern, goodfellow_2016}.
+
+\paragraph{Regularization}
+The cost function can be regularized by applying a penalty factor, in order to perform a more generalized model. This can be done by applying the Ridge and LASSO methods: the first adds an L2-type norma to the cost function, the second one an L1-type \parencite{goodfellow_2016}. Applying this penalties to the MSE leads to a shrinkage of the regression towards a constant model. Further details can be found in Project 1 report.
+
+\subsection{Set up of the code}
+\subsubsection{Implementation}
+For this project, a Python module has been created, containing all the necessary functions and classes for the analysis. The core is a Neural Network class, that can perform all the main algorithms (feedforward, backpropagation, training) and adapt to different types of input dataset and regression/classification frames.
+
+Since we deal with learning machinery, Python libraries such as \texttt{scikit-learn} and \texttt{pytorch} have also been employed, mainly for assessing the relative behavior of the own coded NN with respect to external modules.
+
+The first part of the code is meant to implement all the activation and cost functions. The computation of the derivatives was approached in two different ways
+\begin{itemize}
+	\item analytical calculation;
+	\item automatic differentiation with \texttt{autograd}
+\end{itemize}
+
+After that, an abstract class \texttt{Scheduler} has been created, in order to manage all the three different gradient descent algorithms (plain SGD, RMSProp and ADAM) independently of NN implementation.
+
+The NN class has the following structure:
+\begin{python}
+	class NeuralNetwork:
+	
+		def __init__()
+			...
+			
+		def _create_layers()
+			...
+			
+		def cost()
+			...
+			
+		def 
+\end{python}
+As said previously, it supports all the different types of cost and activation functions. Plus, an external function \texttt{set\_activations} allows choosing between automatic and manual differentiation. The cost functions and their respective derivatives can also be declared (MSE or Cross Entropy); their derivative are handled in the \texttt{cost\_der} function and it is again possible to choose between analytical solutions or \texttt{autograd}. If the chosen cost is the MSE, one can also decide to apply an L1 or L2 norm, by default set to 0.1.
+
+The class also accept a flexible number of layers, each with a freely definable number of neurons.
+
+\subsubsection{Testing}
+Testing the custom NN was carried out in a Python Jupyter Notebook. The analysis consisted in:
+
+\textbf{1. Loading data, preprocessing}\\
+	A dataset based on Runge function was created, and the MNIST collection was imported from \texttt{scikit-learn}. 
+	
+	Both the datasets have been scaled; for the Runge dataset we employed \texttt{StandardScaler} from \texttt{scikit-learn.utils}. For the MNIST data, since we were dealing with pixel values in a gray-scale range [0, 255], we normalized all the pixel to the interval [0, 1], dividing by 255.
+	
+	Both have then been split in train and test sets, with a test size of 0.2.
+	
+\textbf{2. Comparing with linear OLS regression}\\
+	The performance of the NN in a simple linear regression has been compared to the ordinary least squares code from Project 1. Two neural network objects have been created, one with one hidden layer of 50 nodes an the other with two hidden layers of 100 nodes. Only the sigmoid has been used as activation function.
+	
+\textbf{3. Testing different Stochastic Gradient Descent machineries}\\
+	Plain SGD, RMSProp and ADAM have been tested on a range of different learning rates $\num{e-5}\leq\eta\leq\num{e-2}$ and for a number of epochs between \num{100} and \num{5000}. This step was important in the understanding of which algorithm could perform better and faster among the three.
+
+\textbf{4. Comparing the own custom NN to \sk and \texttt{torch} routines}
+The performance of our NN has been compared to the two machine learning modules, in order to be able to assess the effectiveness of our algorithm relatively to well known algorithms.
+
+\textbf{5. Applying L1 and L2 norms to MSE}
+The effects of Ridge and LASSO regularizations have been explored for penalties $\num{e-5}\leq\lambda\leq1$ and for different learning rates.
+
+
+\textbf{6. Classification analysis with MNIST}
+The NN has been employed for a multi-class classification task. Its performance has been assessed with an accuracy score and a confusion matrix.
+
+\section{Results}
+
+\section{Discussion}
+
+\section{Conclusion}
+
+\printbibliography[heading=bibintoc]
 	
 \end{document}
