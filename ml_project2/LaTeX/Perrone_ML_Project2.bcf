@@ -3101,6 +3101,11 @@
     <bcf:citekey order="28" intorder="1">bishop2006_pattern</bcf:citekey>
     <bcf:citekey order="28" intorder="2">goodfellow_2016</bcf:citekey>
     <bcf:citekey order="29" intorder="1">goodfellow_2016</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">powers2011evaluation</bcf:citekey>
+    <bcf:citekey order="30" intorder="2">kohavi1998confusion</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">wooditch2021_ols</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">deridder1999_nn</bcf:citekey>
+    <bcf:citekey order="32" intorder="2">waterworth2000_nn</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

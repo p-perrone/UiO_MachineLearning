@@ -47,6 +47,21 @@
   abstract = {In this paper we demonstrate that finite linear combinations of compositions of a fixed, univariate function and a set of affine functionals can uniformly approximate any continuous function ofn real variables with support in the unit hypercube; only mild conditions are imposed on the univariate function. Our results settle an open question about representability in the class of single hidden layer neural networks. In particular, we show that arbitrary decision regions can be arbitrarily well approximated by continuous feedforward neural networks with only a single internal, hidden layer and any continuous sigmoidal nonlinearity. The paper discusses approximation properties of other possible types of nonlinearities that might be implemented by artificial neural networks.}
 }
 
+@article{deridder1999_nn,
+  title = {The {{Applicability}} of {{Neural Networks}} to {{Non-linear Image Processing}}},
+  author = {family=Ridder, given=D., prefix=de, useprefix=true and Duin, R.P.W. and Verbeek, P.W. and family=Vliet, given=L.J., prefix=van, useprefix=true},
+  date = {1999-06-01},
+  journaltitle = {Pattern Analysis \& Applications},
+  shortjournal = {Pattern Analysis \& Applications},
+  volume = {2},
+  number = {2},
+  pages = {111--128},
+  issn = {1433-7541},
+  doi = {10.1007/s100440050022},
+  url = {https://doi.org/10.1007/s100440050022},
+  abstract = {In this paper, the applicability of neural networks to non-linear image processing problems is studied. As an example, the Kuwahara filtering for edge-preserving smoothing was chosen. This filter is interesting due to its non-linear nature and natural modularity. A number of modular networks were constructed and trained, incorporating prior knowledge in various degrees and their performance was compared to standard feed-forward neural networks (MLPs). Based on results obtained in these experiments, it is shown that several key factors influence neural network behaviour in this kind of task. First, it is demonstrated that the mean squared error criterion used in neural network training is not representative for the problem. To be able to discern performance differences better, a new error measure for edge-preserving smoothing operations is proposed. Secondly, using this measure, it is shown that modular networks perform better than standard feed-forward networks. The latter type often ends up in linear approximations to the filter. Finally, inspection of the modular networks shows that, although analysis is difficult due to their non-linearity, one can draw some conclusions regarding the effect of design and training choices. The main conclusion is that neural networks can be applied to non-linear image processing problems, provided that careful attention is paid to network architecture, training set sampling and parameter choice. Only if prior knowledge is used in constructing the networks and sampling the datasets can one expect to obtain a well performing neural network filter.}
+}
+
 @inproceedings{glorot2010_trainingdiff,
   title = {Understanding the Difficulty of Training Deep Feedforward Neural Networks},
   booktitle = {Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics},
@@ -120,6 +135,13 @@
   publisher = {Elsevier}
 }
 
+@book{hosmer2013applied,
+  title = {Applied Logistic Regression},
+  author = {Hosmer, David W. and Lemeshow, Stanley and Sturdivant, Rodney X.},
+  date = {2013},
+  publisher = {John Wiley \& Sons}
+}
+
 @misc{kingma:adam,
   title = {{{ADAM}}: A Method for Stochastic Optimization},
   author = {Kingma, Diederik P. and Ba, Jimmy},
@@ -128,6 +150,14 @@
   eprinttype = {arXiv},
   eprintclass = {cs.LG},
   url = {https://arxiv.org/abs/1412.6980}
+}
+
+@incollection{kohavi1998confusion,
+  title = {Confusion Matrix},
+  booktitle = {Encyclopedia of Machine Learning},
+  author = {Kohavi, Ron and Provost, Foster},
+  date = {1998},
+  publisher = {Springer}
 }
 
 @article{lecun1998_tanh,
@@ -197,6 +227,16 @@
   url = {https://arxiv.org/abs/1712.05577}
 }
 
+@article{powers2011evaluation,
+  title = {Evaluation: From Precision, Recall and {{F-measure}} to {{ROC}}, Informedness, Markedness and Correlation},
+  author = {Powers, David M. W.},
+  date = {2011},
+  journaltitle = {Journal of Machine Learning Technologies},
+  volume = {2},
+  number = {1},
+  pages = {37--63}
+}
+
 @article{rosenblatt1958_perceptron,
   title = {The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain},
   author = {Rosenblatt, F.},
@@ -264,4 +304,34 @@
   url = {https://doi.org/10.1007/978-1-4615-0377-4_5},
   abstract = {Inspired by the sophisticated functionality of human brains where hundreds of billions of interconnected neurons process information in parallel, researchers have successfully tried demonstrating certain levels of intelligence on silicon. Examples include language translation and pattern recognition software. While simulation of human consciousness and emotion is still in the realm of science fiction, we, in this chapter, consider artificial neural networks as universal function approximators. Especially, we introduce neural networks which are suited for time series forecasts.},
   isbn = {978-1-4615-0377-4}
+}
+
+@article{waterworth2000_nn,
+  title = {Artificial {{Neural Networks}} in the {{Modelling}} and {{Control}} of {{Non-Linear Systems}}},
+  author = {Waterworth, G. and Lees, M.},
+  date = {2000-02-01},
+  journaltitle = {IFAC Workshop on Programmable Devices and Systems (PDS 2000), Ostrava, Czech Republic, 8-9 February 2000},
+  shortjournal = {IFAC Proceedings Volumes},
+  volume = {33},
+  number = {1},
+  pages = {95--97},
+  issn = {1474-6670},
+  doi = {10.1016/S1474-6670(17)35594-5},
+  url = {https://www.sciencedirect.com/science/article/pii/S1474667017355945},
+  abstract = {This paper considers the application of Artificial Neural Networks (ANNs) to the control of non-linear systems, in particular considering the control of the elevation of the gun of a main battle tanle It commences with an analysis and design of a controller for a non-linear laboratory equipment, with the modelling and the design ofan ANN controller. It then reviews the modelling of a tank gun elevation and the corresponding design of a controller. A number offeatures concerning the time variance ofthe characteristics of such systems are considered including variation of parameters such as backlash, hysteresis, and saturation limits due to ageing and wear.},
+  keywords = {modelling,Neural networks,non-linear control,target control}
+}
+
+@incollection{wooditch2021_ols,
+  title = {Ordinary Least Squares Regression},
+  booktitle = {A Beginner's Guide to Statistics for Criminology and Criminal Justice Using {{R}}},
+  author = {Wooditch, Alese and Johnson, Nicole J. and Solymosi, Reka and Medina Ariza, Juanjo and Langton, Samuel},
+  date = {2021},
+  pages = {245--268},
+  publisher = {Springer International Publishing},
+  location = {Cham},
+  doi = {10.1007/978-3-030-50625-4_15},
+  url = {https://doi.org/10.1007/978-3-030-50625-4_15},
+  abstract = {This chapter provides an introduction to ordinary least squares (OLS) regression analysis in R. This is a technique used to explore whether one or multiple variables (the independent variable or X) can predict or explain the variation in another variable (the dependent variable or Y). OLS regression belongs to a family of techniques called generalized linear models, so the variables being examined must be measured at the ratio or interval level and have a linear relationship. The chapter also reviews how to assess model fit using regression error (the difference between the predicted and actual values of Y) and R2. While you learn these techniques in R, you will be using the Crime Survey for England and Wales data from 2013 to 2014; these data derive from a face-to-face survey that asks people about their experiences of crime during the 12 months prior to interview.},
+  isbn = {978-3-030-50625-4}
 }

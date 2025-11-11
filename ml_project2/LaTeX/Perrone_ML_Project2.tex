@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english, french]{babel}
 \usepackage[margin=2cm]{geometry}
-\renewcommand{\baselinestretch}{1} 
+\renewcommand{\baselinestretch}{1.1} 
 
 \usepackage{sansmathfonts}
 \usepackage{fontspec}
@@ -44,6 +44,7 @@
 \newcommand{\lr}{^{(l)}}
 \newcommand{\sk}{\texttt{scikit-learn}}
 \newcommand{\py}[1]{\texttt{#1}}
+\newcommand{\ie}{\emph{i.e.} }
 
 
 \usepackage[most]{tcolorbox}
@@ -53,9 +54,9 @@
 	highlight math style={enhanced}
 }
 \let\oldtexttt\texttt
-\renewcommand{\texttt}[1]{\tcbox{\oldtexttt{#1}}}
-\tcbuselibrary{theorems}
+\renewcommand{\texttt}[1]{\tcbox[boxsep=1pt, left=2pt, right=2pt]{\oldtexttt{#1}}}
 
+\tcbuselibrary{theorems}
 \newtcbtheorem[number within=section]{mytheo}{Theorem}%
 {colback=blue!3,colframe=blue!35!white,fonttitle=\bfseries}{th}
 
@@ -137,7 +138,8 @@ urlcolor=BlueViolet]{hyperref}
 		\vspace{2cm}
 		
 		\begin{abstract}
-			content...
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\\
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\\AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 		\end{abstract}
 		
 	\end{titlepage}
@@ -589,6 +591,17 @@ where $\epsilon$ is a small constant for numerical stability. Here, $K$ represen
 \paragraph{Regularization}
 The cost function can be regularized by applying a penalty factor, in order to perform a more generalized model. This can be done by applying the Ridge and LASSO methods: the first adds an L2-type norma to the cost function, the second one an L1-type \parencite{goodfellow_2016}. Applying this penalties to the MSE leads to a shrinkage of the regression towards a constant model. Further details can be found in Project 1 report.
 
+\subsection{Classification}
+The classification effectiveness can be investigated through a confusion matrix. This is a widely used tool for evaluating the performance of classification models. It shows the relationships between predicted and true class labels in a tabular form, from which it is possible to compute scores such as accuracy and Cohen's $\kappa$ \parencite{powers2011evaluation, kohavi1998confusion}. Each cell in the matrix represents the number of instances belonging to a specific combination of predicted and actual classes.
+
+The accuracy score is given by
+\begin{equation}
+\text{Accuracy} = \frac{\sum_{i=1}^n I(t_i = y_i)}{n} ,
+\end{equation}
+where $I$ is an indicator function, $1$ if $t_i = y_i$ and $0$
+otherwise if we have a binary classification problem. Here $t_i$
+represents the target and $y_i$ the outputs of our NN code and $n$ is simply the number of targets $t_i$.
+
 \subsection{Set up of the code}
 \subsubsection{Implementation}
 For this project, a Python module has been created, containing all the necessary functions and classes for the analysis. The core is a Neural Network class, that can perform all the main algorithms (feedforward, backpropagation, training) and adapt to different types of input dataset and regression/classification frames.
@@ -603,25 +616,39 @@ The first part of the code is meant to implement all the activation and cost fun
 
 After that, an abstract class \texttt{Scheduler} has been created, in order to manage all the three different gradient descent algorithms (plain SGD, RMSProp and ADAM) independently of NN implementation.
 
-The NN class has the following structure:
-\begin{python}
-	class NeuralNetwork:
-	
-		def __init__()
-			...
-			
-		def _create_layers()
-			...
-			
-		def cost()
-			...
-			
-		def 
-\end{python}
+The structure of \texttt{NeuralNetwork} class is shown in Algorithm \ref{alg:nn}
+\begin{algorithm}
+	\color{BlueViolet}
+	\label{alg:nn}
+	\caption{Neural Network Class Structure}
+	\begin{algorithmic}[1]
+		\State \textbf{class} NeuralNetwork
+			\State
+			\Procedure{\_\_init\_\_}{} \EndProcedure
+			\Procedure{\_create\_layers}{} \EndProcedure
+			\Procedure{cost}{} \EndProcedure
+			\Procedure{cost\_der}{} \EndProcedure
+			\Procedure{\_feedforward}{} \EndProcedure
+			\Procedure{\_backpropagate}{} \EndProcedure
+			\Procedure{\_define\_scheduler}{} \EndProcedure
+			\Procedure{\_update\_weights}{} \EndProcedure
+			\Procedure{\_train}{} \EndProcedure
+			\Procedure{\_predict}{} \EndProcedure
+			\Procedure{\_accuracy}{} \EndProcedure
+			\Procedure{\_reset\_weights}{} \EndProcedure
+			\State
+	\end{algorithmic}
+\end{algorithm}
 As said previously, it supports all the different types of cost and activation functions. Plus, an external function \texttt{set\_activations} allows choosing between automatic and manual differentiation. The cost functions and their respective derivatives can also be declared (MSE or Cross Entropy); their derivative are handled in the \texttt{cost\_der} function and it is again possible to choose between analytical solutions or \texttt{autograd}. If the chosen cost is the MSE, one can also decide to apply an L1 or L2 norm, by default set to 0.1.
 
 The class also accept a flexible number of layers, each with a freely definable number of neurons.
 
+\begin{figure*}
+	\centering
+	\includegraphics[width=14cm]{ols_Vs_nn}
+	\caption{\textbf{Linear OLS and Neural Networks} | Three different models have been tested for a simple regression. A linear ordinary least squares model with degree 13 showed good test MSE and $R^2$. The NN with two hidden layers of 100 nodes performed even better with an MSE 50 times smaller than the previous one. The NN with one hidden layer only shows serious underfitting and it is not able to properly represent the function, with a strongly negative $R^2$.}
+	\label{fig:nnols}
+\end{figure*}
 \subsubsection{Testing}
 Testing the custom NN was carried out in a Python Jupyter Notebook. The analysis consisted in:
 
@@ -638,8 +665,8 @@ Testing the custom NN was carried out in a Python Jupyter Notebook. The analysis
 \textbf{3. Testing different Stochastic Gradient Descent machineries}\\
 	Plain SGD, RMSProp and ADAM have been tested on a range of different learning rates $\num{e-5}\leq\eta\leq\num{e-2}$ and for a number of epochs between \num{100} and \num{5000}. This step was important in the understanding of which algorithm could perform better and faster among the three.
 
-\textbf{4. Comparing the own custom NN to \sk and \texttt{torch} routines}
-The performance of our NN has been compared to the two machine learning modules, in order to be able to assess the effectiveness of our algorithm relatively to well known algorithms.
+\textbf{4. Comparing the own custom NN to \sk, \texttt{autograd} and \texttt{torch} routines}
+The performance of our NN has been compared to the two machine learning modules, in order to be able to assess the effectiveness of our algorithm relatively to well known algorithms. We also ensured that the gradients calculated with \texttt{autograd} were the same as the manual computed ones.
 
 \textbf{5. Applying L1 and L2 norms to MSE}
 The effects of Ridge and LASSO regularizations have been explored for penalties $\num{e-5}\leq\lambda\leq1$ and for different learning rates.
@@ -649,18 +676,12 @@ The effects of Ridge and LASSO regularizations have been explored for penalties 
 The NN has been employed for a multi-class classification task. Its performance has been assessed with an accuracy score and a confusion matrix.
 
 \section{Results}
-\begin{figure*}
-	\centering
-	\includegraphics[width=14cm]{ols_Vs_nn}
-	\caption{\textbf{Linear OLS and Neural Networks} | Three different models have been tested for a simple regression. A linear ordinary least squares model with degree 13 showed good test MSE and $R^2$. The NN with two hidden layers of 100 nodes performed even better with an MSE 50 times smaller than the previous one. The NN with one hidden layer only shows serious underfitting and it is not able to properly represent the function, with a strongly negative $R^2$.}
-	\label{fig:nnols}
-\end{figure*}
 \subsection{Comparison with linear OLS regression}
 In Figure \ref{fig:nnols}, the result of a regression performed with both the \py{NeuralNetwork} and the \py{LinearRegression\_own} classes. The second one has been set with a polynomial degree of 13; this choice was made in accord with the Bias-Variance tradeoff results from the analyses carried out in Project 1. 
 
 In general, we observe that the best performance is yielded by the NN with two hidden layers, that shows the smaller deviation from the targets. Despite this, its $R^2$ is generally fairly lower than the linear OLS one.
 
-\subsection{Testing of different Stochastic Gradient Descent solvers}
+\subsection{Testing of different Stochastic Gradient Descent solvers} \label{ss:sched}
 First of all, the speed of each algorithm has been tested, by repeating for 50 iterations the same training with a NN of 2 hidden layers with 100 nodes each, all activated by a sigmoid. For all the algorithms, an initial learning rate of $\num{5e-3}$ and 500 epochs have been set. For each iteration, the execution time was registered. An average elapsed time over the 50 iterations was finally calculated for each scheduler, and the result can be seen in Table \ref{tab:schedtimes}. RMSProp resulted in average 1.4 times slower than the plain SGD, and ADAM 1.7 times slower.
 \begin{table}
 	\centering
@@ -686,9 +707,54 @@ First of all, the speed of each algorithm has been tested, by repeating for 50 i
 
 Secondly, the overall effectiveness of the three schedulers has been investigated as function of learning rate and number of epochs. The result of the analysis can be observed in Figure \ref{fig:sgdnn}. Despite taking a longer time to be executed, RMSProp and ADAM show more than acceptable MSE and $R^2$ even with a relatively low number of epochs, \emph{i.e.} they converge faster to an optimal value for the parameters.
 
-\subsection{}
+\subsection{Custom NN and external libraries}
+We compared the the speed ad effectiveness of our NN with the benchmark \texttt{MPLregressor} provided by \sk. With the same characteristics, \emph{i.e.} two hidden layers activated by a tanh, initial learning rate of \num{1e-3} and small L2 regularizations, the difference in the execution time is huge. For both, ADAM has been used as optimizer. Our NN completed the task in $\sim \qty{11.5}{\second}$, whereas \sk performed the same task in $\sim \qty{0.4}{\second}$, \ie it is 29 times faster. The resulting fits are similar, even though our NN resulted in a slightly better approximation on the test set ($R_\text{own}^2 = 0.9995$, $R_\text{sk-learn}^2 = 0.9932$). The two fits are shown in Figure \ref{fig:skvsown}.
+
+Moreover, we made sure to obtain the same gradients with \texttt{autograd}, setting the \texttt{autodiff} parameter to True, and with the manually computed ones. Two NNs with the same set up but with different different differentiation methods yielded exactly the same fits.
+\begin{figure*}
+	\centering
+	\includegraphics[width=12cm]{skvsown}
+	\caption{\textbf{Custom NN vs \sk} | The two algorithms yield a similar result, even though our NN is 29 times slower.}
+	\label{fig:skvsown}
+\end{figure*}
+
+\subsection{Adding L1 and L2 regularizations}
+The results of the two regularized fits are shown in Figure \ref{fig:nnl1l2}. We can clearly see that acceptable result are obtained, in both cases, for $\lambda\leq \num{e-3}$ and for $\eta\leq \num{5e-5}$. We can observe that there is no gradual decay in the quality of MSE and $R^2$: the transitions is very sharp at these two critical thresholds.
+\begin{figure*}
+	\centering
+	\includegraphics[width=12cm]{nnl1l2}
+	\caption{\textbf{Custom NN vs \sk} | The two algorithms yield a similar result, even though our NN is 29 times slower.}
+	\label{fig:nnl1l2}
+\end{figure*}
+
+\subsection{Classification of MNIST data}
+MNIST-784 have been correctly loaded, train-test split and scaled. Four samples from this collection can be observed in Figure \ref{fig:mnistsamples}.
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{mnist_samples}
+	\caption{\textbf{Samples from \href{https://www.kaggle.com/datasets/hojjatk/mnist-dataset}{MNIST-784} collection} | The hand-written digits are 28$\times$28 pixel sized and each pixel has gray scale value ranging from 0 to 255.}
+\end{figure}
+The classification of these data has been performed with NN of two hidden layers of size 128 and 64 nodes respectively. The Leaky ReLU has been chosen as activation function of these layers, whereas for the output a Softmax has been employed. This set up is known to yield the best results when it comes to multi-class classifications. ADAM has been set as optimizer, with 1000 epochs and learning rate of \num{e-3}, since this is one of the best combination according to previous results (Section \ref{ss:sched}).
+
+The classification was successful: the result is shown in the confusion matrix of Figure \ref{fig:cm}. We can see that a high percentage of samples have been correctly classified, as they fall on the diagonal of the matrix.
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{mnist_cm}
+	\caption{\textbf{Confusion matrix of MNIST data classification} | Good result, with overall accuracy of 0.92.}
+	\label{fig:cm}
+\end{figure}
+The accuracy of the classification is of 0.92, which is more than acceptable.
 
 \section{Discussion}
+The custom NN performed overall as predicted. It has been able to correctly approximate simple functions and classify hand-written digits.
+
+When it comes to simple regressions, the choice of a linear regressor such as the Ordinary Least Squares (OLS) is still a solid choice, for its relatively simple implementation and fast execution. The equations that define the model are usually straightforward and are characterized by a limited number of parameters \parencite{wooditch2021_ols}. However, the main limitation of such methods is that they assume a linear relationships between the dependent and the independent variable. For functions such as the Runge one, this can represent a problem, since a polynomial approximation will not be able to properly catch the non-linearities of the relationship. NNs, thanks to the non-linear activation functions that can include, are potentially a better choice for this type of systems \parencite{deridder1999_nn, waterworth2000_nn}. This can directly be observed in Figure \ref{fig:nnols}: even a complex polynomial OLS model cannot perform well as a relatively simple, two-hidden layers NN, that exactly identify non linearities in the given function. Moreover, modern training techniques such as stochastic gradient descent and regularization strategies mitigate overfitting while maintaining model effectiveness \cite{lecun1998_tanh}.
+
+Choosing a NN over a linear regressor can still have drawbacks: it can take some time to find the best tradeoff between complexity and efficiency, and very deep networks will take a relevant amount of time to be executed. In our case, the OLS regression fitted the Runge dataset in \qty{0.0011}{\second}, whereas the two-hidden layer NN with 100 nodes and 1000 epochs required \qty{4.58}{\second}, that is around 4000 times slower.
+
+Nevertheless, our results showed that highly efficient algorithm from external libraries are able to tackle the same tasks within a much smaller time interval, and this raises one of the main criticalities of our custom code: despite the overall consistent results, the code is still far from being considered fine-tuned. 
+
+In the because it assumes a continuous output space and does not constrain predictions to lie within class probability bounds (e.g., between 0 and 1). As a result, linear regression can yield invalid probability estimates and poorly defined decision boundaries \parencite{hosmer2013applied, bishop2006_pattern}. Logistic regression and other probabilistic models are preferred alternatives, as they explicitly model the conditional class probabilities through non-linear link functions.
 
 \section{Conclusion}
 

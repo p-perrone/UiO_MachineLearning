@@ -177,6 +177,75 @@
       \verb https://doi.org/10.1007/BF02551274
       \endverb
     \endentry
+    \entry{deridder1999_nn}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,useprefix=true,hash=b5f3ea2aa3cf7694906930ff2fbba453}{%
+           family={Ridder},
+           familyi={R\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=9a71bc502b03918494e1d697f72d69be}{%
+           family={Duin},
+           familyi={D\bibinitperiod},
+           given={R.P.W.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=864277e0f418dcced41040ca1aa313e4}{%
+           family={Verbeek},
+           familyi={V\bibinitperiod},
+           given={P.W.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,useprefix=true,hash=d02e96d658a07889bec1450a9d68abcf}{%
+           family={Vliet},
+           familyi={V\bibinitperiod},
+           given={L.J.},
+           giveni={L\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9f55f3d1684f7c952608c8a15ea571d}
+      \strng{fullhash}{7b8e8fa54bc0448b76da177ef82c771d}
+      \strng{fullhashraw}{7b8e8fa54bc0448b76da177ef82c771d}
+      \strng{bibnamehash}{7b8e8fa54bc0448b76da177ef82c771d}
+      \strng{authorbibnamehash}{7b8e8fa54bc0448b76da177ef82c771d}
+      \strng{authornamehash}{d9f55f3d1684f7c952608c8a15ea571d}
+      \strng{authorfullhash}{7b8e8fa54bc0448b76da177ef82c771d}
+      \strng{authorfullhashraw}{7b8e8fa54bc0448b76da177ef82c771d}
+      \field{sortinit}{d}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, the applicability of neural networks to non-linear image processing problems is studied. As an example, the Kuwahara filtering for edge-preserving smoothing was chosen. This filter is interesting due to its non-linear nature and natural modularity. A number of modular networks were constructed and trained, incorporating prior knowledge in various degrees and their performance was compared to standard feed-forward neural networks (MLPs). Based on results obtained in these experiments, it is shown that several key factors influence neural network behaviour in this kind of task. First, it is demonstrated that the mean squared error criterion used in neural network training is not representative for the problem. To be able to discern performance differences better, a new error measure for edge-preserving smoothing operations is proposed. Secondly, using this measure, it is shown that modular networks perform better than standard feed-forward networks. The latter type often ends up in linear approximations to the filter. Finally, inspection of the modular networks shows that, although analysis is difficult due to their non-linearity, one can draw some conclusions regarding the effect of design and training choices. The main conclusion is that neural networks can be applied to non-linear image processing problems, provided that careful attention is paid to network architecture, training set sampling and parameter choice. Only if prior knowledge is used in constructing the networks and sampling the datasets can one expect to obtain a well performing neural network filter.}
+      \field{day}{1}
+      \field{issn}{1433-7541}
+      \field{journaltitle}{Pattern Analysis \& Applications}
+      \field{month}{6}
+      \field{number}{2}
+      \field{shortjournal}{Pattern Analysis \& Applications}
+      \field{title}{The {{Applicability}} of {{Neural Networks}} to {{Non-linear Image Processing}}}
+      \field{volume}{2}
+      \field{year}{1999}
+      \field{dateera}{ce}
+      \field{pages}{111\bibrangedash 128}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1007/s100440050022
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s100440050022
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s100440050022
+      \endverb
+    \endentry
     \entry{glorot2010_trainingdiff}{inbook}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=0b3943c3bfdbb5867b3760f7c7d488c2}{%
@@ -507,6 +576,44 @@
       \verb https://arxiv.org/abs/1412.6980
       \endverb
     \endentry
+    \entry{kohavi1998confusion}{inbook}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f2a149b8d68fbffd75e8ece81b80708f}{%
+           family={Kohavi},
+           familyi={K\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=79fae1f3d670f588a9b7148774f77abf}{%
+           family={Provost},
+           familyi={P\bibinitperiod},
+           given={Foster},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{fullhash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{fullhashraw}{09ccb8b870dc387623a2bb010466df17}
+      \strng{bibnamehash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{authorbibnamehash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{authornamehash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{authorfullhash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{authorfullhashraw}{09ccb8b870dc387623a2bb010466df17}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Encyclopedia of Machine Learning}
+      \field{title}{Confusion Matrix}
+      \field{year}{1998}
+      \field{dateera}{ce}
+    \endentry
     \entry{lecun1998_tanh}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
@@ -741,6 +848,39 @@
       \verb https://arxiv.org/abs/1712.05577
       \endverb
     \endentry
+    \entry{powers2011evaluation}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=590aed25666f7ee9c7f2009bd208cea8}{%
+           family={Powers},
+           familyi={P\bibinitperiod},
+           given={David\bibnamedelimb M.\bibnamedelimi W.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{fullhash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{fullhashraw}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{bibnamehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{authorbibnamehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{authornamehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{authorfullhash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{authorfullhashraw}{590aed25666f7ee9c7f2009bd208cea8}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Machine Learning Technologies}
+      \field{number}{1}
+      \field{title}{Evaluation: From Precision, Recall and {{F-measure}} to {{ROC}}, Informedness, Markedness and Correlation}
+      \field{volume}{2}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{pages}{37\bibrangedash 63}
+      \range{pages}{27}
+    \endentry
     \entry{rosenblatt1958_perceptron}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=1750cd87a34d44119e7a4aab9b8012c6}{%
@@ -867,6 +1007,132 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/978-1-4615-0377-4_5
+      \endverb
+    \endentry
+    \entry{waterworth2000_nn}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e95b7484f578ed11e6ac9871ff4b6a0b}{%
+           family={Waterworth},
+           familyi={W\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c1468e45ac1f8787d24dd919e6b7e282}{%
+           family={Lees},
+           familyi={L\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{fullhash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{fullhashraw}{96f6e3669bb308652a9b373b08b01930}
+      \strng{bibnamehash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{authorbibnamehash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{authornamehash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{authorfullhash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{authorfullhashraw}{96f6e3669bb308652a9b373b08b01930}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper considers the application of Artificial Neural Networks (ANNs) to the control of non-linear systems, in particular considering the control of the elevation of the gun of a main battle tanle It commences with an analysis and design of a controller for a non-linear laboratory equipment, with the modelling and the design ofan ANN controller. It then reviews the modelling of a tank gun elevation and the corresponding design of a controller. A number offeatures concerning the time variance ofthe characteristics of such systems are considered including variation of parameters such as backlash, hysteresis, and saturation limits due to ageing and wear.}
+      \field{day}{1}
+      \field{issn}{1474-6670}
+      \field{journaltitle}{IFAC Workshop on Programmable Devices and Systems (PDS 2000), Ostrava, Czech Republic, 8-9 February 2000}
+      \field{month}{2}
+      \field{number}{1}
+      \field{shortjournal}{IFAC Proceedings Volumes}
+      \field{title}{Artificial {{Neural Networks}} in the {{Modelling}} and {{Control}} of {{Non-Linear Systems}}}
+      \field{volume}{33}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \field{pages}{95\bibrangedash 97}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1016/S1474-6670(17)35594-5
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S1474667017355945
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S1474667017355945
+      \endverb
+      \keyw{modelling,Neural networks,non-linear control,target control}
+    \endentry
+    \entry{wooditch2021_ols}{inbook}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=7561b4362cbd65ccf4c93663af4caaa1}{%
+           family={Wooditch},
+           familyi={W\bibinitperiod},
+           given={Alese},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a83c996853d36f5afb774b768842570}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Nicole\bibnamedelima J.},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8322b727827c2782f7f62ef891769437}{%
+           family={Solymosi},
+           familyi={S\bibinitperiod},
+           given={Reka},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4d6905688f901e4051a940ac65ea18f}{%
+           family={Medina\bibnamedelima Ariza},
+           familyi={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Juanjo},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=43549f3b27b001ddc583f766080ff407}{%
+           family={Langton},
+           familyi={L\bibinitperiod},
+           given={Samuel},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{2ce1cd9511ef82fc9d8a1b88068b6dd6}
+      \strng{fullhash}{7c987b4bc57aa55f9a18362976d62d68}
+      \strng{fullhashraw}{7c987b4bc57aa55f9a18362976d62d68}
+      \strng{bibnamehash}{7c987b4bc57aa55f9a18362976d62d68}
+      \strng{authorbibnamehash}{7c987b4bc57aa55f9a18362976d62d68}
+      \strng{authornamehash}{2ce1cd9511ef82fc9d8a1b88068b6dd6}
+      \strng{authorfullhash}{7c987b4bc57aa55f9a18362976d62d68}
+      \strng{authorfullhashraw}{7c987b4bc57aa55f9a18362976d62d68}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This chapter provides an introduction to ordinary least squares (OLS) regression analysis in R. This is a technique used to explore whether one or multiple variables (the independent variable or X) can predict or explain the variation in another variable (the dependent variable or Y). OLS regression belongs to a family of techniques called generalized linear models, so the variables being examined must be measured at the ratio or interval level and have a linear relationship. The chapter also reviews how to assess model fit using regression error (the difference between the predicted and actual values of Y) and R2. While you learn these techniques in R, you will be using the Crime Survey for England and Wales data from 2013 to 2014; these data derive from a face-to-face survey that asks people about their experiences of crime during the 12 months prior to interview.}
+      \field{booktitle}{A Beginner's Guide to Statistics for Criminology and Criminal Justice Using {{R}}}
+      \field{isbn}{978-3-030-50625-4}
+      \field{title}{Ordinary Least Squares Regression}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{pages}{245\bibrangedash 268}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1007/978-3-030-50625-4_15
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-030-50625-4_15
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-030-50625-4_15
       \endverb
     \endentry
   \enddatalist
@@ -1029,6 +1295,75 @@
       \verb https://doi.org/10.1007/BF02551274
       \endverb
     \endentry
+    \entry{deridder1999_nn}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,useprefix=true,hash=b5f3ea2aa3cf7694906930ff2fbba453}{%
+           family={Ridder},
+           familyi={R\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0,
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=9a71bc502b03918494e1d697f72d69be}{%
+           family={Duin},
+           familyi={D\bibinitperiod},
+           given={R.P.W.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=864277e0f418dcced41040ca1aa313e4}{%
+           family={Verbeek},
+           familyi={V\bibinitperiod},
+           given={P.W.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,useprefix=true,hash=d02e96d658a07889bec1450a9d68abcf}{%
+           family={Vliet},
+           familyi={V\bibinitperiod},
+           given={L.J.},
+           giveni={L\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9f55f3d1684f7c952608c8a15ea571d}
+      \strng{fullhash}{7b8e8fa54bc0448b76da177ef82c771d}
+      \strng{fullhashraw}{7b8e8fa54bc0448b76da177ef82c771d}
+      \strng{bibnamehash}{7b8e8fa54bc0448b76da177ef82c771d}
+      \strng{authorbibnamehash}{7b8e8fa54bc0448b76da177ef82c771d}
+      \strng{authornamehash}{d9f55f3d1684f7c952608c8a15ea571d}
+      \strng{authorfullhash}{7b8e8fa54bc0448b76da177ef82c771d}
+      \strng{authorfullhashraw}{7b8e8fa54bc0448b76da177ef82c771d}
+      \field{sortinit}{d}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, the applicability of neural networks to non-linear image processing problems is studied. As an example, the Kuwahara filtering for edge-preserving smoothing was chosen. This filter is interesting due to its non-linear nature and natural modularity. A number of modular networks were constructed and trained, incorporating prior knowledge in various degrees and their performance was compared to standard feed-forward neural networks (MLPs). Based on results obtained in these experiments, it is shown that several key factors influence neural network behaviour in this kind of task. First, it is demonstrated that the mean squared error criterion used in neural network training is not representative for the problem. To be able to discern performance differences better, a new error measure for edge-preserving smoothing operations is proposed. Secondly, using this measure, it is shown that modular networks perform better than standard feed-forward networks. The latter type often ends up in linear approximations to the filter. Finally, inspection of the modular networks shows that, although analysis is difficult due to their non-linearity, one can draw some conclusions regarding the effect of design and training choices. The main conclusion is that neural networks can be applied to non-linear image processing problems, provided that careful attention is paid to network architecture, training set sampling and parameter choice. Only if prior knowledge is used in constructing the networks and sampling the datasets can one expect to obtain a well performing neural network filter.}
+      \field{day}{1}
+      \field{issn}{1433-7541}
+      \field{journaltitle}{Pattern Analysis \& Applications}
+      \field{month}{6}
+      \field{number}{2}
+      \field{shortjournal}{Pattern Analysis \& Applications}
+      \field{title}{The {{Applicability}} of {{Neural Networks}} to {{Non-linear Image Processing}}}
+      \field{volume}{2}
+      \field{year}{1999}
+      \field{dateera}{ce}
+      \field{pages}{111\bibrangedash 128}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1007/s100440050022
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s100440050022
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s100440050022
+      \endverb
+    \endentry
     \entry{glorot2010_trainingdiff}{inbook}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=0b3943c3bfdbb5867b3760f7c7d488c2}{%
@@ -1359,6 +1694,44 @@
       \verb https://arxiv.org/abs/1412.6980
       \endverb
     \endentry
+    \entry{kohavi1998confusion}{inbook}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f2a149b8d68fbffd75e8ece81b80708f}{%
+           family={Kohavi},
+           familyi={K\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=79fae1f3d670f588a9b7148774f77abf}{%
+           family={Provost},
+           familyi={P\bibinitperiod},
+           given={Foster},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{fullhash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{fullhashraw}{09ccb8b870dc387623a2bb010466df17}
+      \strng{bibnamehash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{authorbibnamehash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{authornamehash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{authorfullhash}{09ccb8b870dc387623a2bb010466df17}
+      \strng{authorfullhashraw}{09ccb8b870dc387623a2bb010466df17}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Encyclopedia of Machine Learning}
+      \field{title}{Confusion Matrix}
+      \field{year}{1998}
+      \field{dateera}{ce}
+    \endentry
     \entry{lecun1998_tanh}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
@@ -1593,6 +1966,39 @@
       \verb https://arxiv.org/abs/1712.05577
       \endverb
     \endentry
+    \entry{powers2011evaluation}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=590aed25666f7ee9c7f2009bd208cea8}{%
+           family={Powers},
+           familyi={P\bibinitperiod},
+           given={David\bibnamedelimb M.\bibnamedelimi W.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{fullhash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{fullhashraw}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{bibnamehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{authorbibnamehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{authornamehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{authorfullhash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{authorfullhashraw}{590aed25666f7ee9c7f2009bd208cea8}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Machine Learning Technologies}
+      \field{number}{1}
+      \field{title}{Evaluation: From Precision, Recall and {{F-measure}} to {{ROC}}, Informedness, Markedness and Correlation}
+      \field{volume}{2}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{pages}{37\bibrangedash 63}
+      \range{pages}{27}
+    \endentry
     \entry{rosenblatt1958_perceptron}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=1750cd87a34d44119e7a4aab9b8012c6}{%
@@ -1719,6 +2125,132 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/978-1-4615-0377-4_5
+      \endverb
+    \endentry
+    \entry{waterworth2000_nn}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e95b7484f578ed11e6ac9871ff4b6a0b}{%
+           family={Waterworth},
+           familyi={W\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c1468e45ac1f8787d24dd919e6b7e282}{%
+           family={Lees},
+           familyi={L\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{fullhash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{fullhashraw}{96f6e3669bb308652a9b373b08b01930}
+      \strng{bibnamehash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{authorbibnamehash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{authornamehash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{authorfullhash}{96f6e3669bb308652a9b373b08b01930}
+      \strng{authorfullhashraw}{96f6e3669bb308652a9b373b08b01930}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper considers the application of Artificial Neural Networks (ANNs) to the control of non-linear systems, in particular considering the control of the elevation of the gun of a main battle tanle It commences with an analysis and design of a controller for a non-linear laboratory equipment, with the modelling and the design ofan ANN controller. It then reviews the modelling of a tank gun elevation and the corresponding design of a controller. A number offeatures concerning the time variance ofthe characteristics of such systems are considered including variation of parameters such as backlash, hysteresis, and saturation limits due to ageing and wear.}
+      \field{day}{1}
+      \field{issn}{1474-6670}
+      \field{journaltitle}{IFAC Workshop on Programmable Devices and Systems (PDS 2000), Ostrava, Czech Republic, 8-9 February 2000}
+      \field{month}{2}
+      \field{number}{1}
+      \field{shortjournal}{IFAC Proceedings Volumes}
+      \field{title}{Artificial {{Neural Networks}} in the {{Modelling}} and {{Control}} of {{Non-Linear Systems}}}
+      \field{volume}{33}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \field{pages}{95\bibrangedash 97}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1016/S1474-6670(17)35594-5
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S1474667017355945
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S1474667017355945
+      \endverb
+      \keyw{modelling,Neural networks,non-linear control,target control}
+    \endentry
+    \entry{wooditch2021_ols}{inbook}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=7561b4362cbd65ccf4c93663af4caaa1}{%
+           family={Wooditch},
+           familyi={W\bibinitperiod},
+           given={Alese},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a83c996853d36f5afb774b768842570}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Nicole\bibnamedelima J.},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8322b727827c2782f7f62ef891769437}{%
+           family={Solymosi},
+           familyi={S\bibinitperiod},
+           given={Reka},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4d6905688f901e4051a940ac65ea18f}{%
+           family={Medina\bibnamedelima Ariza},
+           familyi={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Juanjo},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=43549f3b27b001ddc583f766080ff407}{%
+           family={Langton},
+           familyi={L\bibinitperiod},
+           given={Samuel},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{2ce1cd9511ef82fc9d8a1b88068b6dd6}
+      \strng{fullhash}{7c987b4bc57aa55f9a18362976d62d68}
+      \strng{fullhashraw}{7c987b4bc57aa55f9a18362976d62d68}
+      \strng{bibnamehash}{7c987b4bc57aa55f9a18362976d62d68}
+      \strng{authorbibnamehash}{7c987b4bc57aa55f9a18362976d62d68}
+      \strng{authornamehash}{2ce1cd9511ef82fc9d8a1b88068b6dd6}
+      \strng{authorfullhash}{7c987b4bc57aa55f9a18362976d62d68}
+      \strng{authorfullhashraw}{7c987b4bc57aa55f9a18362976d62d68}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This chapter provides an introduction to ordinary least squares (OLS) regression analysis in R. This is a technique used to explore whether one or multiple variables (the independent variable or X) can predict or explain the variation in another variable (the dependent variable or Y). OLS regression belongs to a family of techniques called generalized linear models, so the variables being examined must be measured at the ratio or interval level and have a linear relationship. The chapter also reviews how to assess model fit using regression error (the difference between the predicted and actual values of Y) and R2. While you learn these techniques in R, you will be using the Crime Survey for England and Wales data from 2013 to 2014; these data derive from a face-to-face survey that asks people about their experiences of crime during the 12 months prior to interview.}
+      \field{booktitle}{A Beginner's Guide to Statistics for Criminology and Criminal Justice Using {{R}}}
+      \field{isbn}{978-3-030-50625-4}
+      \field{title}{Ordinary Least Squares Regression}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{pages}{245\bibrangedash 268}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1007/978-3-030-50625-4_15
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-030-50625-4_15
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-030-50625-4_15
       \endverb
     \endentry
   \enddatalist
