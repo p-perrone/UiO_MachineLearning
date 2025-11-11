@@ -840,6 +840,40 @@
       \field{pages}{807\bibrangedash 814}
       \range{pages}{8}
     \endentry
+    \entry{ng2004feature}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=49e889356ff39df159461bc2895c7e16}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Andrew\bibnamedelima Y.},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{49e889356ff39df159461bc2895c7e16}
+      \strng{fullhash}{49e889356ff39df159461bc2895c7e16}
+      \strng{fullhashraw}{49e889356ff39df159461bc2895c7e16}
+      \strng{bibnamehash}{49e889356ff39df159461bc2895c7e16}
+      \strng{authorbibnamehash}{49e889356ff39df159461bc2895c7e16}
+      \strng{authornamehash}{49e889356ff39df159461bc2895c7e16}
+      \strng{authorfullhash}{49e889356ff39df159461bc2895c7e16}
+      \strng{authorfullhashraw}{49e889356ff39df159461bc2895c7e16}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the Twenty-First International Conference on {{Machine}} Learning}
+      \field{title}{Feature Selection, {{L1}} vs. {{L2}} Regularization, and Rotational Invariance}
+      \field{year}{2004}
+      \field{dateera}{ce}
+      \field{pages}{78}
+      \range{pages}{1}
+    \endentry
     \entry{philipp2018_explgrads}{misc}{}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=1589bd0c45c0e747b87fd2e39530e833}{%
@@ -2000,6 +2034,40 @@
       \field{dateera}{ce}
       \field{pages}{807\bibrangedash 814}
       \range{pages}{8}
+    \endentry
+    \entry{ng2004feature}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=49e889356ff39df159461bc2895c7e16}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Andrew\bibnamedelima Y.},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{49e889356ff39df159461bc2895c7e16}
+      \strng{fullhash}{49e889356ff39df159461bc2895c7e16}
+      \strng{fullhashraw}{49e889356ff39df159461bc2895c7e16}
+      \strng{bibnamehash}{49e889356ff39df159461bc2895c7e16}
+      \strng{authorbibnamehash}{49e889356ff39df159461bc2895c7e16}
+      \strng{authornamehash}{49e889356ff39df159461bc2895c7e16}
+      \strng{authorfullhash}{49e889356ff39df159461bc2895c7e16}
+      \strng{authorfullhashraw}{49e889356ff39df159461bc2895c7e16}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the Twenty-First International Conference on {{Machine}} Learning}
+      \field{title}{Feature Selection, {{L1}} vs. {{L2}} Regularization, and Rotational Invariance}
+      \field{year}{2004}
+      \field{dateera}{ce}
+      \field{pages}{78}
+      \range{pages}{1}
     \endentry
     \entry{philipp2018_explgrads}{misc}{}{}
       \name{author}{3}{}{%

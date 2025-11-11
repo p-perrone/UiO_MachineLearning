@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english, french]{babel}
 \usepackage[margin=2cm]{geometry}
-\renewcommand{\baselinestretch}{1.1} 
+\renewcommand{\baselinestretch}{1.05} 
 
 \usepackage{sansmathfonts}
 \usepackage{fontspec}
@@ -150,32 +150,39 @@ urlcolor=BlueViolet]{hyperref}
 	\twocolumn
 
 \section{Introduction}
-An Artificial Neural Network is a computational model that emulates the functioning of human brain, in the way it can process several informations in parallel, resulting in a form of "intelligence" \parencite{wang2003_nn}. 
-
-A typical Neural Network (NN) is represented in Figure \ref{fig:nn}. It generally consists of connected units, called, \emph{nodes} or \emph{neurons}. Every node receives a specific \emph{signal}, \emph{i.e.} a real number, from its connected node. Nodes can be regrouped in specific layers, and the signal travels from the input layer to the output layer, passing through an arbitrary number of \emph{hidden layers} \parencite{bishop2006_pattern}. Before being transmitted from one layer to the following one, the signal is modulated by an non-linear function, called \emph{activation function}, which can be specified for each layer. Formally, a NN transforms an input $\bold{X} \in \R{n\times d}$ into an output vector $\bold{y}$ through successive linear transformations, where every node is multiplied by \emph{weights}, and activation functions \parencite{goodfellow_2016}. The weights are the parameters used in a NN for approximating the target function or dataset. The multiplication of each node's value is usually followed by the addition of a real number (a \emph{bias}), in order to avoid the transmission of zero-signals throughout the network. A cost function is usually computed at the end, in order to assess the agreement between the target and output prediction of the NN.
-
-The simplest possible neural network is given by the \emph{perceptron model}, conceived by \cite{rosenblatt1958_perceptron}. It is a type of linear classifier, that takes binary inputs, weights these by real numbers and yields a binary output.
-More complicated neural networks can generally support a higher number of layers and nodes, accept a multidimensional input and yield a non-binary output. In this project, particularly, we focus on so called \emph{multilayer perceptrons} (MLPs). An other type of neural network can be the \emph{feed-forward} neural network (FFNN). In this model, the signal is transmitted always in a single direction, forward through the layers, from the input to the output. If each node in a layer is connected to all the other nodes in the following layer, this correspond to a \emph{fully connected} FFNN \parencite{haykin1994_ml}. The operation by which the weights and biases are optimized is called \emph{backpropagation}, that consists of calculating  the gradients of the cost function with respect to weights and biases starting from the last layer; a training can then be performed in order to minimize this gradients and find the optimal values of these parameters, using optimization algorithms such as gradient descent \parencite{goodfellow_2016}.
-
-The aim of this project is to build a NN code in Python, that could perform both forward feeding and backpropagation. We will test this model initially on a simple 1-dimensional dataset, given by a cluster of samples computed with the Runge function for an input array $\boldsymbol{x} \in [-1, 1]$. Several types of activation functions and layers depths will be tested.
-
-A more complicated fit will be then performed on a dataset of handwritten digits, the \href{https://www.kaggle.com/datasets/hojjatk/mnist-dataset}{MNIST-784}. This consists of \num{70000} digits samples, each of size $28 \times 28$ pixels. The objective will be to train the coded NN to make it recognize and classify correctly these digits. An analysis of the goodness of such classification will also be performed.
-
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\columnwidth]{nn.pdf}
 	\caption{\textbf{Neural Network} | A typical structure.}
 	\label{fig:nn}
 \end{figure}
+An Artificial Neural Network is a computational model that emulates the functioning of the human brain, in the way it can process several pieces of information in parallel, resulting in a form of "intelligence" \parencite{wang2003_nn}. 
+
+A typical Neural Network (NN) is represented in Figure \ref{fig:nn}. It generally consists of connected units, called \emph{nodes} or \emph{neurons}. Every node receives a specific \emph{signal}, \emph{i.e.}, a real number, from its connected nodes. Nodes can be grouped into specific layers, and the signal travels from the input layer to the output layer, passing through an arbitrary number of \emph{hidden layers} \parencite{bishop2006_pattern}. Before being transmitted from one layer to the following one, the signal is modulated by a non-linear function, called the \emph{activation function}, which can be specified for each layer. Formally, an NN transforms an input $\bold{X} \in \R{n\times d}$ into an output vector $\bold{y}$ through successive linear transformations, where every node is multiplied by \emph{weights}, and activation functions are applied \parencite{goodfellow_2016}. The weights are the parameters used in an NN for approximating the target function or dataset. The multiplication of each node's value is usually followed by the addition of a real number (a \emph{bias}), in order to avoid the transmission of zero signals throughout the network. A cost function is usually computed at the end, in order to assess the agreement between the target and output prediction of the NN.
+
+The simplest possible neural network is given by the \emph{perceptron model}, conceived by \textcite{rosenblatt1958_perceptron}. It is a type of linear classifier that takes binary inputs, weights them by real numbers, and yields a binary output.
+More complicated neural networks can generally support a higher number of layers and nodes, accept a multidimensional input, and yield a non-binary output. In this project, in particular, we focus on the so-called \emph{multilayer perceptrons} (MLPs). Another type of neural network can be the \emph{feed-forward} neural network (FFNN). In this model, the signal is transmitted always in a single direction, forward through the layers, from the input to the output. If each node in a layer is connected to all the other nodes in the following layer, this corresponds to a \emph{fully connected} FFNN \parencite{haykin1994_ml}. The operation by which the weights and biases are optimized is called \emph{backpropagation}, which consists of calculating the gradients of the cost function with respect to weights and biases starting from the last layer; training can then be performed in order to minimize these gradients and find the optimal values of these parameters, using optimization algorithms such as gradient descent \parencite{goodfellow_2016}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{runge}
+	\caption{\textbf{Runge function} | In orange with an added noise of normal distribution $\mathcal{N}$(0, 0.1). The $x$ values have already been scaled.}
+	\label{fig:runge}
+\end{figure} 
+
+The aim of this project is to build NN code in Python that can perform both forward feeding and backpropagation. We will test this model initially on a simple one-dimensional dataset, given by a cluster of samples computed with the Runge function for an input array $\boldsymbol{x} \in [-1, 1]$ (Figure \ref{fig:runge}). Several types of activation functions and layer depths will be tested.
+
+A more complicated fit will then be performed on a dataset of handwritten digits, the \href{https://www.kaggle.com/datasets/hojjatk/mnist-dataset}{MNIST-784}. This consists of \num{70000} digit samples, each of size $28 \times 28$ pixels. The objective will be to train the coded NN to make it recognize and classify these digits correctly. An analysis of the goodness of such classification will also be performed.
+
 
 \section{Theory and methods}
 
 \subsection{The universal approximation theorem}
-The cornerstone of the Neural Networks theory in machine learning is the \emph{universal approximation theorem}. The formulation by \parencite{cybenko1989_approx} states that:\\
+The cornerstone of Neural Network theory in machine learning is the \emph{universal approximation theorem}. The formulation by \parencite{cybenko1989_approx} states that:\\
 \newline
 {
-\centering
-\begin{mytheo}{Universal approximation}{theoexample}
+	\centering
+	\begin{mytheo}{Universal approximation}{theoexample}
 		Let $\sigma$ be any continuous sigmoidal function such that:
 		\[
 		\lim_{z \to \infty} \sigma(z) = 1 \quad \text{and} \quad \lim_{z \to -\infty} \sigma(z) = 0
@@ -184,13 +191,13 @@ The cornerstone of the Neural Networks theory in machine learning is the \emph{u
 		\[
 		|F(\boldsymbol{x}) - f(\boldsymbol{x};\boldsymbol{\Theta})| < \epsilon \quad \forall \boldsymbol{x} \in [0,1]^n
 		\]
-	
+		
 \end{mytheo}}
 \newline
 
 
 In other words, any continuous function $y=F(\boldsymbol{x})$ supported on the unit cube in
-$d$-dimensions can be approximated by a one-layer sigmoidal network to
+$d$ dimensions can be approximated by a one-layer sigmoidal network to
 arbitrary accuracy and errors.
 
 A generalization of this theorem to any non-constant, bounded activation function was established by \parencite{hornik1991_approximation}. Dealing with the definition of the expectation value $\mathbb{E}[|F(\boldsymbol{x})|^2]$:
@@ -198,10 +205,10 @@ A generalization of this theorem to any non-constant, bounded activation functio
 	\mathbb{E}[|F(\boldsymbol{x})|^2] =\int_{\boldsymbol{x}\in D} |F(\boldsymbol{x})|^2p(\boldsymbol{x})\dd{\boldsymbol{x}} < \infty.
 \end{equation}
 it was concluded that
-	\begin{multline}
-		\mathbb{E}[|F(\boldsymbol{x})-f(\boldsymbol{x};\boldsymbol{\Theta})|^2] \\
-		=\int_{\boldsymbol{x}\in D} |F(\boldsymbol{x})-f(\boldsymbol{x};\boldsymbol{\Theta})|^2p(\boldsymbol{x})\,\dd{\boldsymbol{x}} < \epsilon.
-	\end{multline}
+\begin{multline}
+	\mathbb{E}[|F(\boldsymbol{x})-f(\boldsymbol{x};\boldsymbol{\Theta})|^2] \\
+	=\int_{\boldsymbol{x}\in D} |F(\boldsymbol{x})-f(\boldsymbol{x};\boldsymbol{\Theta})|^2p(\boldsymbol{x})\,\dd{\boldsymbol{x}} < \epsilon.
+\end{multline}
 
 \subsection{Structure of a Neural Network}
 \begin{figure*}
@@ -214,7 +221,7 @@ it was concluded that
 \subsubsection{The Feed-forward algorithm}
 
 \paragraph{Simple perceptron model with 1-D input}
-A simple FFNN will consist ofan  input vector, a single hidden layer and an output vector. We call:
+A simple FFNN will consist of an input vector, a single hidden layer, and an output vector. We call:
 \begin{itemize}
 	\item $\bs{x}\T = (x_1, x_2, \dots x_n) \in \R{n}$ the input;
 	\item $\bs{z}\T = (z_1, z_2, \dots z_m) \in \R{m}$ the weighted vector representing the hidden layer;
@@ -227,12 +234,12 @@ The activation $y_i$ of each $i$-th neuron is a weighted sum of inputs, passed t
 \end{equation}
 
 where, in this case, $\bs{W} \in \R{m\times n}$ and $\bs{b} \in \R{m}$.
-In case of the simple perceptron model we have 
+In the case of the simple perceptron model we have 
 \begin{align}
 	\boldsymbol{z} = \sum_{j=1}^m \sum_{i=1}^n w_{ij} x_i\\
 	\boldsymbol{\tilde{y}} = f(\boldsymbol{z}) 
 \end{align}
-where $f$ is the activation function, $x_i$ represents the input from neuron $i$ in the input layer and $w_{ij}$ is the weight to input $i$. Since this is a simple perceptron, then $f(\boldsymbol{\boldsymbol{z}})$ directly corresponds to the output of the NN, which will be passed to the chosen cost function $\C(\bs{\Theta})$. This simple architecture is shown in Figure \ref{fig:simpleperc} \parencite{goodfellow_2016}.
+where $f$ is the activation function, $x_i$ represents the input from neuron $i$ in the input layer, and $w_{ij}$ is the weight to input $i$. Since this is a simple perceptron, then $f(\boldsymbol{z})$ directly corresponds to the output of the NN, which will be passed to the chosen cost function $\C(\bs{\Theta})$. This simple architecture is shown in Figure \ref{fig:simpleperc} \parencite{goodfellow_2016}.
 
 \paragraph{Generalization to a multi-layer network with multiple inputs}
 A typical neural network takes as input a matrix $\bs{X} \in \R{n \times d}$, 
@@ -247,9 +254,9 @@ We denote by
 \[
 (\bs{a}\lr)\T = (a_1\lr, a_2\lr, \dots, a_{m_l}\lr)
 \]
-the vector of activations at layer $(l)$, 
+the vector of activations at layer $l$, 
 where $m_l$ is the number of neurons in that layer.
-These activations serve as input to the next layer $(l+1)$.
+These activations serve as input to the next layer $l+1$.
 
 For a given neuron $j$ in layer $l$, the pre-activation value is
 \begin{equation} \label{eq:ff}
@@ -264,23 +271,23 @@ Here, we have
 \begin{itemize}
 	\item $\bs{A}^{(l-1)} \in \R{n \times m_{l-1}}$ : 
 	activations (outputs) from the previous layer, 
-	where $n$ is the number of samples and $m_{l-1}$ is the number of neurons in layer $(l-1)$;
+	where $n$ is the number of samples and $m_{l-1}$ is the number of neurons in layer $l-1$;
 	
 	\item $\bs{W}\lr \in \R{m_{l-1} \times m_l}$ : 
-	weight matrix connecting layer $(l-1)$ to layer $(l)$;
+	weight matrix connecting layer $l-1$ to layer $l$;
 	
 	\item $\bs{b}\lr \in \R{1 \times m_l}$ : 
-	bias vector for layer $(l)$, added to the the $n$ samples during computation.
+	bias vector for layer $l$, added to the $n$ samples during computation;
 	
 	\item $\bs{A}\lr \in \R{n \times m_l}$ : 
-	activations of layer $(l)$, obtained after applying the activation function elementwise to $\bs{Z}\lr$:
+	activations of layer $l$, obtained after applying the activation function elementwise to $\bs{Z}\lr$:
 	\[
 	\bs{A}\lr = f\lr(\bs{Z}\lr)
 	\]
 \end{itemize}
 
 \paragraph{Implementation}
-A possible psudocode for such algorithm could be:
+A possible pseudocode for such an algorithm could be:
 \begin{algorithm}
 	\color{BlueViolet}
 	\caption{Feedforward}\label{alg:ff}
@@ -301,7 +308,7 @@ A possible psudocode for such algorithm could be:
 
 
 \subsubsection{The Backpropagation algorithm}
-A consistent result from the NN calculations can only be achieved with properly trained parameters $\bs{W}$ and $\bs{b}$. As in every machine learning algorithm, the optimization of such parameters can be performed by minimizing the gradient of the cost function with respect to these same. \emph{Backpropagation} is the operation of calculating these gradients. For the layer $l$:
+A consistent result from the NN calculations can only be achieved with properly trained parameters $\bs{W}$ and $\bs{b}$. As in every machine learning algorithm, the optimization of such parameters can be performed by minimizing the gradient of the cost function with respect to these parameters. \emph{Backpropagation} is the operation of calculating these gradients. For the layer $l$:
 \begin{equation}
 	\grad{\C({\bs{\Theta}\lr})} = \begin{bmatrix}
 		\partial_{\bs{W}\lr} \C\\
@@ -312,7 +319,7 @@ The output of this calculation is given by a number of gradients that correspond
 \[
 \left[\grad{\C({\bs{\Theta}^{(1)}})}, \grad{\C({\bs{\Theta}^{(2)}})}, \dots, \grad{\C({\bs{\Theta}^{(L)}})}\right]
 \]
-From Equation \eqref{eq:ff}, we know that every signal at the $j$-th node of layer $l$ depends on the output value of the activation function computed for the signal at layer $l-1$, \emph{i.e} $\bs{A}^{(l-1)}$. In turn, $\bs{A}^{(l-1)}$ is given by the activation of $\bs{Z}^{(l-1)}$, which is a function of $\bs{A}^{(l-2)}$, and so on. The dependence of each layer from the previous ones, in fully connected NNs, allows computing the gradients of the cost function with respect to the parameters of any layer by simply applying the chain rule, starting from the output layer and broadcasting to all the hidden layers in reversed order (\emph{backpropagating}, namely).
+From Equation \eqref{eq:ff}, we know that every signal at the $j$-th node of layer $l$ depends on the output value of the activation function computed for the signal at layer $l-1$, \emph{i.e.} $\bs{A}^{(l-1)}$. In turn, $\bs{A}^{(l-1)}$ is given by the activation of $\bs{Z}^{(l-1)}$, which is a function of $\bs{A}^{(l-2)}$, and so on. The dependence of each layer on the previous ones, in fully connected NNs, allows computing the gradients of the cost function with respect to the parameters of any layer by simply applying the chain rule, starting from the output layer and propagating to all the hidden layers in reversed order (\emph{backpropagating}, namely).
 
 \paragraph{Formalism of backpropagation}
 Let's consider a generic cost function, such as the \emph{Mean Squared Error}. For the last layer $L$, we have:
@@ -360,20 +367,20 @@ since the only difference from the derivative with respect to the weights is the
 
 In order to obtain the expression of backpropagation at a generic layer, we can first generalize the auxiliary factor $\bs{\delta}$ at layer $l$. Expanding Equation \eqref{eq:deltaL}, we have:
 \begin{multline*}
-\bs{\delta\lr} = \left(f\lr\right)' \odot \left(\bs{W}^{(l+1)}\right)\T \cdot \left(f^{(l+1)}\right)' \odot \cdots\\
-\cdots \odot \left( \bs{W}^{(L-1)} \right)\T \cdot \left(f^{(L-1)}\right)' \odot \left(\bs{W}^{(L)}\right) \cdot \left(f^{(L)}\right)' \odot \grad \C(\bs{A}^{(L)})
+	\bs{\delta\lr} = \left(f\lr\right)' \odot \left(\bs{W}^{(l+1)}\right)\T \cdot \left(f^{(l+1)}\right)' \odot \cdots\\
+	\cdots \odot \left( \bs{W}^{(L-1)} \right)\T \cdot \left(f^{(L-1)}\right)' \odot \left(\bs{W}^{(L)}\right) \cdot \left(f^{(L)}\right)' \odot \grad \C(\bs{A}^{(L)})
 \end{multline*}
 And, specifically,
 \[
-	\delta_j^{(l)} 
-	= \sum_k 
-	\pdv{\C}{z_k^{(l+1)}} 
-	\pdv{z_k^{(l+1)}}{z_j^{(l)}} 
-	= \sum_k 
-	\delta_k^{(l+1)} 
-	\pdv{z_k^{(l+1)}}{z_j^{(l)}}
+\delta_j^{(l)} 
+= \sum_k 
+\pdv{\C}{z_k^{(l+1)}} 
+\pdv{z_k^{(l+1)}}{z_j^{(l)}} 
+= \sum_k 
+\delta_k^{(l+1)} 
+\pdv{z_k^{(l+1)}}{z_j^{(l)}}
 \]
-which basically corresponds to the application of the chain rule recursively from layer $(l+1)$ to layer $(l)$. $k$ refers to the index of any node in layers $(l+1)$. Recalling equation \eqref{eq:ff}, we can finally derive a general expression for $\delta\lr$:
+which basically corresponds to the application of the chain rule recursively from layer $l+1$ to layer $l$. $k$ refers to the index of any node in layer $l+1$. Recalling Equation \eqref{eq:ff}, we can finally derive a general expression for $\delta\lr$:
 \begin{equation}
 	\delta_j\lr \;=\; \sum_k \delta_k^{(l+1)}\, w_{kj}^{(l+1)}\, f'\bigl(z_j\lr\bigr)
 \end{equation}
@@ -381,7 +388,7 @@ and in vector notation:
 \[
 \bs{\delta}\lr = \bs{\delta}^{(l+1)} \bs{W}^{(l+1)} f'(\bs{Z}\lr)
 \]
-Finally, the gradient of the cost function with respect to weights and biases at layer $(l)$ can be expressed as follows:
+Finally, the gradient of the cost function with respect to weights and biases at layer $l$ can be expressed as follows:
 \begin{equation}
 	\grad{\C(\bs{\Theta}\lr)} = 
 	\begin{bmatrix}
@@ -553,6 +560,13 @@ and its derivative for the Jacobian matrix elements is:
 \end{equation}
 where $\delta_{ij}$ is the Kronecker delta. Softmax converts the classical logit to a probability distribution and is primarily used in the output layer for multi-class classification \parencite{bridle1990_softmax}, as in our case, namely.
 
+\begin{figure*}
+	\centering
+	\includegraphics[width=15cm]{ols_Vs_nn}
+	\caption{\textbf{Linear OLS and Neural Networks} | Three different models have been tested for a simple regression. A linear ordinary least squares model with degree 13 showed good test MSE and $R^2$. The NN with two hidden layers of 100 nodes performed even better with an MSE 50 times smaller than the previous one. The NN with one hidden layer only shows serious underfitting and it is not able to properly represent the function, with a strongly negative $R^2$.}
+	\label{fig:nnols}
+\end{figure*}
+
 \subsection{Cost functions}
 For this work, two different types of cost functions have been employed, depending on the type of model (simple regression or classification).
 \paragraph{Mean Squared Error}
@@ -578,7 +592,7 @@ with derivative:
 \begin{equation}
 \pdv{\text{BCE}}{p_i}= \frac{p_i - y_i}{p_i(1 - p_i)}
 \end{equation}
-For multi-class models, then the formulation is modified as follows:
+For multi-class models, the formulation is modified as follows:
 \begin{equation}
 	\text{CE} = -\frac{1}{n} \sum_{i=1}^n \sum_{j=1}^K y_{ij} \log(\hat{y}_{ij} + \epsilon)
 \end{equation}
@@ -589,7 +603,7 @@ with gradient:
 where $\epsilon$ is a small constant for numerical stability. Here, $K$ represents the total number of classes. In this case, furthermore, the output $\hat{y}_{ij}$ is \emph{one-hot encoded}. This type of encoding sets each class lab as a binary vector with values 1 for the true-class and 0 for the others \parencite{bishop2006_pattern, goodfellow_2016}.
 
 \paragraph{Regularization}
-The cost function can be regularized by applying a penalty factor, in order to perform a more generalized model. This can be done by applying the Ridge and LASSO methods: the first adds an L2-type norma to the cost function, the second one an L1-type \parencite{goodfellow_2016}. Applying this penalties to the MSE leads to a shrinkage of the regression towards a constant model. Further details can be found in Project 1 report.
+The cost function can be regularized by applying a penalty factor, in order to perform a more generalized model. This can be done by using the Ridge and LASSO methods: the first adds an L2-type norm to the cost function, the second one an L1-type \parencite{goodfellow_2016}. Applying this penalties to the MSE leads to a shrinkage of the regression towards a constant model. Further details can be found in Project 1 report.
 
 \subsection{Classification}
 The classification effectiveness can be investigated through a confusion matrix. This is a widely used tool for evaluating the performance of classification models. It shows the relationships between predicted and true class labels in a tabular form, from which it is possible to compute scores such as accuracy and Cohen's $\kappa$ \parencite{powers2011evaluation, kohavi1998confusion}. Each cell in the matrix represents the number of instances belonging to a specific combination of predicted and actual classes.
@@ -604,9 +618,9 @@ represents the target and $y_i$ the outputs of our NN code and $n$ is simply the
 
 \subsection{Set up of the code}
 \subsubsection{Implementation}
-For this project, a Python module has been created, containing all the necessary functions and classes for the analysis. The core is a Neural Network class, that can perform all the main algorithms (feedforward, backpropagation, training) and adapt to different types of input dataset and regression/classification frames.
+For this project, a Python module has been created, containing all the necessary functions and classes for the analysis. The core is a Neural Network class, that can perform all the main algorithms (feedforward, backpropagation, training) and adapt to different types of input datasets and regression/classification frames.
 
-Since we deal with learning machinery, Python libraries such as \texttt{scikit-learn} and \texttt{pytorch} have also been employed, mainly for assessing the relative behavior of the own coded NN with respect to external modules.
+Since we deal with learning machinery, Python libraries such as \texttt{scikit-learn} have also been employed, mainly for assessing the relative behavior of the own coded NN with respect to external modules.  More insights on this module's functionality can be found \href{https://scikit-learn.org/stable/user_guide.html}{here}.
 
 The first part of the code is meant to implement all the activation and cost functions. The computation of the derivatives was approached in two different ways
 \begin{itemize}
@@ -619,7 +633,6 @@ After that, an abstract class \texttt{Scheduler} has been created, in order to m
 The structure of \texttt{NeuralNetwork} class is shown in Algorithm \ref{alg:nn}
 \begin{algorithm}
 	\color{BlueViolet}
-	\label{alg:nn}
 	\caption{Neural Network Class Structure}
 	\begin{algorithmic}[1]
 		\State \textbf{class} NeuralNetwork
@@ -638,17 +651,19 @@ The structure of \texttt{NeuralNetwork} class is shown in Algorithm \ref{alg:nn}
 			\Procedure{\_reset\_weights}{} \EndProcedure
 			\State
 	\end{algorithmic}
+	\label{alg:nn}
 \end{algorithm}
+
+\begin{figure*}[h]
+	\centering
+	\includegraphics[width=12cm]{skvsown}
+	\caption{\textbf{Custom NN vs \sk} | Both algorithms produce similar results, though our NN is 29 times slower.}
+	\label{fig:skvsown}
+\end{figure*}
 As said previously, it supports all the different types of cost and activation functions. Plus, an external function \texttt{set\_activations} allows choosing between automatic and manual differentiation. The cost functions and their respective derivatives can also be declared (MSE or Cross Entropy); their derivative are handled in the \texttt{cost\_der} function and it is again possible to choose between analytical solutions or \texttt{autograd}. If the chosen cost is the MSE, one can also decide to apply an L1 or L2 norm, by default set to 0.1.
 
 The class also accept a flexible number of layers, each with a freely definable number of neurons.
 
-\begin{figure*}
-	\centering
-	\includegraphics[width=14cm]{ols_Vs_nn}
-	\caption{\textbf{Linear OLS and Neural Networks} | Three different models have been tested for a simple regression. A linear ordinary least squares model with degree 13 showed good test MSE and $R^2$. The NN with two hidden layers of 100 nodes performed even better with an MSE 50 times smaller than the previous one. The NN with one hidden layer only shows serious underfitting and it is not able to properly represent the function, with a strongly negative $R^2$.}
-	\label{fig:nnols}
-\end{figure*}
 \subsubsection{Testing}
 Testing the custom NN was carried out in a Python Jupyter Notebook. The analysis consisted in:
 
@@ -675,88 +690,98 @@ The effects of Ridge and LASSO regularizations have been explored for penalties 
 \textbf{6. Classification analysis with MNIST}\\
 The NN has been employed for a multi-class classification task. Its performance has been assessed with an accuracy score and a confusion matrix.
 
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{schedulers_mse_r2}
+	\caption{\textbf{Performance of different SGD solvers} | RMSProp and ADAM converge to acceptable results with fewer epochs, showing robust performance across learning rates and iteration counts. In contrast, plain SGD performs better with lower rates and higher numbers of epochs.}
+	\label{fig:sgdnn}
+\end{figure*}
+
 \section{Results}
 \subsection{Comparison with linear OLS regression}
-In Figure \ref{fig:nnols}, the result of a regression performed with both the \py{NeuralNetwork} and the \py{LinearRegression\_own} classes. The second one has been set with a polynomial degree of 13; this choice was made in accord with the Bias-Variance tradeoff results from the analyses carried out in Project 1. 
+In Figure \ref{fig:nnols}, the results of a regression performed with both the \py{NeuralNetwork} and the \py{LinearRegression\_own} classes are shown. The latter was set with a polynomial degree of 13, chosen according to the Bias-Variance tradeoff results from analyses carried out in Project 1. 
 
-In general, we observe that the best performance is yielded by the NN with two hidden layers, that shows the smaller deviation from the targets. Despite this, its $R^2$ is generally fairly lower than the linear OLS one.
+In general, the best performance is achieved by the NN with two hidden layers, which shows the smallest deviation from the targets. Despite this, its $R^2$ is generally slightly lower than that of the linear OLS model.
 
 \subsection{Testing of different Stochastic Gradient Descent solvers} \label{ss:sched}
-First of all, the speed of each algorithm has been tested, by repeating for 50 iterations the same training with a NN of 2 hidden layers with 100 nodes each, all activated by a sigmoid. For all the algorithms, an initial learning rate of $\num{5e-3}$ and 500 epochs have been set. For each iteration, the execution time was registered. An average elapsed time over the 50 iterations was finally calculated for each scheduler, and the result can be seen in Table \ref{tab:schedtimes}. RMSProp resulted in average 1.4 times slower than the plain SGD, and ADAM 1.7 times slower.
+First, the speed of each algorithm was tested by repeating 50 training runs with a NN consisting of 2 hidden layers of 100 nodes each, all using a sigmoid activation. For all algorithms, an initial learning rate of $\num{5e-3}$ and 500 epochs were set. For each iteration, execution time was recorded, and the average elapsed time over the 50 iterations was calculated for each scheduler, as shown in Table \ref{tab:schedtimes}. RMSProp was on average 1.4 times slower than plain SGD, and ADAM 1.7 times slower.
 \begin{table}
 	\centering
 	\begin{tabular}{lSS}
 		\toprule
 		Scheduler & {Mean elapsed time} & {$\pm\,\sigma_{\text{mean}}$}\\
-		 & {(\unit{\second})} & {(\unit{\second})}\\
+		& {(\unit{\second})} & {(\unit{\second})}\\
 		\midrule
 		Constant $\eta$ & 1.673 & 0.025 \\
 		RMSProp & 2.379  &  0.020 \\
 		ADAM & 2.811 & 0.032 \\
 		\bottomrule
 	\end{tabular}
-	\caption{\textbf{Different execution time for each SGD algorithm} | ADAM and RMSProp are slower than the plain SGD. A standard deviation of the mean is also shown.}
+	\caption{\textbf{Execution time for different SGD algorithms} | ADAM and RMSProp are slower than plain SGD. A standard deviation of the mean is also shown.}
 	\label{tab:schedtimes}
 \end{table}
-\begin{figure*}
-	\centering
-	\includegraphics[width=\textwidth]{schedulers_mse_r2}
-	\caption{\textbf{Performance of different SGD solvers} | RMSProp and ADAM converge to acceptable results within a smaller amount of epochs, proving a fairly consistent behavior to any learning rate and number of iterations. On the opposite, plain SGD with constant learning rate seems performing better with lower rates and a higher number of epochs.}
-	\label{fig:sgdnn}
-\end{figure*}
 
-Secondly, the overall effectiveness of the three schedulers has been investigated as function of learning rate and number of epochs. The result of the analysis can be observed in Figure \ref{fig:sgdnn}. Despite taking a longer time to be executed, RMSProp and ADAM show more than acceptable MSE and $R^2$ even with a relatively low number of epochs, \emph{i.e.} they converge faster to an optimal value for the parameters.
+Second, the overall effectiveness of the three schedulers was investigated as a function of learning rate and number of epochs. The results, shown in Figure \ref{fig:sgdnn}, indicate that RMSProp and ADAM, although slower, reach acceptable MSE and $R^2$ values even with relatively few epochs, \emph{i.e.}, they converge faster to an optimal solution.
 
 \subsection{Custom NN and external libraries}
-We compared the the speed ad effectiveness of our NN with the benchmark \texttt{MPLregressor} provided by \sk. With the same characteristics, \emph{i.e.} two hidden layers activated by a tanh, initial learning rate of \num{1e-3} and small L2 regularizations, the difference in the execution time is huge. For both, ADAM has been used as optimizer. Our NN completed the task in $\sim \qty{11.5}{\second}$, whereas \sk performed the same task in $\sim \qty{0.4}{\second}$, \ie it is 29 times faster. The resulting fits are similar, even though our NN resulted in a slightly better approximation on the test set ($R_\text{own}^2 = 0.9995$, $R_\text{sk-learn}^2 = 0.9932$). The two fits are shown in Figure \ref{fig:skvsown}.
+The speed and performance of our NN were compared with \texttt{MLPRegressor} from \sk. Using the same setup—two hidden layers with tanh activation, initial learning rate of \num{1e-3}, and small L2 regularization—the execution time difference was significant. Both used ADAM as optimizer. Our NN completed the task in $\sim \qty{11.5}{\second}$, whereas \sk completed it in $\sim \qty{0.4}{\second}$, making it 29 times faster. The resulting fits are similar, although our NN produced a slightly better approximation on the test set ($R_\text{own}^2 = 0.9995$, $R_\text{sk-learn}^2 = 0.9932$). The fits are shown in Figure \ref{fig:skvsown}.
 
-Moreover, we made sure to obtain the same gradients with \texttt{autograd}, setting the \texttt{autodiff} parameter to True, and with the manually computed ones. Two NNs with the same set up but with different different differentiation methods yielded exactly the same fits.
-\begin{figure*}
-	\centering
-	\includegraphics[width=12cm]{skvsown}
-	\caption{\textbf{Custom NN vs \sk} | The two algorithms yield a similar result, even though our NN is 29 times slower.}
-	\label{fig:skvsown}
-\end{figure*}
+We also confirmed that gradients computed with \texttt{autograd} (by setting \texttt{autodiff} to True) matched the manually computed ones. Two NNs with identical setups but different differentiation methods yielded identical fits.
 
 \subsection{Adding L1 and L2 regularizations}
-The results of the two regularized fits are shown in Figure \ref{fig:nnl1l2}. We can clearly see that acceptable result are obtained, in both cases, for $\lambda\leq \num{e-3}$ and for $\eta\leq \num{5e-5}$. We can observe that there is no gradual decay in the quality of MSE and $R^2$: the transitions is very sharp at these two critical thresholds.
+The results of the regularized fits are shown in Figure \ref{fig:nnl1l2}. Acceptable results were obtained for $\lambda\leq \num{e-3}$ and $\eta\leq \num{5e-5}$. The quality of MSE and $R^2$ does not decay gradually; instead, there is a sharp transition at these thresholds.
 \begin{figure*}
 	\centering
 	\includegraphics[width=12cm]{nnl1l2}
-	\caption{\textbf{Custom NN vs \sk} | The two algorithms yield a similar result, even though our NN is 29 times slower.}
+	\caption{\textbf{L1 and L2 regularization} | Applying a penalty $\lambda \leq \num{e-3}$ can improve model generalization.}
 	\label{fig:nnl1l2}
 \end{figure*}
 
 \subsection{Classification of MNIST data}
-MNIST-784 have been correctly loaded, train-test split and scaled. Four samples from this collection can be observed in Figure \ref{fig:mnistsamples}.
+MNIST-784 was correctly loaded, scaled, and split into train/test sets. Four sample images are shown in Figure \ref{fig:mnistsamples}.
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{mnist_samples}
-	\caption{\textbf{Samples from \href{https://www.kaggle.com/datasets/hojjatk/mnist-dataset}{MNIST-784} collection} | The hand-written digits are 28$\times$28 pixel sized and each pixel has gray scale value ranging from 0 to 255.}
+	\caption{\textbf{Samples from \href{https://www.kaggle.com/datasets/hojjatk/mnist-dataset}{MNIST-784}} | Handwritten digits are 28$\times$28 pixels with gray scale values from 0 to 255.}
+	\label{fig:mnistsamples}
 \end{figure}
-The classification of these data has been performed with NN of two hidden layers of size 128 and 64 nodes respectively. The Leaky ReLU has been chosen as activation function of these layers, whereas for the output a Softmax has been employed. This set up is known to yield the best results when it comes to multi-class classifications. ADAM has been set as optimizer, with 1000 epochs and learning rate of \num{e-3}, since this is one of the best combination according to previous results (Section \ref{ss:sched}).
 
-The classification was successful: the result is shown in the confusion matrix of Figure \ref{fig:cm}. We can see that a high percentage of samples have been correctly classified, as they fall on the diagonal of the matrix.
+Classification was performed using a NN with two hidden layers of 128 and 64 nodes, respectively. Leaky ReLU was used for hidden layers, and Softmax for the output layer. ADAM was set as optimizer with 1000 epochs and learning rate \num{1e-3}, chosen according to previous results (Section \ref{ss:sched}).
+
+Classification was successful, as shown in the confusion matrix in Figure \ref{fig:cm}. A high percentage of samples fall along the diagonal, indicating correct classification.
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth]{mnist_cm}
-	\caption{\textbf{Confusion matrix of MNIST data classification} | Good result, with overall accuracy of 0.92.}
+	\caption{\textbf{Confusion matrix of MNIST classification} | Overall accuracy of 0.92 indicates good performance.}
 	\label{fig:cm}
 \end{figure}
-The accuracy of the classification is of 0.92, which is more than acceptable.
 
-\section{Discussion}
-The custom NN performed overall as predicted. It has been able to correctly approximate simple functions and classify hand-written digits.
+The classification accuracy was 0.92, which is considered very good.
 
-When it comes to simple regressions, the choice of a linear regressor such as the Ordinary Least Squares (OLS) is still a solid choice, for its relatively simple implementation and fast execution. The equations that define the model are usually straightforward and are characterized by a limited number of parameters \parencite{wooditch2021_ols}. However, the main limitation of such methods is that they assume a linear relationships between the dependent and the independent variable. For functions such as the Runge one, this can represent a problem, since a polynomial approximation will not be able to properly catch the non-linearities of the relationship. NNs, thanks to the non-linear activation functions that can include, are potentially a better choice for this type of systems \parencite{deridder1999_nn, waterworth2000_nn}. This can directly be observed in Figure \ref{fig:nnols}: even a complex polynomial OLS model cannot perform well as a relatively simple, two-hidden layers NN, that exactly identify non linearities in the given function. Moreover, modern training techniques such as stochastic gradient descent and regularization strategies mitigate overfitting while maintaining model effectiveness \cite{lecun1998_tanh}.
+\section{Discussion and conclusions}
+The custom NN performed overall as expected. It was able to correctly approximate simple functions and classify handwritten digits.
 
-Choosing a NN over a linear regressor can still have drawbacks: it can take some time to find the best tradeoff between complexity and efficiency, and very deep networks will take a relevant amount of time to be executed. In our case, the OLS regression fitted the Runge dataset in \qty{0.0011}{\second}, whereas the two-hidden layer NN with 100 nodes and 1000 epochs required \qty{4.58}{\second}, that is around 4000 times slower.
+When it comes to simple regressions, the choice of a linear regressor such as Ordinary Least Squares (OLS) remains a solid option due to its relatively simple implementation and fast execution. The equations that define the model are usually straightforward and are characterized by a limited number of parameters \parencite{wooditch2021_ols}. However, the main limitation of such methods is that they assume a linear relationship between the dependent and independent variables. For functions such as the Runge one, this can represent a problem, since a polynomial approximation will not be able to properly capture the nonlinearities of the relationship. NNs, thanks to the nonlinear activation functions they include, are potentially a better choice for this type of system \parencite{deridder1999_nn, waterworth2000_nn}. This can be directly observed in Figure \ref{fig:nnols}: even a complex polynomial OLS model cannot perform as well as a relatively simple two-hidden-layer NN, which correctly identifies the nonlinearities in the given function. Moreover, modern training techniques such as stochastic gradient descent and regularization strategies mitigate overfitting while maintaining model effectiveness \parencite{lecun1998_tanh}.
 
-Nevertheless, our results showed that highly efficient algorithm from external libraries are able to tackle the same tasks within a much smaller time interval, and this raises one of the main criticalities of our custom code: despite the overall consistent results, the code is still far from being considered fine-tuned. 
+Choosing an NN over a linear regressor can still have drawbacks: it can take some time to find the best trade-off between complexity and efficiency, and very deep networks require a significant amount of computation time. In our case, the OLS regression fitted the Runge dataset in \qty{0.0011}{\second}, whereas the two-hidden-layer NN with 100 nodes and 1000 epochs required \qty{4.58}{\second}, which is about 4000 times slower.
 
-In the because it assumes a continuous output space and does not constrain predictions to lie within class probability bounds (e.g., between 0 and 1). As a result, linear regression can yield invalid probability estimates and poorly defined decision boundaries \parencite{hosmer2013applied, bishop2006_pattern}. Logistic regression and other probabilistic models are preferred alternatives, as they explicitly model the conditional class probabilities through non-linear link functions.
+Nevertheless, our results showed that highly efficient algorithms from external libraries are able to tackle the same tasks within a much smaller time interval, and this highlights one of the main weaknesses of our custom code: despite the overall consistent results, the code is still far from being considered fine-tuned.
 
-\section{Conclusion}
+For classification purposes, NNs are the only reasonable option, as linear regression assumes a continuous output space and does not constrain predictions to lie within class probability bounds (e.g., between 0 and 1). As a result, linear regression can yield invalid probability estimates and poorly defined decision boundaries \parencite{hosmer2013applied, bishop2006_pattern}. In our case, \ie a ten-class classification, NNs were able to correctly identify all patterns in the digits, resulting in high accuracy.
+
+We can finally discuss the performance of our NN with regard to the choice of complexity, parameters, and optimization mechanisms.
+
+In the context of this analysis, shallow networks with two or at most three layers and no more than 150 nodes per layer have proven to be a solid choice for tasks such as simple nonlinear regressions and the classification of very small images (on the order of \num{10}–\num{e2} squared pixels), even with a relatively large input dataset (\num{70000} for MNIST-784). Nevertheless, choosing a single hidden layer network can easily lead to excessive simplification and yield unacceptable results, as shown in Figure \ref{fig:nnols}.
+
+The choice of activation functions is also crucial. We carried out several experiments to determine which functions could handle different problems most effectively. The sigmoid and tanh functions appear to offer a relatively good trade-off for regressions, particularly thanks to their nonlinearity. In contrast, the LeakyReLU and ReLU were not able to properly represent the curvature of the Runge function, resulting in an oversimplified approximation characterized by sharp corners. However, the ReLU family showed optimal results for discrete systems, such as classification. This can be explained by the fact that ReLU does not saturate for positive values and is also easier to compute \parencite{glorot2010_trainingdiff}.
+
+Regarding optimization, plain SGD with a constant learning rate is a good option if the priority is a simple implementation coupled with fast execution for each epoch. However, adaptive learning rates represent a more robust choice that can yield better results almost \emph{independently} of the number of epochs and the initial learning rate value, according to our findings (Figure \ref{fig:sgdnn}). In fact, ADAM and RMSProp showed faster convergence, returning optimal weights and biases after only a relatively small number of epochs (250). Furthermore, these methods are generally more numerically stable, as they can produce acceptable results even for higher learning rates ($\eta \sim \num{e-3}$), overcoming the typical fixed-learning-rate divergence issues. These behaviors are also widely recognized in previous studies \parencite{tieleman2012rmsprop, kingma:adam, goodfellow_2016}.
+
+The application of an L1 or L2 norm can also be considered and can certainly improve the model, particularly where a non-regularized network would fail or when working with a very small input dataset. However, our findings suggest avoiding penalties $\lambda \geq 0.01$, as this can lead to serious underfitting and loss of useful complexity. This is also confirmed in existing literature \parencite{ng2004feature}.
+
+To conclude, we can state that the objectives of our analysis have been largely achieved. A general understanding of which hyperparameters, levels of complexity, and activation functions should be chosen depending on the system type is now provided. To evaluate more consistently how to tune such parameters, cross-validation and bias–variance trade-off analyses could be carried out, as previously done in Project 1. Finally, we conclude this work with a fairly low-level and non-optimized NN. Higher efficiency could certainly be reached by taking inspiration from well-performing modules such as \href{https://pytorch.org/}{\texttt{pytorch}} and \href{https://www.tensorflow.org/}{\texttt{tensorflow}}.
+
+\newpage
 
 \printbibliography[heading=bibintoc]
 	

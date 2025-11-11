@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  11 NOV 2025 18:33
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  11 NOV 2025 20:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1865,26 +1865,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 
 ]
-
-Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 155.
-
-
-
 File: images/nn.pdf Graphic file (type pdf)
 <images/nn.pdf>
 
+
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 161.
+
+
+
+File: images/runge.pdf Graphic file (type pdf)
+<images/runge.pdf>
+LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
+169.
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmss.fd
+File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
 LaTeX Font Warning: Font shape `TU/LatinModernSans(0)/sbc/n' undefined
-(Font)              using `TU/LatinModernSans(0)/m/n' instead on input line 173
+(Font)              using `TU/LatinModernSans(0)/m/n' instead on input line 180
 .
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--190
+Underfull \hbox (badness 10000) in paragraph at lines 181--197
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--190
+Underfull \hbox (badness 10000) in paragraph at lines 181--197
 
  []
 
@@ -1899,35 +1907,35 @@ File: images/simple_percptr.pdf Graphic file (type pdf)
 
 LaTeX Font Warning: Font shape `TU/LatinModernSans(0)/sbc/sl' undefined
 (Font)              using `TU/LatinModernSans(0)/sbc/n' instead on input line 2
-14.
+21.
 
 
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 286.
+put line 293.
 
 
 [3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (11.94437pt too wide) detected at line 365
+
+
+Overfull \hbox (11.94437pt too wide) detected at line 372
  []$[] [] \OMS/cmsssy/m/n/10 ^^L [][] ^^A [][] ^^L [] ^^A [][] ^^L []C\OT1/cmr/
 m/n/10 ([][])  $ 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 404--405
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
 []\TU/LatinModernSans(0)/sbc/sl/10 Feedforward activations $\OMS/cmsssy/m/n/10 
 f[][]g[]$\TU/LatinModernSans(0)/sbc/sl/10 , pre-
  []
 
 
-Underfull \hbox (badness 3872) in paragraph at lines 404--405
+Underfull \hbox (badness 3872) in paragraph at lines 411--412
 \TU/LatinModernSans(0)/sbc/sl/10 activations $\OMS/cmsssy/m/n/10 f[][]g[]$\TU/L
 atinModernSans(0)/sbc/sl/10 , weights $\OMS/cmsssy/m/n/10 f[][]g[]$\TU/LatinMod
 ernSans(0)/sbc/sl/10 , cost
@@ -1940,134 +1948,127 @@ File: images/activation_functions.pdf Graphic file (type pdf)
 
 
 [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [6]
+File: images/ols_Vs_nn.pdf Graphic file (type pdf)
+<images/ols_Vs_nn.pdf>
+
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [7]
 
-Package caption Warning: \label without proper reference on input line 622.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `alg:nn' on page 8 undefined on input line 619.
-
 
 LaTeX Font Warning: Font shape `TU/LatinModernSans(0)/m/sc' undefined
-(Font)              using `TU/LatinModernSans(0)/m/n' instead on input line 627
+(Font)              using `TU/LatinModernSans(0)/m/n' instead on input line 640
 .
 
+File: images/skvsown.pdf Graphic file (type pdf)
+<images/skvsown.pdf>
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 660.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-File: images/ols_Vs_nn.pdf Graphic file (type pdf)
-<images/ols_Vs_nn.pdf>
-LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-649.
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmss.fd
-File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Underfull \hbox (badness 4660) in paragraph at lines 658--659
-[]\TU/LatinModernSans(0)/m/sc/10 Both the datasets have been scaled; for the
- []
+Underfull \vbox (badness 1648) has occurred while \output is active []
 
 
 
 [8]
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 668.
 
-Underfull \hbox (badness 5119) in paragraph at lines 668--670
+
+Underfull \hbox (badness 4660) in paragraph at lines 673--674
+[]\TU/LatinModernSans(0)/m/sc/10 Both the datasets have been scaled; for the
+ []
+
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 683.
+
+Underfull \hbox (badness 5119) in paragraph at lines 683--685
 []\TU/LatinModernSans(0)/b/n/10 4. Comparing the own custom NN to
  []
 
 
-Underfull \hbox (badness 5359) in paragraph at lines 680--681
-[]\TU/LatinModernSans(0)/m/sc/10 In Figure [][]4[][], the result of a regressio
-n per-
+
+[9]
+File: images/schedulers_mse_r2.pdf Graphic file (type pdf)
+<images/schedulers_mse_r2.pdf>
+
+Underfull \hbox (badness 4266) in paragraph at lines 702--703
+[]\TU/LatinModernSans(0)/m/sc/10 In Figure [][]5[][], the results of a regressi
+on per-
  []
 
 
-Underfull \hbox (badness 3343) in paragraph at lines 680--681
+Underfull \hbox (badness 3343) in paragraph at lines 702--703
 \TU/LatinModernSans(0)/m/sc/10 formed with both the [] and the
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+Underfull \hbox (badness 1112) in paragraph at lines 729--730
+[]\TU/LatinModernSans(0)/m/sc/10 We also confirmed that gradients computed with
 
-File: images/schedulers_mse_r2.pdf Graphic file (type pdf)
-<images/schedulers_mse_r2.pdf>
+ []
 
-
-[9] [10]
-File: images/skvsown.pdf Graphic file (type pdf)
-<images/skvsown.pdf>
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 717.
 File: images/nnl1l2.pdf Graphic file (type pdf)
 <images/nnl1l2.pdf>
-
-
-LaTeX Warning: Reference `fig:mnistsamples' on page 11 undefined on input line 
-731.
-
 File: images/mnist_samples.pdf Graphic file (type pdf)
 <images/mnist_samples.pdf>
 File: images/mnist_cm.pdf Graphic file (type pdf)
 <images/mnist_cm.pdf>
 
 
+[10] [11]
 
 
-[11] [12]
+
+[12]
 
 
-Underfull \hbox (badness 1092) in paragraph at lines 761--761
+
+[13]
+Underfull \hbox (badness 1092) in paragraph at lines 786--786
 [][]\TU/LatinModernSans(0)/m/sc/10 Goodfellow, I., Bengio, Y., & Courville, A. 
 (2016).
  []
 
 
-Underfull \hbox (badness 1584) in paragraph at lines 761--761
+Underfull \hbox (badness 1584) in paragraph at lines 786--786
 [][]\TU/LatinModernSans(0)/m/sc/10 Hochreiter, S. (1991). \TU/LatinModernSans(0
 )/m/it/10 Untersuchungen zu dynamis-
  []
 
 
-Underfull \hbox (badness 1748) in paragraph at lines 761--761
+Underfull \hbox (badness 1748) in paragraph at lines 786--786
 \TU/LatinModernSans(0)/m/sc/10 stitut für Informatik, Technische Universität
  []
 
 
-Underfull \hbox (badness 3547) in paragraph at lines 761--761
+Underfull \hbox (badness 3547) in paragraph at lines 786--786
 [][]$[][][][][] [] [] [] [][][][][][] [] [][][][][] [] [][] [] [][][][][][][][]
  []
  []
 
 
 
-[13]
-Underfull \hbox (badness 7291) in paragraph at lines 761--761
+
+Underfull \hbox (badness 7291) in paragraph at lines 786--786
 \TU/LatinModernSans(0)/m/sc/10 Springer. Retrieved on January 1, 2024,
  []
 
 
-Underfull \hbox (badness 5064) in paragraph at lines 761--761
+Underfull \hbox (badness 5064) in paragraph at lines 786--786
 \TU/LatinModernSans(0)/m/sc/10 from [][]$[][][][][] [] [] [] [][][][][][][] [] 
 [][][] [] [][][][][][][] []
  []
-
-
 
 
 
@@ -2084,17 +2085,22 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Perrone_ML_Project2.out' has not changed.
-(rerunfilecheck)             Checksum: AFEC03986FC9219FE83AA5894F82B8ED;4326.
+(rerunfilecheck)             Checksum: 1D862E614EB0311C6BA9563FC4E31B05;4318.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                Perrone_ML_Project2
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'Perrone_ML_Project2.run.xml'.
 \openout1 = `Perrone_ML_Project2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50893 strings out of 403196
- 1134620 string characters out of 5456127
- 2243539 words of memory out of 5000000
- 78718 multiletter control sequences out of 15000+600000
- 667090 words of font info for 140 fonts, out of 8000000 for 9000
+ 50919 strings out of 403196
+ 1135178 string characters out of 5456127
+ 2249848 words of memory out of 5000000
+ 78742 multiletter control sequences out of 15000+600000
+ 667996 words of font info for 143 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  98i,20n,101p,1740b,5949s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
