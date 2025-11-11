@@ -8,797 +8,755 @@
 =====================
 ml_project1.functions
 =====================
-This module contains functions for:
-    - Generating the Runge function with or without noise
-    - Creating a design matrix for polynomial regression
-    - Computing optimal parameters for Ordinary Least Squares (OLS) and Ridge (L2) regression
-    - Performing linear regression predictions
-    - Standard scaling of data
-    - Gradient descent optimization with different methods (AdaGrad, RMSprop, Adam)
-    - Lasso regression using gradient descent with L1 regularization
+
+This module contains utility functions for Neural Network implementation, 
+including:
+- Activation functions and their derivatives
+- Cost functions and their derivatives
+- Data preprocessing and scaling utilities
+- Evaluation metrics such as accuracy and confusion matrix
+- Any additional helper functions for training, prediction, and regularization
 """
 
-#--------------------------------
+# --------------------------------
 # dependencies
+import autograd.numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
+import sys
+import random
 import pandas as pd
 from sklearn.model_selection import train_test_split, KFold
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.linear_model import LinearRegression, Ridge, Lasso
-from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer
-from sklearn.utils import resample
-import autograd.numpy as np
-from autograd import grad
+from sklearn.preprocessing import StandardScaler
+from sklearn.neural_network import MLPRegressor
+from autograd import grad, elementwise_grad
+import copy
+import time
+from typing import Literal, List, Optional
 
+# own functions
+from ml_project1.functions import *
 
-#--------------------------------
-# FIRST PART: PREPROCESSING, OLS AND RIDGE
-#--------------------------------
+#------------------------------------------------#
+# Activation functions
+#------------------------------------------------#
 
-
-# Runge function
-def Runge(x, noise=True, noisescale=1):
-    """ Computes Runge function with or without a normal distributed stochastic noise.
-        Parameters:
-        :: x (array) = input dataset
-        :: noise (bool) = adds some noise if True
+def ReLU(z):
+    """ Computes Rectified Linear Unit:
+        f(z) = z if z > 0, 0 otherwise
     """
-    if not isinstance(noise, bool):
-        raise TypeError(f"`noise` must be boolean (True or False) and not {type(noise)}")
+    return np.where(z > 0, z, 0)
 
-    if noise == True:
-        y = ( 1 / (1 + 25 * x**2) ) + np.random.normal(loc=0, scale=noisescale, size=len(x))
-    elif noise == False:
-        y = ( 1 / (1 + 25 * x**2) )
-
-    return y
-
-
-# OLS implementation
-
-import numpy as np
-
-class LinearRegression_own:
+def ReLU_der(z):
+    """ Derivative of ReLU:
+        f'(z) = 1 if z > 0, 0 otherwise
     """
-    Own implementation of linear regression with OLS and Ridge methods and their analytical solutions.
-    Includes polynomial feature expansion and fitting.
-    
-    Based on scikit-learn linear regression workflow.
+    return np.where(z > 0, 1, 0)
+
+#------------------------------------------------#
+
+def leaky_ReLU(z):
+    """ Computes Leaky ReLU:
+        f(z) = z if z > 0, alpha*z otherwise
     """
+    return np.where(z > 0, z, 0.01 * z)
 
-    def __init__(self, intercept=True):
-        self.intercept = intercept
-
-
-    def polynomial_features(self, x, p):  
-        """ Computes the design matrix for linear regression.
-
-            Parameters:
-            :: x (array) = input dataset
-            :: p (int) = polynomial degree
-
-            ------------------------------------------------------------------
-            Returns:
-            :: X (matrix) = design matrix
-        """
-        
-        x = np.asarray(x).ravel()
-        n = len(x)
-
-        if not isinstance(self.intercept, bool):
-            raise TypeError(f"Intercept must be boolean (True or False), not {type(self.intercept)}")
-
-        # composing the matrix (with or without intercept) ~ `transform` by sklearn
-        if self.intercept:
-            X = np.ones((n, p + 1))
-            for j in range(1, p + 1):
-                X[:, j] = x ** j
-        else:
-            X = np.ones((n, p))
-            for j in range(p):
-                X[:, j] = x ** (j + 1)
-
-        return X
-    
-
-    def fit(self, X, y, method='OLS', lbda=0.1):
-        """ Fits linear regression model using analytical solution.
-        
-            Parameters:
-            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-            :: y (array) = true value to be modeled
-            :: method (str) = 'OLS' or 'Ridge'
-            :: lbda (scalar) = penalty coefficient for Ridge regression
-
-            ------------------------------------------------------------------
-            Returns:
-            :: beta (array) = optimal parameters
-        """
-
-        X = np.asarray(X)
-        y = np.asarray(y).ravel()
-
-        if method == 'OLS':
-            beta = np.linalg.pinv(X.T @ X) @ X.T @ y
-        elif method == 'Ridge':
-            n_features = X.shape[1]
-            beta = np.linalg.inv(X.T @ X + lbda * np.eye(n_features)) @ X.T @ y
-        else:
-            raise ValueError(f"`method` must be 'OLS' or 'Ridge', not {method}")
-        
-        return beta
-    
-
-    def predict(self, X, beta):
-        """ Computes the regression curve (predicted y values).
-
-            Parameters:
-            :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-            :: beta (array) = optimal parameters obtained from fit()
-
-            ------------------------------------------------------------------
-            Returns:
-            :: y_pred (array) = predicted y values
-        """
-        return np.asarray(X) @ np.asarray(beta)
-    
-
-
-# standard scaling
-def standard_scaler(a, centering=True, stdscaling=True):
-    """ Scales input array a.
-
-        Parameters:
-        :: a (array) = input 1D array
-        :: centering (bool) = substracts a.mean()
-        :: scaling (bool) = divides by a.std()
-
-        ------------------------------------------------------------------
-        Returns:
-        :: scaled_a (array) = scaled version of input array
+def leaky_ReLU_der(z):
+    """ Derivative of Leaky ReLU:
+        f'(z) = 1 if z > 0, alpha otherwise
     """
-    if not isinstance(a, np.ndarray):
-        raise TypeError("'a' must be a 1D array")
-    if not isinstance(centering, bool):
-        raise TypeError("'centering' must be boolean (True or False)")
-    if not isinstance(stdscaling, bool):
-        raise TypeError("'stdscaling' must be boolean (True or False)")
+    return np.where(z > 0, 1, 0.01)
 
-    if centering:
-        centered = a - a.mean()
+#------------------------------------------------#
+
+def ELU(z):
+    """ Computes Exponential Linear Unit (ELU):
+        f(z) = z if z > 0, alpha*(exp(z)-1) otherwise
+    """
+    return np.where(z > 0, z, np.exp(z) - 1)
+
+def ELU_der(z):
+    """ Derivative of ELU:
+        f'(z) = 1 if z > 0, f(z)+alpha otherwise
+    """
+    return np.where(z > 0, 1, np.exp(z))
+
+#------------------------------------------------#
+
+def sigmoid(z):
+    """ Computes Sigmoid activation:
+        f(z) = 1 / (1 + exp(-z))
+    """
+    z = np.clip(z, -500, 500)  # avoids overflow in exp
+    return 1 / (1 + np.exp(-z))
+
+def sigmoid_der(z):
+    """ Derivative of Sigmoid:
+        f'(z) = f(z) * (1 - f(z))
+    """
+    s = sigmoid(z)
+    return s * (1 - s)
+
+#------------------------------------------------#
+
+def tanh(z):
+    """ Computes hyperbolic tangent activation:
+        f(z) = tanh(z)
+    """
+    return np.tanh(z)
+
+def tanh_der(z):
+    """ Derivative of tanh:
+        f'(z) = 1 - tanh(z)^2
+    """
+    return 1 - np.tanh(z)**2
+
+#------------------------------------------------#
+def softmax(z):
+    """ Computes softmax activation:
+            f(z_i) = exp(z_i) / sum_j exp(z_j)
+    """
+    z = z - np.max(z, axis=-1, keepdims=True)  # stability
+    exp_z = np.exp(z)
+    return exp_z / (np.sum(exp_z, axis=-1, keepdims=True) + 1e-10)
+
+def softmax_der(z):
+    """ Element-wise approximation derivative of softmax (not full Jacobian)
+        Useful for cross-entropy backprop where simplifications exist.
+    """
+    s = softmax(z)
+    return s * (1 - s)
+
+#------------------------------------------------#
+# Cost functions
+#------------------------------------------------#
+
+def mse(predict, targets, weights=None, regression_method="ols", lbda=0.1):
+    """ Computes Mean Squared Error with optional L1/L2 regularization
+        regression_method: "ols", "ridge", "lasso"
+    """
+    residuals = predict - targets
+
+    if regression_method == 'ols':
+        return np.mean(residuals**2)
+    elif regression_method == 'ridge':
+        return np.mean(residuals**2) + lbda * np.sum(weights**2)
+    elif regression_method == 'lasso':
+        return np.mean(residuals**2) + lbda * np.sum(np.abs(weights))
     else:
-        centered = a
+        raise ValueError(f"`regression_method` must be 'ols', 'ridge' or 'lasso', not {regression_method}")
 
-    if stdscaling:
-        scaled_a = centered / a.std()
+def mse_der(predict, targets, autodiff : bool= False):
+    """ Computes gradient of MSE w.r.t predictions """
+    if autodiff:
+        return elementwise_grad(mse)(predict, targets)
+
+    n = targets.shape[0]
+    residuals = predict - targets
+    grad_pred = (2 / n) * residuals
+    return grad_pred
+
+#------------------------------------------------#
+
+def cross_entropy(predict, targets):
+    """ Computes Cross-Entropy loss for multi-class classification """
+    n = targets.shape[0]
+    return -np.sum(targets * np.log(predict + 1e-10)) / n
+
+def cross_entropy_der(predict, targets, autodiff : bool= False):
+    """ Computes gradient of Cross-Entropy w.r.t predictions """
+    if autodiff:
+        return elementwise_grad(cross_entropy)(predict, targets)
     else:
-        scaled_a = centered
-        
-    return scaled_a
-
-
-#--------------------------------
-# SECOND PART: GRADIENT DESCENT AND LASSO
-#--------------------------------
-
-
-# defining cost function for OLS, Ridge and Lasso
-def cost_function(y, X, theta, regression_method='OLS', lbda=0.1):
-    """ Cost function for OLS, Ridge or Lasso regression.
-
-        Parameters:
-        :: y (array) = true value to be modeled
-        :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-        :: regression_method (str) = 'OLS', 'Ridge' or 'Lasso'
-        :: lbda (scalar) = regularization parameter (only for Ridge and Lasso)
-
-        ------------------------------------------------------------------
-        Returns:
-        :: cost (scalar) = value of the cost function
-    """
-    y_pred = X @ theta
-    residuals = y_pred - y.reshape(-1, 1)
+        return (predict - targets) / predict.shape[0]
     
-    if regression_method == 'OLS':
-        return np.sum(residuals**2)
-    
-    elif regression_method == 'Ridge':
-        return np.sum(residuals**2) + lbda * np.sum(theta**2)
-    
-    elif regression_method == 'Lasso':
-        return np.sum(residuals**2) + lbda * np.sum(np.abs(theta))
-    
-    else:
-        raise ValueError(f"`regression_method` must be 'OLS', 'Ridge' or 'Lasso', not {regression_method}")
 
+#------------------------------------------------#
+# dictionary containing all the previous functions:
+#------------------------------------------------#
 
-# analytical computation of gradient
-def grad_analytic(X, y, theta, lbda, regression_method='OLS'):
-        """Compute gradient analytically.
+activation_functions_dic = {
+    'sigmoid'    : (sigmoid, sigmoid_der),
+    'tanh'       : (tanh, tanh_der),
+    'softmax'    : (softmax, softmax_der),
+    'relu'       : (ReLU, ReLU_der),
+    'leaky_relu' : (leaky_ReLU, leaky_ReLU_der),
+    'elu'        : (ELU, ELU_der),
+    }
 
-            Parameters:
-            :: X_batch (matrix) = design matrix for the batch
-            :: y_batch (array) = true value to be modeled for the batch
-            :: theta (array) = current parameters
-            :: lbda (scalar) = regularization parameter (only for Ridge and Lasso)
-            :: regression_method (str) = 'OLS', 'Ridge' or 'Lasso'
-            
-            ------------------------------------------------------------------
-            Returns:
-            :: gradient (array) = gradient of the cost function
-        """
+cost_functions_dic = {
+    'mse'           : (mse, mse_der),
+    'cross_entropy' : (cross_entropy, cross_entropy_der)
+    }
 
-        if not isinstance(regression_method, str):
-             raise TypeError(f"`regression_method` must be a string, not {type(regression_method)}")
+#------------------------------------------------#
+# function for setting activation:
+#------------------------------------------------#
 
-        # predicted values
-        y_pred = X @ theta
-        # residuals
-        residuals = y_pred - y.reshape(-1, 1)
-
-        if regression_method == 'OLS':
-            return (2.0 / len(y)) * (X.T @ residuals)
-        elif regression_method == 'Ridge':
-            return 2.0 * ((X.T @ residuals) / len(y) + (lbda * theta))
-        elif regression_method == 'Lasso':
-            return 2.0 * ((X.T @ residuals) / len(y) + lbda * np.sign(theta))
-        else:
-             raise ValueError(f"`regression_method` must be either 'OLS', 'Ridge' or 'Lasso', not {regression_method}")
-
-
-# optimal parameters with simple gradient descent
-def theta_gd(X, y, eta, regression_method='OLS', lbda=0.1, iterations=200000, converge=1e-8):
-    """ Computes optimal parameters for ordinary least squares regression with gradient descent.
-        Parameters:
-        :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-        :: y (array) = true value to be modeled
-        :: eta (scalar) = learning rate
-        :: regression_method (str) = 'OLS' or 'Ridge'
-        :: lbda (scalar) = regularization parameter (only for Ridge)
-        :: iterations (int) = maximum number of iterations
-        :: converge (scalar) = convergence criterion
+def set_activations(
+        functions_dic: dict,
+        functions_names_list: list,
+        automatic_diff: bool = False):
     """
-    # error for wrong regression_method input
-    if regression_method not in ['OLS', 'Ridge']:
-        raise ValueError("regression_method must be 'OLS' or 'Ridge'")
+    Selects activation functions and their derivatives from a dictionary 
+    and returns two lists: one with the functions and one with the derivatives.
 
-    # initialize theta, from y shape
-    n, m = X.shape
-    y = np.asarray(y).reshape(-1, 1)
-    theta = np.zeros((m, 1), dtype=float)
+    Parameters
+    ----------
+    :: functions_dic : dict
+        Dictionary mapping function names to a tuple/list: (function, manual_derivative)
+    :: functions_names_list : list
+        List of names of the activation functions to use in each layer
+    :: automatic_diff : bool, default=False
+        If True, uses automatic differentiation to compute derivatives; 
+        otherwise uses the provided manual derivatives
 
-    for k in range(iterations):
-        gradient = grad_analytic(X, y, theta, lbda=lbda, regression_method=regression_method)  # compute gradient with autograd
-        theta -= eta * gradient
-
-        grad_norm = np.linalg.norm(gradient)
-        if grad_norm > 1e2:  # cap gradient norm (DeepSeek hint)
-            gradient = gradient / grad_norm * 1e2
-
-        if grad_norm <= converge:
-            print(f"Stop at epsilon = {grad_norm:.2e}, iteration = {k}")
-            break
-
-    return theta
-
-
-# optimal parameters with momentum gradient descent and different eta update methods
-def theta_gd_mom(X, y, regression_method='OLS', eta=1e-3, eta_update_method='Simple_momentum', lbdaRidge=0.1, 
-                lbdaLasso=0.1, momentum=0.9, iterations=2000, converge = 1e-8):
-    """ Computes optimal parameters for ordinary least squares regression with momentum gradient descent.
-
-        Parameters:
-        :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-        :: y (array) = true value to be modeled
-        :: regression_method (str) = 'OLS', 'Ridge' or 'Lasso'
-        :: eta (scalar) = learning rate - default 1e-3 (optimal from experiments results)
-        :: lbdaRidge (scalar) = penalty coefficient for Ridge regression
-        :: lbdaLasso (scalar) = penalty coefficient for Lasso regression
-        :: momentum (scalar) = momentum coefficient for momentum gradient descent
-        :: eta_update_method (str) = 'AdaGrad', 'RMSprop', 'ADAM' or 'Simple_momentum'
-        :: iterations (int) = maximum number of iterations
-        :: converge (scalar) = convergence criterion
-
-        ------------------------------------------------------------------
-        Returns:
-        :: theta (array) = optimal parameters
+    Returns
+    -------
+    :: activation_funcs : list
+        List of activation functions corresponding to `functions_names_list`
+    :: activation_funcs_ders : list
+        List of derivatives (manual or automatic) corresponding to the activations
     """
-
-    # error for wrong input
-    if regression_method != 'OLS' and regression_method != 'Ridge' and regression_method != 'Lasso':
-        raise ValueError(f"'regression_method' must be either 'OLS' or 'Ridge' and not {regression_method}")
-    if eta_update_method not in ['AdaGrad', 'RMSprop', 'ADAM', 'Simple_momentum']:
-        raise ValueError(f"'eta_update_method' must be either 'AdaGrad', 'RMSprop', 'ADAM' or 'Simple_momentum' and not {eta_update_method}")
-
-    # initialize random theta and velocity
-    theta = np.random.randn(X.shape[1], 1)
-    velocity = np.zeros((X.shape[1], 1))
-
-    # common params
-    delta = 1e-8    # to avoid division by zero
-    t = 0           # time step for Adam
-    Giter = 0.0     # initialize sum of squared gradients for AdaGrad, RMSprop and Adam
-
-    # defining cost function
-    if regression_method == 'OLS':
-        cost = lambda theta: cost_function(y, X, theta)
-    elif regression_method == 'Ridge':
-        cost = lambda theta: cost_function(y, X, theta, regression_method='Ridge', lbda=lbdaRidge)
-    elif regression_method == 'Lasso':
-        cost = lambda theta: cost_function(y, X, theta, regression_method='Lasso', lbda=lbdaLasso)
-
-    for k in range(iterations):
-        gradient = grad(cost)(theta).reshape(-1, 1)  # compute gradient with autograd
-        if np.any(np.isnan(gradient)) or np.any(np.isinf(gradient)):
-            print(f"NaN in gradient at iteration {k}")
-            print("Gradient stats:", np.min(gradient), np.max(gradient))
-            break
-
-        # update theta according to the chosen method
-        if eta_update_method == 'Simple_momentum':
-            velocity = momentum * velocity - eta * gradient     # simple momentum update
-            update = velocity
-            theta += update
-        
-        elif eta_update_method == 'AdaGrad': 
-            # AdaGrad tracks the sum of the squares of the previous gradients
-            Giter += gradient**2    # square the gradient
-            adjusted_eta = eta / (delta + np.sqrt(Giter))
-            update = adjusted_eta * gradient
-            theta -= update
-
-        elif eta_update_method == 'RMSprop':
-            # RMSprop modificates AdaGrad by useing a moving average of squared gradients to normalize the gradient
-            beta = 0.99     # discount factor that controls the averaging time of the second moment (variance of the gradient)
-            Giter = beta * Giter + (1 - beta) * gradient**2
-            adjusted_eta = eta / (delta + np.sqrt(Giter))
-            update = adjusted_eta * gradient
-            theta -= update
-
-        elif eta_update_method == 'ADAM':
-            # Adam (Adaptive Moment Estimation) is an extension to RMSprop that also takes 
-            # into account the moving average of the gradient itself
-            beta1 = 0.9     # decay rate for the first moment estimate (velocity = weighted average of the past gradients)
-            beta2 = 0.99    # decay rate for the second moment estimate (Giter = weighted average of the past squared gradients)
-            t += 1          # time step
-            
-            # update first moment estimate
-            velocity = beta1 * velocity + (1 - beta1) * gradient
-            # update second moment estimate
-            Giter = beta2 * Giter + (1 - beta2) * gradient**2
-            
-            # compute bias-corrected first moment estimate
-            velocity_corrected = velocity / (1 - beta1**t)
-            # compute bias-corrected second moment estimate
-            Giter_corrected = Giter / (1 - beta2**t)
-
-            adjusted_eta = eta / (delta + np.sqrt(Giter_corrected))
-            update = adjusted_eta * velocity_corrected
-            theta -= update
-
-        # convergence of the algorithm
-        update_norm = np.linalg.norm(update)
-        if update_norm <= converge:
-            print(f"Stop at epsilon = {update_norm:.2e}, iteration = {k}")
-            break
-
-    return theta
-
-
-# Lasso regression with iterative approach
-def Lasso_params(X, y, lbda=0.1, iterations=5000, eta=1e-4, converge=1e-8):
-    """ Computes optimal parameters for Lasso regression with simple gradient descent.
-
-        Parameters:
-        :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-        :: y (array) = true value to be modeled
-        :: lbda (scalar) = penalty coefficient
-        :: iterations (int) = maximum number of iterations
-        :: eta (scalar) = learning rate
-        :: converge (scalar) = convergence criterion
-
-        ------------------------------------------------------------------
-        Returns:
-        :: theta (array) = optimal parameters
-    """
-
-    # initialize a zero optimal parameters array in order to avoid numerical instabilities
-    theta = np.zeros((X.shape[1], 1))
     
-    y = y.reshape(-1,1)
+    activation_funcs = list()
+    activation_funcs_ders = list()
 
-    for k in range(iterations):
-        gradient = grad_analytic(X, y, theta, lbda=lbda, regression_method='Lasso')  # compute gradient with autograd
-        theta_new = theta - eta * gradient
-
-        # convergence check (proposed by DeepSeek)
-        if np.linalg.norm(theta_new - theta) < converge:
-            print(f"Lasso converged at iteration {k}")
-            break
-
-        theta = theta_new
-
-    return theta
-
-
-# stochastic now 
-def theta_sgd_mom(X, y, regression_method='OLS', eta=1e-3, eta_update_method='Simple_momentum', 
-                  lbda=0.1,momentum=0.9, converge = 1e-8, mb_size = 5):
-    """ Computes optimal parameters for OLS and Ridge regression with momentum stochastic gradient descent.
-
-        Parameters:
-        :: X (matrix) = design matrix obtained with polynomial_features(x, p, intercept)
-        :: y (array) = true value to be modeled
-        :: regression_method (str) = 'OLS' or 'Ridge'
-        :: eta (scalar) = learning rate
-        :: lbdaRidge (scalar) = penalty coefficient for Ridge regression
-        :: lbdaLasso (scalar) = penalty coefficient for Lasso regression
-        :: momentum (scalar) = momentum coefficient for momentum gradient descent
-        :: eta_update_method (str) = 'AdaGrad', 'RMSprop', 'ADAM' or 'Simple_momentum'
-        :: iterations (int) = maximum number of iterations
-        :: converge (scalar) = convergence criterion
-
-        ------------------------------------------------------------------
-        Returns:
-        :: theta (array) = optimal parameters
-    """
-
-    # error for wrong input
-    if regression_method != 'OLS' and regression_method != 'Ridge':
-        raise ValueError(f"'regression_method' must be either 'OLS' or 'Ridge' and not {regression_method}")
-    if eta_update_method not in ['AdaGrad', 'RMSprop', 'ADAM', 'Simple_momentum']:
-        raise ValueError(f"'eta_update_method' must be either 'AdaGrad', 'RMSprop', 'ADAM' or 'Simple_momentum' and not {eta_update_method}")
-
-    # initialize random theta and velocity
-    theta = np.random.randn(X.shape[1], 1)
-    velocity = np.zeros((X.shape[1], 1))
-
-    # common params
-    delta = 1e-8    # to avoid division by zero
-    t = 0           # time step for Adam
-    Giter = 0.0     # initialize sum of squared gradients for AdaGrad, RMSprop and Adam
-
-    # defining cost function
-    if regression_method == 'OLS':
-        cost = lambda y, X, theta: cost_function(y, X, theta)
-    elif regression_method == 'Ridge':
-        cost = lambda y, X, theta: cost_function(y, X, theta, regression_method='Ridge', lbda=lbda)
-
-    n_epochs = 50                   #size of each minibatch
-    num_mb = int(len(y) / mb_size)  #number of minibatches
-
-    for epoch in range(n_epochs):
-        
-        for i in range(num_mb):
-            mbk_index = mb_size * np.random.randint(num_mb)   # pick random minibatch index
-            X_mbk = X[mbk_index : mbk_index + mb_size]      # create kth-minibatch of design matrix
-            y_mbk = y[mbk_index : mbk_index + mb_size]      # create kth-minibatch of true values
-
-            gradient = grad_analytic(X_mbk, y_mbk, theta, lbda=lbda, regression_method=regression_method)
-
-            if np.any(np.isnan(gradient)) or np.any(np.isinf(gradient)):
-                print(f"NaN in gradient at iteration {k}")
-                print("Gradient stats:", np.min(gradient), np.max(gradient))
-                break
-
-            # update theta according to the chosen method
-            if eta_update_method == 'Simple_momentum':
-                velocity = momentum * velocity - eta * gradient     # simple momentum update
-                update = velocity
-                theta += update
-            
-            elif eta_update_method == 'AdaGrad': 
-                # AdaGrad tracks the sum of the squares of the previous gradients
-                Giter += gradient**2    # square the gradient
-                adjusted_eta = eta / (delta + np.sqrt(Giter))
-                update = adjusted_eta * gradient
-                theta -= update
-
-            elif eta_update_method == 'RMSprop':
-                # RMSprop modificates AdaGrad by useing a moving average of squared gradients to normalize the gradient
-                beta = 0.99     # discount factor that controls the averaging time of the second moment (variance of the gradient)
-                Giter = beta * Giter + (1 - beta) * gradient**2
-                adjusted_eta = eta / (delta + np.sqrt(Giter))
-                update = adjusted_eta * gradient
-                theta -= update
-
-            elif eta_update_method == 'ADAM':
-                # Adam (Adaptive Moment Estimation) is an extension to RMSprop that also takes into account the moving average of the gradient itself
-                beta1 = 0.9     # decay rate for the first moment estimate (velocity = weighted average of the past gradients)
-                beta2 = 0.99    # decay rate for the second moment estimate (Giter = weighted average of the past squared gradients)
-                t += 1          # time step
+    for func_name in functions_names_list:
+        for key in functions_dic.keys():
+            if func_name == key:
+                # get f(z) and f'(z) from the dictionary
+                func = functions_dic[key][0]
+                manual_der = functions_dic[key][1]
                 
-                # update first moment estimate
-                velocity = beta1 * velocity + (1 - beta1) * gradient
-                # update second moment estimate
-                Giter = beta2 * Giter + (1 - beta2) * gradient**2
-                
-                # compute bias-corrected first moment estimate
-                velocity_corrected = velocity / (1 - beta1**t)
-                # compute bias-corrected second moment estimate
-                Giter_corrected = Giter / (1 - beta2**t)
+                # automatic derivative
+                auto_der = elementwise_grad(func)
 
-                adjusted_eta = eta / (delta + np.sqrt(Giter_corrected))
-                update = adjusted_eta * velocity_corrected
-                theta -= update
+                activation_funcs.append(func)
+             
+                if automatic_diff:
+                    activation_funcs_ders.append(auto_der)
+                else:
+                    activation_funcs_ders.append(manual_der)
 
-            # suggested by DeepSeek
-            update_norm = np.linalg.norm(update)
-            if update_norm > 1000:  # Prevent explosion
-                update = update / update_norm * 1000
-                update_norm = 1000
-
-            # convergence of the algorithm
-            update_norm = np.linalg.norm(update)
-            if update_norm <= converge:
-                print(f"Stop at epsilon = {update_norm:.2e}, iteration = {i} of epoch {epoch}")
-                break
-
-    return theta
+    return activation_funcs, activation_funcs_ders
 
 
-#--------------------------------
-# THIRD PART: STATISTICAL ANALYSIS - BIAS-VARIANCE TRADEOFF
-#--------------------------------
+#------------------------------------------------#
+# handling scheduler out of the NN class:
+#------------------------------------------------#
 
-class BiasVarianceTradeoff:
-    """ 
-    Class to perform bootstrap resampling and bias-variance decomposition.
-
-    Includes bootstrap resampling, bias-variance decompossition, simulation over a range of degree of complexity and plotting.
-    See hel() for the specific functions for more details.
+class Scheduler:
+    """
+    abstract class for schedulers
     """
 
-    def __init__(self, x, y, p_range=np.arange(0, 30, 1), n_bootstraps=1000):
-        self.p_range = p_range
-        self.x = x
-        self.y = y
-        self.n_bootstraps = n_bootstraps
+    def __init__(self, eta=1e-3):
+        self.eta = eta  # base learning rate
 
-        self.y_pred_matrix = None
-        self.y_test = None
-        self.mse_array = np.zeros(len(p_range))
-        self.bias_array = np.zeros(len(p_range))
-        self.variance_array = np.zeros(len(p_range))
+    # should be overwritten
+    def update_change(self, gradient):
+        raise NotImplementedError
 
-
-    def bootstrap(self, p=5, regression_method='OLS'):
-        """ Boostrap resampling for linear regression.
-
-            Parameters:
-            :: x (1D array) = input dataset
-            :: y (1D array) = true value to be modeled
-            :: p (int) = polynomial degree
-            :: regression_method (str) = 'OLS' or 'Ridge'
-            :: n_bootstraps (int) = number of bootstrap resamplings
-
-            ------------------------------------------------------------------
-            Returns:
-            :: y_pred_matrix (2D array) = matrix of predicted values from bootstrap resampling
-
-        """
-        # error for wrong input
-        if regression_method != 'OLS' and regression_method != 'Ridge':
-            raise ValueError(f"'regression_method' must be either 'OLS' or 'Ridge' and not {regression_method}")
-        
-        x_train, x_test, y_train, self.y_test = train_test_split(self.x, self.y, test_size=0.2)
-        scaler = StandardScaler()
-        x_train = scaler.fit_transform(x_train.reshape(-1, 1)).flatten()
-        x_test = scaler.transform(x_test.reshape(-1, 1)).flatten()
-        self.y_test = self.y_test.reshape(-1, 1)
-
-        # initialize matrix of predicted values
-        self.y_pred_matrix = np.zeros((self.y_test.shape[0], self.n_bootstraps))
-
-        # loop over the number of bootstraps
-        for i in range(self.n_bootstraps):
-            x_sample, y_sample = resample(x_train, y_train)     # resampling with sklearn
-
-            lr = LinearRegression_own(intercept=True)           # initialize the LinearRegression_own object
-            X_train = lr.polynomial_features(x_sample, p)       # transform train set to polynomial features
-            X_test = lr.polynomial_features(x_test, p)          # transform test set to polynomial features
-            beta = lr.fit(X_train, y_sample, method='OLS')             # fit model to the i-th bootstrap train sample
-            y_pred_sample = lr.predict(X_test, beta).ravel()          # predict on the same test set at each i-th iteration
-
-            # update predicted values matrix
-            self.y_pred_matrix[:, i] = y_pred_sample
-            
-        return self.y_pred_matrix
-        
-
-    def decompose_mse(self): 
-        """ Decomposes the mean squared error (aka total error) into bias and variance.
-            The total error is defined as the sum of squared bias, variance and irreducible error:
-
-                        E[(y - y_pred)²] = Bias² + Variance + Irreducible Error
-
-            Parameters:
-            :: y_test (1D array) = true value to be modeled
-            :: y_pred_matrix (2D array) = matrix of predicted values from bootstrap resampling
-
-            ------------------------------------------------------------------
-            Returns:
-            :: total error, bias, variance (scalars)
-        """
-
-        if self.y_pred_matrix is None:
-            raise ValueError("The bootstrap must be run before decomposing MSE (predicted y matrix is None)")
-
-        # compute total error, bias and variance
-        # keepdims=True to keep the column vector shape
-        mse = np.mean( np.mean((self.y_test - self.y_pred_matrix)**2, axis=1, keepdims=True) )
-        bias = np.mean( (self.y_test - np.mean(self.y_pred_matrix, axis=1, keepdims=True))**2 )
-        variance = np.mean( np.var(self.y_pred_matrix, axis=1, keepdims=True) )
-
-        return mse, bias, variance
+    # overwritten if needed
+    def reset(self):
+        pass
 
 
-    def degree_range_simul(self):
-        """ Runs bootstrap resampling and bias-variance decomposition for a range of polynomial degrees.
+class Constant(Scheduler):
+    def __init__(self, eta):
+        super().__init__(eta)
 
-            Parameters:
-            :: p_range (1D array) = range of polynomial degrees
-        
-            ------------------------------------------------------------------
-            Returns:
-            :: mse_array (1D array) = array of total errors for each polynomial degree
-            :: bias_array (1D array) = array of biases for each polynomial degree
-            :: variance_array (1D array) = array of variances for each polynomial degree
-        """
+    def update_change(self, gradient):
+        return self.eta * gradient  # simple constant step
 
-        # loop over polynomial degrees
-        for p in range(len(self.p_range)):
-            self.bootstrap(p=p, regression_method='OLS')
-            mse, bias, variance = self.decompose_mse()
-
-            self.mse_array[p] = mse
-            self.bias_array[p] = bias
-            self.variance_array[p] = variance
-
-        return self.mse_array, self.bias_array, self.variance_array
+    def reset(self):
+        pass  # nothing to reset
 
 
-    def optimal_degree(self):
-        """ Returns the optimal polynomial degree that minimizes the total error (MSE). """
+class RMSProp(Scheduler):
+    def __init__(self, eta, beta=0.99):
+        super().__init__(eta)
+        self.beta = beta  # smoothing factor
+        self.second = 0.0  # moving average of squared gradients
 
-        if self.mse_array is None:
-            raise ValueError("The degree range simulation must be run before finding the optimal degree (MSE array is None)")
+    def update_change(self, gradient):
+        delta = 1e-8  # avoid division by zero
+        self.second = self.beta * self.second + (1 - self.beta) * gradient**2  # update avg
+        return self.eta * gradient / (np.sqrt(self.second + delta))  # rescale step
 
-        return np.argmin(self.mse_array)
-
-
-    def visualize(self):
-        """ Visualizes the bias-variance tradeoff. """
-
-        if self.y_pred_matrix is None:
-            raise ValueError("The bootstrap must be run before visualizing (predicted y matrix is None)")
-        
-        # plot
-        plt.figure(figsize=(14/2.54, 10/2.54))
-        plt.plot(self.p_range, self.mse_array, label=r"Total Error (MSE)", color='slateblue', linewidth=3.5)
-        plt.plot(self.p_range, self.bias_array, label='Bias²', color='indianred')
-        plt.plot(self.p_range, self.variance_array, label='Variance', color='darkgreen')
-        plt.axvline(x=self.optimal_degree(), ymin=0, ymax=np.max(self.mse_array), color='gray', linestyle='dashed', label=f"Optimal Degree = {self.optimal_degree()}")
-        plt.xlabel('Polynomial Degree')
-        plt.ylabel('Error')
-        plt.title(f"Bias-Variance tradeoff for OLS regression with {self.n_bootstraps} bootstraps, {len(self.y_test)} test points")
-        plt.legend()
-        plt.grid(alpha=0.3)
-        plt.tight_layout()
-        plt.show()
+    def reset(self):
+        self.second = 0.0  # reset moving average
 
 
+class Adam(Scheduler):
+    def __init__(self, eta, beta1=0.9, beta2=0.999):
+        super().__init__(eta)
+        self.beta1 = beta1  # momentum factor
+        self.beta2 = beta2  # rms factor
+        self.moment = 0  # first moment
+        self.second = 0  # second moment
+        self.n_epochs = 1  # counter for bias correction
 
-def k_fold_cv(x, y, k, p_range, regression_method='OLS'):
-    """ K-Fold type resampling for linear regression and MSE analysis.
+    def update_change(self, gradient):
+        delta = 1e-8  # avoid division by zero
 
-        Parameters:
-        :: x (1D array) = input dataset
-        :: y (1D array) = true value to be modeled
-        :: p (int) = polynomial degree
-        :: regression_method (str) = 'OLS' or 'Ridge'
+        # update biased first and second moments
+        self.moment = self.beta1 * self.moment + (1 - self.beta1) * gradient
+        self.second = self.beta2 * self.second + (1 - self.beta2) * gradient**2
 
-        ------------------------------------------------------------------
-        Returns:
-        :: estimated_mse_array = MSED as a function of p
+        # compute bias-corrected estimates
+        moment_corrected = self.moment / (1 - self.beta1**self.n_epochs)
+        second_corrected = self.second / (1 - self.beta2**self.n_epochs)
+
+        return self.eta * moment_corrected / (np.sqrt(second_corrected + delta))  # scaled step
+
+    def reset(self):
+        self.n_epochs += 1  # increment epoch
+        self.moment = 0  # reset first moment
+        self.second = 0  # reset second moment
+
+
+class NeuralNetwork:
+    """
+    Creates Neural Network object, adapted to batch inputs of shape \
+    (< number of samples >, < number of features >). 
+    It supports:
+    - layers creation
+    - simple Feed Forward algorithm
+    - cost function definition
+    - Feedforward with variables saving
+    - Backpropagation
+    - training
+    - layers reset
 
     """
-    # error for wrong input
-    if regression_method != 'OLS' and regression_method != 'Ridge':
-        raise ValueError(f"'regression_method' must be either 'OLS' or 'Ridge' and not {regression_method}")
 
-    # initialize the K-Folding object from sklearn
-    kfold = KFold(n_splits = k)
+    def __init__(
+        self,
+        network_input_size,
+        layer_output_sizes : List[int],
+        activation_types : List[Literal['relu', 'leaky_relu', 'sigmoid', 'softmax', 'tanh']] = None,
+        autodiff : bool = False,
+        seed=42,
+        cost_type : Literal['mse', 'cross_entropy'] = "mse",
+        regression_method : Literal['ols', 'ridge', 'lasso'] = "ols",
+        lbda1=0,
+        lbda2=0,
+        verbose : bool=False
+    ):
+        """
+        Initializes Neural Network with layers, activation functions, cost type, and regularization.
+
+        Parameters
+        ----------
+        :: network_input_size : int
+            Number of input features
+        :: layer_output_sizes : list of int
+            Number of neurons per layer
+        :: activation_types : list of str
+            Activation functions per layer
+        :: autodiff : bool, default=False
+            If True, compute activation derivatives automatically
+        :: seed : int, default=42
+            Random seed for weight initialization
+        :: cost_type : str, default='mse'
+            Cost function: 'mse' or 'cross_entropy'
+        :: regression_method : str, default='ols'
+            Regression type: 'ols', 'ridge', or 'lasso'
+        :: lbda1 : float, default=0
+            L1 regularization penalty
+        :: lbda2 : float, default=0
+            L2 regularization penalty
+        :: verbose : bool, default=False
+            If True, prints progress during training
+        """
+
+        self.network_input_size = network_input_size
+        self.layer_output_sizes = layer_output_sizes
+        self.activation_types = activation_types
+        self.autodiff = autodiff
+        self.activation_funcs, self.activation_ders = set_activations(
+            activation_functions_dic, 
+            self.activation_types,
+            self.autodiff
+            )
+        self.seed = seed
+        self.cost_type = cost_type
+        self.regression_method = regression_method
+        self.lbda1 = lbda1
+        self.lbda2 = lbda2
+
+        self.weights_biases = list()
+        self.weights_biases_grads = list()
+        self.layer_inputs = list()
+        self.Zs = list()
+        self.scheduler = None
+        self.weights = list()
+        self.schedulers_weight = list()
+        self.schedulers_bias = list()
+        self.verbose = verbose
+
+
+    def _create_layers(self):
+        """ 
+        Initializes weights and biases for all layers randomly.
+
+        Returns
+        -------
+        :: weights_biases : list of tuples
+            Each tuple contains (W, b) for a layer
+        """
+
+        # ChatGPT: clear before creating new (W,b)
+        self.weights_biases.clear()
+
+        i_size = self.network_input_size
+
+        for layer_output_size in self.layer_output_sizes:
+            np.random.seed(self.seed)
+
+            W = np.random.randn(i_size, layer_output_size)
+            b = np.zeros((1, layer_output_size))
+            self.weights_biases.append((W, b))
+
+            i_size = layer_output_size
+
+        self.weights_biases_grads = [() for _ in self.weights_biases]    
+
+        return self.weights_biases
+
+
+    def cost(self, predict, targets):
+        """
+        Computes cost given predictions and targets.
+
+        Parameters
+        ----------
+        :: predict : array
+            Predicted outputs
+        :: targets : array
+            True outputs
+
+        Returns
+        -------
+        :: cost_value : float
+            Value of the cost function
+        """
+        if self.cost_type == "mse":
+            return mse(predict, targets)
+        elif self.cost_type == "cross_entropy":
+            return cross_entropy(predict, targets)
+        else:
+            raise ValueError(f"Cost type '{self.cost_type}' not defined. Can be 'mse' or 'cross_entropy'.")
+        
     
-    cv_mse_matrix = np.zeros((len(p_range), k))
+    def cost_der(self, predict, targets):
+        """
+        Computes gradient of cost function w.r.t predictions.
 
-    for i, p in enumerate(p_range):
+        Parameters
+        ----------
+        :: predict : array
+            Predicted outputs
+        :: targets : array
+            True outputs
+
+        Returns
+        -------
+        :: grad : array
+            Gradient of cost w.r.t predictions
+        """
+
+        if self.cost_type == "mse":
+            return mse_der(predict, targets, autodiff=self.autodiff)
+        elif self.cost_type == "cross_entropy":
+            return cross_entropy_der(predict, targets, self.autodiff)
+        else:
+            raise ValueError(f"Cost type '{self.cost_type}' not defined. Can be 'mse' or 'cross_entropy'.")
+
+
+    def _feedforward(self, inputs):
+        """
+        Performs feedforward pass and stores activations and pre-activations.
+
+        Parameters
+        ----------
+        :: inputs : array
+            Input data
+
+        Returns
+        -------
+        :: layer_inputs : list
+            Activations from each layer before current layer
+        :: Zs : list
+            Pre-activation values (W*A + b)
+        :: A : array
+            Final output of the network
+        """
+
+        if self.weights_biases is None:
+            raise ValueError("`self.layers` is still None (empty tuple). You must call `_create_layers()` "\
+                             "before performing Feed Forward or Back Propagation.")
+
+        if np.shape(inputs)[1] == self.network_input_size: 
+            A = inputs
+        else:
+            raise ValueError(f"Second dimension of inputs must match `network_input_size` (= number of features). "\
+                             f"Inputs matrix has shape {inputs.shape}, but it should be {inputs.shape[0], self.network_input_size}. \n"\
+                             "Either change your inputs matrix or `network_input_size`")
         
-        for j, (train_inds, test_inds) in enumerate(kfold.split(x)):
-            x_train = x[train_inds]
-            y_train = y[train_inds]
-            x_test = x[test_inds]
-            y_test = y[test_inds]
+        self.layer_inputs = []
+        self.Zs = []
 
-            scaler = StandardScaler()
-            x_train = scaler.fit_transform(x_train.reshape(-1, 1)).flatten()
-            x_test = scaler.transform(x_test.reshape(-1, 1)).flatten()
-            y_test = y_test.reshape(-1, 1)
-
-            lr = LinearRegression_own(intercept=True)           # initialize the LinearRegression_own object
-            X_train = lr.polynomial_features(x_train, p)        # transform train set to polynomial features
-            X_test = lr.polynomial_features(x_test, p)          # transform test set to polynomial features
-            beta = lr.fit(X_train, y_train, method=regression_method)              # fit model to the i-th bootstrap train sample
-            y_pred = lr.predict(X_test, beta).ravel()          # predict on the same test set at each i-th iteration
-
-            cv_mse_matrix[i, j] = np.sum((y_pred - y_test)**2) / np.size(y_pred)
-
-    estimated_mse_array_KFold = np.mean(cv_mse_matrix, axis = 1)  
-
-
-    return estimated_mse_array_KFold
-
-#--------------------------------
-# TEST PART: TESTING AND VISUALIZATION
-#--------------------------------
-
-# matrices for MSE and R2 as a function of p and n
-def MSE_R2_pn():
-    """ Evaluates MSE and R2 as a function of complexity `p` and dimensionality `n` for OLS regression
-
-        ------------------------------
-        Returns:
-        :: MSE_train_matrix 
-        :: MSE_test_matrix
-        :: Rsquared_train_matrix
-        :: Rsquared_test_matrix
-        all of shape (n, p)
-    """
-
-    n_range = np.linspace(10, 100000, 10).astype(int)
-    p_range = np.arange(1, 26, 1)
-
-    MSE_train_matrix = np.zeros((len(n_range), len(p_range)))
-    MSE_test_matrix = np.zeros((len(n_range), len(p_range)))
-    Rsquared_train_matrix = np.zeros((len(n_range), len(p_range)))
-    Rsquared_test_matrix = np.zeros((len(n_range), len(p_range)))
-
-    for i, n in enumerate(n_range):
-        
-        xi = np.linspace(-1, 1, n)
-        yi = Runge(xi, noise=False)
-        xi_train, xi_test, yi_train, yi_test = train_test_split(xi, yi, test_size=0.3, random_state=42)
-
-        scaler = StandardScaler()
-        xi_train = scaler.fit_transform(xi_train.reshape(-1, 1)).flatten()
-        xi_test = scaler.transform(xi_test.reshape(-1, 1)).flatten()
-
-        for j, pi in enumerate(p_range):
-            # suggested by DeepSeek: skip if p > n_train
-            n_train = len(xi_train)
-            if pi >= n_train:  # p features vs n_train samples
-                MSE_train_matrix[i, j] = np.nan
-                MSE_test_matrix[i, j] = np.nan
-                Rsquared_train_matrix[i, j] = np.nan
-                Rsquared_test_matrix[i, j] = np.nan
-                continue
+        for (W, b), activation_func in zip(self.weights_biases, self.activation_funcs):
             
-            # perform regression
-            lr = LinearRegression_own(intercept=True)
-            Xi_train = lr.polynomial_features(xi_train, pi)
-            Xi_test = lr.polynomial_features(xi_test, pi)
+            self.layer_inputs.append(A)
+            Z = A @ W + b
+            A = activation_func(Z)
+            self.Zs.append(Z)
 
-            beta = lr.fit(Xi_train, yi_train, method='OLS')
-
-            yi_pred_train = lr.predict(Xi_train, beta)
-            yi_pred_test = lr.predict(Xi_test, beta)
-            
-            # update estimators matrices
-            MSE_train_matrix[i, j] = mean_squared_error(yi_train, yi_pred_train)
-            MSE_test_matrix[i, j] = mean_squared_error(yi_test, yi_pred_test)
-            Rsquared_train_matrix[i, j] = r2_score(yi_train, yi_pred_train)
-            Rsquared_test_matrix[i, j] = r2_score(yi_test, yi_pred_test)
+        return self.layer_inputs, self.Zs, A
     
-    return MSE_train_matrix, MSE_test_matrix, Rsquared_train_matrix, Rsquared_test_matrix
+
+    def _backpropagate(self, inputs, targets):
+        """
+        Performs backpropagation, computing gradients for all weights and biases.
+
+        Parameters
+        ----------
+        :: inputs : array
+            Input data
+        :: targets : array
+            True output labels
+
+        Returns
+        -------
+        :: weights_biases_grads : list of tuples
+            Gradients for each layer (dW, db)
+        """
+        
+        if self.weights_biases is not None:
+            layer_inputs, zs, predict = self._feedforward(inputs)
+        else:
+            raise ValueError("`self.layers` is still None (empty tuple). You must call `_create_layers()` "\
+                             "before performing Feed Forward or Back Propagation.")
+
+        for i in reversed(range(len(self.weights_biases))):
+            layer_input, z, activation_der = layer_inputs[i], zs[i], self.activation_ders[i]
+
+            # DeepSeek fixed backprop for softmax + cross-entropy
+            if i == len(self.weights_biases) - 1:
+                if self.activation_types[-1] == 'softmax' and self.cost_type == 'cross_entropy':
+                    delta = self.cost_der(predict, targets)  # No activation_der needed!
+                else:
+                    dC_da = self.cost_der(predict, targets)
+                    delta = dC_da * activation_der(z)
+            else:
+                W_next, _ = self.weights_biases[i + 1]
+                dC_da = delta @ W_next.T
+                delta = dC_da * activation_der(z) 
+
+            grad_weights = layer_input.T @ delta
+            grad_biases = np.sum(delta, axis=0, keepdims=True) / inputs.shape[0]
+
+            if self.lbda1 != 0:
+                grad_weights += (self.lbda1 / inputs.shape[0]) * np.sign(self.weights_biases[i][0])
+            if self.lbda2 != 0:
+                grad_weights += (2 * self.lbda2 / inputs.shape[0]) * self.weights_biases[i][0]
+
+            self.weights_biases_grads[i] = (grad_weights, grad_biases)
+
+        return self.weights_biases_grads
+    
+
+    def _define_scheduler(self, 
+                          type="constant", 
+                          eta=1e-3, 
+                          beta=0.99, 
+                          beta1=0.9, 
+                          beta2=0.999):
+        """
+        Defines the optimizer (scheduler) for gradient updates.
+
+        Parameters
+        ----------
+        :: type : str, default='constant'
+            Type of scheduler: 'constant', 'rmsprop', 'adam'
+        :: eta : float, default=1e-3
+            Learning rate
+        :: beta : float, default=0.99
+            RMSProp smoothing factor
+        :: beta1 : float, default=0.9
+            Adam momentum factor
+        :: beta2 : float, default=0.999
+            Adam RMS factor
+
+        Returns
+        -------
+        :: scheduler : Scheduler object
+            Initialized scheduler
+        """
+        
+        if type == "constant":
+            self.scheduler = Constant(eta)
+        elif type == "rmsprop":
+            self.scheduler = RMSProp(eta, beta=beta)
+        elif type == "adam":
+            self.scheduler = Adam(eta, beta1=beta1, beta2=beta2)
+        else:
+            raise ValueError(f"Scheduler type '{type}' not defined. Can be 'constant', 'rmsprop' or 'adam'.")
+        
+        # this is a ChatGPT fix
+        self.schedulers_weight = [copy.deepcopy(self.scheduler) for _ in self.weights_biases]
+        self.schedulers_bias = [copy.deepcopy(self.scheduler) for _ in self.weights_biases]
+        
+        return self.scheduler
+
+
+    def _update_weights(self):
+        """
+        Updates weights and biases of all layers using gradients and scheduler.
+        """
+
+        if len(self.weights_biases) == 0:
+            raise ValueError(f"`self.weights_biases` is None. You must call `_create_layers()` before updating the weigths.") 
+        
+        if self.scheduler == None:
+            raise ValueError(f"`self.scheduler` is None. You must call `_define_scheduler()` before updating the weigths.")
+        
+        if self.weights_biases_grads == None:
+            raise ValueError(f"`self.weigths_biases_grad` is None. You must call `_backpropagate()` before updating the weigths.")
+        
+        for i, (W, b) in enumerate(self.weights_biases):
+                dW, db = self.weights_biases_grads[i]
+                W -= self.schedulers_weight[i].update_change(dW)
+                b -= self.schedulers_bias[i].update_change(db)
+                self.weights_biases[i] = (W, b)
+
+    
+    def _train(self,
+              inputs,
+              targets,
+              n_epochs:  int=250,
+              n_batches: int=20,
+              ):
+        """
+        Trains the neural network with mini-batch Stochastic Gradient Descent.
+
+        Parameters
+        ----------
+        :: inputs : array
+            Input data
+        :: targets : array
+            True outputs
+        :: n_epochs : int, default=250
+            Number of training epochs
+        :: n_batches : int, default=20
+            Number of mini-batches per epoch
+        """
+        
+        n_samples = inputs.shape[0]
+        batch_size = n_samples // n_batches
+
+        for epoch in range(n_epochs):
+            # this indexing shuffle is a ChatGPT hint that helps avoiding dimension mismatches
+            indices = np.arange(n_samples)
+            np.random.shuffle(indices)
+            inputs, targets = inputs[indices], targets[indices]
+
+            for i in range(n_batches):
+                start = i * batch_size
+                end = start + batch_size
+                inputs_batch = inputs[start:end]
+                targets_batch = targets[start:end]
+                    
+                self._backpropagate(inputs_batch, targets_batch)
+                self._update_weights()
+
+            if (epoch + 1) % 50 == 0:
+                preds = self._predict(inputs)
+                acc = self._accuracy(preds, targets)
+
+                if self.verbose:
+                    print(f"Epoch {epoch+1}/{n_epochs} - Accuracy: {acc:.4f}")
+
+    
+    def _predict(self, inputs): 
+        """
+        Computes network predictions for given inputs.
+
+        Parameters
+        ----------
+        :: inputs : array
+            Input data
+
+        Returns
+        -------
+        :: predictions : array
+            Network output
+        """
+
+        if self.weights_biases is None:
+            raise ValueError("`self.layers` is still None (empty tuple). You must run `_create_layers()` "\
+                             "before performing Feed Forward or Back Propagation.")
+
+        if np.shape(inputs)[1] == self.network_input_size: 
+            A = inputs
+        else:
+            raise ValueError(f"Second dimension of inputs must match `network_input_size` (= number of features). "\
+                             f"Inputs matrix has shape {inputs.shape}, but it should be {inputs.shape[0], self.network_input_size}. \n"\
+                             "Either change your inputs matrix or `network_input_size`")
+        
+        for (W, b), activation_func in zip(self.weights_biases, self.activation_funcs):
+            Z = A @ W + b
+            A = activation_func(Z)
+
+        return A
+
+
+    def _accuracy(self, predicts, targets):
+        """
+        Computes classification accuracy for predictions.
+
+        Parameters
+        ----------
+        :: predicts : array
+            Predicted outputs (probabilities or logits)
+        :: targets : array
+            True labels (one-hot or integers)
+
+        Returns
+        -------
+        :: acc : float
+            Classification accuracy
+        """
+        # predicted class indices
+        pred_labels = np.argmax(predicts, axis=1)
+
+        # handle one-hot targets
+        if targets.ndim > 1:
+            true_labels = np.argmax(targets, axis=1)
+        else:
+            true_labels = targets
+
+        return np.mean(pred_labels == true_labels)
+
+
+    def _reset_weights(self):
+        """
+        Resets all network weights, biases, and schedulers.
+        """
+        self.weights_biases.clear()
+        self.weights_biases_grads.clear()
+        self.layer_inputs.clear()
+        self.Zs.clear()
+        self.schedulers_weight.clear()
+        self.schedulers_bias.clear()
+        self._create_layers()
+
+        if self.scheduler is not None:
+            self.schedulers_weight = [copy.deepcopy(self.scheduler) for _ in self.weights_biases]
+            self.schedulers_bias = [copy.deepcopy(self.scheduler) for _ in self.weights_biases]
