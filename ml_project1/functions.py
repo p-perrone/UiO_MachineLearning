@@ -57,9 +57,6 @@ def Runge(x, noise=True, noisescale=1):
 
 
 # OLS implementation
-
-import numpy as np
-
 class LinearRegression_own:
     """
     Own implementation of linear regression with OLS and Ridge methods and their analytical solutions.
