@@ -132,7 +132,6 @@ def softmax_der(z):
 #------------------------------------------------#
 # Cost functions
 #------------------------------------------------#
-import numpy as np
 
 def mse(predict, targets, weights=None, regression_method='ols', lbda=0.0, dtype=None):
     """
