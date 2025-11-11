@@ -451,7 +451,7 @@ class NeuralNetwork:
             raise ValueError(f"Cost type '{self.cost_type}' not defined. Can be 'mse' or 'cross_entropy'.")
         
     
-    def cost_der(self, predict, targets, dtype=None):
+    def cost_der(self, predict, targets):
         """
         Computes gradient of cost function w.r.t predictions.
 
