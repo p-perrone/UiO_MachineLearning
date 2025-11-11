@@ -404,7 +404,7 @@ Finally, the gradient of the cost function with respect to weights and biases at
 \begin{figure*}
 	\centering
 	\includegraphics[width=\textwidth]{activation_functions.pdf}
-	\caption{\textbf{Activation functions} | A representation of each function}
+	\caption{\textbf{Activation functions} | A representation of each function.}
 	\label{fig:af}
 \end{figure*}
 
@@ -473,10 +473,10 @@ We will test three different approach to the definition of the learning rate:
 \end{itemize}
 
 \subsection{Activation functions}
-So far, we addressed the activation function of the specific layer $(l)$ with a general expression $f\lr$. Depending on the objective of the model and the types of used data, different activation function can actually be employed. We will present five of these, that will be used in our code. In Figure \ref{fig:af} all these activation functions have been plotted, to compare their trends.
+So far, we addressed the activation function of the specific layer $(l)$ with a general expression $f\lr$. Depending on the objective of the model and the types of used data, different activation functions can actually be employed. We will present five of these, that will be used in our code. In Figure \ref{fig:af} all these activation functions have been plotted, to compare their trends.
 
 \subsubsection{Activation functions and numerical instabilities}
-Some of this functions have been found to cause numerical instabilities. During backpropagation, the gradients can get smaller and smaller as the algorithm progresses down to the first hidden layers. As a result, the gradient descent update leaves the gradients of the lower hidden layers basically unchanged, causing the algorithm to never converge to a consistent solution. This is known in the literature as \emph{vanishing gradients problem} \parencite{hochreiter1991_untersuchungen}. The opposite problem can also occur if the gradients exponentially grow from the last layer to the lower ones; in this case, we talk about \emph{exploding gradients} \parencite{philipp2018_explgrads}. Recently, a study from \cite{glorot2010_trainingdiff} stated that most of this numerical instabilities were caused by a improper random initialization of the weights at the beginning of backpropagation.
+Some of this functions have been found to cause numerical instabilities. During backpropagation, the gradients can get smaller and smaller as the algorithm progresses down to the first hidden layers. As a result, the gradient descent update leaves the gradients of the lower hidden layers basically unchanged, causing the algorithm to never converge to a consistent solution. This is known in literature as \emph{vanishing gradients problem} \parencite{hochreiter1991_untersuchungen}. The opposite problem can also occur if the gradients exponentially grow from the last layer to the lower ones; in this case, we talk about \emph{exploding gradients} \parencite{philipp2018_explgrads}. Recently, a study from \cite{glorot2010_trainingdiff} stated that most of this numerical instabilities were caused by an improper random initialization of the weights at the beginning of backpropagation.
 
 \subsubsection{Employed activation functions}
 \paragraph{Rectified Linear Unit (ReLU)}
@@ -589,7 +589,7 @@ Cross-Entropy class functions are use for classification-oriented NNs, as they e
 The simplest case is given by the Binary Cross-Entropy (BCE):
 \[
 \begin{split}
-	\text{BCE}(\bs{y}, \bs{\tilde{y}}, \bs{\Theta})=\\ = -\frac{1}{N} \sum_{i=1}^N \left[ y_i \cdot \log(p_i) + (1 - y_i) \cdot \log(1 - p_i) \right]
+	\text{BCE}(\bs{y}, \bs{\tilde{y}}, \bs{\Theta})=\\ = -\frac{1}{N} \sum_{i=1}^N \left[ y_i \, \log(p_i) + (1 - y_i) \,\log(1 - p_i) \right]
 \end{split}
 \]
 with derivative:
@@ -629,12 +629,12 @@ Since we deal with learning machinery, Python libraries such as \texttt{scikit-l
 The first part of the code is meant to implement all the activation and cost functions. The computation of the derivatives was approached in two different ways
 \begin{itemize}
 	\item analytical calculation;
-	\item automatic differentiation with \texttt{autograd}
+	\item automatic differentiation with \texttt{autograd}.
 \end{itemize}
 
 After that, an abstract class \texttt{Scheduler} has been created, in order to manage all the three different gradient descent algorithms (plain SGD, RMSProp and ADAM) independently of NN implementation.
 
-The structure of \texttt{NeuralNetwork} class is shown in Algorithm \ref{alg:nn}
+The structure of \texttt{NeuralNetwork} class is shown in Algorithm \ref{alg:nn}.
 \begin{algorithm}
 	\color{BlueViolet}
 	\caption{Neural Network Class Structure}
@@ -674,7 +674,7 @@ Testing the custom NN was carried out in a Python Jupyter Notebook. The analysis
 \textbf{1. Loading data, preprocessing}\\
 	A dataset based on Runge function was created, and the MNIST collection was imported from \texttt{scikit-learn}. 
 	
-	Both the datasets have been scaled; for the Runge dataset we employed \texttt{StandardScaler} from \texttt{scikit-learn.utils}. For the MNIST data, since we were dealing with pixel values in a gray-scale range [0, 255], we normalized all the pixel to the interval [0, 1], dividing by 255.
+	Both the datasets have been scaled; for the Runge dataset we employed \texttt{StandardScaler} from \texttt{scikit-learn.utils}. For the MNIST data, since we were dealing with pixel values in a gray-scale range [0, 255], we normalized all the pixels to the interval [0, 1], dividing by 255.
 	
 	Both have then been split in train and test sets, with a test size of 0.2.
 	
