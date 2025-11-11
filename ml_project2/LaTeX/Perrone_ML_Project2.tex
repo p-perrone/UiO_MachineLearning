@@ -138,8 +138,7 @@ urlcolor=BlueViolet]{hyperref}
 		\vspace{2cm}
 		
 		\begin{abstract}
-				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\\
-				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\\AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			In this study, a custom feedforward neural network (NN) was developed and tested for regression and classification tasks. The performance of the NN was compared with traditional linear Ordinary Least Squares (OLS) regression, showing superior approximation with two hidden layers, despite slightly lower $R^2$ values compared to high-degree polynomial OLS. Three Stochastic Gradient Descent (SGD) optimizers—plain SGD, RMSProp, and ADAM—were evaluated for convergence speed and stability. RMSProp and ADAM converged faster and were more robust across learning rates, though they required longer computation times than plain SGD. The custom NN was benchmarked against \texttt{scikit-learn}'s \texttt{MLPRegressor} and autograd-based gradient computation, demonstrating comparable performance but significantly longer execution time. L1 and L2 regularizations were applied, improving model generalization when penalty parameters were below critical thresholds. Finally, the NN was employed for multi-class classification on the MNIST-784 dataset, achieving an overall accuracy of 0.92 using Leaky ReLU and Softmax activations with ADAM optimization. The study demonstrates that a well-tuned NN, combined with appropriate optimizer selection and regularization, can outperform traditional regression methods and achieve strong classification performance.
 		\end{abstract}
 		
 	\end{titlepage}
@@ -287,7 +286,7 @@ Here, we have
 \end{itemize}
 
 \paragraph{Implementation}
-A possible pseudocode for such an algorithm could be:
+A possible pseudocode for such an algorithm is Algorithm \ref{alg:ff}
 \begin{algorithm}
 	\color{BlueViolet}
 	\caption{Feedforward}\label{alg:ff}
@@ -402,8 +401,15 @@ Finally, the gradient of the cost function with respect to weights and biases at
 	\end{bmatrix}.
 \end{equation}
 
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{activation_functions.pdf}
+	\caption{\textbf{Activation functions} | A representation of each function}
+	\label{fig:af}
+\end{figure*}
+
 \paragraph{Implementation}
-Note that, in order to run backpropagation, the feedforward algorithm A possible pseudocode for the backpropagation algorithm could be:
+Note that, in order to run backpropagation, the feedforward algorithm A possible pseudocode for the backpropagation algorithm is shown in the Algorithm \ref{alg:bp}.
 \begin{algorithm}
 	\color{BlueViolet}
 	\caption{Backpropagation}\label{alg:bp}
@@ -468,12 +474,6 @@ We will test three different approach to the definition of the learning rate:
 
 \subsection{Activation functions}
 So far, we addressed the activation function of the specific layer $(l)$ with a general expression $f\lr$. Depending on the objective of the model and the types of used data, different activation function can actually be employed. We will present five of these, that will be used in our code. In Figure \ref{fig:af} all these activation functions have been plotted, to compare their trends.
-\begin{figure*}
-	\centering
-	\includegraphics[width=\textwidth]{activation_functions.pdf}
-	\caption{\textbf{Activation functions} | A representation of each function}
-	\label{fig:af}
-\end{figure*}
 
 \subsubsection{Activation functions and numerical instabilities}
 Some of this functions have been found to cause numerical instabilities. During backpropagation, the gradients can get smaller and smaller as the algorithm progresses down to the first hidden layers. As a result, the gradient descent update leaves the gradients of the lower hidden layers basically unchanged, causing the algorithm to never converge to a consistent solution. This is known in the literature as \emph{vanishing gradients problem} \parencite{hochreiter1991_untersuchungen}. The opposite problem can also occur if the gradients exponentially grow from the last layer to the lower ones; in this case, we talk about \emph{exploding gradients} \parencite{philipp2018_explgrads}. Recently, a study from \cite{glorot2010_trainingdiff} stated that most of this numerical instabilities were caused by a improper random initialization of the weights at the beginning of backpropagation.
@@ -492,7 +492,12 @@ and its derivative reads
 	\end{cases}
 \end{equation}
 ReLU avoids vanishing gradients for positive inputs and is computationally efficient \parencite{nair2010_relu}. However, it can suffer from "dying ReLU" problems where neurons become inactive \parencite{maas2013_leakyrelu}.
-
+\begin{figure*}
+	\centering
+	\includegraphics[width=15cm]{ols_Vs_nn}
+	\caption{\textbf{Linear OLS and Neural Networks} | Three different models have been tested for a simple regression. A linear ordinary least squares model with degree 13 showed good test MSE and $R^2$. The NN with two hidden layers of 100 nodes performed even better with an MSE 50 times smaller than the previous one. The NN with one hidden layer only shows serious underfitting and it is not able to properly represent the function, with a strongly negative $R^2$.}
+	\label{fig:nnols}
+\end{figure*}
 \paragraph{Leaky ReLU}
 The Leaky ReLU is defined as:
 \begin{equation}
@@ -560,15 +565,14 @@ and its derivative for the Jacobian matrix elements is:
 \end{equation}
 where $\delta_{ij}$ is the Kronecker delta. Softmax converts the classical logit to a probability distribution and is primarily used in the output layer for multi-class classification \parencite{bridle1990_softmax}, as in our case, namely.
 
-\begin{figure*}
-	\centering
-	\includegraphics[width=15cm]{ols_Vs_nn}
-	\caption{\textbf{Linear OLS and Neural Networks} | Three different models have been tested for a simple regression. A linear ordinary least squares model with degree 13 showed good test MSE and $R^2$. The NN with two hidden layers of 100 nodes performed even better with an MSE 50 times smaller than the previous one. The NN with one hidden layer only shows serious underfitting and it is not able to properly represent the function, with a strongly negative $R^2$.}
-	\label{fig:nnols}
-\end{figure*}
-
 \subsection{Cost functions}
 For this work, two different types of cost functions have been employed, depending on the type of model (simple regression or classification).
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.943\textwidth]{schedulers_mse_r2}
+	\caption{\textbf{Performance of different SGD solvers} | RMSProp and ADAM converge to acceptable results with fewer epochs, showing robust performance across learning rates and iteration counts. In contrast, plain SGD performs better with lower rates and higher numbers of epochs.}
+	\label{fig:sgdnn}
+\end{figure*}
 \paragraph{Mean Squared Error}
 The Mean Squared Error (MSE) loss function for regression tasks is defined as:
 \begin{equation}
@@ -690,14 +694,13 @@ The effects of Ridge and LASSO regularizations have been explored for penalties 
 \textbf{6. Classification analysis with MNIST}\\
 The NN has been employed for a multi-class classification task. Its performance has been assessed with an accuracy score and a confusion matrix.
 
+\section{Results}
 \begin{figure*}
 	\centering
-	\includegraphics[width=\textwidth]{schedulers_mse_r2}
-	\caption{\textbf{Performance of different SGD solvers} | RMSProp and ADAM converge to acceptable results with fewer epochs, showing robust performance across learning rates and iteration counts. In contrast, plain SGD performs better with lower rates and higher numbers of epochs.}
-	\label{fig:sgdnn}
+	\includegraphics[width=12cm]{nnl1l2}
+	\caption{\textbf{L1 and L2 regularization} | Applying a penalty $\lambda \leq \num{e-3}$ can improve model generalization.}
+	\label{fig:nnl1l2}
 \end{figure*}
-
-\section{Results}
 \subsection{Comparison with linear OLS regression}
 In Figure \ref{fig:nnols}, the results of a regression performed with both the \py{NeuralNetwork} and the \py{LinearRegression\_own} classes are shown. The latter was set with a polynomial degree of 13, chosen according to the Bias-Variance tradeoff results from analyses carried out in Project 1. 
 
@@ -730,12 +733,7 @@ We also confirmed that gradients computed with \texttt{autograd} (by setting \te
 
 \subsection{Adding L1 and L2 regularizations}
 The results of the regularized fits are shown in Figure \ref{fig:nnl1l2}. Acceptable results were obtained for $\lambda\leq \num{e-3}$ and $\eta\leq \num{5e-5}$. The quality of MSE and $R^2$ does not decay gradually; instead, there is a sharp transition at these thresholds.
-\begin{figure*}
-	\centering
-	\includegraphics[width=12cm]{nnl1l2}
-	\caption{\textbf{L1 and L2 regularization} | Applying a penalty $\lambda \leq \num{e-3}$ can improve model generalization.}
-	\label{fig:nnl1l2}
-\end{figure*}
+\
 
 \subsection{Classification of MNIST data}
 MNIST-784 was correctly loaded, scaled, and split into train/test sets. Four sample images are shown in Figure \ref{fig:mnistsamples}.
@@ -748,13 +746,7 @@ MNIST-784 was correctly loaded, scaled, and split into train/test sets. Four sam
 
 Classification was performed using a NN with two hidden layers of 128 and 64 nodes, respectively. Leaky ReLU was used for hidden layers, and Softmax for the output layer. ADAM was set as optimizer with 1000 epochs and learning rate \num{1e-3}, chosen according to previous results (Section \ref{ss:sched}).
 
-Classification was successful, as shown in the confusion matrix in Figure \ref{fig:cm}. A high percentage of samples fall along the diagonal, indicating correct classification.
-\begin{figure}
-	\centering
-	\includegraphics[width=\columnwidth]{mnist_cm}
-	\caption{\textbf{Confusion matrix of MNIST classification} | Overall accuracy of 0.92 indicates good performance.}
-	\label{fig:cm}
-\end{figure}
+Classification was successful, as shown in the confusion matrix in Figure \ref{fig:cm}. A high percentage of samples fall along the diagonal, indicating correct classification
 
 The classification accuracy was 0.92, which is considered very good.
 
@@ -764,6 +756,13 @@ The custom NN performed overall as expected. It was able to correctly approximat
 When it comes to simple regressions, the choice of a linear regressor such as Ordinary Least Squares (OLS) remains a solid option due to its relatively simple implementation and fast execution. The equations that define the model are usually straightforward and are characterized by a limited number of parameters \parencite{wooditch2021_ols}. However, the main limitation of such methods is that they assume a linear relationship between the dependent and independent variables. For functions such as the Runge one, this can represent a problem, since a polynomial approximation will not be able to properly capture the nonlinearities of the relationship. NNs, thanks to the nonlinear activation functions they include, are potentially a better choice for this type of system \parencite{deridder1999_nn, waterworth2000_nn}. This can be directly observed in Figure \ref{fig:nnols}: even a complex polynomial OLS model cannot perform as well as a relatively simple two-hidden-layer NN, which correctly identifies the nonlinearities in the given function. Moreover, modern training techniques such as stochastic gradient descent and regularization strategies mitigate overfitting while maintaining model effectiveness \parencite{lecun1998_tanh}.
 
 Choosing an NN over a linear regressor can still have drawbacks: it can take some time to find the best trade-off between complexity and efficiency, and very deep networks require a significant amount of computation time. In our case, the OLS regression fitted the Runge dataset in \qty{0.0011}{\second}, whereas the two-hidden-layer NN with 100 nodes and 1000 epochs required \qty{4.58}{\second}, which is about 4000 times slower.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{mnist_cm}
+	\caption{\textbf{Confusion matrix of MNIST classification} | Overall accuracy of 0.92 indicates good performance.}
+	\label{fig:cm}
+\end{figure}
 
 Nevertheless, our results showed that highly efficient algorithms from external libraries are able to tackle the same tasks within a much smaller time interval, and this highlights one of the main weaknesses of our custom code: despite the overall consistent results, the code is still far from being considered fine-tuned.
 
@@ -780,8 +779,6 @@ Regarding optimization, plain SGD with a constant learning rate is a good option
 The application of an L1 or L2 norm can also be considered and can certainly improve the model, particularly where a non-regularized network would fail or when working with a very small input dataset. However, our findings suggest avoiding penalties $\lambda \geq 0.01$, as this can lead to serious underfitting and loss of useful complexity. This is also confirmed in existing literature \parencite{ng2004feature}.
 
 To conclude, we can state that the objectives of our analysis have been largely achieved. A general understanding of which hyperparameters, levels of complexity, and activation functions should be chosen depending on the system type is now provided. To evaluate more consistently how to tune such parameters, cross-validation and bias–variance trade-off analyses could be carried out, as previously done in Project 1. Finally, we conclude this work with a fairly low-level and non-optimized NN. Higher efficiency could certainly be reached by taking inspiration from well-performing modules such as \href{https://pytorch.org/}{\texttt{pytorch}} and \href{https://www.tensorflow.org/}{\texttt{tensorflow}}.
-
-\newpage
 
 \printbibliography[heading=bibintoc]
 	
