@@ -1,23 +1,13 @@
 ﻿# UiO Machine Learning
-
-## Project 1
-
-This repository contains machine learning projects from UiO.
-
-### Project Structure
-- Project1/ - [Linear regression methods, Bias-Variance tradeoff, Resampling]
-
-## Setup
-
+ 
+ ## Setup
 This repository contains three machine learning projects:
 
 ## Projects
 
 ### [Project1](./ml_project1/)
-Brief description of Project 1
-
+Linear Regression, Optimization and Bias-Variance tradeoff
 ### [Project2](./ml_project1/)
-Brief description of Project 2
+Neural Networks for regression and classification
 
-### [Project3](./ml_project1/)
-Brief description of Project 3
+
