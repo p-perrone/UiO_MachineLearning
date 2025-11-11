@@ -453,7 +453,7 @@ class NeuralNetwork:
             raise ValueError(f"Cost type '{self.cost_type}' not defined. Can be 'mse' or 'cross_entropy'.")
         
     
-    def cost_der(self, predict, targets, dtype=None):
+    def cost_der(self, predict, targets):
         """
         Computes gradient of cost function w.r.t predictions.
 
@@ -676,7 +676,6 @@ class NeuralNetwork:
                 self._backpropagate(inputs_batch, targets_batch)
                 self._update_weights()
 
-            # DeepSeek hint
             if (epoch + 1) % 50 == 0:
                 preds = self._predict(inputs)
                 acc = self._accuracy(preds, targets)
