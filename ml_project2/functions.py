@@ -26,7 +26,7 @@ import seaborn as sns
 import sys
 import random
 import pandas as pd
-from sklearn.model_selection import train_test_split, KFold
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 from sklearn.preprocessing import StandardScaler
@@ -133,18 +133,17 @@ def softmax_der(z):
 # Cost functions
 #------------------------------------------------#
 
-def mse(predict, targets, weights=None, regression_method='ols', lbda=0.0, dtype=None):  # DeepSeek: add dtype parameter
-    """
-    Mean Squared Error cost function
-    """
+def mse(predict, targets, weights=None, regression_method="ols", lbda=0):
     residuals = predict - targets
-    
+
     if regression_method == 'ols':
-        return np.mean(residuals**2)
+        return np.sum(residuals**2) / residuals.size  # replace np.mean
     elif regression_method == 'ridge':
-        return np.mean(residuals**2) + lbda * np.sum(weights**2)
+        return np.sum(residuals**2)/residuals.size + lbda * np.sum(weights**2)
     elif regression_method == 'lasso':
-        return np.mean(residuals**2) + lbda * np.sum(np.abs(weights))
+        return np.sum(residuals**2)/residuals.size + lbda * np.sum(np.abs(weights))
+    else:
+        raise ValueError(f"`regression_method` must be 'ols', 'ridge' or 'lasso', not {regression_method}")
     
 
 def mse_der(predict, targets, autodiff : bool= False):
@@ -317,6 +316,10 @@ class Adam(Scheduler):
         self.moment = 0  # reset first moment
         self.second = 0  # reset second moment
 
+
+#------------------------------------------------#
+# NeuralNetwork class definition:
+#------------------------------------------------#
 
 class NeuralNetwork:
     """
