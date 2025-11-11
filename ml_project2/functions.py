@@ -133,30 +133,33 @@ def softmax_der(z):
 # Cost functions
 #------------------------------------------------#
 
-def mse(predict, targets, weights=None, regression_method='ols', lbda=0.0, dtype=None):
+def mse(predict, targets, weights=None, regression_method="ols", lbda=0.0):
     """
-    Mean Squared Error cost function - manual mean to avoid autograd issues
+    Mean Squared Error (MSE) cost function.
+    Compatible with autograd for automatic differentiation.
     """
     residuals = predict - targets
-    
-    if regression_method == 'ols':
-        # Manual mean calculation that autograd can handle
-        return np.sum(residuals**2) / residuals.size
-    elif regression_method == 'ridge':
-        return np.sum(residuals**2) / residuals.size + lbda * np.sum(weights**2)
-    elif regression_method == 'lasso':
-        return np.sum(residuals**2) / residuals.size + lbda * np.sum(np.abs(weights))
+
+    # manual sum — NO kwargs (autograd safe)
+    mse_value = (residuals**2).sum() / residuals.size
+
+    if regression_method == "ols":
+        return mse_value
+    elif regression_method == "ridge":
+        return mse_value + lbda * (weights**2).sum()
+    elif regression_method == "lasso":
+        return mse_value + lbda * np.abs(weights).sum()
+    else:
+        raise ValueError(f"Unknown regression_method: {regression_method}")
     
 
-def mse_der(predict, targets, autodiff : bool= False):
-    """ Computes gradient of MSE w.r.t predictions """
+def mse_der(predict, targets, autodiff=False):
+    """Computes gradient of MSE w.r.t. predictions"""
     if autodiff:
         return elementwise_grad(mse)(predict, targets)
 
     n = targets.shape[0]
-    residuals = predict - targets
-    grad_pred = (2 / n) * residuals
-    return grad_pred
+    return 2 * (predict - targets) / n
 
 #------------------------------------------------#
 
