@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  11 NOV 2025 18:32
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  11 NOV 2025 18:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1538,4 +1538,564 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count560
 \@quotereset=\count561
-(Perrone_ML_P
+(Perrone_ML_Project2.aux)
+\openout1 = `Perrone_ML_Project2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmssm/m/it on input line 117.
+LaTeX Font Info:    Trying to load font information for OML+cmssm on input line
+ 117.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\omlcmssm.f
+d
+File: omlcmssm.fd 2024/10/15
+)
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OMS/cmsssy/m/n on input line 117.
+LaTeX Font Info:    Trying to load font information for OMS+cmsssy on input lin
+e 117.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\omscmsssy.
+fd
+File: omscmsssy.fd 2024/10/15
+)
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OMX/cmssex/m/n on input line 117.
+LaTeX Font Info:    Trying to load font information for OMX+cmssex on input lin
+e 117.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\omxcmssex.
+fd
+File: omxcmssex.fd 2024/10/15
+)
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for U/cmss/m/n on input line 117.
+LaTeX Font Info:    Trying to load font information for U+cmss on input line 11
+7.
+ (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/base\ucmss.fd
+File: ucmss.fd 2024/11/19 v2.5n Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69687pt
+* \textheight=731.23584pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumntrue
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 117.
+LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 117.
+LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 117.
+LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 117.
+LaTeX Font Info:    Overwriting symbol font `AMSb' in version `normal'
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 117.
+LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 117.
+
+Package fontspec Info: 
+(fontspec)             Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 117.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 117.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 117.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 117.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 117.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 117.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 117.
+LaTeX Font Info:    Redeclaring math accent \check on input line 117.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 117.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 117.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 117.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 117.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 117.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 117.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmsmf/m/n --> TU/LatinModernSans(0)/m/n on input li
+ne 117.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 117.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmsmf/bx/n --> TU/LatinModernSans(0)/m/n on input l
+ine 117.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/LatinModernSans(0)/m/n --> TU/LatinModernSans(0)/m/n
+ on input line 117.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmsmf/m/it --> TU/LatinModernSans(0)/m/it on input 
+line 117.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmsmf/bx/n --> TU/LatinModernSans(0)/b/n on input l
+ine 117.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmsmf/m/n --> TU/lmss/m/n on input line 117.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 117.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/LatinModernSans(0)/m/n --> TU/LatinModernSans(0)/b/n
+ on input line 117.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmsmf/bx/it --> TU/LatinModernSans(0)/b/it on input
+ line 117.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmsmf/m/n --> TU/lmss/b/n on input line 117.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 117.
+
+Package siunitx Warning: Detected the "physics" package:
+(siunitx)                omitting definition of \qty.
+(siunitx)                
+(siunitx)                If you want to use \qty with the siunitx definition,
+(siunitx)                add 
+(siunitx)                
+(siunitx)                    \AtBeginDocument{\RenewCommandCopy\qty\SI}
+(siunitx)                
+(siunitx)                to your preamble.
+
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\trans
+lations-basic-dictionary-french.trsl
+File: translations-basic-dictionary-french.trsl (french translation file `trans
+lations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `french'. on input line 117.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\trans
+lations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `tra
+nslations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `english'. on input line 117.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: Option `font=sansmath' requires the `sansmath' package on
+ input line 117.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmath\sansmath.sty
+Package: sansmath 2007/02/28  ver 1.1 Donald Arseneau
+\c@mv@sans=\count562
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `sans'
+(Font)                  TU/LatinModernSans(0)/m/n --> OT1/lmss/m/n on input lin
+e 103.
+LaTeX Font Info:    Overwriting math alphabet `\mathsfsl' in version `sans'
+(Font)                  OT1/lmss/m/sl --> OT1/lmss/m/sl on input line 104.
+LaTeX Font Info:    Encoding `TU' has changed to `OT1' for symbol font
+(Font)              `operators' in the math version `sans' on input line 105.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `sans'
+(Font)                  TU/LatinModernSans(0)/m/n --> OT1/lmss/m/n on input lin
+e 105.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `sans'
+(Font)                  OML/cmssm/m/it --> OML/cmm/m/it on input line 109.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `sans'
+(Font)                  OMS/cmsssy/m/n --> OMS/cmsy/m/n on input line 110.
+LaTeX Font Info:    Overwriting math alphabet `\mathsfbf' in version `sans'
+(Font)                  OT1/lmss/bx/sl --> OT1/lmss/bx/n on input line 112.
+)
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count563
+Package hyperref Info: Link coloring ON on input line 117.
+
+(Perrone_ML_Project2.out) (Perrone_ML_Project2.out)
+\@outlinefile=\write5
+\openout5 = `Perrone_ML_Project2.out'.
+
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nome
+tadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
+
+))
+Package biblatex Info: Trying to load language 'french' -> 'french-apa'...
+Package biblatex Info: ... file 'french-apa.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\french-apa.
+lbx
+File: french-apa.lbx 2025/08/27 v9.20 APA biblatex localisation
+Package biblatex Info: Trying to load language 'french'...
+Package biblatex Info: ... file 'french.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\french.lbx
+File: french.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'french'...
+Package biblatex Info: ... file 'french.lbx' found.
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\french.lbx
+File: french.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+))
+Package biblatex Info: Trying to load language 'english' -> 'english-apa'...
+Package biblatex Info: ... file 'english-apa.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\english-apa
+.lbx
+File: english-apa.lbx 2025/08/27 v9.20 APA biblatex localisation
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'american' -> 'american-apa'...
+Package biblatex Info: ... file 'american-apa.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\american-ap
+a.lbx
+File: american-apa.lbx 2025/08/27 v9.20 APA biblatex localisation
+Package biblatex Info: Trying to load language 'american'...
+Package biblatex Info: ... file 'american.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\american.lb
+x
+File: american.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+))))
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout4 = `Perrone_ML_Project2.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'Perrone_ML_Project2.bbl' found.
+ (Perrone_ML_Project2.bbl)
+Package biblatex Info: Reference section=0 on input line 117.
+Package biblatex Info: Reference segment=0 on input line 117.
+File: images/uio.png Graphic file (type bmp)
+<images/uio.png>
+LaTeX Font Info:    Trying to load font information for U+ssmsa on input line 1
+28.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\ussmsa.fd
+File: ussmsa.fd 2024/10/15
+)
+LaTeX Font Info:    Trying to load font information for U+ssmsb on input line 1
+28.
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\ussmsb.fd
+File: ussmsb.fd 2024/10/15
+)
+Overfull \hbox (33.52814pt too wide) in paragraph at lines 142--143
+[]\TU/LatinModernSans(0)/m/n/9 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAA 
+ []
+
+
+
+[1
+
+
+] (Perrone_ML_Project2.toc)
+\tf@toc=\write6
+\openout6 = `Perrone_ML_Project2.toc'.
+
+
+
+[1
+
+
+]
+
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 155.
+
+
+
+File: images/nn.pdf Graphic file (type pdf)
+<images/nn.pdf>
+
+LaTeX Font Warning: Font shape `TU/LatinModernSans(0)/sbc/n' undefined
+(Font)              using `TU/LatinModernSans(0)/m/n' instead on input line 173
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--190
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--190
+
+ []
+
+
+
+[2
+
+]
+File: images/simple_percptr.pdf Graphic file (type pdf)
+<images/simple_percptr.pdf>
+
+
+LaTeX Font Warning: Font shape `TU/LatinModernSans(0)/sbc/sl' undefined
+(Font)              using `TU/LatinModernSans(0)/sbc/n' instead on input line 2
+14.
+
+
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 286.
+
+
+[3]
+
+
+Overfull \hbox (11.94437pt too wide) detected at line 365
+ []$[] [] \OMS/cmsssy/m/n/10 ^^L [][] ^^A [][] ^^L [] ^^A [][] ^^L []C\OT1/cmr/
+m/n/10 ([][])  $ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+[]\TU/LatinModernSans(0)/sbc/sl/10 Feedforward activations $\OMS/cmsssy/m/n/10 
+f[][]g[]$\TU/LatinModernSans(0)/sbc/sl/10 , pre-
+ []
+
+
+Underfull \hbox (badness 3872) in paragraph at lines 404--405
+\TU/LatinModernSans(0)/sbc/sl/10 activations $\OMS/cmsssy/m/n/10 f[][]g[]$\TU/L
+atinModernSans(0)/sbc/sl/10 , weights $\OMS/cmsssy/m/n/10 f[][]g[]$\TU/LatinMod
+ernSans(0)/sbc/sl/10 , cost
+ []
+
+
+
+File: images/activation_functions.pdf Graphic file (type pdf)
+<images/activation_functions.pdf>
+
+
+[5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[6]
+
+
+
+[7]
+
+Package caption Warning: \label without proper reference on input line 622.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `alg:nn' on page 8 undefined on input line 619.
+
+
+LaTeX Font Warning: Font shape `TU/LatinModernSans(0)/m/sc' undefined
+(Font)              using `TU/LatinModernSans(0)/m/n' instead on input line 627
+.
+
+
+
+File: images/ols_Vs_nn.pdf Graphic file (type pdf)
+<images/ols_Vs_nn.pdf>
+LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
+649.
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmss.fd
+File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Underfull \hbox (badness 4660) in paragraph at lines 658--659
+[]\TU/LatinModernSans(0)/m/sc/10 Both the datasets have been scaled; for the
+ []
+
+
+
+[8]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 668.
+
+Underfull \hbox (badness 5119) in paragraph at lines 668--670
+[]\TU/LatinModernSans(0)/b/n/10 4. Comparing the own custom NN to
+ []
+
+
+Underfull \hbox (badness 5359) in paragraph at lines 680--681
+[]\TU/LatinModernSans(0)/m/sc/10 In Figure [][]4[][], the result of a regressio
+n per-
+ []
+
+
+Underfull \hbox (badness 3343) in paragraph at lines 680--681
+\TU/LatinModernSans(0)/m/sc/10 formed with both the [] and the
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+File: images/schedulers_mse_r2.pdf Graphic file (type pdf)
+<images/schedulers_mse_r2.pdf>
+
+
+[9] [10]
+File: images/skvsown.pdf Graphic file (type pdf)
+<images/skvsown.pdf>
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 717.
+File: images/nnl1l2.pdf Graphic file (type pdf)
+<images/nnl1l2.pdf>
+
+
+LaTeX Warning: Reference `fig:mnistsamples' on page 11 undefined on input line 
+731.
+
+File: images/mnist_samples.pdf Graphic file (type pdf)
+<images/mnist_samples.pdf>
+File: images/mnist_cm.pdf Graphic file (type pdf)
+<images/mnist_cm.pdf>
+
+
+
+
+[11] [12]
+
+
+Underfull \hbox (badness 1092) in paragraph at lines 761--761
+[][]\TU/LatinModernSans(0)/m/sc/10 Goodfellow, I., Bengio, Y., & Courville, A. 
+(2016).
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 761--761
+[][]\TU/LatinModernSans(0)/m/sc/10 Hochreiter, S. (1991). \TU/LatinModernSans(0
+)/m/it/10 Untersuchungen zu dynamis-
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 761--761
+\TU/LatinModernSans(0)/m/sc/10 stitut für Informatik, Technische Universität
+ []
+
+
+Underfull \hbox (badness 3547) in paragraph at lines 761--761
+[][]$[][][][][] [] [] [] [][][][][][] [] [][][][][] [] [][] [] [][][][][][][][]
+ []
+ []
+
+
+
+[13]
+Underfull \hbox (badness 7291) in paragraph at lines 761--761
+\TU/LatinModernSans(0)/m/sc/10 Springer. Retrieved on January 1, 2024,
+ []
+
+
+Underfull \hbox (badness 5064) in paragraph at lines 761--761
+\TU/LatinModernSans(0)/m/sc/10 from [][]$[][][][][] [] [] [] [][][][][][][] [] 
+[][][] [] [][][][][][][] []
+ []
+
+
+
+
+
+[14] (Perrone_ML_Project2.aux)
+ ***********
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-10-09>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `Perrone_ML_Project2.out' has not changed.
+(rerunfilecheck)             Checksum: AFEC03986FC9219FE83AA5894F82B8ED;4326.
+Package logreq Info: Writing requests to 'Perrone_ML_Project2.run.xml'.
+\openout1 = `Perrone_ML_Project2.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 50893 strings out of 403196
+ 1134620 string characters out of 5456127
+ 2243539 words of memory out of 5000000
+ 78718 multiletter control sequences out of 15000+600000
+ 667090 words of font info for 140 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 98i,20n,101p,1740b,5949s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on Perrone_ML_Project2.pdf (15 pages).

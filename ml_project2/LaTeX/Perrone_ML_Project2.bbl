@@ -531,6 +531,49 @@
       \field{pages}{251\bibrangedash 257}
       \range{pages}{7}
     \endentry
+    \entry{hosmer2013applied}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=c5d69e28c3787fb088bba39b98f2e16e}{%
+           family={Hosmer},
+           familyi={H\bibinitperiod},
+           given={David\bibnamedelima W.},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8cc8d044dfc89abe88de140d014c99fd}{%
+           family={Lemeshow},
+           familyi={L\bibinitperiod},
+           given={Stanley},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0feba8187e3000f7fb1b5c0e58c8a42a}{%
+           family={Sturdivant},
+           familyi={S\bibinitperiod},
+           given={Rodney\bibnamedelima X.},
+           giveni={R\bibinitperiod\bibinitdelim X\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{6ce1effc42679f971b60a08f5c3bdff8}
+      \strng{fullhash}{15c2f61df8eec462a7b1bd81b66dd944}
+      \strng{fullhashraw}{15c2f61df8eec462a7b1bd81b66dd944}
+      \strng{bibnamehash}{15c2f61df8eec462a7b1bd81b66dd944}
+      \strng{authorbibnamehash}{15c2f61df8eec462a7b1bd81b66dd944}
+      \strng{authornamehash}{6ce1effc42679f971b60a08f5c3bdff8}
+      \strng{authorfullhash}{15c2f61df8eec462a7b1bd81b66dd944}
+      \strng{authorfullhashraw}{15c2f61df8eec462a7b1bd81b66dd944}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Applied Logistic Regression}
+      \field{year}{2013}
+      \field{dateera}{ce}
+    \endentry
     \entry{kingma:adam}{misc}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=b6fbd171848aad4edf3925543f1f1522}{%
@@ -1648,6 +1691,49 @@
       \field{dateera}{ce}
       \field{pages}{251\bibrangedash 257}
       \range{pages}{7}
+    \endentry
+    \entry{hosmer2013applied}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=c5d69e28c3787fb088bba39b98f2e16e}{%
+           family={Hosmer},
+           familyi={H\bibinitperiod},
+           given={David\bibnamedelima W.},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8cc8d044dfc89abe88de140d014c99fd}{%
+           family={Lemeshow},
+           familyi={L\bibinitperiod},
+           given={Stanley},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0feba8187e3000f7fb1b5c0e58c8a42a}{%
+           family={Sturdivant},
+           familyi={S\bibinitperiod},
+           given={Rodney\bibnamedelima X.},
+           giveni={R\bibinitperiod\bibinitdelim X\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{6ce1effc42679f971b60a08f5c3bdff8}
+      \strng{fullhash}{15c2f61df8eec462a7b1bd81b66dd944}
+      \strng{fullhashraw}{15c2f61df8eec462a7b1bd81b66dd944}
+      \strng{bibnamehash}{15c2f61df8eec462a7b1bd81b66dd944}
+      \strng{authorbibnamehash}{15c2f61df8eec462a7b1bd81b66dd944}
+      \strng{authornamehash}{6ce1effc42679f971b60a08f5c3bdff8}
+      \strng{authorfullhash}{15c2f61df8eec462a7b1bd81b66dd944}
+      \strng{authorfullhashraw}{15c2f61df8eec462a7b1bd81b66dd944}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Applied Logistic Regression}
+      \field{year}{2013}
+      \field{dateera}{ce}
     \endentry
     \entry{kingma:adam}{misc}{}{}
       \name{author}{2}{}{%

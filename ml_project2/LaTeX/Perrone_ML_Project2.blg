@@ -1,22 +1,22 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
-[1] Config.pm:331> INFO - Logfile is 'Perrone_ML_Project2.blg'
-[218] biber-MSWIN64:342> INFO - === 
-[290] Biber.pm:421> INFO - Reading 'Perrone_ML_Project2.bcf'
-[533] Biber.pm:1002> INFO - Found 24 citekeys in bib section 0
-[561] Biber.pm:4487> INFO - Processing section 0
-[583] Biber.pm:4678> INFO - Looking for bibtex file 'UiO_MachineLearning.bib' for section 0
-[742] bibtex.pm:1713> INFO - LaTeX decoding ...
-[866] bibtex.pm:1519> INFO - Found BibTeX data source 'UiO_MachineLearning.bib'
-[1291] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1291] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1291] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'fr-FR'
-[1291] Biber.pm:4313> INFO - No sort tailoring available for locale 'fr-FR'
-[1391] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1391] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1392] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'fr-FR'
-[1392] Biber.pm:4313> INFO - No sort tailoring available for locale 'fr-FR'
-[1464] bbl.pm:676> INFO - Writing 'Perrone_ML_Project2.bbl' with encoding 'UTF-8'
-[1504] bbl.pm:779> INFO - Output to Perrone_ML_Project2.bbl
-[1504] Biber.pm:132> WARN - Duplicate entry key: 'mira1995_sigmoid' in file 'UiO_MachineLearning.bib', skipping ...
-[1504] Biber.pm:132> WARN - ISBN '978-0-387-84857-0 978-0-387-84858-7' in entry 'hastie_stat2009' is invalid - run biber with '--validate_datamodel' for details.
-[1504] Biber.pm:134> INFO - WARNINGS: 2
+[2] Config.pm:331> INFO - Logfile is 'Perrone_ML_Project2.blg'
+[556] biber-MSWIN64:342> INFO - === 
+[727] Biber.pm:421> INFO - Reading 'Perrone_ML_Project2.bcf'
+[1520] Biber.pm:1002> INFO - Found 25 citekeys in bib section 0
+[1604] Biber.pm:4487> INFO - Processing section 0
+[1646] Biber.pm:4678> INFO - Looking for bibtex file 'UiO_MachineLearning.bib' for section 0
+[1883] bibtex.pm:1713> INFO - LaTeX decoding ...
+[2084] bibtex.pm:1519> INFO - Found BibTeX data source 'UiO_MachineLearning.bib'
+[2921] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2921] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2922] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'fr-FR'
+[2922] Biber.pm:4313> INFO - No sort tailoring available for locale 'fr-FR'
+[3184] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[3185] UCollate.pm:68> INFO - Overriding locale 'fr-FR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[3185] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'fr-FR'
+[3185] Biber.pm:4313> INFO - No sort tailoring available for locale 'fr-FR'
+[3340] bbl.pm:676> INFO - Writing 'Perrone_ML_Project2.bbl' with encoding 'UTF-8'
+[3532] bbl.pm:779> INFO - Output to Perrone_ML_Project2.bbl
+[3533] Biber.pm:132> WARN - Duplicate entry key: 'mira1995_sigmoid' in file 'UiO_MachineLearning.bib', skipping ...
+[3534] Biber.pm:132> WARN - ISBN '978-0-387-84857-0 978-0-387-84858-7' in entry 'hastie_stat2009' is invalid - run biber with '--validate_datamodel' for details.
+[3534] Biber.pm:134> INFO - WARNINGS: 2
