@@ -6,7 +6,7 @@
 #
 """ 
 =====================
-ml_project1.functions
+ml_project2.functions
 =====================
 
 This module contains utility functions for Neural Network implementation, 
@@ -132,18 +132,21 @@ def softmax_der(z):
 #------------------------------------------------#
 # Cost functions
 #------------------------------------------------#
+import numpy as np
 
-def mse(predict, targets, weights=None, regression_method="ols", lbda=0):
+def mse(predict, targets, weights=None, regression_method='ols', lbda=0.0, dtype=None):
+    """
+    Mean Squared Error cost function - manual mean to avoid autograd issues
+    """
     residuals = predict - targets
-
+    
     if regression_method == 'ols':
-        return np.sum(residuals**2) / residuals.size  # replace np.mean
+        # Manual mean calculation that autograd can handle
+        return np.sum(residuals**2) / residuals.size
     elif regression_method == 'ridge':
-        return np.sum(residuals**2)/residuals.size + lbda * np.sum(weights**2)
+        return np.sum(residuals**2) / residuals.size + lbda * np.sum(weights**2)
     elif regression_method == 'lasso':
-        return np.sum(residuals**2)/residuals.size + lbda * np.sum(np.abs(weights))
-    else:
-        raise ValueError(f"`regression_method` must be 'ols', 'ridge' or 'lasso', not {regression_method}")
+        return np.sum(residuals**2) / residuals.size + lbda * np.sum(np.abs(weights))
     
 
 def mse_der(predict, targets, autodiff : bool= False):
