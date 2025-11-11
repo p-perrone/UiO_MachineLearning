@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  10 NOV 2025 21:01
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.4)  11 NOV 2025 10:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -276,22 +276,7 @@ Package fontspec Info:
 (fontspec)             Modern
 (fontspec)             Sans/BI/OT:script=latn;language=dflt;mapping=tex-text;"
 
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
-Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+LatinModernSans(0) o
-n input line 116.
-LaTeX Font Info:    No file T1LatinModernSans(0).fd. on input line 116.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
-6.
-
-(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
-File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-
-LaTeX Font Warning: Font shape `T1/LatinModernSans(0)/m/n' undefined
-(Font)              using `T1/lmr/m/n' instead on input line 116.
-
-) (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
 Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
 \l__siunitx_number_uncert_offset_int=\count305
 \l__siunitx_number_exponent_fixed_int=\count306
@@ -1801,4 +1786,271 @@ Package biblatex Info: ... file 'french.lbx' found.
 (C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\french.lbx
 File: french.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 )
-Package biblatex Info: Trying to load language 'fre
+Package biblatex Info: Trying to load language 'french'...
+Package biblatex Info: ... file 'french.lbx' found.
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\french.lbx
+File: french.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+))
+Package biblatex Info: Trying to load language 'english' -> 'english-apa'...
+Package biblatex Info: ... file 'english-apa.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\english-apa
+.lbx
+File: english-apa.lbx 2025/08/27 v9.20 APA biblatex localisation
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'american' -> 'american-apa'...
+Package biblatex Info: ... file 'american-apa.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\american-ap
+a.lbx
+File: american-apa.lbx 2025/08/27 v9.20 APA biblatex localisation
+Package biblatex Info: Trying to load language 'american'...
+Package biblatex Info: ... file 'american.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\american.lb
+x
+File: american.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+))))
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout4 = `Perrone_ML_Project2.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'Perrone_ML_Project2.bbl' found.
+ (Perrone_ML_Project2.bbl)
+Package biblatex Info: Reference section=0 on input line 116.
+Package biblatex Info: Reference segment=0 on input line 116.
+File: images/uio.png Graphic file (type bmp)
+<images/uio.png>
+LaTeX Font Info:    Trying to load font information for U+ssmsa on input line 1
+27.
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\ussmsa.fd
+File: ussmsa.fd 2024/10/15
+)
+LaTeX Font Info:    Trying to load font information for U+ssmsb on input line 1
+27.
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/sansmathfonts\ussmsb.fd
+File: ussmsb.fd 2024/10/15
+)
+
+[1
+
+
+] (Perrone_ML_Project2.toc)
+\tf@toc=\write6
+\openout6 = `Perrone_ML_Project2.toc'.
+
+
+
+[1
+
+
+]
+
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 153.
+
+
+
+File: images/nn.pdf Graphic file (type pdf)
+<images/nn.pdf>
+
+LaTeX Font Warning: Font shape `TU/LatinModernSans(0)/sbc/n' undefined
+(Font)              using `TU/LatinModernSans(0)/m/n' instead on input line 171
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--188
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[2
+
+]
+File: images/simple_percptr.pdf Graphic file (type pdf)
+<images/simple_percptr.pdf>
+
+
+LaTeX Font Warning: Font shape `TU/LatinModernSans(0)/sbc/sl' undefined
+(Font)              using `TU/LatinModernSans(0)/sbc/n' instead on input line 2
+12.
+
+
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 284.
+
+
+[3]
+
+
+Overfull \hbox (11.94437pt too wide) detected at line 363
+ []$[] [] \OMS/cmsssy/m/n/10 ^^L [][] ^^A [][] ^^L [] ^^A [][] ^^L []C\OT1/cmr/
+m/n/10 ([][])  $ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 402--403
+[]\TU/LatinModernSans(0)/sbc/sl/10 Feedforward activations $\OMS/cmsssy/m/n/10 
+f[][]g[]$\TU/LatinModernSans(0)/sbc/sl/10 , pre-
+ []
+
+
+Underfull \hbox (badness 3872) in paragraph at lines 402--403
+\TU/LatinModernSans(0)/sbc/sl/10 activations $\OMS/cmsssy/m/n/10 f[][]g[]$\TU/L
+atinModernSans(0)/sbc/sl/10 , weights $\OMS/cmsssy/m/n/10 f[][]g[]$\TU/LatinMod
+ernSans(0)/sbc/sl/10 , cost
+ []
+
+
+Underfull \vbox (badness 2088) has occurred while \output is active []
+
+
+
+[4]
+File: images/activation_functions.pdf Graphic file (type pdf)
+<images/activation_functions.pdf>
+
+
+
+
+[5]
+Underfull \vbox (badness 1087) has occurred while \output is active []
+
+
+
+
+Underfull \vbox (badness 1629) has occurred while \output is active []
+
+
+
+[6]
+
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <8> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 608.
+
+
+[7]
+Underfull \hbox (badness 4660) in paragraph at lines 631--632
+[]\TU/LatinModernSans(0)/sbc/sl/10 Both the datasets have been scaled; for the
+ []
+
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 641.
+
+Underfull \hbox (badness 5119) in paragraph at lines 641--643
+[]\TU/LatinModernSans(0)/b/n/10 4. Comparing the own custom NN to
+ []
+
+
+
+File: images/ols_Vs_nn.pdf Graphic file (type pdf)
+<images/ols_Vs_nn.pdf>
+LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
+655.
+(C:\Users\Dell\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmss.fd
+File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Underfull \hbox (badness 5359) in paragraph at lines 659--660
+[]\TU/LatinModernSans(0)/sbc/sl/10 In Figure [][]4[][], the result of a regress
+ion per-
+ []
+
+
+Underfull \hbox (badness 2753) in paragraph at lines 659--660
+\TU/LatinModernSans(0)/sbc/sl/10 formed with both the [] and the
+ []
+
+File: images/schedulers_mse_r2.pdf Graphic file (type pdf)
+<images/schedulers_mse_r2.pdf>
+
+
+[8] [9]
+Underfull \hbox (badness 1092) in paragraph at lines 695--695
+[][]\TU/LatinModernSans(0)/sbc/sl/10 Goodfellow, I., Bengio, Y., & Courville, A
+. (2016).
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 695--695
+[][]\TU/LatinModernSans(0)/sbc/sl/10 Hochreiter, S. (1991). \TU/LatinModernSans
+(0)/m/it/10 Untersuchungen zu dynamis-
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 695--695
+\TU/LatinModernSans(0)/sbc/sl/10 stitut für Informatik, Technische Universität
+ []
+
+
+Underfull \hbox (badness 3547) in paragraph at lines 695--695
+[][]$[][][][][] [] [] [] [][][][][][] [] [][][][][] [] [][] [] [][][][][][][][]
+ []
+ []
+
+
+Underfull \hbox (badness 7291) in paragraph at lines 695--695
+\TU/LatinModernSans(0)/sbc/sl/10 Springer. Retrieved on January 1, 2024,
+ []
+
+
+Underfull \hbox (badness 5064) in paragraph at lines 695--695
+\TU/LatinModernSans(0)/sbc/sl/10 from [][]$[][][][][] [] [] [] [][][][][][][] [
+] [][][] [] [][][][][][][] []
+ []
+
+
+
+
+
+[10] (Perrone_ML_Project2.aux)
+ ***********
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-10-09>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `Perrone_ML_Project2.out' has not changed.
+(rerunfilecheck)             Checksum: 02C8C4A9087F822A1AE6ABD6C7E40F03;3581.
+Package logreq Info: Writing requests to 'Perrone_ML_Project2.run.xml'.
+\openout1 = `Perrone_ML_Project2.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 51154 strings out of 403196
+ 1135790 string characters out of 5456127
+ 2265663 words of memory out of 5000000
+ 78974 multiletter control sequences out of 15000+600000
+ 667098 words of font info for 141 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 98i,20n,101p,1600b,6017s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on Perrone_ML_Project2.pdf (11 pages).

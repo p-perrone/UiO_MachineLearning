@@ -3061,4 +3061,109 @@
       <bcf:entrytype>report</bcf:entrytype>
       <bcf:constraint type="mandatory">
         <bcf:field>author</bcf:field>
-    
+        <bcf:field>title</bcf:field>
+      </bcf:constraint>
+    </bcf:constraints>
+  </bcf:datamodel>
+  <!-- CITATION DATA -->
+  <!-- SECTION 0 -->
+  <bcf:bibdata section="0">
+    <bcf:datasource type="file" datatype="bibtex" glob="false">UiO_MachineLearning.bib</bcf:datasource>
+  </bcf:bibdata>
+  <bcf:section number="0">
+    <bcf:citekey order="1" intorder="1">wang2003_nn</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">bishop2006_pattern</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">goodfellow_2016</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">rosenblatt1958_perceptron</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">haykin1994_ml</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">goodfellow_2016</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">cybenko1989_approx</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">hornik1991_approximation</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">goodfellow_2016</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">hastie_stat2009</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">goodfellow_2016</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">tieleman2012rmsprop</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">kingma:adam</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">hochreiter1991_untersuchungen</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">philipp2018_explgrads</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">glorot2010_trainingdiff</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">nair2010_relu</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">maas2013_leakyrelu</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">maas2013_leakyrelu</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">clevert2015_elu</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">mira1995_sigmoid</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">glorot2010_trainingdiff</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">lecun1998_tanh</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">glorot2010_trainingdiff</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">bridle1990_softmax</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">hastie_stat2009</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">bishop2006_pattern</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">bishop2006_pattern</bcf:citekey>
+    <bcf:citekey order="28" intorder="2">goodfellow_2016</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">goodfellow_2016</bcf:citekey>
+  </bcf:section>
+  <!-- SORTING TEMPLATES -->
+  <bcf:sortingtemplate name="apa">
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">presort</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="5">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">pubstate</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
+      <bcf:sortitem order="3">eventyear</bcf:sortitem>
+      <bcf:sortitem literal="1" order="4">-2000000000</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1">month</bcf:sortitem>
+      <bcf:sortitem order="2">eventmonth</bcf:sortitem>
+      <bcf:sortitem literal="1" order="3">-2000000000</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="7">
+      <bcf:sortitem order="1">day</bcf:sortitem>
+      <bcf:sortitem order="2">eventday</bcf:sortitem>
+      <bcf:sortitem literal="1" order="3">-2000000000</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="8">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="9">
+      <bcf:sortitem order="1">volume</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sortingtemplate>
+  <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="apa/apasortcite//global/global/global"
+                type="entry"
+                sortingtemplatename="apa"
+                sortingnamekeytemplatename="apasortcite"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global"
+                namehashtemplatename="global">
+  </bcf:datalist>
+  <bcf:datalist section="0"
+                name="apa/global//global/global/global"
+                type="entry"
+                sortingtemplatename="apa"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global"
+                namehashtemplatename="global">
+  </bcf:datalist>
+</bcf:controlfile>

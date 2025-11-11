@@ -8,7 +8,6 @@
 \usepackage{sansmathfonts}
 \usepackage{fontspec}
 \setmainfont{Latin Modern Sans}
-\usepackage[T1]{fontenc}
 
 \usepackage{siunitx}
 \sisetup{detect-all,
@@ -44,6 +43,7 @@
 \newcommand{\C}{\mathcal{C}}
 \newcommand{\lr}{^{(l)}}
 \newcommand{\sk}{\texttt{scikit-learn}}
+\newcommand{\py}[1]{\texttt{#1}}
 
 
 \usepackage[most]{tcolorbox}
@@ -645,10 +645,48 @@ The performance of our NN has been compared to the two machine learning modules,
 The effects of Ridge and LASSO regularizations have been explored for penalties $\num{e-5}\leq\lambda\leq1$ and for different learning rates.
 
 
-\textbf{6. Classification analysis with MNIST}
+\textbf{6. Classification analysis with MNIST}\\
 The NN has been employed for a multi-class classification task. Its performance has been assessed with an accuracy score and a confusion matrix.
 
 \section{Results}
+\begin{figure*}
+	\centering
+	\includegraphics[width=14cm]{ols_Vs_nn}
+	\caption{\textbf{Linear OLS and Neural Networks} | Three different models have been tested for a simple regression. A linear ordinary least squares model with degree 13 showed good test MSE and $R^2$. The NN with two hidden layers of 100 nodes performed even better with an MSE 50 times smaller than the previous one. The NN with one hidden layer only shows serious underfitting and it is not able to properly represent the function, with a strongly negative $R^2$.}
+	\label{fig:nnols}
+\end{figure*}
+\subsection{Comparison with linear OLS regression}
+In Figure \ref{fig:nnols}, the result of a regression performed with both the \py{NeuralNetwork} and the \py{LinearRegression\_own} classes. The second one has been set with a polynomial degree of 13; this choice was made in accord with the Bias-Variance tradeoff results from the analyses carried out in Project 1. 
+
+In general, we observe that the best performance is yielded by the NN with two hidden layers, that shows the smaller deviation from the targets. Despite this, its $R^2$ is generally fairly lower than the linear OLS one.
+
+\subsection{Testing of different Stochastic Gradient Descent solvers}
+First of all, the speed of each algorithm has been tested, by repeating for 50 iterations the same training with a NN of 2 hidden layers with 100 nodes each, all activated by a sigmoid. For all the algorithms, an initial learning rate of $\num{5e-3}$ and 500 epochs have been set. For each iteration, the execution time was registered. An average elapsed time over the 50 iterations was finally calculated for each scheduler, and the result can be seen in Table \ref{tab:schedtimes}. RMSProp resulted in average 1.4 times slower than the plain SGD, and ADAM 1.7 times slower.
+\begin{table}
+	\centering
+	\begin{tabular}{lSS}
+		\toprule
+		Scheduler & {Mean elapsed time} & {$\pm\,\sigma_{\text{mean}}$}\\
+		 & {(\unit{\second})} & {(\unit{\second})}\\
+		\midrule
+		Constant $\eta$ & 1.673 & 0.025 \\
+		RMSProp & 2.379  &  0.020 \\
+		ADAM & 2.811 & 0.032 \\
+		\bottomrule
+	\end{tabular}
+	\caption{\textbf{Different execution time for each SGD algorithm} | ADAM and RMSProp are slower than the plain SGD. A standard deviation of the mean is also shown.}
+	\label{tab:schedtimes}
+\end{table}
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{schedulers_mse_r2}
+	\caption{\textbf{Performance of different SGD solvers} | RMSProp and ADAM converge to acceptable results within a smaller amount of epochs, proving a fairly consistent behavior to any learning rate and number of iterations. On the opposite, plain SGD with constant learning rate seems performing better with lower rates and a higher number of epochs.}
+	\label{fig:sgdnn}
+\end{figure*}
+
+Secondly, the overall effectiveness of the three schedulers has been investigated as function of learning rate and number of epochs. The result of the analysis can be observed in Figure \ref{fig:sgdnn}. Despite taking a longer time to be executed, RMSProp and ADAM show more than acceptable MSE and $R^2$ even with a relatively low number of epochs, \emph{i.e.} they converge faster to an optimal value for the parameters.
+
+\subsection{}
 
 \section{Discussion}
 

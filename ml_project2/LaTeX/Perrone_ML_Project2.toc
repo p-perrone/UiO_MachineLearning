@@ -1,0 +1,37 @@
+\babel@toc {french}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Theory and methods}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The universal approximation theorem}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Structure of a Neural Network}{3}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}The Feed-forward algorithm}{3}{subsubsection.2.2.1}%
+\contentsline {paragraph}{Simple perceptron model with 1-D input}{3}{subsubsection.2.2.1}%
+\contentsline {paragraph}{Generalization to a multi-layer network with multiple inputs}{3}{equation.5}%
+\contentsline {paragraph}{Implementation}{3}{equation.7}%
+\contentsline {subsubsection}{\numberline {2.2.2}The Backpropagation algorithm}{3}{subsubsection.2.2.2}%
+\contentsline {paragraph}{Formalism of backpropagation}{4}{equation.8}%
+\contentsline {paragraph}{Implementation}{4}{equation.18}%
+\contentsline {subsubsection}{\numberline {2.2.3}Training the Neural Network}{5}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}Activation functions}{5}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Activation functions and numerical instabilities}{5}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Employed activation functions}{5}{subsubsection.2.3.2}%
+\contentsline {paragraph}{Rectified Linear Unit (ReLU)}{5}{subsubsection.2.3.2}%
+\contentsline {paragraph}{Leaky ReLU}{6}{equation.20}%
+\contentsline {paragraph}{Exponential Linear Unit (ELU)}{6}{equation.22}%
+\contentsline {paragraph}{Logistic sigmoid}{6}{equation.24}%
+\contentsline {paragraph}{Hyperbolic tangent}{6}{equation.26}%
+\contentsline {paragraph}{Softmax}{7}{equation.28}%
+\contentsline {subsection}{\numberline {2.4}Cost functions}{7}{subsection.2.4}%
+\contentsline {paragraph}{Mean Squared Error}{7}{subsection.2.4}%
+\contentsline {paragraph}{Cross-Entropy}{7}{equation.32}%
+\contentsline {paragraph}{Regularization}{7}{equation.35}%
+\contentsline {subsection}{\numberline {2.5}Set up of the code}{7}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Implementation}{7}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Testing}{8}{subsubsection.2.5.2}%
+\contentsline {section}{\numberline {3}Results}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Comparison with linear OLS regression}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Testing of different Stochastic Gradient Descent solvers}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}}{8}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Discussion}{10}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}%
+\contentsline {section}{References}{10}{section.5}%
