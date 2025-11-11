@@ -5,6 +5,9 @@ This repository contains three machine learning projects:
 
 ## Projects
 
+## Installation
+
+
 ### [Project1](./ml_project1/)
 Linear Regression, Optimization and Bias-Variance tradeoff
 ### [Project2](./ml_project1/)
