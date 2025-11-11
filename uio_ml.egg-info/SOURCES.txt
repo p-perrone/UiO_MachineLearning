@@ -3,6 +3,10 @@ pyproject.toml
 ml_project1/__init__.py
 ml_project1/functions.py
 ml_project1/setup.py
+ml_project2/__init__.py
+ml_project2/functions.py
+ml_project2/setup.py
+ml_project2/build/lib/functions.py
 uio_ml.egg-info/PKG-INFO
 uio_ml.egg-info/SOURCES.txt
 uio_ml.egg-info/dependency_links.txt
