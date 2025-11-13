@@ -17,6 +17,7 @@ Inside `../UiO_MachineLearning`, there are three branches `ml_project1`, `ml_pro
 To install the modeules from a specific project folder, navigate to the cloned folder `../UiO_MachineLearning/` and type:
 
 `cd ml_project<replace with the desired project number>`
+
 `pip install .`
 
 This will install the module `functions.py` that is inside every project branch.
