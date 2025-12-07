@@ -13,7 +13,7 @@ To download the repository in a local folder, open the terminal in your folder a
 
 `git clone https://github.com/p-perrone/UiO_MachineLearning`
 
-Inside `../UiO_MachineLearning`, there are three branches `ml_project1`, `ml_project2`, `ml_project3` (the last one is still not published).
+Inside `../UiO_MachineLearning`, there are three branches `ml_project1`, `ml_project2`, `ml_project3`.
 To install the modeules from a specific project folder, navigate to the cloned folder `../UiO_MachineLearning/` and type:
 
 `cd ml_project<replace with the desired project number>`
