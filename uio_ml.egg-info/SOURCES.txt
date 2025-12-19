@@ -7,6 +7,10 @@ ml_project2/__init__.py
 ml_project2/functions.py
 ml_project2/setup.py
 ml_project2/build/lib/functions.py
+ml_project3/setup.py
+ml_project3/__init__.py
+ml_project3/functions.py
+ml_project3/build/lib/functions.py
 uio_ml.egg-info/PKG-INFO
 uio_ml.egg-info/SOURCES.txt
 uio_ml.egg-info/dependency_links.txt

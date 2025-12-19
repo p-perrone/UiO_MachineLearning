@@ -1,0 +1,28 @@
+\babel@toc {french}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Materials and methods}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Data}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Theory of central algorithms}{3}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Scaling the data}{3}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Feature selection: bootstrapping with Ridge and Lasso regularizations}{3}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}RNNs and Long Short-Term Memory}{4}{subsubsection.2.2.3}%
+\contentsline {paragraph}{Generalities}{4}{figure.caption.4}%
+\contentsline {paragraph}{LSTM functioning}{4}{figure.caption.5}%
+\contentsline {paragraph}{Forget gate}{4}{figure.caption.5}%
+\contentsline {paragraph}{Input gate}{4}{equation.7}%
+\contentsline {paragraph}{Candidate cell state}{5}{equation.9}%
+\contentsline {paragraph}{Cell state update}{5}{equation.10}%
+\contentsline {paragraph}{Output gate}{5}{equation.11}%
+\contentsline {paragraph}{Hidden state update}{5}{equation.12}%
+\contentsline {paragraph}{Vectorized formulation}{5}{equation.13}%
+\contentsline {subsubsection}{\numberline {2.2.4}Evaluation of the model: Root Mean Squared Error (RMSE)}{5}{subsubsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.3}Implementation}{5}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Preprocessing}{5}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Feature selection}{6}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Forecasting}{7}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Use of Artificial Intelligence}{8}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Results and discussions}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Feature selection}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}LSTM forecasting}{9}{subsection.3.2}%
+\contentsline {section}{References}{9}{subsection.3.2}%

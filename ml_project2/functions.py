@@ -18,7 +18,7 @@ including:
 - Any additional helper functions for training, prediction, and regularization
 """
 
-# --------------------------------
+#--------------------------------
 # dependencies
 import autograd.numpy as np
 import matplotlib.pyplot as plt
